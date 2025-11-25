@@ -442,7 +442,7 @@
       transform: translateY(0);
     }
     
-    /* Background Video - UPDATED OPACITY */
+    /* Background Video - FIXED FOR HORIZONTAL */
     .video-background {
       position: absolute;
       top: 0;
@@ -451,17 +451,28 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.4; /* Increased from 0.15 to 0.4 */
     }
     
+    /* Remove the blue overlay completely */
     .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
-      z-index: -1;
+      display: none;
+    }
+    
+    /* Mobile responsiveness for video */
+    @media (max-width: 768px) {
+      #hero-section {
+        height: 70vh;
+        min-height: 500px;
+      }
+      
+      .video-background {
+        object-position: center center;
+      }
+    }
+    
+    /* Ensure text is readable on any video background */
+    #hero-section .hero-content {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
     
     /* Parallax Effect */
@@ -645,15 +656,14 @@
 
     <main>
         
-        <!-- Enhanced Hero Section with Your Pexels Video Background -->
+        <!-- Enhanced Hero Section with Horizontal Video -->
         <section id="hero-section" class="relative w-full h-screen overflow-hidden">
-            <div class="video-overlay"></div>
             <video autoplay muted loop playsinline class="video-background parallax">
                 <!-- YOUR PEXELS VIDEO -->
                 <source src="4866054-uhd_2732_1440_25fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-black/30">
                  <div class="hero-content animate">
                     <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium eBook Collection</h2>
                     <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Free access to thousands of premium books in multiple formats</p>
