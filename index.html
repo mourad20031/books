@@ -442,7 +442,7 @@
       transform: translateY(0);
     }
     
-    /* Background Video */
+    /* Background Video - UPDATED OPACITY */
     .video-background {
       position: absolute;
       top: 0;
@@ -451,7 +451,7 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.15;
+      opacity: 0.4; /* Increased from 0.15 to 0.4 */
     }
     
     .video-overlay {
@@ -645,11 +645,12 @@
 
     <main>
         
-        <!-- Enhanced Hero Section with Video Background -->
-        <section id="hero-section" class="relative w-full h-96 overflow-hidden">
+        <!-- Enhanced Hero Section with Your Pexels Video Background -->
+        <section id="hero-section" class="relative w-full h-screen overflow-hidden">
             <div class="video-overlay"></div>
             <video autoplay muted loop playsinline class="video-background parallax">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-student-reading-a-book-in-the-library-43563-large.mp4" type="video/mp4">
+                <!-- YOUR PEXELS VIDEO -->
+                <source src="4866054-uhd_2732_1440_25fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
