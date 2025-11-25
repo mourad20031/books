@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6FR9YXVV8Z');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookHub - Premium eBook Collection | Free & Unlimited Access</title>
+  <meta name="description" content="Access thousands of premium eBooks for free. Unlimited downloads, multiple formats, and ad-free reading experience. Your digital library awaits.">
+  <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
+  <meta name="author" content="BookHub">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="BookHub - Premium eBook Collection">
+  <meta property="og:description" content="Access thousands of premium eBooks for free with unlimited downloads and multiple formats.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourusername.github.io/your-repo-name">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BookHub - Premium eBook Collection">
+  <meta name="twitter:description" content="Free access to thousands of premium eBooks with unlimited downloads.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourusername.github.io/your-repo-name">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --search-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --modal-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #ffffff;
+      --header-bg: #1e293b;
+      --card-bg: #334155;
+      --search-bg: #475569;
+      --border-color: #475569;
+      --modal-bg: #1e293b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .header-bg {
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
+    }
+    .book-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .book-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+      border-color: #3b82f6;
+    }
+    .btn-download {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    .btn-download:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-download.loading {
+      background: linear-gradient(90deg, #3b82f6, #1d4ed8, #3b82f6);
+      background-size: 200% 100%;
+      animation: loading-shine 2s infinite;
+    }
+    @keyframes loading-shine {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .search-bar, .form-input {
+      background-color: var(--search-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      background-color: var(--modal-bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Book image styling */
+    .book-image {
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+    
+    /* Coming Soon placeholder */
+    .coming-soon-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
+      border-radius: 8px;
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+
+    [data-theme="dark"] .coming-soon-image {
+      background-color: #475569;
+      color: #cbd5e1;
+    }
+
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+      transform: translateY(-2px);
+    }
+    
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+    }
+    
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Pulse animation for the button */
+    @keyframes pulse {
+      0% { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); }
+      50% { box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); }
+      100% { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); }
+    }
+    
+    .btn-see-more.pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Smooth transition for showing/hiding books */
+    .book-card {
+      transition: all 0.4s ease;
+    }
+    
+    .book-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Safety badge */
+    .safety-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #dbeafe;
+    }
+
+    [data-theme="dark"] .safety-badge {
+      background: #1e3a8a;
+      color: #60a5fa;
+      border-color: #1e40af;
+    }
+    
+    /* Installation notification */
+    .download-notification {
+      position: fixed;
+      bottom: 20px;
+      left: -320px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 10px 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      transition: left 0.5s ease-in-out, background-color 0.3s ease;
+      border-left: 4px solid #3b82f6;
+      max-width: 280px;
+    }
+    .download-notification.show {
+      left: 20px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
+    /* Compact book grid layout */
+    .compact-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .compact-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .compact-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    /* Hero section styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+    
+    /* Loading dots animation */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .loading-dots div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+      animation: loading-dots 1.4s ease-in-out infinite both;
+    }
+    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    @keyframes loading-dots {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* FAQ Section Styles */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question:hover {
+      color: #3b82f6;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #6b7280;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding-bottom: 16px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Modern Book card badges */
+    .book-badge {
+      position: absolute;
+      top: 8px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      padding: 3px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .premium-badge {
+      left: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 8px;
+      color: #10b981;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Hero Section Animations */
+    .hero-content {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .hero-title {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease 0.2s;
+    }
+    
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.4s;
+    }
+    
+    .hero-badges {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.6s;
+    }
+    
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 1s;
+      animation: gentle-pulse 2s infinite 1.5s;
+    }
+    
+    @keyframes gentle-pulse {
+      0% { transform: translateY(20px) scale(1); }
+      50% { transform: translateY(20px) scale(1.05); }
+      100% { transform: translateY(20px) scale(1); }
+    }
+    
+    .hero-content.animate,
+    .hero-title.animate,
+    .hero-subtitle.animate,
+    .hero-badges.animate,
+    .hero-cta.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Background Video */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+      z-index: -1;
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+    
+    /* Section Animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.2s;
+    }
+    
+    .section-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.4s;
+    }
+    
+    .section-title.animate,
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+    
+    /* Enhanced Badge Styles */
+    .book-badge {
+      position: absolute;
+      top: 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      z-index: 10;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .premium-badge {
+      left: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #10b981;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] .free-badge {
+      background: rgba(30, 41, 59, 0.95);
+      color: #10b981;
+      border-color: #065f46;
+    }
+
+    /* Theme Toggle Styles - Fixed */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Remove hover background to eliminate shadow effect */
+    .theme-toggle:hover {
+      background-color: transparent;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-icon.hidden {
+      display: none;
+    }
+
+    /* Dark mode text colors - ensure ALL text is white in dark mode */
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-800,
+    [data-theme="dark"] .text-gray-700,
+    [data-theme="dark"] .text-gray-600,
+    [data-theme="dark"] .text-gray-500,
+    [data-theme="dark"] .text-gray-400 {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: #1e293b !important;
+    }
+
+    /* Ensure all text in book cards is visible in dark mode */
+    [data-theme="dark"] .book-card h3,
+    [data-theme="dark"] .book-card .text-gray-500,
+    [data-theme="dark"] .book-card .text-yellow-500 {
+      color: #ffffff !important;
+    }
+
+    /* Ensure search section background in dark mode */
+    [data-theme="dark"] #search-section {
+      background-color: var(--header-bg) !important;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header - Updated with theme toggle -->
+    <header class="header-bg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <h1 class="text-lg font-bold text-gray-900 tracking-tight">
+                    <i class="fas fa-book text-blue-500"></i> Book<span class="text-blue-500">Hub</span>
+                </h1>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Trending</a>
+                <a href="#all-books-header" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
+                <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">FAQ</a>
+                <a href="#contact-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button - Fixed -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                    <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
+            <a href="#trending" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Trending</a>
+            <a href="#all-books-header" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">All Books</a>
+            <a href="#faq-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">FAQ</a>
+            <a href="#contact-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Enhanced Hero Section with Video Background -->
+        <section id="hero-section" class="relative w-full h-96 overflow-hidden">
+            <div class="video-overlay"></div>
+            <video autoplay muted loop playsinline class="video-background parallax">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-student-reading-a-book-in-the-library-43563-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                 <div class="hero-content animate">
+                    <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium eBook Collection</h2>
+                    <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Free access to thousands of premium books in multiple formats</p>
+                    <div class="hero-badges flex items-center gap-2 mb-8">
+                      <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Free</span>
+                      <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
+                      <span class="safety-badge"><i class="fas fa-download"></i> +500K Downloads</span>
+                    </div>
+                    <div class="hero-cta">
+                      <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
+                        <i class="fas fa-book-open mr-2"></i>Explore All Books
+                      </button>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="search-section" class="pt-4 pb-2 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <div class="relative w-full max-w-xs md:max-w-md">
+                        <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm">
+                        <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 py-4">
+            <!-- Trending Books Section -->
+            <section id="trending" class="pt-2">
+                <div class="text-center mb-6">
+                    <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Books</h2>
+                    <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-4">
+                        
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/9QpN8JXy/atomic-habits.jpg" alt="Atomic Habits" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="127000">127K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Atomic Habits by James Clear','Tiny Changes, Remarkable Results: An Easy & Proven Way to Build Good Habits & Break Bad Ones','https://example.com/download/atomic-habits')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8P9v2bJm/the-alchemist.jpg" alt="The Alchemist" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.9</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="98500">98.5K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'The Alchemist by Paulo Coelho','A magical story about following your dreams and listening to your heart','https://example.com/download/the-alchemist')">Download Now</button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Thinking, Fast and Slow">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/0jXc9sL3/thinking-fast-slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="215000">215K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Thinking, Fast and Slow by Daniel Kahneman','Nobel Prize winner reveals the two systems that drive the way we think','https://example.com/download/thinking-fast-slow')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Psychology of Money">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/7YvqK9cK/psychology-of-money.jpg" alt="The Psychology of Money" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="178000">178K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'The Psychology of Money by Morgan Housel','Timeless lessons on wealth, greed, and happiness','https://example.com/download/psychology-of-money')">Download Now</button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Deep Work">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8zQNvJxM/deep-work.jpg" alt="Deep Work" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="89200">89.2K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Deep Work by Cal Newport','Rules for Focused Success in a Distracted World','https://example.com/download/deep-work')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The 7 Habits of Highly Effective People">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="The 7 Habits of Highly Effective People" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.8</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="143000">143K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'The 7 Habits of Highly Effective People by Stephen R. Covey','Powerful Lessons in Personal Change','https://example.com/download/7-habits')">Download Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Most Downloaded Books Section -->
+            <section id="most-downloaded" class="py-12">
+                <div class="text-center mb-10">
+                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3"> Most Downloaded Books</h2>
+                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Our community's favorite books with the highest download counts</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Power of Now">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/3wLfqZ7Q/power-of-now.jpg" alt="The Power of Now" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="198000">198K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'The Power of Now by Eckhart Tolle','A Guide to Spiritual Enlightenment','https://example.com/download/power-of-now')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Sapiens: A Brief History of Humankind">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/0NxG9t2z/sapiens.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.7</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="87600">87.6K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'Sapiens: A Brief History of Humankind by Yuval Noah Harari','From Animals to Gods: The #1 International Bestseller','https://example.com/download/sapiens')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Subtle Art of Not Giving a F*ck">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/9Fy0Y9dM/subtle-art.jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subtle Art of Not Giving a F*ck</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.8</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="96700">96.7K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'The Subtle Art of Not Giving a F*ck by Mark Manson','A Counterintuitive Approach to Living a Good Life','https://example.com/download/subtle-art')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Educated">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Educated" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="71200">71.2K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'Educated by Tara Westover','A Memoir - The International Bestselling Memoir','https://example.com/download/educated')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recently Added Section -->
+            <section id="recently-added" class="py-12">
+                <div class="text-center mb-10">
+                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Recently Added</h2>
+                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Fresh books added to our collection</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Midnight Library">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="The Midnight Library" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="198000">198K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'The Midnight Library by Matt Haig','A Novel Between life and death there is a library','https://example.com/download/midnight-library')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Project Hail Mary">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Project Hail Mary" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.7</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="87600">87.6K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'Project Hail Mary by Andy Weir','From the author of The Martian','https://example.com/download/project-hail-mary')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Klara and the Sun">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Klara and the Sun" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.8</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="96700">96.7K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'Klara and the Sun by Kazuo Ishiguro','The magnificent new novel from Nobel laureate Kazuo Ishiguro','https://example.com/download/klara-and-the-sun')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Four Winds">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="The Four Winds" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="71200">71.2K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'The Four Winds by Kristin Hannah','An epic novel of love and heroism and hope','https://example.com/download/the-four-winds')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="all-books-header" class="text-center my-8">
+                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Books</h2>
+                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium eBooks with unlimited access</p>
+            </div>
+
+            <div id="books-grid" class="compact-grid grid">
+                <!-- Only 4 books initially visible -->
+                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/8P9v2bJm/the-alchemist.jpg" alt="The Alchemist" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="267000">98.5K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'The Alchemist by Paulo Coelho','A magical story about following your dreams and listening to your heart','https://example.com/download/the-alchemist')">Download Now</button>
+                    </div>
+                </div>
+                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/9QpN8JXy/atomic-habits.jpg" alt="Atomic Habits" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.9</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="189000">127K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Atomic Habits by James Clear','Tiny Changes, Remarkable Results: An Easy & Proven Way to Build Good Habits & Break Bad Ones','https://example.com/download/atomic-habits')">Download Now</button>
+                    </div>
+                </div>
+                
+                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Thinking, Fast and Slow">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/0jXc9sL3/thinking-fast-slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">4.9</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="156000">156K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Thinking, Fast and Slow by Daniel Kahneman','Nobel Prize winner reveals the two systems that drive the way we think','https://example.com/download/thinking-fast-slow')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Four Winds">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="The Four Winds" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">5.0</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="134000">134K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                                onclick="startDownload(this, 'The Four Winds by Kristin Hannah','An epic novel of love and heroism and hope','https://example.com/download/the-four-winds')">
+                                Download Now
+                            </button>
+                        </div>
+                    </div>
+
+                <!-- Hidden books -->
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Project Hail Mary">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Project Hail Mary" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="52300">52.3K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Project Hail Mary by Andy Weir','From the author of The Martian','https://example.com/download/project-hail-mary')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Klara and the Sun">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Klara and the Sun" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="38700">38.7K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Klara and the Sun by Kazuo Ishiguro','The magnificent new novel from Nobel laureate Kazuo Ishiguro','https://example.com/download/klara-and-the-sun')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Psychology of Money">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/7YvqK9cK/psychology-of-money.jpg" alt="The Psychology of Money" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="187000">187K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Psychology of Money by Morgan Housel','Timeless lessons on wealth, greed, and happiness','https://example.com/download/psychology-of-money')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Midnight Library">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="The Midnight Library" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="52300">52.3K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Midnight Library by Matt Haig','A Novel Between life and death there is a library','https://example.com/download/midnight-library')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional books -->
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Power of Now">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/3wLfqZ7Q/power-of-now.jpg" alt="The Power of Now" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Power of Now by Eckhart Tolle','A Guide to Spiritual Enlightenment','https://example.com/download/power-of-now')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Sapiens: A Brief History of Humankind">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/0NxG9t2z/sapiens.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.7</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="87600">87.6K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Sapiens: A Brief History of Humankind by Yuval Noah Harari','From Animals to Gods: The #1 International Bestseller','https://example.com/download/sapiens')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Subtle Art of Not Giving a F*ck">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/9Fy0Y9dM/subtle-art.jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subtle Art of Not Giving a F*ck</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="96700">96.7K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Subtle Art of Not Giving a F*ck by Mark Manson','A Counterintuitive Approach to Living a Good Life','https://example.com/download/subtle-art')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Educated">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Educated" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="71200">71.2K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Educated by Tara Westover','A Memoir - The International Bestselling Memoir','https://example.com/download/educated')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Deep Work">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/8zQNvJxM/deep-work.jpg" alt="Deep Work" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="29800">215K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Deep Work by Cal Newport','Rules for Focused Success in a Distracted World','https://example.com/download/deep-work')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The 7 Habits of Highly Effective People">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="The 7 Habits of Highly Effective People" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="223000">178K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The 7 Habits of Highly Effective People by Stephen R. Covey','Powerful Lessons in Personal Change','https://example.com/download/7-habits')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Dune">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="Dune" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Dune</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="298000">89.2K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Dune by Frank Herbert','Science fiction masterpiece set in the far future','https://example.com/download/dune')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="1984">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="1984" class="book-image">
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">1984</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.7</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="312000">312K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, '1984 by George Orwell','Dystopian social science fiction novel','https://example.com/download/1984')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="To Kill a Mockingbird">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">To Kill a Mockingbird</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="234000">234K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'To Kill a Mockingbird by Harper Lee','Classic novel of race and class in the Deep South','https://example.com/download/to-kill-a-mockingbird')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Great Gatsby">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Great Gatsby</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="287000">287K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Great Gatsby by F. Scott Fitzgerald','Classic novel of the Jazz Age','https://example.com/download/the-great-gatsby')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional books to reach 50 total -->
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Pride and Prejudice">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Pride and Prejudice</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Pride and Prejudice by Jane Austen','Romantic novel of manners','https://example.com/download/pride-and-prejudice')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Hobbit">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hobbit</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="345000">345K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Hobbit by J.R.R. Tolkien','Fantasy novel and prelude to The Lord of the Rings','https://example.com/download/the-hobbit')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Harry Potter and the Sorcerer's Stone">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Harry Potter and the Sorcerer's Stone</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="276000">276K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Harry Potter and the Sorcerer's Stone by J.K. Rowling','The first book in the Harry Potter series','https://example.com/download/harry-potter-1')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Catcher in the Rye">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Catcher in the Rye</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.7</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="312000">312K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Catcher in the Rye by J.D. Salinger','Novel about teenage rebellion and alienation','https://example.com/download/catcher-in-the-rye')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Lord of the Flies">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Lord of the Flies</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="187000">187K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Lord of the Flies by William Golding','Allegorical novel about a group of British boys stranded on an uninhabited island','https://example.com/download/lord-of-the-flies')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Brave New World">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brave New World</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="234000">234K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Brave New World by Aldous Huxley','Dystopian novel set in a futuristic World State','https://example.com/download/brave-new-world')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Odyssey">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Odyssey</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Odyssey by Homer','Ancient Greek epic poem','https://example.com/download/the-odyssey')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Moby Dick">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Moby Dick</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="167000">167K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Moby Dick by Herman Melville','Novel about the voyage of the whaling ship Pequod','https://example.com/download/moby-dick')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="War and Peace">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">War and Peace</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="223000">223K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'War and Peace by Leo Tolstoy','Novel that chronicles the French invasion of Russia','https://example.com/download/war-and-peace')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Crime and Punishment">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Crime and Punishment</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="134000">134K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Crime and Punishment by Fyodor Dostoevsky','Novel about the mental anguish and moral dilemmas of Rodion Raskolnikov','https://example.com/download/crime-and-punishment')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Brothers Karamazov">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Brothers Karamazov</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="287000">287K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Brothers Karamazov by Fyodor Dostoevsky','Philosophical novel set in 19th-century Russia','https://example.com/download/brothers-karamazov')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Anna Karenina">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Anna Karenina</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="198000">198K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Anna Karenina by Leo Tolstoy','Tragic novel of a married aristocrat and her affair with the affluent Count Vronsky','https://example.com/download/anna-karenina')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Divine Comedy">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Divine Comedy</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="176000">176K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Divine Comedy by Dante Alighieri','Long Italian narrative poem','https://example.com/download/divine-comedy')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Don Quixote">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Don Quixote</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-500 ml-1">4.8</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="143000">143K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Don Quixote by Miguel de Cervantes','Spanish novel about a nobleman who reads so many chivalric romances that he loses his sanity','https://example.com/download/don-quixote')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Iliad">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Iliad</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="123000">123K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'The Iliad by Homer','Ancient Greek epic poem set during the Trojan War','https://example.com/download/the-iliad')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Frankenstein">
+                    <div class="relative">
+                        <span class="book-badge premium-badge">PREMIUM</span>
+                        <span class="book-badge free-badge">FREE</span>
+                        <div class="coming-soon-image">Coming Soon</div>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Frankenstein</h3>
+                        <div class="flex items-center text-xs mb-1 text-yellow-500">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">5.0</span>
+                        </div>
+                        <div class="text-gray-500 text-xs mb-2">
+                            <i class="fas fa-download mr-1"></i> 
+                            <span class="download-counter" data-count="98000">98K</span>
+                        </div>
+                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
+                            onclick="startDownload(this, 'Frankenstein by Mary Shelley','Gothic novel about a young scientist who creates a sapient creature','https://example.com/download/frankenstein')">
+                            Download Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
+                <i class="fas fa-frown text-2xl mb-2"></i>
+                <p class="text-sm">No books found matching your search.</p>
+            </div>
+            
+            <div id="see-more-container" class="text-center mt-8">
+                <button id="see-more-btn" class="btn-see-more pulse">
+                    <span class="text">See More Books</span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Frequently Asked Questions</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">Are these books really free to download?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone. Our platform is supported by donations and partnerships with publishers who share our vision of making literature available to all.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">What formats are available for download?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats. Most books are available in at least 2-3 different formats to ensure compatibility with various e-readers and devices.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">How often are new books added?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">We add new books regularly, typically several times per week. Our team works constantly to provide the latest and most popular titles across various genres. You can check back frequently or subscribe to our newsletter for updates on new releases.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">Do I need to create an account to download books?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">No account is required for downloading books. We believe in making the process as simple as possible. However, creating a free account allows you to bookmark favorites, track your reading progress, and receive personalized recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Moved after FAQ) -->
+    <section id="contact-section" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Contact Us</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Have questions or need support? We're here to help!</p>
+            </div>
+            
+            <div class="max-w-lg mx-auto">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+                    <form id="contact-form">
+                        <div class="mb-4">
+                            <label for="fullName" class="block text-gray-700 mb-2 font-medium">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-input w-full rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2 font-medium">Email</label>
+                            <input type="email" id="email" name="email" class="form-input w-full rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2 font-medium">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-input w-full rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-download block py-3 px-6 rounded-lg w-full text-base text-center font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="text-center py-4 border-t border-gray-100">
+        <div class="flex items-center justify-center space-x-2">
+            <i class="fas fa-shield-alt text-blue-500 text-lg"></i>
+            <div>
+                <h4 class="text-sm font-semibold text-gray-900">100% Free & Legal</h4>
+                <p class="text-gray-500 text-xs">All books are legally available for free download.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        <i class="fas fa-book text-blue-500"></i> Book<span class="text-blue-500">Hub</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 max-w-md">
+                        Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                            <i class="fab fa-facebook text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#trending" class="hover:text-blue-500 transition">Trending Books</a>
+                        <a href="#all-books-header" class="hover:text-blue-500 transition">All Books</a>
+                        <a href="#faq-section" class="hover:text-blue-500 transition">FAQ</a>
+                        <a href="#contact-section" class="hover:text-blue-500 transition">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#" class="hover:text-blue-500 transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-blue-500 transition">Terms of Service</a>
+                        <a href="#" class="hover:text-blue-500 transition">Cookie Policy</a>
+                        <a href="#" class="hover:text-blue-500 transition">DMCA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 BookHub. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Notifications -->
+    <div id="download-notification" class="download-notification">
+        <div class="user-avatar" id="user-avatar">👤</div>
+        <div>
+            <p class="text-sm font-medium text-gray-900" id="user-name">Someone just downloaded</p>
+            <p class="text-xs text-gray-500" id="book-name">Atomic Habits</p>
+        </div>
+    </div>
+
+    <!-- All modals -->
+    <div id="bookModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar relative transform transition-all duration-300 scale-95 opacity-0">
+            <button class="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700" onclick="closeModal('bookModal')"><i class="fas fa-times"></i></button>
+            <div class="pt-8 px-6 flex justify-center">
+                <img id="modal-img" src="" alt="Book Image" class="w-32 h-48 book-image rounded-lg shadow-md">
+            </div>
+            <div class="p-6 text-center">
+                <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
+                <div class="text-left">
+                    <h3 class="text-lg font-semibold text-blue-500 mb-2">Description</h3>
+                    <p id="modal-description" class="text-gray-600 mb-6"></p>
+                </div>
+                <button id="modal-confirm-btn" class="btn-download block py-3 px-6 rounded-xl w-full text-base text-center mt-4">
+                    <i class="fas fa-download mr-2"></i>Download Now
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-lg relative transform transition-all duration-300 scale-95 opacity-0">
+            <button class="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></button>
+            <div class="p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center">Contact Us</h2>
+                <p class="text-center text-gray-500 mb-6">Have a question or suggestion? Get in touch!</p>
+                <form id="contact-form">
+                    <div class="mb-4">
+                        <label for="fullName" class="block text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    </div>
+                    <div class="mb-6">
+                           <label for="message" class="block text-gray-700 mb-2">Message</label>
+                           <textarea id="message" name="message" rows="4" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-download block py-3 px-4 rounded-lg w-full text-base text-center">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+            <div class="text-blue-500 text-5xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Success!</h2>
+            <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+        </div>
+    </div>
+
+    <div id="loadingModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+        <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+            <div class="loading-dots mx-auto mb-4">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h2 class="text-xl font-bold mb-2">Preparing Download</h2>
+            <p class="text-gray-500">Your book is being prepared for download...</p>
+        </div>
+    </div>
+    
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or prefer OS color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            enableDarkMode();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function enableLightMode() {
+            body.removeAttribute('data-theme');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
+        }
+
+        // Get all books from the website
+        function getAllBooksFromWebsite() {
+            const bookCards = document.querySelectorAll('.book-card');
+            const books = [];
+            
+            bookCards.forEach(card => {
+                const bookName = card.dataset.name;
+                if (bookName && !books.includes(bookName)) {
+                    books.push(bookName);
+                }
+            });
+            
+            return books;
+        }
+
+        // Books for notifications - now dynamically generated from the website
+        const bookNames = getAllBooksFromWebsite();
+
+        // Download counter functionality - FIXED: No longer increments on click
+        function startDownload(buttonElement, title, description, downloadLink) {
+            // Disable button and show loading state
+            buttonElement.disabled = true;
+            buttonElement.classList.add('loading');
+            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Downloading...';
+            
+            // Show modal for actual download
+            setTimeout(() => {
+                buttonElement.disabled = false;
+                buttonElement.classList.remove('loading');
+                buttonElement.innerHTML = 'Download Now';
+                openModal(buttonElement, title, description, downloadLink);
+            }, 1000);
+        }
+
+        // DOM elements
+        const bookModal = document.getElementById('bookModal');
+        const contactModal = document.getElementById('contactModal');
+        const successModal = document.getElementById('successModal');
+        const loadingModal = document.getElementById('loadingModal');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+        const mainSearchInput = document.getElementById('mainSearchInput');
+        const downloadNotification = document.getElementById('download-notification');
+        const userName = document.getElementById('user-name');
+        const bookName = document.getElementById('book-name');
+        const seeMoreBtn = document.getElementById('see-more-btn');
+        const videoBackground = document.querySelector('.video-background');
+        
+        let currentDownloadLink = '';
+        let notificationInterval;
+        
+        // Mobile menu toggle
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Search functionality
+        mainSearchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const allBookCards = document.querySelectorAll('.book-card');
+            const noResults = document.getElementById('no-results');
+            let visibleCount = 0;
+
+            allBookCards.forEach(card => {
+                const isVisible = card.dataset.name.toLowerCase().includes(searchTerm);
+                card.style.display = isVisible ? 'flex' : 'none';
+                if (isVisible) visibleCount++;
+            });
+
+            noResults.classList.toggle('hidden', visibleCount > 0);
+        });
+
+        function openModal(buttonElement, title, description, downloadLink) {
+            const bookCard = buttonElement.closest('.book-card');
+            let imgSrc;
+            const imgElement = bookCard.querySelector('.book-image');
+            
+            // Determine the image source for the modal
+            if (imgElement && imgElement.src) {
+                imgSrc = imgElement.src;
+            } 
+            else if (bookCard.querySelector('.coming-soon-image')) {
+                 imgSrc = 'https://placehold.co/400x600/f3f4f6/9ca3af?text=COMING+SOON'; 
+            } 
+            else {
+                 imgSrc = 'https://placehold.co/400x600/f3f4f6/9ca3af?text=Image+Unavailable';
+            }
+
+            bookModal.querySelector('#modal-title').textContent = title;
+            bookModal.querySelector('#modal-img').src = imgSrc;
+            bookModal.querySelector('#modal-description').textContent = description;
+            currentDownloadLink = downloadLink;
+            
+            bookModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => bookModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+        }
+
+        // Handle the professional confirm button
+        modalConfirmBtn.addEventListener('click', function() {
+            if (currentDownloadLink && currentDownloadLink !== '#') {
+                // Show loading animation
+                closeModal('bookModal');
+                openLoadingModal();
+                
+                // Simulate download preparation
+                setTimeout(() => {
+                    closeModal('loadingModal');
+                    // Redirect to download link
+                    window.location.href = currentDownloadLink;
+                }, 2500);
+            } else {
+                // For "Coming Soon" books
+                closeModal('bookModal');
+                setTimeout(() => {
+                    alert('This book is coming soon! Check back later.');
+                }, 300);
+            }
+        });
+
+        function openLoadingModal() {
+            loadingModal.classList.remove('hidden');
+            setTimeout(() => loadingModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+        }
+
+        function openContactModal() {
+            contactModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => contactModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+        }
+
+        function openSuccessModal() {
+            successModal.classList.remove('hidden');
+            setTimeout(() => successModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+            setTimeout(() => closeModal('successModal'), 3000); // Auto-close after 3 seconds
+        }
+        
+        function closeModal(modalId) {
+            const modalToClose = document.getElementById(modalId);
+            if (!modalToClose || modalToClose.classList.contains('hidden')) return;
+            
+            modalToClose.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modalToClose.classList.add('hidden');
+                const isAnyModalOpen = !bookModal.classList.contains('hidden') || !contactModal.classList.contains('hidden') || !successModal.classList.contains('hidden') || !loadingModal.classList.contains('hidden');
+                if (!isAnyModalOpen) {
+                    document.body.style.overflow = 'auto';
+                }
+            }, 300);
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal('bookModal');
+                closeModal('contactModal');
+                closeModal('successModal');
+                closeModal('loadingModal');
+            }
+        });
+        
+        bookModal.addEventListener('click', (e) => { if(e.target === bookModal) closeModal('bookModal'); });
+        contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
+        loadingModal.addEventListener('click', (e) => { if (e.target === loadingModal) closeModal('loadingModal'); });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form Submitted with data:', new FormData(this));
+            this.reset();
+            closeModal('contactModal');
+            setTimeout(openSuccessModal, 350);  
+        });
+
+        // Modern See More functionality
+        let isExpanded = false;
+        const btnText = seeMoreBtn.querySelector('.text');
+        const btnIcon = seeMoreBtn.querySelector('.icon');
+        
+        seeMoreBtn.addEventListener('click', () => {
+            const hiddenCards = document.querySelectorAll('#books-grid .book-card.hidden');
+            
+            if (!isExpanded) {
+                // Show all hidden books with animation
+                hiddenCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.remove('hidden');
+                    }, index * 50); // Stagger the animation
+                });
+                
+                btnText.textContent = 'See Less';
+                seeMoreBtn.classList.add('expanded');
+                seeMoreBtn.classList.remove('pulse');
+                isExpanded = true;
+                
+                // Scroll to newly shown content if needed
+                setTimeout(() => {
+                    if (hiddenCards.length > 0) {
+                        hiddenCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                }, 300);
+            } else {
+                // Hide all but first 4 books with animation
+                const allCards = document.querySelectorAll('#books-grid .book-card');
+                allCards.forEach((card, index) => {
+                    if (index >= 4) {
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, (index - 4) * 30); // Stagger the animation
+                    }
+                });
+                
+                btnText.textContent = 'See More Books';
+                seeMoreBtn.classList.remove('expanded');
+                seeMoreBtn.classList.add('pulse');
+                isExpanded = false;
+                
+                // Scroll to the top of the books section
+                document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // FAQ toggle functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('open');
+                }
+            });
+            
+            // Toggle current FAQ
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('open');
+        }
+
+        // Enhanced download notifications with random books every 5 seconds
+        function showDownloadNotification() {
+            // Refresh the book list to ensure it's up to date
+            const websiteBooks = getAllBooksFromWebsite();
+            
+            if (websiteBooks.length > 0) {
+                const randomBook = websiteBooks[Math.floor(Math.random() * websiteBooks.length)];
+                const randomCount = Math.floor(Math.random() * 5) + 1; // Random number 1-5
+                
+                userName.textContent = `${randomCount} people just downloaded`;
+                bookName.textContent = randomBook;
+                
+                // Hide current notification if visible
+                downloadNotification.classList.remove('show');
+                
+                // Show new notification after a brief delay
+                setTimeout(() => {
+                    downloadNotification.classList.add('show');
+                }, 100);
+                
+                // Hide after 4.5 seconds to allow for smooth transition
+                setTimeout(() => {
+                    downloadNotification.classList.remove('show');
+                }, 4500);
+            }
+        }
+        
+        // Start the notification cycle after page load
+        setTimeout(() => {
+            showDownloadNotification();
+            // Show notification every 5 seconds
+            notificationInterval = setInterval(showDownloadNotification, 5000);
+        }, 3000);
+
+        // Hero section animations
+        function animateHeroSection() {
+            const heroContent = document.querySelector('.hero-content');
+            const heroTitle = document.querySelector('.hero-title');
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            const heroBadges = document.querySelector('.hero-badges');
+            const heroCta = document.querySelector('.hero-cta');
+            
+            // Animate hero elements with delays
+            setTimeout(() => heroContent.classList.add('animate'), 100);
+            setTimeout(() => heroTitle.classList.add('animate'), 300);
+            setTimeout(() => heroSubtitle.classList.add('animate'), 500);
+            setTimeout(() => heroBadges.classList.add('animate'), 700);
+            setTimeout(() => heroCta.classList.add('animate'), 1000);
+        }
+        
+        // Scroll animation functionality
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('section');
+            const bookCards = document.querySelectorAll('.book-card');
+            const sectionTitles = document.querySelectorAll('.section-title');
+            const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+            
+            // Parallax effect for video background
+            if (videoBackground) {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                videoBackground.style.transform = `translateY(${rate}px)`;
+            }
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('animate');
+                }
+            });
+            
+            sectionTitles.forEach(title => {
+                const titleTop = title.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (titleTop < windowHeight * 0.85) {
+                    title.classList.add('animate');
+                }
+            });
+            
+            sectionSubtitles.forEach(subtitle => {
+                const subtitleTop = subtitle.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (subtitleTop < windowHeight * 0.85) {
+                    subtitle.classList.add('animate');
+                }
+            });
+            
+            bookCards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight * 0.85) {
+                    card.classList.add('animate');
+                }
+            });
+        }
+        
+        // Initial animation on page load
+        window.addEventListener('load', () => {
+            animateHeroSection();
+            animateOnScroll();
+            
+            // Animate book cards with a slight delay for a staggered effect
+            setTimeout(() => {
+                const bookCards = document.querySelectorAll('.book-card');
+                bookCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 100);
+                });
+            }, 300);
+        });
+        
+        // Animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
