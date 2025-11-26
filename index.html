@@ -499,7 +499,35 @@
       opacity: 1;
       transform: translateY(0);
     }
-    
+    /* Video Slider Styles */
+    .video-slide {
+        transition: opacity 1s ease-in-out;
+    }
+
+    .video-slide.active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .video-slide:not(.active) {
+        opacity: 0;
+        z-index: 0;
+    }
+
+    /* Ensure slider doesn't move with scroll */
+    #video-slider {
+        position: relative;
+        transform: none !important;
+    }
+
+    #video-slider .video-slide {
+        transform: none !important;
+    }
+
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }    
     /* Enhanced Footer Styles */
     .footer-links a {
       transition: color 0.2s ease;
@@ -645,30 +673,44 @@
 
     <main>
         
-        <!-- Enhanced Hero Section with Video Background -->
-        <section id="hero-section" class="relative w-full h-96 overflow-hidden">
-            <div class="video-overlay"></div>
-            <video autoplay muted loop playsinline class="video-background parallax">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-student-reading-a-book-in-the-library-43563-large.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                 <div class="hero-content animate">
-                    <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium eBook Collection</h2>
-                    <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Free access to thousands of premium books in multiple formats</p>
-                    <div class="hero-badges flex items-center gap-2 mb-8">
-                      <span class="safety-badge"><i class="fas fa-shield-alt"></i> 100% Free</span>
-                      <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
-                      <span class="safety-badge"><i class="fas fa-download"></i> +500K Downloads</span>
-                    </div>
-                    <div class="hero-cta">
-                      <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
-                        <i class="fas fa-book-open mr-2"></i>Explore All Books
-                      </button>
-                    </div>
-                 </div>
+        <!-- Video Slider Section -->
+<section id="video-slider" class="relative w-full h-96 overflow-hidden">
+    <!-- Video Container -->
+    <div class="relative w-full h-full">
+        <!-- Video 1 -->
+        <video id="video1" class="video-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" autoplay muted loop playsinline>
+            <source src="34474-402606890.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Video 2 -->
+        <video id="video2" class="video-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" muted loop playsinline>
+            <source src="8549595-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Video 3 -->
+        <video id="video3" class="video-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" muted loop playsinline>
+            <source src="185096-874643413.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Black Fade Overlay for Transitions -->
+        <div id="fade-overlay" class="absolute inset-0 bg-black transition-opacity duration-500 opacity-0 z-10"></div>
+    </div>
+    
+    <!-- Content Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+        <div class="hero-content animate">
+            <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-8">Premium eBook Collection</h2>
+            <div class="hero-cta">
+                <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
+                    <i class="fas fa-book-open mr-2"></i>Explore All Books
+                </button>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <section id="search-section" class="pt-4 pb-2 bg-white">
             <div class="container mx-auto px-4">
@@ -2455,7 +2497,60 @@
                 });
             }, 300);
         });
-        
+               // Video Slider Functionality
+        let currentVideoIndex = 0;
+        const videos = document.querySelectorAll('.video-slide');
+        const fadeOverlay = document.getElementById('fade-overlay');
+        const totalVideos = videos.length;
+
+        function startVideoSlider() {
+            // Start the first video
+            videos[0].play();
+            
+            // Set interval for video transitions (change every 5 seconds)
+            setInterval(transitionToNextVideo, 5000);
+        }
+
+        function transitionToNextVideo() {
+            // Show fade overlay
+            fadeOverlay.style.opacity = '1';
+            
+            setTimeout(() => {
+                // Pause current video
+                videos[currentVideoIndex].pause();
+                videos[currentVideoIndex].classList.remove('active');
+                
+                // Move to next video
+                currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
+                
+                // Play next video
+                videos[currentVideoIndex].classList.add('active');
+                videos[currentVideoIndex].play();
+                
+                // Hide fade overlay
+                setTimeout(() => {
+                    fadeOverlay.style.opacity = '0';
+                }, 100);
+                
+            }, 500); // Half second for black screen
+        }
+
+        // Initialize video slider when page loads
+        window.addEventListener('load', () => {
+            setTimeout(startVideoSlider, 1000);
+        });
+
+        // Prevent parallax effect on video slider
+        window.addEventListener('scroll', () => {
+            const videoSlider = document.getElementById('video-slider');
+            if (videoSlider) {
+                videoSlider.style.transform = 'none';
+            }
+        });
+
+        // Animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script> 
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
     </script>
