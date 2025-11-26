@@ -11,20 +11,20 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FreeEbooks - Premium eBook Collection | Free & Unlimited Access</title>
+  <title>BookHub - Premium eBook Collection | Free & Unlimited Access</title>
   <meta name="description" content="Access thousands of premium eBooks for free. Unlimited downloads, multiple formats, and ad-free reading experience. Your digital library awaits.">
   <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
-  <meta name="author" content="FreeEbooks">
+  <meta name="author" content="BookHub">
   
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="FreeEbooks - Premium eBook Collection">
+  <meta property="og:title" content="BookHub - Premium eBook Collection">
   <meta property="og:description" content="Access thousands of premium eBooks for free with unlimited downloads and multiple formats.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yourusername.github.io/your-repo-name">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FreeEbooks - Premium eBook Collection">
+  <meta name="twitter:title" content="BookHub - Premium eBook Collection">
   <meta name="twitter:description" content="Free access to thousands of premium eBooks with unlimited downloads.">
   
   <!-- Canonical URL -->
@@ -95,7 +95,7 @@
       border-color: #3b82f6;
     }
     .btn-download {
-      background: linear-gradient(135deg, #10b981, #059669);
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: #ffffff;
       font-weight: 600;
       transition: all 0.3s ease;
@@ -104,7 +104,7 @@
     }
     .btn-download:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
     .btn-download:disabled {
       opacity: 0.7;
@@ -112,7 +112,7 @@
       transform: none;
     }
     .btn-download.loading {
-      background: linear-gradient(90deg, #10b981, #059669, #10b981);
+      background: linear-gradient(90deg, #3b82f6, #1d4ed8, #3b82f6);
       background-size: 200% 100%;
       animation: loading-shine 2s infinite;
     }
@@ -370,26 +370,26 @@
       transform: rotate(180deg);
     }
     
-    /* Modern Book card badges - SMALLER SIZE */
+    /* Modern Book card badges */
     .book-badge {
       position: absolute;
-      top: 6px;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 6px;
+      top: 8px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      padding: 3px 6px;
       border-radius: 4px;
       z-index: 10;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
     }
     .premium-badge {
-      left: 6px;
+      left: 8px;
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: white;
-      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
     }
     .free-badge {
-      right: 6px;
+      right: 8px;
       color: #10b981;
       font-weight: 700;
       text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -515,24 +515,24 @@
     /* Enhanced Badge Styles */
     .book-badge {
       position: absolute;
-      top: 6px;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
+      top: 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
       z-index: 10;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .premium-badge {
-      left: 6px;
+      left: 8px;
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: white;
-      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
     }
     .free-badge {
-      right: 6px;
+      right: 8px;
       background: rgba(255, 255, 255, 0.95);
       color: #10b981;
       font-weight: 700;
@@ -613,9 +613,9 @@
     <!-- Header - Updated with theme toggle -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="https://FreeEbooks.online" class="flex items-center">
+            <a href="#" class="flex items-center">
                 <h1 class="text-lg font-bold text-gray-900 tracking-tight">
-                    <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
+                    <i class="fas fa-book text-blue-500"></i> Book<span class="text-blue-500">Hub</span>
                 </h1>
             </a>
             <nav class="hidden md:flex items-center space-x-6">
@@ -709,48 +709,6 @@
                             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Atomic Habits by James Clear','Tiny Changes, Remarkable Results: An Easy & Proven Way to Build Good Habits & Break Bad Ones','https://example.com/download/atomic-habits')">Download Now</button>
                         </div>
                     </div>
-
-<script>
-function openContentLocker() {
-    // إذا كان القفل محمل مسبقاً
-    if (typeof _VR !== 'undefined') {
-        _VR();
-        return;
-    }
-    
-    // إذا لم يكن محملاً، نحمله أولاً
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://da4talg8ap14y.cloudfront.net/4e13a5e.js';
-    script.onload = function() {
-        // بعد التحميل، نفتح القفل
-        if (typeof _VR !== 'undefined') {
-            _VR();
-        }
-    };
-    document.head.appendChild(script);
-    
-    // تعريف المتغير المطلوب للقفل
-    if (typeof oBuyl_mjj_YUCxuc === 'undefined') {
-        window.oBuyl_mjj_YUCxuc = {"it":4524013,"key":"f5464"};
-    }
-}
-</script>
-
-<script>
-// دالة القفل المدمجة مباشرة
-function setupAtomicHabitsLock() {
-    var lockConfig = {it:4524013, key:'f5464'};
-    var script = document.createElement('script');
-    script.src = 'https://da4talg8ap14y.cloudfront.net/4e13a5e.js';
-    script.onload = function() {
-        if(typeof _VR !== 'undefined') {
-            _VR();
-        }
-    };
-    document.head.appendChild(script);
-}
-</script>
                     
                     <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
                         <div class="relative">
@@ -1988,7 +1946,7 @@ function setupAtomicHabitsLock() {
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-2">
                     <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
+                        <i class="fas fa-book text-blue-500"></i> Book<span class="text-blue-500">Hub</span>
                     </h3>
                     <p class="text-gray-600 text-sm mb-4 max-w-md">
                         Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
@@ -2025,7 +1983,7 @@ function setupAtomicHabitsLock() {
                 </div>
             </div>
             <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
+                <p>&copy; 2024 BookHub. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
             </div>
         </div>
     </footer>
@@ -2500,8 +2458,10 @@ function setupAtomicHabitsLock() {
 
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
-        
-        // Simple video looping
+    </script> 
+        // Animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+                          // Simple video looping
         const video = document.querySelector('#video-section video');
         if (video) {
             video.addEventListener('ended', function() {
