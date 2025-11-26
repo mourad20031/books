@@ -499,36 +499,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Video Slider Styles */
-.video-slide {
-    transition: opacity 2s ease-in-out;
-}
-
-.video-slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.video-slide:not(.active) {
-    opacity: 0;
-    z-index: 0;
-}
-
-/* Ensure slider doesn't move with scroll */
-#video-slider {
-    position: relative;
-    transform: none !important;
-}
-
-#video-slider .video-slide {
-    transform: none !important;
-}
-
-/* Make sure content stays above everything */
-#video-slider .hero-content {
-    z-index: 30;
-    position: relative;
-}
 
     /* Enhanced Footer Styles */
     .footer-links a {
@@ -679,43 +649,25 @@
 
     <main>
         
-        <!-- Video Slider Section -->
-<section id="video-slider" class="relative w-full h-96 overflow-hidden">
-    <!-- Video Container -->
-    <div class="relative w-full h-full">
-        <!-- Video 1 -->
-        <video id="video1" class="video-slide active absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
-            <source src="34474-402606890.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        
-        <!-- Video 2 -->
-        <video id="video2" class="video-slide absolute inset-0 w-full h-full object-cover" muted loop playsinline>
-            <source src="8549595-uhd_2560_1440_25fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        
-        <!-- Video 3 -->
-        <video id="video3" class="video-slide absolute inset-0 w-full h-full object-cover" muted loop playsinline>
-            <source src="185096-874643413.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+        <!-- Single Video Section -->
+<section id="video-section" class="relative w-full h-96 overflow-hidden">
+    <!-- Single Video -->
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="34474-402606890.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     
-    <!-- Content Overlay - Moved OUTSIDE video container and ABOVE fade overlay -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-30">
+    <!-- Content Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
         <div class="hero-content animate">
-            <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-8">Premium eBook Collection</h2>
+            <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-8 whitespace-nowrap">Premium eBooks</h2>
             <div class="hero-cta">
                 <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
-                    <i class="fas fa-book-open mr-2"></i>Explore All Books
+                    <i class="fas fa-book-open mr-2"></i>Explore Books
                 </button>
             </div>
         </div>
     </div>
-    
-    <!-- Black Fade Overlay for Transitions - Moved here and lower z-index -->
-    <div id="fade-overlay" class="absolute inset-0 bg-black transition-opacity duration-1000 opacity-0 z-20"></div>
 </section>
 
         <section id="search-section" class="pt-4 pb-2 bg-white">
@@ -2503,89 +2455,20 @@
                 });
             }, 300);
         });
-                // Video Slider Functionality
-        let currentVideoIndex = 0;
-        const videos = document.querySelectorAll('.video-slide');
-        const fadeOverlay = document.getElementById('fade-overlay');
-        const totalVideos = videos.length;
-        let isTransitioning = false;
-
-        function startVideoSlider() {
-            // Start the first video
-            videos[0].play();
-            
-            // Set interval for video transitions (change every 8 seconds - longer duration)
-            setInterval(transitionToNextVideo, 8000);
-        }
-
-        function transitionToNextVideo() {
-            if (isTransitioning) return;
-            
-            isTransitioning = true;
-            
-            // Show fade overlay (softer - 0.7 opacity instead of full black)
-            fadeOverlay.style.opacity = '0.7';
-            
-            setTimeout(() => {
-                // Pause current video
-                videos[currentVideoIndex].pause();
-                videos[currentVideoIndex].classList.remove('active');
-                
-                // Move to next video
-                currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
-                
-                // Play next video
-                videos[currentVideoIndex].classList.add('active');
-                
-                // Add a small delay before playing to ensure smooth transition
-                setTimeout(() => {
-                    videos[currentVideoIndex].play().catch(e => {
-                        console.log('Video play error:', e);
-                    });
-                    
-                    // Slowly hide fade overlay for smoother transition
-                    setTimeout(() => {
-                        fadeOverlay.style.opacity = '0';
-                        isTransitioning = false;
-                    }, 1500); // Longer fade out
-                    
-                }, 100);
-                
-            }, 1000); // 1 second with fade overlay visible
-        }
-
-        // Initialize video slider when page loads
-        window.addEventListener('load', () => {
-            // Preload all videos
-            videos.forEach(video => {
-                video.load();
-            });
-            
-            setTimeout(startVideoSlider, 2000); // Start after 2 seconds
-        });
-
-        // Prevent parallax effect on video slider
-        window.addEventListener('scroll', () => {
-            const videoSlider = document.getElementById('video-slider');
-            if (videoSlider) {
-                videoSlider.style.transform = 'none';
-            }
-        });
-
-        // Fix for video flickering - ensure only one video is active at a time
-        videos.forEach((video, index) => {
-            video.addEventListener('loadeddata', function() {
-                if (index !== 0) {
-                    this.style.opacity = '0';
-                }
-            });
-        });
 
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
     </script> 
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
+                          // Simple video looping
+        const video = document.querySelector('#video-section video');
+        if (video) {
+            video.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            });
+        }
     </script>
 </body>
 </html>
