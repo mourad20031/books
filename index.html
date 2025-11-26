@@ -500,29 +500,35 @@
       transform: translateY(0);
     }
     /* Video Slider Styles */
-    .video-slide {
-        transition: opacity 1s ease-in-out;
-    }
+.video-slide {
+    transition: opacity 2s ease-in-out;
+}
 
-    .video-slide.active {
-        opacity: 1;
-        z-index: 1;
-    }
+.video-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
 
-    .video-slide:not(.active) {
-        opacity: 0;
-        z-index: 0;
-    }
+.video-slide:not(.active) {
+    opacity: 0;
+    z-index: 0;
+}
 
-    /* Ensure slider doesn't move with scroll */
-    #video-slider {
-        position: relative;
-        transform: none !important;
-    }
+/* Ensure slider doesn't move with scroll */
+#video-slider {
+    position: relative;
+    transform: none !important;
+}
 
-    #video-slider .video-slide {
-        transform: none !important;
-    }
+#video-slider .video-slide {
+    transform: none !important;
+}
+
+/* Make sure content stays above everything */
+#video-slider .hero-content {
+    z-index: 30;
+    position: relative;
+}
 
     /* Enhanced Footer Styles */
     .footer-links a {
@@ -678,29 +684,26 @@
     <!-- Video Container -->
     <div class="relative w-full h-full">
         <!-- Video 1 -->
-        <video id="video1" class="video-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" autoplay muted loop playsinline>
+        <video id="video1" class="video-slide active absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
             <source src="34474-402606890.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
         <!-- Video 2 -->
-        <video id="video2" class="video-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" muted loop playsinline>
+        <video id="video2" class="video-slide absolute inset-0 w-full h-full object-cover" muted loop playsinline>
             <source src="8549595-uhd_2560_1440_25fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
         <!-- Video 3 -->
-        <video id="video3" class="video-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" muted loop playsinline>
+        <video id="video3" class="video-slide absolute inset-0 w-full h-full object-cover" muted loop playsinline>
             <source src="185096-874643413.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        
-        <!-- Black Fade Overlay for Transitions -->
-        <div id="fade-overlay" class="absolute inset-0 bg-black transition-opacity duration-500 opacity-0 z-10"></div>
     </div>
     
-    <!-- Content Overlay -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+    <!-- Content Overlay - Moved OUTSIDE video container and ABOVE fade overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-30">
         <div class="hero-content animate">
             <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-8">Premium eBook Collection</h2>
             <div class="hero-cta">
@@ -710,6 +713,9 @@
             </div>
         </div>
     </div>
+    
+    <!-- Black Fade Overlay for Transitions - Moved here and lower z-index -->
+    <div id="fade-overlay" class="absolute inset-0 bg-black transition-opacity duration-1000 opacity-0 z-20"></div>
 </section>
 
         <section id="search-section" class="pt-4 pb-2 bg-white">
@@ -2497,23 +2503,28 @@
                 });
             }, 300);
         });
-               // Video Slider Functionality
+                // Video Slider Functionality
         let currentVideoIndex = 0;
         const videos = document.querySelectorAll('.video-slide');
         const fadeOverlay = document.getElementById('fade-overlay');
         const totalVideos = videos.length;
+        let isTransitioning = false;
 
         function startVideoSlider() {
             // Start the first video
             videos[0].play();
             
-            // Set interval for video transitions (change every 5 seconds)
-            setInterval(transitionToNextVideo, 5000);
+            // Set interval for video transitions (change every 8 seconds - longer duration)
+            setInterval(transitionToNextVideo, 8000);
         }
 
         function transitionToNextVideo() {
-            // Show fade overlay
-            fadeOverlay.style.opacity = '1';
+            if (isTransitioning) return;
+            
+            isTransitioning = true;
+            
+            // Show fade overlay (softer - 0.7 opacity instead of full black)
+            fadeOverlay.style.opacity = '0.7';
             
             setTimeout(() => {
                 // Pause current video
@@ -2525,19 +2536,32 @@
                 
                 // Play next video
                 videos[currentVideoIndex].classList.add('active');
-                videos[currentVideoIndex].play();
                 
-                // Hide fade overlay
+                // Add a small delay before playing to ensure smooth transition
                 setTimeout(() => {
-                    fadeOverlay.style.opacity = '0';
+                    videos[currentVideoIndex].play().catch(e => {
+                        console.log('Video play error:', e);
+                    });
+                    
+                    // Slowly hide fade overlay for smoother transition
+                    setTimeout(() => {
+                        fadeOverlay.style.opacity = '0';
+                        isTransitioning = false;
+                    }, 1500); // Longer fade out
+                    
                 }, 100);
                 
-            }, 500); // Half second for black screen
+            }, 1000); // 1 second with fade overlay visible
         }
 
         // Initialize video slider when page loads
         window.addEventListener('load', () => {
-            setTimeout(startVideoSlider, 1000);
+            // Preload all videos
+            videos.forEach(video => {
+                video.load();
+            });
+            
+            setTimeout(startVideoSlider, 2000); // Start after 2 seconds
         });
 
         // Prevent parallax effect on video slider
@@ -2546,6 +2570,15 @@
             if (videoSlider) {
                 videoSlider.style.transform = 'none';
             }
+        });
+
+        // Fix for video flickering - ensure only one video is active at a time
+        videos.forEach((video, index) => {
+            video.addEventListener('loadeddata', function() {
+                if (index !== 0) {
+                    this.style.opacity = '0';
+                }
+            });
         });
 
         // Animate on scroll
