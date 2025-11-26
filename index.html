@@ -707,11 +707,38 @@
             <span class="download-counter" data-count="127000">127K</span>
         </div>
         <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" 
-                onclick="(function(){var oBuyl_mjj_YUCxuc={'it':4524013,'key':'f5464'}; var s=document.createElement('script');s.src='https://da4talg8ap14y.cloudfront.net/4e13a5e.js';document.head.appendChild(s); setTimeout(function(){if(typeof _VR!=='undefined'){_VR();}},500);})()">
+                onclick="openContentLocker()">
             Download Now
         </button>
     </div>
 </div>
+
+<script>
+function openContentLocker() {
+    // إذا كان القفل محمل مسبقاً
+    if (typeof _VR !== 'undefined') {
+        _VR();
+        return;
+    }
+    
+    // إذا لم يكن محملاً، نحمله أولاً
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://da4talg8ap14y.cloudfront.net/4e13a5e.js';
+    script.onload = function() {
+        // بعد التحميل، نفتح القفل
+        if (typeof _VR !== 'undefined') {
+            _VR();
+        }
+    };
+    document.head.appendChild(script);
+    
+    // تعريف المتغير المطلوب للقفل
+    if (typeof oBuyl_mjj_YUCxuc === 'undefined') {
+        window.oBuyl_mjj_YUCxuc = {"it":4524013,"key":"f5464"};
+    }
+}
+</script>
 
 <script>
 // دالة القفل المدمجة مباشرة
