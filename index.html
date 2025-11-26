@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-6FR9YXVV8Z');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookHub - Premium eBook Collection | Free & Unlimited Access</title>
   <meta name="description" content="Access thousands of premium eBooks for free. Unlimited downloads, multiple formats, and ad-free reading experience. Your digital library awaits.">
   <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
   <meta name="author" content="BookHub">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="BookHub - Premium eBook Collection">
-  <meta property="og:description" content="Access thousands of premium eBooks for free with unlimited downloads and multiple formats.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourusername.github.io/your-repo-name">
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BookHub - Premium eBook Collection">
-  <meta name="twitter:description" content="Free access to thousands of premium eBooks with unlimited downloads.">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://yourusername.github.io/your-repo-name">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -449,7 +427,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* Changed from cover to contain to show full video */
       z-index: -1;
       opacity: 0.8;
     }
