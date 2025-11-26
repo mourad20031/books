@@ -442,7 +442,7 @@
       transform: translateY(0);
     }
     
-    /* Background Video - FIXED FOR HORIZONTAL ON ALL DEVICES */
+    /* Background Video */
     .video-background {
       position: absolute;
       top: 0;
@@ -450,79 +450,18 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
       z-index: -1;
+      opacity: 0.15;
     }
     
-    /* Force horizontal aspect ratio and prevent vertical cropping */
-    #hero-section {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-    
-    /* Mobile responsiveness for horizontal video */
-    @media (max-width: 768px) {
-      #hero-section {
-        height: 70vh;
-        min-height: 500px;
-      }
-      
-      .video-background {
-        /* Force horizontal cropping on mobile */
-        object-fit: cover;
-        object-position: center 25%; /* Adjust this to focus on the best part of your video */
-        width: 100%;
-        height: 100%;
-      }
-      
-      /* Adjust text sizing for mobile */
-      .hero-title {
-        font-size: 2rem !important;
-      }
-      
-      .hero-subtitle {
-        font-size: 1rem !important;
-      }
-      
-      .hero-badges {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .safety-badge {
-        font-size: 0.7rem;
-        padding: 3px 8px;
-      }
-    }
-    
-    /* Small mobile devices */
-    @media (max-width: 480px) {
-      #hero-section {
-        height: 60vh;
-        min-height: 400px;
-      }
-      
-      .hero-cta {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-      }
-      
-      .hero-cta button {
-        width: 100%;
-      }
-    }
-    
-    /* Remove the blue overlay completely */
     .video-overlay {
-      display: none;
-    }
-    
-    /* Ensure text is readable on any video background */
-    #hero-section .hero-content {
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+      z-index: -1;
     }
     
     /* Parallax Effect */
@@ -706,14 +645,14 @@
 
     <main>
         
-        <!-- Enhanced Hero Section with Horizontal Video -->
-        <section id="hero-section" class="relative w-full h-screen overflow-hidden">
+        <!-- Enhanced Hero Section with Video Background -->
+        <section id="hero-section" class="relative w-full h-96 overflow-hidden">
+            <div class="video-overlay"></div>
             <video autoplay muted loop playsinline class="video-background parallax">
-                <!-- YOUR PEXELS VIDEO -->
-                <source src="4866054-uhd_2732_1440_25fps.mp4" type="video/mp4">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-student-reading-a-book-in-the-library-43563-large.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-black/30">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
                  <div class="hero-content animate">
                     <h2 class="hero-title text-3xl md:text-5xl font-extrabold text-white mb-4">Premium eBook Collection</h2>
                     <p class="hero-subtitle text-lg md:text-xl text-white/90 max-w-2xl mb-6">Free access to thousands of premium books in multiple formats</p>
@@ -722,12 +661,9 @@
                       <span class="safety-badge"><i class="fas fa-bolt"></i> Instant Download</span>
                       <span class="safety-badge"><i class="fas fa-download"></i> +500K Downloads</span>
                     </div>
-                    <div class="hero-cta flex flex-col sm:flex-row gap-4">
+                    <div class="hero-cta">
                       <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
                         <i class="fas fa-book-open mr-2"></i>Explore All Books
-                      </button>
-                      <button class="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-xl text-base font-semibold transition-all duration-300 transform hover:scale-105" id="bookhub-redirect-btn">
-                        <i class="fas fa-external-link-alt mr-2"></i>Visit BookHub
                       </button>
                     </div>
                  </div>
@@ -2130,12 +2066,6 @@
     </div>
     
     <script>
-        // BookHub redirect button functionality
-        document.getElementById('bookhub-redirect-btn').addEventListener('click', function() {
-            // REPLACE THIS URL WITH YOUR ACTUAL BOOKHUB LINK
-            window.open('https://your-bookhub-link.com', '_blank');
-        });
-
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
