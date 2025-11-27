@@ -58,17 +58,6 @@
             100% { transform: translateY(0px); }
         }
         
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
         .share-modal {
             display: none;
             position: fixed;
@@ -170,22 +159,14 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <!-- Simple Header -->
+    <header class="bg-white shadow-sm">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <i class="fas fa-book text-green-500 text-2xl mr-2"></i>
                 <span class="text-xl font-bold text-gray-800">Free<span class="text-green-500">Ebooks</span></span>
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-600 hover:text-green-500 font-medium">Home</a>
-                <a href="#" class="text-gray-600 hover:text-green-500 font-medium">Categories</a>
-                <a href="#" class="text-gray-600 hover:text-green-500 font-medium">Popular</a>
-                <a href="#" class="text-gray-600 hover:text-green-500 font-medium">About</a>
-            </nav>
-            <button class="md:hidden text-gray-600">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+            <a href="#" class="text-gray-600 hover:text-green-500 font-medium">← Back to Books</a>
         </div>
     </header>
 
@@ -207,18 +188,19 @@
                         </div>
                         <span class="text-white">4.8/5 (127,000+ downloads)</span>
                     </div>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
-                            <i class="fas fa-download mr-2"></i> Download Now
-                        </button>
-                    </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <div class="relative">
-                        <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits Book Cover" class="w-64 md:w-80 rounded-lg book-shadow floating-animation">
-                        <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-gray-800 px-4 py-2 rounded-lg shadow-lg">
-                            <span class="font-bold">FREE</span> Download
+                    <div class="text-center">
+                        <div class="relative inline-block">
+                            <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits Book Cover" class="w-64 md:w-80 rounded-lg book-shadow floating-animation">
+                            <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-gray-800 px-4 py-2 rounded-lg shadow-lg">
+                                <span class="font-bold">FREE</span> Download
+                            </div>
                         </div>
+                        <!-- Download Button Below Book -->
+                        <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
+                            <i class="fas fa-download mr-2"></i> Download Now
+                        </button>
                     </div>
                 </div>
             </div>
@@ -472,7 +454,7 @@
                 <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
                     <i class="fas fa-download mr-2"></i> Download Your Free Copy
                 </button>
-                <button id="share-btn" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-white hover:text-green-600 transition">
+                <button id="share-btn" class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-gray-100 transition">
                     <i class="fas fa-share-alt mr-2"></i> Share with a Friend
                 </button>
             </div>
@@ -522,139 +504,80 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-book text-green-400 text-2xl mr-2"></i>
-                        <span class="text-xl font-bold">Free<span class="text-green-400">Ebooks</span></span>
-                    </div>
-                    <p class="text-gray-400 mb-4 max-w-md">
-                        Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-facebook text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
-                    <div class="flex flex-col space-y-2 text-gray-400">
-                        <a href="#" class="hover:text-white transition">Browse All Books</a>
-                        <a href="#" class="hover:text-white transition">Trending Books</a>
-                        <a href="#" class="hover:text-white transition">FAQ</a>
-                        <a href="#" class="hover:text-white transition">Contact</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Legal</h4>
-                    <div class="flex flex-col space-y-2 text-gray-400">
-                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition">Terms of Service</a>
-                        <a href="#" class="hover:text-white transition">Cookie Policy</a>
-                        <a href="#" class="hover:text-white transition">DMCA</a>
-                    </div>
-                </div>
+    <!-- Simple Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-book text-green-400 text-2xl mr-2"></i>
+                <span class="text-xl font-bold">Free<span class="text-green-400">Ebooks</span></span>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
-                <p>&copy; 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
-            </div>
+            <p class="text-gray-400 text-sm mb-4">Your trusted source for free premium eBooks</p>
+            <p class="text-gray-500 text-sm">&copy; 2024 FreeEbooks. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple fade-in animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Initial check
-            fadeInOnScroll();
-            
-            // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
-            
-            // Download button functionality
-            const downloadButtons = document.querySelectorAll('.download-btn');
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // In a real implementation, this would trigger the actual download
-                    alert('Thank you for your interest! The download will begin shortly.');
-                    
-                    // Simulate download after a short delay
-                    setTimeout(function() {
-                        // This would be the actual download link
-                        // window.location.href = 'https://example.com/download/atomic-habits.pdf';
-                        console.log('Download initiated for Atomic Habits');
-                    }, 1000);
-                });
-            });
-            
-            // Share functionality
-            const shareBtn = document.getElementById('share-btn');
-            const shareModal = document.getElementById('share-modal');
-            const closeShare = document.getElementById('close-share');
-            const copyLink = document.getElementById('copy-link');
-            const shareUrl = document.getElementById('share-url');
-            const whatsappShare = document.getElementById('whatsapp-share');
-            const facebookShare = document.getElementById('facebook-share');
-            const copyShare = document.getElementById('copy-share');
-            
-            shareBtn.addEventListener('click', function() {
-                shareModal.classList.add('active');
-            });
-            
-            closeShare.addEventListener('click', function() {
+        // Share functionality
+        const shareBtn = document.getElementById('share-btn');
+        const shareModal = document.getElementById('share-modal');
+        const closeShare = document.getElementById('close-share');
+        const copyLink = document.getElementById('copy-link');
+        const shareUrl = document.getElementById('share-url');
+        const whatsappShare = document.getElementById('whatsapp-share');
+        const facebookShare = document.getElementById('facebook-share');
+        const copyShare = document.getElementById('copy-share');
+        
+        shareBtn.addEventListener('click', function() {
+            shareModal.classList.add('active');
+        });
+        
+        closeShare.addEventListener('click', function() {
+            shareModal.classList.remove('active');
+        });
+        
+        copyLink.addEventListener('click', function() {
+            shareUrl.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        });
+        
+        whatsappShare.addEventListener('click', function() {
+            const url = encodeURIComponent(shareUrl.value);
+            const text = encodeURIComponent("Check out this amazing book: Atomic Habits by James Clear");
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+        });
+        
+        facebookShare.addEventListener('click', function() {
+            const url = encodeURIComponent(shareUrl.value);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        });
+        
+        copyShare.addEventListener('click', function() {
+            shareUrl.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        });
+        
+        // Close modal when clicking outside
+        shareModal.addEventListener('click', function(e) {
+            if (e.target === shareModal) {
                 shareModal.classList.remove('active');
-            });
-            
-            copyLink.addEventListener('click', function() {
-                shareUrl.select();
-                document.execCommand('copy');
-                alert('Link copied to clipboard!');
-            });
-            
-            whatsappShare.addEventListener('click', function() {
-                const url = encodeURIComponent(shareUrl.value);
-                const text = encodeURIComponent("Check out this amazing book: Atomic Habits by James Clear");
-                window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
-            });
-            
-            facebookShare.addEventListener('click', function() {
-                const url = encodeURIComponent(shareUrl.value);
-                window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-            });
-            
-            copyShare.addEventListener('click', function() {
-                shareUrl.select();
-                document.execCommand('copy');
-                alert('Link copied to clipboard!');
-            });
-            
-            // Close modal when clicking outside
-            shareModal.addEventListener('click', function(e) {
-                if (e.target === shareModal) {
-                    shareModal.classList.remove('active');
-                }
+            }
+        });
+        
+        // Download button functionality
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, this would trigger the actual download
+                alert('Thank you for your interest! The download will begin shortly.');
+                
+                // Simulate download after a short delay
+                setTimeout(function() {
+                    // This would be the actual download link
+                    // window.location.href = 'https://example.com/download/atomic-habits.pdf';
+                    console.log('Download initiated for Atomic Habits');
+                }, 1000);
             });
         });
     </script>
