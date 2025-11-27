@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -776,13 +775,10 @@
         });
         
         facebookShare.addEventListener('click', function() {
-    const url = encodeURIComponent('https://freeebooks.online/the-alchemist');
-    const title = encodeURIComponent("The Alchemist by Paulo Coelho - Free Download");
-    const description = encodeURIComponent("Discover the magical story that has inspired millions worldwide. Download FREE now!");
-    const image = encodeURIComponent('https://i.postimg.cc/BQf9nVgZ/The-Alchemist-cover.jpg');
+    const url = 'https://freeebooks.online/the-alchemist';
+    const text = "Check out The Alchemist by Paulo Coelho - Available for FREE download! Discover the magical story that has inspired millions worldwide.";
     
-    // Updated Facebook share URL with more parameters
-    window.open(`https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=${url}&quote=${title}&description=${description}&picture=${image}&redirect_uri=https://freeebooks.online/the-alchemist`, '_blank', 'width=600,height=400');
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank', 'width=600,height=500');
 });
         
         copyShare.addEventListener('click', function() {
