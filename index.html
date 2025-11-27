@@ -53,9 +53,17 @@
 }
 </script>
 
-<script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Preload critical resources -->
+<link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+
+<!-- Load non-critical CSS asynchronously -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+
+<!-- Load Tailwind asynchronously -->
+<script src="https://cdn.tailwindcss.com" defer></script>
   <style>
     :root {
       --bg-color: #f8fafc;
@@ -1940,6 +1948,20 @@
     </div>
     
     <script>
+     // Global error handler
+window.addEventListener('error', function(e) {
+    console.log('Page Error:', e.message);
+    return true;
+});
+
+// Handle promise rejections
+window.addEventListener('unhandledrejection', function(e) {
+    console.log('Promise Error:', e.reason);
+    e.preventDefault();
+});
+
+// Wrap all main JavaScript in try-catch
+try {
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
@@ -2271,29 +2293,6 @@
             });
         }
     </script>
-  <!-- Error Handling Script -->
-<script>
-// Global error handler for GitHub Pages
-window.addEventListener('error', function(e) {
-    console.log('Page Error:', e.message);
-    return true;
-});
-
-// Handle promise rejections
-window.addEventListener('unhandledrejection', function(e) {
-    console.log('Promise Error:', e.reason);
-    e.preventDefault();
-});
-
-// Wrap your existing JavaScript in a try-catch
-document.addEventListener('DOMContentLoaded', function() {
-    try {
-        // Your existing JavaScript will run here
-        console.log('Page loaded successfully on GitHub Pages');
-    } catch (error) {
-        console.log('DOM Loading Error:', error);
-    }
-});
 </script>
 </body>
 </html>
