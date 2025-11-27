@@ -9,15 +9,15 @@
     gtag('js', new Date());
     gtag('config', 'G-6FR9YXVV8Z');
   </script>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FreeEbooks – Download Free eBooks Instantly</title>
-<meta name="description" content="Download and enjoy your favorite books for free on Free eBooks Online. Instant access to popular eBooks across all genres.">
-  <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
+<meta name="description" content="Download thousands of free eBooks instantly! Get premium books across all genres - fiction, non-fiction, self-help, classics. 100% free legal downloads with no registration required.">  <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
   <meta name="author" content="FreeEbooks">
   <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
@@ -26,7 +26,7 @@
   <meta property="og:title" content="Free eBooks Online - Explore & Download Popular Books for Free">
 <meta property="og:description" content="Discover and enjoy your favorite books for free on Free eBooks Online - your go-to source for instant access to a wide range of eBooks across all genres.">
   <meta property="og:type" content="website">
-<meta property="og:url" content="https://mourad20031.github.io/books/">  
+<meta property="og:url" content="https://freeebooks.online/">
   <!-- Open Graph Image -->
 <meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
 <meta property="og:image:width" content="1200">
@@ -42,17 +42,17 @@
 <meta name="twitter:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
   
   <!-- Canonical URL -->
-<link rel="canonical" href="https://mourad20031.github.io/books/">  
+<link rel="canonical" href="https://freeebooks.online/">
   <!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Free eBooks Online",
-  "url": "https://mourad20031.github.io/books/",
+  "url": "https://freeebooks.online/",
   "potentialAction": {
     "@type": "SearchAction", 
-    "target": "https://mourad20031.github.io/books/?q={search_term_string}",
+    "target": "https://freeebooks.online/?q={search_term_string}"
     "query-input": "required name=search_term_string"
   }
 }
@@ -641,7 +641,7 @@
     <!-- Header - Updated with theme toggle -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="https://mourad20031.github.io/books/" class="flex items-center">
+            <a href="https://freeebooks.online/" class="flex items-center">
                 <h1 class="text-lg font-bold text-gray-900 tracking-tight">
                     <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
                 </h1>
@@ -2276,5 +2276,29 @@
             });
         }
     </script>
+  <!-- Error Handling Script -->
+<script>
+// Global error handler for GitHub Pages
+window.addEventListener('error', function(e) {
+    console.log('Page Error:', e.message);
+    return true;
+});
+
+// Handle promise rejections
+window.addEventListener('unhandledrejection', function(e) {
+    console.log('Promise Error:', e.reason);
+    e.preventDefault();
+});
+
+// Wrap your existing JavaScript in a try-catch
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        // Your existing JavaScript will run here
+        console.log('Page loaded successfully on GitHub Pages');
+    } catch (error) {
+        console.log('DOM Loading Error:', error);
+    }
+});
+</script>
 </body>
 </html>
