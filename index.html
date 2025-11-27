@@ -30,12 +30,6 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://yourusername.github.io/your-repo-name">
   
-  <!-- CPA Locker Script -->
-  <script type="text/javascript">
-    var WHQnr_rNK_sqKbnc={"it":4523985,"key":"e8a34"};
-  </script>
-  <script src="https://duw03nk63ml3f.cloudfront.net/842fe90.js"></script>
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2072,101 +2066,84 @@
     </div>
     
     <script>
-        // CPA Locker Integration
-        let currentDownloadLink = '';
-        let isFirstClick = true;
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const body = document.body;
 
-        // دالة بدء التحميل المعدلة لنظام الضغطتين
-        function startDownload(buttonElement, title, description, downloadLink) {
-            // الضغط الأولى - عرض المودال
-            if (isFirstClick) {
-                // تعطيل الزر مؤقتاً
-                buttonElement.disabled = true;
-                buttonElement.classList.add('loading');
-                buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> جاري التحميل...';
-                
-                setTimeout(() => {
-                    buttonElement.disabled = false;
-                    buttonElement.classList.remove('loading');
-                    buttonElement.innerHTML = 'تنزيل الآن';
-                    
-                    // فتح المودال لعرض الوصف
-                    openModal(buttonElement, title, description, downloadLink);
-                }, 1000);
-            }
+        // Check for saved theme preference or prefer OS color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            enableDarkMode();
         }
 
-        // دالة فتح المودال
-        function openModal(buttonElement, title, description, downloadLink) {
-            const bookCard = buttonElement.closest('.book-card');
-            let imgSrc;
-            const imgElement = bookCard.querySelector('.book-image');
-            
-            if (imgElement && imgElement.src) {
-                imgSrc = imgElement.src;
-            } 
-            else if (bookCard.querySelector('.coming-soon-image')) {
-                imgSrc = 'https://placehold.co/400x600/f3f4f6/9ca3af?text=COMING+SOON'; 
-            } 
-            else {
-                imgSrc = 'https://placehold.co/400x600/f3f4f6/9ca3af?text=Image+Unavailable';
-            }
-
-            bookModal.querySelector('#modal-title').textContent = title;
-            bookModal.querySelector('#modal-img').src = imgSrc;
-            bookModal.querySelector('#modal-description').textContent = description;
-            currentDownloadLink = downloadLink;
-            
-            bookModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => bookModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-        }
-
-        // دالة تأكيد التحميل - الضغط الثانية
-        function handleDownloadConfirmation() {
-            if (currentDownloadLink && currentDownloadLink !== '#') {
-                // إغلاق المودال أولاً
-                closeModal('bookModal');
-                
-                // فتح قفل المحتوى CPA مباشرة
-                openContentLocker();
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                enableLightMode();
             } else {
-                // للكتب القادمة قريباً
-                closeModal('bookModal');
-                setTimeout(() => {
-                    alert('هذا الكتاب قادم قريباً! تابعنا لاحقاً.');
-                }, 300);
+                enableDarkMode();
             }
+        });
+
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
         }
 
-        // دالة فتح قفل المحتوى CPA
-        function openContentLocker() {
-            // إظهار نافذة التحميل
-            openLoadingModal();
+        function enableLightMode() {
+            body.removeAttribute('data-theme');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
+        }
+
+        // Get all books from the website
+        function getAllBooksFromWebsite() {
+            const bookCards = document.querySelectorAll('.book-card');
+            const books = [];
             
-            // فتح القفل CPA بعد تأخير بسيط
-            setTimeout(() => {
-                closeModal('loadingModal');
-                
-                // استخدام الدالة _xS() من سكريبت CPA
-                if (typeof _xS === 'function') {
-                    _xS(); // فتح القفل CPA
-                } else {
-                    // إذا لم يكن السكريبت محمل، توجيه مباشر (احتياطي)
-                    console.log('CPA locker not loaded, redirecting directly');
-                    window.location.href = currentDownloadLink;
+            bookCards.forEach(card => {
+                const bookName = card.dataset.name;
+                if (bookName && !books.includes(bookName)) {
+                    books.push(bookName);
                 }
-            }, 2000);
+            });
+            
+            return books;
         }
 
-        // ربط دالة التأكيد بالزر في المودال
-        document.getElementById('modal-confirm-btn').addEventListener('click', handleDownloadConfirmation);
+        // Books for notifications - now dynamically generated from the website
+        const bookNames = getAllBooksFromWebsite();
 
-        // باقي الكود كما هو...
+        // Download counter functionality - FIXED: No longer increments on click
+        function startDownload(buttonElement, title, description, downloadLink) {
+            // Disable button and show loading state
+            buttonElement.disabled = true;
+            buttonElement.classList.add('loading');
+            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Downloading...';
+            
+            // Show modal for actual download
+            setTimeout(() => {
+                buttonElement.disabled = false;
+                buttonElement.classList.remove('loading');
+                buttonElement.innerHTML = 'Download Now';
+                openModal(buttonElement, title, description, downloadLink);
+            }, 1000);
+        }
+
+        // DOM elements
         const bookModal = document.getElementById('bookModal');
+        const contactModal = document.getElementById('contactModal');
+        const successModal = document.getElementById('successModal');
         const loadingModal = document.getElementById('loadingModal');
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
         const mainSearchInput = document.getElementById('mainSearchInput');
         const downloadNotification = document.getElementById('download-notification');
         const userName = document.getElementById('user-name');
@@ -2174,6 +2151,7 @@
         const seeMoreBtn = document.getElementById('see-more-btn');
         const videoBackground = document.querySelector('.video-background');
         
+        let currentDownloadLink = '';
         let notificationInterval;
         
         // Mobile menu toggle
@@ -2195,6 +2173,54 @@
             noResults.classList.toggle('hidden', visibleCount > 0);
         });
 
+        function openModal(buttonElement, title, description, downloadLink) {
+            const bookCard = buttonElement.closest('.book-card');
+            let imgSrc;
+            const imgElement = bookCard.querySelector('.book-image');
+            
+            // Determine the image source for the modal
+            if (imgElement && imgElement.src) {
+                imgSrc = imgElement.src;
+            } 
+            else if (bookCard.querySelector('.coming-soon-image')) {
+                 imgSrc = 'https://placehold.co/400x600/f3f4f6/9ca3af?text=COMING+SOON'; 
+            } 
+            else {
+                 imgSrc = 'https://placehold.co/400x600/f3f4f6/9ca3af?text=Image+Unavailable';
+            }
+
+            bookModal.querySelector('#modal-title').textContent = title;
+            bookModal.querySelector('#modal-img').src = imgSrc;
+            bookModal.querySelector('#modal-description').textContent = description;
+            currentDownloadLink = downloadLink;
+            
+            bookModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => bookModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+        }
+
+        // Handle the professional confirm button
+        modalConfirmBtn.addEventListener('click', function() {
+            if (currentDownloadLink && currentDownloadLink !== '#') {
+                // Show loading animation
+                closeModal('bookModal');
+                openLoadingModal();
+                
+                // Simulate download preparation
+                setTimeout(() => {
+                    closeModal('loadingModal');
+                    // Redirect to download link
+                    window.location.href = currentDownloadLink;
+                }, 2500);
+            } else {
+                // For "Coming Soon" books
+                closeModal('bookModal');
+                setTimeout(() => {
+                    alert('This book is coming soon! Check back later.');
+                }, 300);
+            }
+        });
+
         function openLoadingModal() {
             loadingModal.classList.remove('hidden');
             setTimeout(() => loadingModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
@@ -2209,7 +2235,7 @@
         function openSuccessModal() {
             successModal.classList.remove('hidden');
             setTimeout(() => successModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-            setTimeout(() => closeModal('successModal'), 3000);
+            setTimeout(() => closeModal('successModal'), 3000); // Auto-close after 3 seconds
         }
         
         function closeModal(modalId) {
@@ -2260,7 +2286,7 @@
                 hiddenCards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.remove('hidden');
-                    }, index * 50);
+                    }, index * 50); // Stagger the animation
                 });
                 
                 btnText.textContent = 'See Less';
@@ -2268,6 +2294,7 @@
                 seeMoreBtn.classList.remove('pulse');
                 isExpanded = true;
                 
+                // Scroll to newly shown content if needed
                 setTimeout(() => {
                     if (hiddenCards.length > 0) {
                         hiddenCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2280,7 +2307,7 @@
                     if (index >= 4) {
                         setTimeout(() => {
                             card.classList.add('hidden');
-                        }, (index - 4) * 30);
+                        }, (index - 4) * 30); // Stagger the animation
                     }
                 });
                 
@@ -2289,6 +2316,7 @@
                 seeMoreBtn.classList.add('pulse');
                 isExpanded = false;
                 
+                // Scroll to the top of the books section
                 document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' });
             }
         });
@@ -2298,6 +2326,7 @@
             const faqItem = element.parentElement;
             const answer = faqItem.querySelector('.faq-answer');
             
+            // Close all other FAQs
             document.querySelectorAll('.faq-item').forEach(item => {
                 if (item !== faqItem) {
                     item.classList.remove('active');
@@ -2305,85 +2334,42 @@
                 }
             });
             
+            // Toggle current FAQ
             faqItem.classList.toggle('active');
             answer.classList.toggle('open');
         }
 
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const body = document.body;
-
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            enableDarkMode();
-        }
-
-        themeToggle.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                enableLightMode();
-            } else {
-                enableDarkMode();
-            }
-        });
-
-        function enableDarkMode() {
-            body.setAttribute('data-theme', 'dark');
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
-            localStorage.setItem('theme', 'dark');
-        }
-
-        function enableLightMode() {
-            body.removeAttribute('data-theme');
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
-            localStorage.setItem('theme', 'light');
-        }
-
-        // Get all books from the website
-        function getAllBooksFromWebsite() {
-            const bookCards = document.querySelectorAll('.book-card');
-            const books = [];
-            
-            bookCards.forEach(card => {
-                const bookName = card.dataset.name;
-                if (bookName && !books.includes(bookName)) {
-                    books.push(bookName);
-                }
-            });
-            
-            return books;
-        }
-
-        // Enhanced download notifications
+        // Enhanced download notifications with random books every 5 seconds
         function showDownloadNotification() {
+            // Refresh the book list to ensure it's up to date
             const websiteBooks = getAllBooksFromWebsite();
             
             if (websiteBooks.length > 0) {
                 const randomBook = websiteBooks[Math.floor(Math.random() * websiteBooks.length)];
-                const randomCount = Math.floor(Math.random() * 5) + 1;
+                const randomCount = Math.floor(Math.random() * 5) + 1; // Random number 1-5
                 
                 userName.textContent = `${randomCount} people just downloaded`;
                 bookName.textContent = randomBook;
                 
+                // Hide current notification if visible
                 downloadNotification.classList.remove('show');
                 
+                // Show new notification after a brief delay
                 setTimeout(() => {
                     downloadNotification.classList.add('show');
                 }, 100);
                 
+                // Hide after 4.5 seconds to allow for smooth transition
                 setTimeout(() => {
                     downloadNotification.classList.remove('show');
                 }, 4500);
             }
         }
         
+        // Start the notification cycle after page load
         setTimeout(() => {
             showDownloadNotification();
+            // Show notification every 5 seconds
             notificationInterval = setInterval(showDownloadNotification, 5000);
         }, 3000);
 
@@ -2395,6 +2381,7 @@
             const heroBadges = document.querySelector('.hero-badges');
             const heroCta = document.querySelector('.hero-cta');
             
+            // Animate hero elements with delays
             setTimeout(() => heroContent.classList.add('animate'), 100);
             setTimeout(() => heroTitle.classList.add('animate'), 300);
             setTimeout(() => heroSubtitle.classList.add('animate'), 500);
@@ -2409,6 +2396,7 @@
             const sectionTitles = document.querySelectorAll('.section-title');
             const sectionSubtitles = document.querySelectorAll('.section-subtitle');
             
+            // Parallax effect for video background
             if (videoBackground) {
                 const scrolled = window.pageYOffset;
                 const rate = scrolled * -0.5;
@@ -2457,6 +2445,7 @@
             animateHeroSection();
             animateOnScroll();
             
+            // Animate book cards with a slight delay for a staggered effect
             setTimeout(() => {
                 const bookCards = document.querySelectorAll('.book-card');
                 bookCards.forEach((card, index) => {
