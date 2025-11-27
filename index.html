@@ -1973,16 +1973,9 @@
 
         // Download counter functionality - FIXED: No longer increments on click
         function startDownload(buttonElement, downloadLink) {
-            // Disable button and show loading state
-            buttonElement.disabled = true;
-            buttonElement.classList.add('loading');
-            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Downloading...';
-            
-            // Redirect to download link after a brief delay
-            setTimeout(() => {
-                window.location.href = downloadLink;
-            }, 1000);
-        }
+    // Redirect to download link immediately
+    window.location.href = downloadLink;
+}
 
         // DOM elements
         const contactModal = document.getElementById('contactModal');
