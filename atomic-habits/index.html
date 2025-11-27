@@ -5,6 +5,15 @@
 <meta property="og:description" content="Download Atomic Habits FREE - Learn proven strategies to build good habits and break bad ones">
 <meta property="og:image" content="https://i.postimg.cc/rwtLndSP/Atomic.webp">
 <meta property="og:url" content="https://freeebooks.online/atomic-habits">
+        <!-- Additional OpenGraph Tags -->
+    <meta property="og:type" content="book">
+    <meta property="og:site_name" content="FreeEbooks">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Atomic Habits by James Clear | Free Download">
+    <meta name="twitter:description" content="Download Atomic Habits FREE - Learn proven strategies to build good habits and break bad ones">
+    <meta name="twitter:image" content="https://i.postimg.cc/rwtLndSP/Atomic.webp">
     <meta name="description" content="Download Atomic Habits by James Clear for FREE. Learn proven strategies to build good habits, break bad ones, and transform your life with this bestselling book.">
     <link rel="canonical" href="https://freeebooks.online/atomic-habits" />
     <meta charset="UTF-8">
@@ -753,9 +762,11 @@
         });
         
         facebookShare.addEventListener('click', function() {
-            const url = encodeURIComponent(shareUrl.value);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        });
+    const url = 'https://freeebooks.online/atomic-habits';
+    const text = "Check out Atomic Habits by James Clear - Available for FREE download! Learn proven strategies to build good habits and break bad ones.";
+    
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank', 'width=600,height=500');
+});
         
         copyShare.addEventListener('click', function() {
             shareUrl.select();
