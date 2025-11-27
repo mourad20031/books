@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
- <!-- Preload critical resources -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
- 
  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
   <script>
@@ -50,13 +42,12 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite", 
+  "@type": "WebSite",
   "name": "Free eBooks Online",
   "url": "https://freeebooks.online/",
-  "description": "Download thousands of free eBooks instantly across all genres - fiction, non-fiction, self-help, classics",
   "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://freeebooks.online/?s={search_term_string}",
+    "@type": "SearchAction", 
+    "target": "https://freeebooks.online/?q={search_term_string}"
     "query-input": "required name=search_term_string"
   }
 }
@@ -682,19 +673,12 @@
     <main>
         
         <!-- Single Video Section -->
-<section id="video-section" class="relative w-full h-96 overflow-hidden hero-gradient">
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
-        <div class="hero-content animate">
-            <h2 class="hero-title text-4xl md:text-5xl font-extrabold text-white mb-4">Premium eBooks</h2>
-            <p class="hero-subtitle text-xl text-white mb-8">Download Thousands of Free Books Instantly</p>
-            <div class="hero-cta">
-                <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
-                    <i class="fas fa-book-open mr-2"></i>Explore Books
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
+<section id="video-section" class="relative w-full h-96 overflow-hidden">
+    <!-- Single Video -->
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="34474-402606890.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     
     <!-- Content Overlay -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
@@ -2278,14 +2262,14 @@
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
         
-        // Video error handling - REMOVE THIS ENTIRE BLOCK since we removed the video
-// const video = document.querySelector('#video-section video');
-// if (video) {
-//     video.addEventListener('ended', function() {
-//         this.currentTime = 0;
-//         this.play();
-//     });
-// }
+        // Simple video looping
+        const video = document.querySelector('#video-section video');
+        if (video) {
+            video.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            });
+        }
     </script>
   <!-- Error Handling Script -->
 <script>
