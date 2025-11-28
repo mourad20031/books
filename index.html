@@ -1440,7 +1440,7 @@
             </div>
         </div>
     </section>
-             <!-- Simple Donation Section -->
+                 <!-- Smart Donation Section -->
     <section id="donation-section" class="py-8 bg-gradient-to-br from-green-50 to-blue-50">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-md mx-auto">
@@ -1453,32 +1453,39 @@
                         Enjoying our free eBooks? Help us keep the library growing!
                     </p>
                     
-                    <!-- Simple Donation Options -->
-                    <div class="grid grid-cols-3 gap-2 mb-4">
-                        <a href="https://paypal.me/MouradAsmine/3" 
-                           class="bg-green-50 border border-green-200 rounded-lg py-2 px-2 hover:bg-green-100 transition-all block text-center">
-                            <div class="text-green-600 font-bold text-sm">$3</div>
-                        </a>
-                        <a href="https://paypal.me/MouradAsmine/5" 
-                           class="bg-green-100 border border-green-400 rounded-lg py-2 px-2 hover:bg-green-200 transition-all block text-center">
-                            <div class="text-green-600 font-bold text-sm">$5</div>
-                        </a>
-                        <a href="https://paypal.me/MouradAsmine/10" 
-                           class="bg-green-50 border border-green-200 rounded-lg py-2 px-2 hover:bg-green-100 transition-all block text-center">
-                            <div class="text-green-600 font-bold text-sm">$10</div>
-                        </a>
-                    </div>
-                    
-                    <!-- Custom Amount -->
+                    <!-- Donation Amount Selection -->
                     <div class="mb-4">
-                        <p class="text-gray-600 text-xs mb-2">Custom amount:</p>
-                        <a href="https://paypal.me/MouradAsmine" 
-                           class="bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-3 px-6 rounded-lg text-sm transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
-                            <i class="fab fa-paypal mr-2"></i>Donate Any Amount
-                        </a>
+                        <p class="text-gray-600 text-sm mb-3 font-medium">Choose amount:</p>
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <button class="donation-option bg-green-50 border-2 border-green-200 rounded-lg py-3 hover:bg-green-100 transition-all" data-amount="1">
+                                <div class="text-green-600 font-bold">$1</div>
+                            </button>
+                            <button class="donation-option bg-green-50 border-2 border-green-200 rounded-lg py-3 hover:bg-green-100 transition-all" data-amount="5">
+                                <div class="text-green-600 font-bold">$5</div>
+                            </button>
+                            <button class="donation-option bg-green-50 border-2 border-green-200 rounded-lg py-3 hover:bg-green-100 transition-all" data-amount="10">
+                                <div class="text-green-600 font-bold">$10</div>
+                            </button>
+                        </div>
+                        
+                        <!-- Custom Amount -->
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm mb-2">Or enter custom amount:</p>
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-gray-600 font-medium">$</span>
+                                <input type="number" id="custom-amount" placeholder="Enter amount" 
+                                       class="w-32 px-3 py-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-center" min="1">
+                                <span class="text-gray-600 text-sm">USD</span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <p class="text-gray-500 text-xs">
+                    <!-- Donate Button -->
+                    <button id="donate-button" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-lg w-full transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                        <i class="fas fa-paper-plane mr-2"></i>Donate Now
+                    </button>
+                    
+                    <p class="text-gray-500 text-xs mt-3">
                         <i class="fas fa-lock mr-1"></i>Secure PayPal • Opens in new tab
                     </p>
                 </div>
@@ -1572,14 +1579,79 @@
             </div>
                      </div>
             
-            <!-- Donation Link in Footer -->
-            <div class="text-center mt-6 mb-4">
-                <a href="https://paypal.me/MouradAsmine" 
-                   target="_blank"
-                   class="inline-flex items-center bg-green-50 text-green-600 hover:bg-green-100 hover:text-green-700 py-2 px-4 rounded-full text-sm font-medium transition-all duration-200 border border-green-200">
-                    <i class="fas fa-heart mr-2 text-red-400"></i>Support Our Mission
-                </a>
-            </div>
+          </footer>
+
+    <!-- Donation System JavaScript -->
+    <script>
+    let selectedAmount = null;
+
+    // Donation option click handlers
+    document.querySelectorAll('.donation-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active class from all options
+            document.querySelectorAll('.donation-option').forEach(opt => {
+                opt.classList.remove('bg-green-100', 'border-green-400');
+                opt.classList.add('bg-green-50', 'border-green-200');
+            });
+            
+            // Add active class to clicked option
+            this.classList.remove('bg-green-50', 'border-green-200');
+            this.classList.add('bg-green-100', 'border-green-400');
+            
+            selectedAmount = this.dataset.amount;
+            document.getElementById('custom-amount').value = '';
+            
+            // Enable donate button
+            updateDonateButton();
+        });
+    });
+
+    // Custom amount handler
+    document.getElementById('custom-amount').addEventListener('input', function(e) {
+        // Remove active class from fixed amount buttons
+        document.querySelectorAll('.donation-option').forEach(opt => {
+            opt.classList.remove('bg-green-100', 'border-green-400');
+            opt.classList.add('bg-green-50', 'border-green-200');
+        });
+        
+        selectedAmount = e.target.value;
+        updateDonateButton();
+    });
+
+    // Update donate button state
+    function updateDonateButton() {
+        const donateButton = document.getElementById('donate-button');
+        const amount = selectedAmount || document.getElementById('custom-amount').value;
+        
+        if (amount && amount >= 1) {
+            donateButton.disabled = false;
+            donateButton.innerHTML = `<i class="fas fa-paper-plane mr-2"></i>Donate $${amount}`;
+        } else {
+            donateButton.disabled = true;
+            donateButton.innerHTML = `<i class="fas fa-paper-plane mr-2"></i>Donate Now`;
+        }
+    }
+
+    // Donate button handler
+    document.getElementById('donate-button').addEventListener('click', function() {
+        const amount = selectedAmount || document.getElementById('custom-amount').value;
+        
+        if (!amount || amount < 1) {
+            alert('Please select or enter a donation amount ($1 minimum)');
+            return;
+        }
+        
+        // Redirect to PayPal with the selected amount
+        const paypalUrl = `https://paypal.me/MouradAsmine/${amount}`;
+        window.open(paypalUrl, '_blank');
+    });
+
+    // Initialize button state
+    updateDonateButton();
+    </script>
+
+    <!-- All modals -->
+    <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
 
             <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
             <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
