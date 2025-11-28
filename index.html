@@ -1523,51 +1523,7 @@
                 </div>
             </div>
         </div>
-     <script>
-// Contact Form Handler for Google Sheets
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    
-    // Show loading state
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-    submitBtn.disabled = true;
-    
-    const formData = {
-        name: document.getElementById('fullName').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Your Google Apps Script URL
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzRzBS2OjPM-qBbFfncXGlS7e1l4dMhP5fgv2yc9UX6JHRT_DVwd_MGqsI3enmMq3E6ig/exec';
-    
-    fetch(scriptUrl, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.result === 'success') {
-            alert('Message sent successfully!');
-            this.reset();
-        } else {
-            alert('Error: ' + (data.error || 'Failed to send message'));
-        }
-    })
-    .catch(error => {
-        alert('Error sending message. Please try again.');
-        console.error('Error:', error);
-    })
-    .finally(() => {
-        // Reset button
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    });
-});
-</script>
+   
     </section>
     
     <section class="text-center py-4 border-t border-gray-100">
