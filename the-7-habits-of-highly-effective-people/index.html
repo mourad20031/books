@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta property="og:title" content="The 7 Habits of Highly Effective People by Stephen Covey | Free Download">
+    <meta property="og:description" content="Download 7 Habits of Highly Effective People FREE - Powerful lessons in personal change">
+    <meta property="og:image" content="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp">
+    <meta property="og:url" content="https://freeebooks.online/7-habits">
+    <meta property="og:type" content="book">
+    <meta property="og:site_name" content="FreeEbooks">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The 7 Habits of Highly Effective People by Stephen Covey | Free Download">
+    <meta name="twitter:description" content="Download 7 Habits of Highly Effective People FREE - Powerful lessons in personal change">
+    <meta name="twitter:image" content="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp">
+    <meta name="description" content="Download The 7 Habits of Highly Effective People by Stephen Covey for FREE. Transform your life with timeless principles of personal and professional effectiveness.">
+    <link rel="canonical" href="https://freeebooks.online/7-habits" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 7 Habits of Highly Effective People by Stephen Covey | FreeEbooks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1a1a1a;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #ffffff;
+            --header-bg: #1e293b;
+            --card-bg: #334155;
+            --border-color: #475569;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .header-bg {
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+        
+        .book-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.12);
+            border-color: #dc2626;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        .author-card {
+            background: linear-gradient(135deg, #fecaca, #fca5a5);
+        }
+
+        [data-theme="dark"] .author-card {
+            background: linear-gradient(135deg, #1e293b, #334155);
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .share-modal.active {
+            display: flex;
+        }
+        
+        .share-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .share-link {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .share-link input {
+            background: transparent;
+            border: none;
+            flex-grow: 1;
+            padding: 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .share-link button {
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .share-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .share-button:hover {
+            background: var(--bg-color);
+        }
+        
+        .share-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .facebook {
+            background: #1877F2;
+            color: white;
+        }
+        
+        .copy {
+            background: #6B7280;
+            color: white;
+        }
+
+        /* Theme Toggle Styles */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+        }
+
+        .theme-toggle:hover {
+            background-color: transparent;
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-icon.hidden {
+            display: none;
+        }
+
+        /* Dark mode text colors */
+        [data-theme="dark"] .text-gray-900,
+        [data-theme="dark"] .text-gray-800,
+        [data-theme="dark"] .text-gray-700,
+        [data-theme="dark"] .text-gray-600,
+        [data-theme="dark"] .text-gray-500,
+        [data-theme="dark"] .text-gray-400 {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .bg-white {
+            background-color: var(--header-bg) !important;
+        }
+
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: #1e293b !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header - Matching Main Site -->
+    <header class="header-bg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://freeebooks.online" class="flex items-center">
+                <h2 class="text-lg font-bold text-gray-900 tracking-tight">
+                    <i class="fas fa-book text-red-500"></i> Free<span class="text-black">Ebooks</span>
+                </h2>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#trending" class="text-gray-600 hover:text-red-500 transition text-sm font-medium">Trending</a>
+                <a href="#all-books-header" class="text-gray-600 hover:text-red-500 transition text-sm font-medium">All Books</a>
+                <a href="#faq-section" class="text-gray-600 hover:text-red-500 transition text-sm font-medium">FAQ</a>
+                <a href="#contact-section" class="text-gray-600 hover:text-red-500 transition text-sm font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                    <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
+            <a href="#trending" class="block text-gray-600 hover:text-red-500 transition py-2 text-sm font-medium">Trending</a>
+            <a href="#all-books-header" class="block text-gray-600 hover:text-red-500 transition py-2 text-sm font-medium">All Books</a>
+            <a href="#faq-section" class="block text-gray-600 hover:text-red-500 transition py-2 text-sm font-medium">FAQ</a>
+            <a href="#contact-section" class="block text-gray-600 hover:text-red-500 transition py-2 text-sm font-medium">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-red-200">The 7 Habits of Highly Effective People</h1>
+                    <p class="text-xl mb-6">Powerful Lessons in Personal Change</p>
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 text-lg mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-white">4.9/5 (143,000+ downloads)</span>
+                    </div>
+                    <button id="share-btn" class="bg-white/20 text-white py-3 px-6 rounded-lg font-semibold text-base flex items-center justify-center hover:bg-white/30 transition">
+                        <i class="fas fa-share-alt mr-2"></i> Share with a Friend
+                    </button>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="text-center">
+                        <div class="relative inline-block">
+                            <img src="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp" alt="The 7 Habits of Highly Effective People Book Cover" class="w-64 md:w-80 rounded-lg book-shadow floating-animation">
+                            <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-gray-800 px-4 py-2 rounded-lg shadow-lg">
+                                <span class="font-bold">FREE</span> Download
+                            </div>
+                        </div>
+                        <!-- Download Button Below Book -->
+                        <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
+                            <i class="fas fa-download mr-2"></i> Download Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Details Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-2/3">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Book</h2>
+                    <p class="text-gray-700 mb-6">
+                        <strong>The 7 Habits of Highly Effective People</strong> by Stephen R. Covey is a landmark book that has transformed millions of lives worldwide. This international bestseller presents a holistic, integrated, principle-centered approach for solving personal and professional problems. If you enjoyed this, check out our other <a href="https://freeebooks.online/personal-development-books" class="text-red-500 hover:underline">personal development books</a>.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        With penetrating insights and practical anecdotes, Stephen Covey reveals a step-by-step pathway for living with fairness, integrity, honesty, and human dignity. The 7 Habits provide a sequential framework that moves you from dependence to independence to interdependence, helping you achieve true effectiveness in all areas of life.
+                    </p>
+                    <p class="text-gray-700 mb-8">
+                        "Sow a thought, reap an action; sow an action, reap a habit; sow a habit, reap a character; sow a character, reap a destiny." This powerful sequence lies at the heart of this transformative work that continues to change lives decades after its initial publication.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">What You'll Learn</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">How to shift from dependence to independence to interdependence</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">The power of being proactive rather than reactive</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">How to begin with the end in mind and create personal mission statements</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Put first things first through effective time management</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Think win-win in interpersonal relationships</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Seek first to understand, then to be understood</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3">
+                    <div class="feature-card p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Book Details</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Author:</span>
+                                <span class="font-medium text-gray-900">Stephen R. Covey</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Pages:</span>
+                                <span class="font-medium text-gray-900">372 pages</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Published:</span>
+                                <span class="font-medium text-gray-900">August 15, 1989</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Publisher:</span>
+                                <span class="font-medium text-gray-900">Free Press</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Language:</span>
+                                <span class="font-medium text-gray-900">English</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Format:</span>
+                                <span class="font-medium text-gray-900">PDF, EPUB, MOBI</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">File Size:</span>
+                                <span class="font-medium text-gray-900">5.8 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="author-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">About the Author</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">SC</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Stephen R. Covey</h4>
+                                <p class="text-gray-600 text-sm">Leadership Authority, Teacher, Author</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            Stephen R. Covey was an internationally respected leadership authority, family expert, teacher, organizational consultant, and author. His book The 7 Habits of Highly Effective People has sold over 40 million copies in 50+ languages and was named the #1 Most Influential Business Book of the Twentieth Century.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">The 7 Habits That Transform Lives</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card p-6">
+                    <div class="text-red-500 text-2xl mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Habit 1: Be Proactive</h3>
+                    <p class="text-gray-700">
+                        Take initiative and responsibility for your life. Don't blame circumstances or conditions - recognize your ability to choose your response.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-red-500 text-2xl mb-4">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Habit 2: Begin with the End in Mind</h3>
+                    <p class="text-gray-700">
+                        Define clear personal and professional goals. Start with a clear understanding of your destination to ensure your steps are always in the right direction.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-red-500 text-2xl mb-4">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Habit 3: Put First Things First</h3>
+                    <p class="text-gray-700">
+                        Prioritize and execute around your most important goals. Focus on what matters most, not what's most urgent.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-red-500 text-2xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Habit 4: Think Win-Win</h3>
+                    <p class="text-gray-700">
+                        Seek mutual benefit in all human interactions. Frame success in terms of cooperation rather than competition.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-red-500 text-2xl mb-4">
+                        <i class="fas fa-ear-listen"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Habit 5: Seek First to Understand</h3>
+                    <p class="text-gray-700">
+                        Listen empathetically to understand others deeply before trying to be understood. This habit is key to effective communication.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-red-500 text-2xl mb-4">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Habit 6: Synergize</h3>
+                    <p class="text-gray-700">
+                        Combine the strengths of people through positive teamwork to achieve goals no one could have accomplished alone.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What Readers Are Saying</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="testimonial-card p-6">
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "The 7 Habits completely reshaped how I approach both my personal and professional life. The principles are timeless and practical. This book is a must-read for anyone seeking personal growth."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold mr-3">SJ</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">Business Consultant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6">
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "I've read this book three times over the past decade, and each time I discover new insights. The 7 Habits framework has helped me build a successful career and meaningful relationships."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">MR</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Michael Roberts</h4>
+                            <p class="text-gray-600 text-sm">Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6">
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "This book found me at exactly the right time in my life. The principles of proactivity and beginning with the end in mind helped me turn my life around completely."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3">ED</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Emily Davis</h4>
+                            <p class="text-gray-600 text-sm">Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-red-600 to-red-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Transform Your Life with Timeless Principles</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Join over 40 million readers worldwide who have transformed their lives using Stephen Covey's powerful 7 Habits framework for personal and professional effectiveness.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i> Download your free eBook
+                </button>
+                <button id="final-share-btn" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-white/30 transition">
+                    <i class="fas fa-share-alt mr-2"></i> Share with a Friend
+                </button>
+            </div>
+            <p class="mt-6 text-red-100">
+                <i class="fas fa-lock mr-2"></i>100% Free • No Registration Required • Instant Download
+            </p>
+        </div>
+    </section>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="share-modal">
+        <div class="share-box">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Share This Book</h3>
+                <button id="close-share" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="share-link">
+                <input type="text" id="share-url" value="https://freeebooks.online/7-habits" readonly>
+                <button id="copy-link">Copy</button>
+            </div>
+            
+            <div class="share-buttons">
+                <div class="share-button" id="whatsapp-share">
+                    <div class="share-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <span class="text-sm">WhatsApp</span>
+                </div>
+                
+                <div class="share-button" id="facebook-share">
+                    <div class="share-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <span class="text-sm">Facebook</span>
+                </div>
+                
+                <div class="share-button" id="copy-share">
+                    <div class="share-icon copy">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <span class="text-sm">Copy Link</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Restored as requested -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        <i class="fas fa-book text-red-500"></i> Free<span class="text-black">Ebooks</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 max-w-md">
+                        Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-red-500 transition">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-red-500 transition">
+                            <i class="fab fa-facebook text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-red-500 transition">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#trending" class="hover:text-red-500 transition">Trending Books</a>
+                        <a href="#all-books-header" class="hover:text-red-500 transition">All Books</a>
+                        <a href="#faq-section" class="hover:text-red-500 transition">FAQ</a>
+                        <a href="#contact-section" class="hover:text-red-500 transition">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#" class="hover:text-red-500 transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-red-500 transition">Terms of Service</a>
+                        <a href="#" class="hover:text-red-500 transition">Cookie Policy</a>
+                        <a href="#" class="hover:text-red-500 transition">DMCA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or prefer OS color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            enableDarkMode();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function enableLightMode() {
+            body.removeAttribute('data-theme');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
+        }
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Share functionality
+        const shareBtn = document.getElementById('share-btn');
+        const finalShareBtn = document.getElementById('final-share-btn');
+        const shareModal = document.getElementById('share-modal');
+        const closeShare = document.getElementById('close-share');
+        const copyLink = document.getElementById('copy-link');
+        const shareUrl = document.getElementById('share-url');
+        const whatsappShare = document.getElementById('whatsapp-share');
+        const facebookShare = document.getElementById('facebook-share');
+        const copyShare = document.getElementById('copy-share');
+        
+        shareBtn.addEventListener('click', function() {
+            shareModal.classList.add('active');
+        });
+        
+        finalShareBtn.addEventListener('click', function() {
+            shareModal.classList.add('active');
+        });
+        
+        closeShare.addEventListener('click', function() {
+            shareModal.classList.remove('active');
+        });
+        
+        copyLink.addEventListener('click', function() {
+            shareUrl.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        });
+        
+        whatsappShare.addEventListener('click', function() {
+            const url = encodeURIComponent(shareUrl.value);
+            const text = encodeURIComponent("Check out this amazing book: The 7 Habits of Highly Effective People by Stephen Covey");
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+        });
+        
+        facebookShare.addEventListener('click', function() {
+            const url = 'https://freeebooks.online/7-habits';
+            const text = "Check out The 7 Habits of Highly Effective People by Stephen Covey - Available for FREE download! Powerful lessons in personal change.";
+            
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank', 'width=600,height=500');
+        });
+        
+        copyShare.addEventListener('click', function() {
+            shareUrl.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        });
+        
+        // Close modal when clicking outside
+        shareModal.addEventListener('click', function(e) {
+            if (e.target === shareModal) {
+                shareModal.classList.remove('active');
+            }
+        });
+        
+        // Download button functionality
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, this would trigger the actual download
+                alert('Thank you for your interest! The download will begin shortly.');
+                
+                // Simulate download after a short delay
+                setTimeout(function() {
+                    // This would be the actual download link
+                    // window.location.href = 'https://example.com/download/7-habits.pdf';
+                    console.log('Download initiated for The 7 Habits of Highly Effective People');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
