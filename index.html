@@ -2049,7 +2049,7 @@
             });
         }
 
-               // ========== MUSIC PLAYER CODE ==========
+              // ========== MUSIC PLAYER CODE ==========
 // Music Player Functionality
 const musicToggle = document.getElementById('music-toggle');
 const backgroundMusic = document.getElementById('background-music');
@@ -2133,11 +2133,11 @@ musicToggle.addEventListener('click', function(e) {
 // Update music button appearance
 function updateMusicButton(isPlaying) {
     if (isPlaying) {
-        musicToggle.innerHTML = '<i class="fas fa-pause text-xs"></i>';
+        musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
         musicToggle.classList.remove('from-blue-500', 'to-purple-600');
         musicToggle.classList.add('from-green-500', 'to-green-600');
     } else {
-        musicToggle.innerHTML = '<i class="fas fa-play text-xs transform translate-x-0.5"></i>';
+        musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
         musicToggle.classList.remove('from-green-500', 'to-green-600');
         musicToggle.classList.add('from-blue-500', 'to-purple-600');
     }
@@ -2164,7 +2164,7 @@ function showAudioInstructions() {
     }, 5000);
 }
 
-// Show "Hear that?" notification after 5 seconds if user hasn't clicked
+// Show "You hear?" notification after 5 seconds if user hasn't clicked
 function showAudioNotification() {
     if (audioNotificationShown || musicPlaying) return;
     
