@@ -2049,17 +2049,33 @@
             });
         }
 
-        // ========== MUSIC PLAYER CODE ==========
+                // ========== MUSIC PLAYER CODE ==========
         // Music Player Functionality
         const musicToggle = document.getElementById('music-toggle');
         const backgroundMusic = document.getElementById('background-music');
         let musicPlaying = false;
+        let audioNotificationShown = false;
 
         // Set volume to a reasonable level
         if (backgroundMusic) {
             backgroundMusic.volume = 0.3;
 
+            // Preload and prepare audio on first user interaction
+            function initAudio() {
+                backgroundMusic.load();
+                // Remove this event listener after first interaction
+                document.removeEventListener('click', initAudio);
+                document.removeEventListener('touchstart', initAudio);
+            }
+
+            // Listen for any user interaction to initialize audio
+            document.addEventListener('click', initAudio, { once: true });
+            document.addEventListener('touchstart', initAudio, { once: true });
+
             musicToggle.addEventListener('click', function() {
+                // Make sure audio is initialized
+                initAudio();
+                
                 if (musicPlaying) {
                     // Pause music
                     backgroundMusic.pause();
@@ -2076,7 +2092,8 @@
                         musicPlaying = true;
                     }).catch(error => {
                         console.error('Audio play failed:', error);
-                        alert('Audio could not be played. Please click the button again or check your browser permissions.');
+                        // If autoplay fails, show instructions
+                        showAudioInstructions();
                     });
                 }
             });
@@ -2087,12 +2104,78 @@
                 alert('Audio file not found or corrupted. Please check the file path.');
             });
 
-            // Try to play audio when user interacts with page
-            document.addEventListener('click', function initAudio() {
-                backgroundMusic.load();
-                document.removeEventListener('click', initAudio);
-            }, { once: true });
+            // Show "Hear that?" notification after 5 seconds if user hasn't clicked
+            setTimeout(() => {
+                if (!musicPlaying && !audioNotificationShown) {
+                    showAudioNotification();
+                }
+            }, 5000);
         }
+
+        // Show audio notification
+        function showAudioNotification() {
+            if (audioNotificationShown) return;
+            
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
+            notification.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-music text-sm"></i>
+                    <span class="font-semibold text-sm">Hear that?</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            audioNotificationShown = true;
+            
+            // Auto-remove after 4 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 4000);
+        }
+
+        // Show audio instructions if autoplay fails
+        function showAudioInstructions() {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
+            notification.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-info-circle text-sm"></i>
+                    <span class="font-semibold text-sm">Click the music button to play audio</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Add CSS for animation
+        const style = document.createElement('style');
+        style.textContent = `
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.5s ease-out;
+        }
+        `;
+        document.head.appendChild(style);
+        // ========== END OF MUSIC PLAYER CODE ==========
         // ========== END OF MUSIC PLAYER CODE ==========
 
     </script>
