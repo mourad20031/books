@@ -1065,742 +1065,331 @@
             </section>
 
             <div id="all-books-header" class="text-center my-8">
-                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Books</h2>
-                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium eBooks with unlimited access</p>
-            </div>
+    <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Books</h2>
+    <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium eBooks with unlimited access</p>
+</div>
 
-            <div id="books-grid" class="compact-grid grid">
-                <!-- Only 4 books initially visible -->
-                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/8P9v2bJm/the-alchemist.jpg" alt="The Alchemist" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="267000">98.5K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/the-alchemist')">Download Now</button>
-                    </div>
-                </div>
-                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/9QpN8JXy/atomic-habits.jpg" alt="Atomic Habits" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.9</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="189000">127K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/atomic-habits')">Download Now</button>
-                    </div>
-                </div>
-                
-                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Thinking, Fast and Slow">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/0jXc9sL3/thinking-fast-slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">4.9</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="156000">156K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/thinking-fast-slow')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Four Winds">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="The Four Winds" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="134000">134K</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/the-four-winds')">Download Now</button>
-                        </div>
-                    </div>
-
-                <!-- Hidden books -->
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Project Hail Mary">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Project Hail Mary" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="52300">52.3K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/project-hail-mary')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Klara and the Sun">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Klara and the Sun" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="38700">38.7K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/klara-and-the-sun')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Psychology of Money">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/7YvqK9cK/psychology-of-money.jpg" alt="The Psychology of Money" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="187000">187K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/psychology-of-money')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Midnight Library">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="The Midnight Library" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="52300">52.3K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/midnight-library')">Download Now</button>
-                    </div>
-                </div>
-
-                <!-- Additional books -->
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Power of Now">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/3wLfqZ7Q/power-of-now.jpg" alt="The Power of Now" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="198000">198K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/power-of-now')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Sapiens: A Brief History of Humankind">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/0NxG9t2z/sapiens.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.7</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="87600">87.6K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/sapiens')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Subtle Art of Not Giving a F*ck">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/9Fy0Y9dM/subtle-art.jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subtle Art of Not Giving a F*ck</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="96700">96.7K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/subtle-art')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Educated">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/8C8cW1sG/educated.jpg" alt="Educated" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="71200">71.2K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/educated')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Deep Work">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/8zQNvJxM/deep-work.jpg" alt="Deep Work" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="29800">215K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/deep-work')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The 7 Habits of Highly Effective People">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="The 7 Habits of Highly Effective People" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="223000">178K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/7-habits')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Dune">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="Dune" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Dune</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="298000">89.2K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/dune')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="1984">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <img src="https://i.postimg.cc/3JwQkY3F/7-habits.jpg" alt="1984" class="book-image">
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">1984</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.7</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="312000">312K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/1984')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="To Kill a Mockingbird">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">To Kill a Mockingbird</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="234000">234K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/to-kill-a-mockingbird')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Great Gatsby">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Great Gatsby</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="287000">287K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/the-great-gatsby')">Download Now</button>
-                    </div>
-                </div>
-
-                <!-- Additional books to reach 50 total -->
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Pride and Prejudice">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Pride and Prejudice</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="198000">198K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/pride-and-prejudice')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Hobbit">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hobbit</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="345000">345K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/the-hobbit')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Harry Potter and the Sorcerer's Stone">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Harry Potter and the Sorcerer's Stone</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="276000">276K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/harry-potter-1')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Catcher in the Rye">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Catcher in the Rye</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.7</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="312000">312K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/catcher-in-the-rye')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Lord of the Flies">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Lord of the Flies</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="187000">187K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/lord-of-the-flies')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Brave New World">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brave New World</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="234000">234K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/brave-new-world')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Odyssey">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Odyssey</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="198000">198K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/the-odyssey')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Moby Dick">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Moby Dick</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="167000">167K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/moby-dick')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="War and Peace">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">War and Peace</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="223000">223K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/war-and-peace')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Crime and Punishment">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Crime and Punishment</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="134000">134K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/crime-and-punishment')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Brothers Karamazov">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Brothers Karamazov</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="287000">287K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/brothers-karamazov')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Anna Karenina">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Anna Karenina</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="198000">198K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/anna-karenina')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Divine Comedy">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Divine Comedy</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="176000">176K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/divine-comedy')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Don Quixote">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Don Quixote</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span class="text-gray-500 ml-1">4.8</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="143000">143K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/don-quixote')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Iliad">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Iliad</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="123000">123K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/the-iliad')">Download Now</button>
-                    </div>
-                </div>
-
-                <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Frankenstein">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        <div class="coming-soon-image">Coming Soon</div>
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Frankenstein</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span class="text-gray-500 ml-1">5.0</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter" data-count="98000">98K</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/frankenstein')">Download Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
-                <i class="fas fa-frown text-2xl mb-2"></i>
-                <p class="text-sm">No books found matching your search.</p>
-            </div>
-            
-            <div id="see-more-container" class="text-center mt-8">
-                <button id="see-more-btn" class="btn-see-more pulse">
-                    <span class="text">See More Books</span>
-                    <span class="icon">
-                        <i class="fas fa-chevron-down"></i>
-                    </span>
-                </button>
-            </div>
+<div id="books-grid" class="compact-grid grid">
+    <!-- Only 4 books initially visible -->
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/J79sR6LP/The-Alchemist-cover.jpg" alt="The Alchemist" class="book-image">
         </div>
-    </main>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="267000">267K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-alchemist')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/3NxNwg0q/Atomic.webp" alt="Atomic Habits" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.9</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="189000">189K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">Download Now</button>
+        </div>
+    </div>
+    
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Thinking, Fast and Slow">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/tTJj6jhY/Thinking-Fast-and-Slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">4.9</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="156000">156K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/thinking-fast-and-slow')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Four Winds">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/y84XgcJK/The-Powerof-Now-min.jpg" alt="The Four Winds" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="134000">134K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-four-winds')">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Hidden books -->
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Project Hail Mary">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/GhJVpL28/713j-Io-MO3UL.jpg" alt="Project Hail Mary" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="52300">52.3K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/project-hail-mary')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Klara and the Sun">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/NfMf6zHX/images-(1).jpg" alt="Klara and the Sun" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="38700">38.7K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/klara-and-the-sun')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Psychology of Money">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/zfp1G4wh/POM.webp" alt="The Psychology of Money" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="187000">187K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-psychology-of-money')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Midnight Library">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/VNc8VGdg/images-(2).jpg" alt="The Midnight Library" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="52300">52.3K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-midnight-library')">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Additional books -->
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Power of Now">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/y84XgcJK/The-Powerof-Now-min.jpg" alt="The Power of Now" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="198000">198K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-power-of-now')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Sapiens: A Brief History of Humankind">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/jjd4hKtm/718Q61qx-GSL-UF1000-1000-QL80.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.7</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="87600">87.6K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/sapiens')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Subtle Art of Not Giving a F*ck">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/4N0GG4Fb/images-(3).jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subtle Art of Not Giving a F*ck</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="96700">96.7K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-subtle-art-of-not-giving-a-fuck')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Educated">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/KvkVnPJH/images-(4).jpg" alt="Educated" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="71200">71.2K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/educated')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Deep Work">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/ry0XJ2p4/images-(5).jpg" alt="Deep Work" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="215000">215K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/deep-work')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The 7 Habits of Highly Effective People">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/sgrXQdWm/images.jpg" alt="The 7 Habits of Highly Effective People" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="223000">223K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-7-habits-of-highly-effective-people')">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Remaining books with "Coming Soon" placeholder -->
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Dune">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <div class="coming-soon-image">Coming Soon</div>
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Dune</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="298000">298K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://example.com/download/dune')">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Continue with remaining books... -->
+</div>
+
+<div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
+    <i class="fas fa-frown text-2xl mb-2"></i>
+    <p class="text-sm">No books found matching your search.</p>
+</div>
+
+<div id="see-more-container" class="text-center mt-8">
+    <button id="see-more-btn" class="btn-see-more pulse">
+        <span class="text">See More Books</span>
+        <span class="icon">
+            <i class="fas fa-chevron-down"></i>
+        </span>
+    </button>
+</div>
  
 
 
