@@ -528,6 +528,51 @@
       transform: translateY(0);
     }
 
+
+   /* Music Player Styles */
+#music-player {
+    transition: all 0.3s ease;
+}
+
+#volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Dark mode support */
+[data-theme="dark"] #music-player .bg-white {
+    background-color: #334155 !important;
+}
+
+[data-theme="dark"] #volume-slider {
+    background: #475569;
+}
+
+   
+
     /* Enhanced Footer Styles */
     .footer-links a {
       transition: color 0.2s ease;
@@ -1756,6 +1801,38 @@
             </div>
         </div>
     </main>
+ 
+
+
+
+<!-- Background Music Player -->
+<div id="music-player" class="fixed bottom-4 right-4 z-50">
+    <div class="bg-white rounded-full shadow-lg p-3 flex items-center gap-3 transition-all duration-300 hover:shadow-xl">
+        <!-- Play/Pause Button -->
+        <button id="music-toggle" class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+            <i class="fas fa-play text-sm"></i>
+        </button>
+        
+        <!-- Volume Control -->
+        <div class="hidden md:flex items-center gap-2" id="volume-controls">
+            <button id="volume-down" class="text-gray-600 hover:text-blue-500">
+                <i class="fas fa-volume-down"></i>
+            </button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.3" class="w-20">
+            <button id="volume-up" class="text-gray-600 hover:text-blue-500">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+        
+        <!-- Audio Element -->
+        <audio id="background-music" loop>
+            <source src="5 Minute Timer - Relaxing Music with Ocean Waves.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</div>
+
+ 
 
     <!-- FAQ Section -->
     <section id="faq-section" class="py-12 bg-gray-50">
@@ -2266,6 +2343,89 @@
 
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
+
+     // Background Music Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const musicToggle = document.getElementById('music-toggle');
+    const backgroundMusic = document.getElementById('background-music');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeUp = document.getElementById('volume-up');
+    const volumeDown = document.getElementById('volume-down');
+    const volumeControls = document.getElementById('volume-controls');
+    
+    // Set initial volume
+    backgroundMusic.volume = 0.3;
+    
+    // Play/Pause toggle
+    musicToggle.addEventListener('click', function() {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play().catch(e => {
+                console.log('Audio play failed:', e);
+                // Show a message to user that interaction is required
+                alert('Please click anywhere on the page first to enable audio');
+            });
+            musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
+            musicToggle.classList.add('bg-green-500');
+            musicToggle.classList.remove('bg-blue-500');
+        } else {
+            backgroundMusic.pause();
+            musicToggle.innerHTML = '<i class="fas fa-play text-sm"></i>';
+            musicToggle.classList.remove('bg-green-500');
+            musicToggle.classList.add('bg-blue-500');
+        }
+    });
+    
+    // Volume control
+    volumeSlider.addEventListener('input', function() {
+        backgroundMusic.volume = this.value;
+    });
+    
+    volumeUp.addEventListener('click', function() {
+        if (backgroundMusic.volume < 1) {
+            backgroundMusic.volume = Math.min(1, backgroundMusic.volume + 0.1);
+            volumeSlider.value = backgroundMusic.volume;
+        }
+    });
+    
+    volumeDown.addEventListener('click', function() {
+        if (backgroundMusic.volume > 0) {
+            backgroundMusic.volume = Math.max(0, backgroundMusic.volume - 0.1);
+            volumeSlider.value = backgroundMusic.volume;
+        }
+    });
+    
+    // Auto-show volume controls on hover (for mobile)
+    let hideVolumeTimeout;
+    const musicPlayer = document.getElementById('music-player');
+    
+    musicPlayer.addEventListener('mouseenter', function() {
+        volumeControls.classList.remove('hidden');
+        clearTimeout(hideVolumeTimeout);
+    });
+    
+    musicPlayer.addEventListener('mouseleave', function() {
+        hideVolumeTimeout = setTimeout(() => {
+            if (window.innerWidth < 768) { // Only hide on mobile
+                volumeControls.classList.add('hidden');
+            }
+        }, 2000);
+    });
+    
+    // Enable audio on first user interaction (required by browsers)
+    function enableAudio() {
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+        
+        // Try to play audio if it's supposed to be playing
+        if (!backgroundMusic.paused) {
+            backgroundMusic.play().catch(e => console.log('Auto-play after interaction failed:', e));
+        }
+    }
+    
+    document.addEventListener('click', enableAudio);
+    document.addEventListener('touchstart', enableAudio);
+});
+     
         
         // Simple video looping
         const video = document.querySelector('#video-section video');
