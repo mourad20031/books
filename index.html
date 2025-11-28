@@ -1830,13 +1830,7 @@
         
         contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
 
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('Form Submitted with data:', new FormData(this));
-            this.reset();
-            closeModal('contactModal');
-            setTimeout(openSuccessModal, 350);  
-        });
+     
 
         // Modern See More functionality
         let isExpanded = false;
