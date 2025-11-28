@@ -1317,18 +1317,20 @@
     </button>
 </div>
 
-<!-- Small Music Button -->
-<div id="music-player" class="fixed bottom-4 right-4 z-50">
-    <button id="music-toggle" class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white">
-        <i class="fas fa-play text-xs transform translate-x-0.5"></i>
-    </button>
-    
-    <!-- Audio Element -->
-    <audio id="background-music" loop>
-        <source src="ElevenLabs_2025-11-28T21_41_38_Russell - Young and Excited_pvc_sp100_s50_sb75_v3.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-</div>
+    <!-- Small Music Button -->
+    <div id="music-player" class="fixed bottom-4 right-4 z-50">
+        <button id="music-toggle" class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white">
+            <i class="fas fa-play text-xs transform translate-x-0.5"></i>
+        </button>
+        
+        <!-- Audio Element with Fallback -->
+        <audio id="background-music" loop>
+            <source src="ElevenLabs_2025-11-28T21_41_38_Russell - Young and Excited_pvc_sp100_s50_sb75_v3.mp3" type="audio/mpeg">
+            <!-- Fallback to a test audio file -->
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
 <style>
 /* Dark mode support */
@@ -1780,7 +1782,7 @@
         </div>
     </div>
     
-    <script>
+        <script>
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
@@ -1817,29 +1819,11 @@
             localStorage.setItem('theme', 'light');
         }
 
-        // Get all books from the website
-        function getAllBooksFromWebsite() {
-            const bookCards = document.querySelectorAll('.book-card');
-            const books = [];
-            
-            bookCards.forEach(card => {
-                const bookName = card.dataset.name;
-                if (bookName && !books.includes(bookName)) {
-                    books.push(bookName);
-                }
-            });
-            
-            return books;
-        }
-
-        // Books for notifications - now dynamically generated from the website
-        const bookNames = getAllBooksFromWebsite();
-
-        // Download counter functionality - FIXED: No longer increments on click
+        // Download functionality
         function startDownload(buttonElement, downloadLink) {
-    // Redirect to download link immediately
-    window.location.href = downloadLink;
-}
+            // Redirect to download link immediately
+            window.location.href = downloadLink;
+        }
 
         // DOM elements
         const contactModal = document.getElementById('contactModal');
@@ -1903,8 +1887,6 @@
         });
         
         contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
-
-     
 
         // Modern See More functionality
         let isExpanded = false;
@@ -1971,13 +1953,6 @@
             faqItem.classList.toggle('active');
             answer.classList.toggle('open');
         }
-        
-        // Start the notification cycle after page load
-        setTimeout(() => {
-            showDownloadNotification();
-            // Show notification every 5 seconds
-            notificationInterval = setInterval(showDownloadNotification, 5000);
-        }, 3000);
 
         // Hero section animations
         function animateHeroSection() {
@@ -2064,7 +2039,6 @@
 
         // Animate on scroll
         window.addEventListener('scroll', animateOnScroll);
-     
         
         // Simple video looping
         const video = document.querySelector('#video-section video');
@@ -2074,102 +2048,53 @@
                 this.play();
             });
         }
-    </script>
-  <!-- Error Handling Script -->
-<script>
-// Global error handler for GitHub Pages
-window.addEventListener('error', function(e) {
-    console.log('Page Error:', e.message);
-    return true;
-});
 
-// Handle promise rejections
-window.addEventListener('unhandledrejection', function(e) {
-    console.log('Promise Error:', e.reason);
-    e.preventDefault();
-});
+        // ========== MUSIC PLAYER CODE ==========
+        // Music Player Functionality
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+        let musicPlaying = false;
 
-// Wrap your existing JavaScript in a try-catch
-document.addEventListener('DOMContentLoaded', function() {
-    try {
-        // Your existing JavaScript will run here
-        console.log('Page loaded successfully on GitHub Pages');
-    } catch (error) {
-        console.log('DOM Loading Error:', error);
-    }
-});
-</script>
+        // Set volume to a reasonable level
+        if (backgroundMusic) {
+            backgroundMusic.volume = 0.3;
 
-     <!-- 5-Second Audio Notification System -->
-<script>
-let audioNotificationShown = false;
+            musicToggle.addEventListener('click', function() {
+                if (musicPlaying) {
+                    // Pause music
+                    backgroundMusic.pause();
+                    musicToggle.innerHTML = '<i class="fas fa-play text-xs transform translate-x-0.5"></i>';
+                    musicToggle.classList.remove('bg-green-500', 'from-green-500', 'to-green-600');
+                    musicToggle.classList.add('bg-blue-500', 'from-blue-500', 'to-blue-600');
+                    musicPlaying = false;
+                } else {
+                    // Play music
+                    backgroundMusic.play().then(() => {
+                        musicToggle.innerHTML = '<i class="fas fa-pause text-xs"></i>';
+                        musicToggle.classList.remove('bg-blue-500', 'from-blue-500', 'to-blue-600');
+                        musicToggle.classList.add('bg-green-500', 'from-green-500', 'to-green-600');
+                        musicPlaying = true;
+                    }).catch(error => {
+                        console.error('Audio play failed:', error);
+                        alert('Audio could not be played. Please click the button again or check your browser permissions.');
+                    });
+                }
+            });
 
-function showAudioNotification() {
-    if (audioNotificationShown) return;
-    
-    const notification = document.createElement('div');
-    notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
-    notification.innerHTML = `
-        <div class="flex items-center gap-2">
-            <i class="fas fa-music text-sm"></i>
-            <span class="font-semibold text-sm">Hear that?</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    audioNotificationShown = true;
-    
-    // Auto-remove after 4 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.remove();
+            // Add error handling for audio
+            backgroundMusic.addEventListener('error', function(e) {
+                console.error('Audio error:', e);
+                alert('Audio file not found or corrupted. Please check the file path.');
+            });
+
+            // Try to play audio when user interacts with page
+            document.addEventListener('click', function initAudio() {
+                backgroundMusic.load();
+                document.removeEventListener('click', initAudio);
+            }, { once: true });
         }
-    }, 4000);
-}
+        // ========== END OF MUSIC PLAYER CODE ==========
 
-function playAudioAndCloseNotification(button) {
-    const backgroundMusic = document.getElementById('background-music');
-    const musicToggle = document.getElementById('music-toggle');
-    
-    backgroundMusic.play().catch(e => {
-        console.log('Audio play failed:', e);
-    });
-    musicToggle.innerHTML = '<i class="fas fa-pause text-xs"></i>';
-    musicToggle.classList.remove('bg-blue-500', 'from-blue-500', 'to-blue-600');
-    musicToggle.classList.add('bg-green-500', 'from-green-500', 'to-green-600');
-    
-    closeNotification(button);
-}
-
-function closeNotification(button) {
-    const notification = button.closest('.fixed');
-    if (notification) {
-        notification.remove();
-    }
-}
-
-// Show notification after 5 seconds
-setTimeout(showAudioNotification, 5000);
-
-// Add CSS for animation
-const style = document.createElement('style');
-style.textContent = `
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.animate-fade-in-up {
-    animation: fade-in-up 0.5s ease-out;
-}
-`;
-document.head.appendChild(style);
-</script>
-     
+    </script>
 </body>
 </html>
