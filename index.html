@@ -280,39 +280,6 @@
       border-color: #1e40af;
     }
     
-    /* Installation notification */
-    .download-notification {
-      position: fixed;
-      bottom: 20px;
-      left: -320px;
-      background: var(--card-bg);
-      border-radius: 8px;
-      padding: 10px 14px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 1000;
-      transition: left 0.5s ease-in-out, background-color 0.3s ease;
-      border-left: 4px solid #3b82f6;
-      max-width: 280px;
-    }
-    .download-notification.show {
-      left: 20px;
-    }
-    .user-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 600;
-      font-size: 0.8rem;
-    }
-    
     /* Compact book grid layout */
     .compact-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -1564,16 +1531,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Download Notifications -->
-    <div id="download-notification" class="download-notification">
-        <div class="user-avatar" id="user-avatar">👤</div>
-        <div>
-            <p class="text-sm font-medium text-gray-900" id="user-name">Someone just downloaded</p>
-            <p class="text-xs text-gray-500" id="book-name">Atomic Habits</p>
-        </div>
-    </div>
-
     <!-- All modals -->
     <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
         <div class="modal-content text-gray-900 rounded-lg w-full max-w-lg relative transform transition-all duration-300 scale-95 opacity-0">
@@ -1677,14 +1634,9 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mainSearchInput = document.getElementById('mainSearchInput');
-        const downloadNotification = document.getElementById('download-notification');
-        const userName = document.getElementById('user-name');
-        const bookName = document.getElementById('book-name');
         const seeMoreBtn = document.getElementById('see-more-btn');
         const videoBackground = document.querySelector('.video-background');
-        
-        let notificationInterval;
-        
+                
         // Mobile menu toggle
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
@@ -1811,33 +1763,6 @@
             // Toggle current FAQ
             faqItem.classList.toggle('active');
             answer.classList.toggle('open');
-        }
-
-        // Enhanced download notifications with random books every 5 seconds
-        function showDownloadNotification() {
-            // Refresh the book list to ensure it's up to date
-            const websiteBooks = getAllBooksFromWebsite();
-            
-            if (websiteBooks.length > 0) {
-                const randomBook = websiteBooks[Math.floor(Math.random() * websiteBooks.length)];
-                const randomCount = Math.floor(Math.random() * 5) + 1; // Random number 1-5
-                
-                userName.textContent = `${randomCount} people just downloaded`;
-                bookName.textContent = randomBook;
-                
-                // Hide current notification if visible
-                downloadNotification.classList.remove('show');
-                
-                // Show new notification after a brief delay
-                setTimeout(() => {
-                    downloadNotification.classList.add('show');
-                }, 100);
-                
-                // Hide after 4.5 seconds to allow for smooth transition
-                setTimeout(() => {
-                    downloadNotification.classList.remove('show');
-                }, 4500);
-            }
         }
         
         // Start the notification cycle after page load
