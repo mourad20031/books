@@ -548,55 +548,7 @@
     .footer-links a {
       transition: color 0.2s ease;
     }
-   /* Add this to the END of your existing style section */
 
-/* Carousel Styles */
-.carousel-container {
-    padding: 0 10px;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 16px;
-}
-
-.book-card.flex-shrink-0 {
-    flex-shrink: 0;
-    width: 192px; /* w-48 = 192px */
-}
-
-/* Smooth scrolling */
-.carousel-track {
-    scroll-behavior: smooth;
-}
-
-/* Hide scrollbar for carousel */
-.carousel-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.carousel-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* Carousel dot active state */
-.carousel-dot.active {
-    background-color: #3b82f6;
-    width: 8px;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 640px) {
-    .book-card.flex-shrink-0 {
-        width: 160px;
-    }
-    
-    .carousel-prev,
-    .carousel-next {
-        display: none;
-    }
-}
     .footer-links a:hover {
       color: #3b82f6;
     }
@@ -695,6 +647,129 @@
     [data-theme="dark"] #search-section {
       background-color: var(--header-bg) !important;
     }
+       [data-theme="dark"] #search-section {
+      background-color: var(--header-bg) !important;
+    }
+
+    /* ========== MODERN CAROUSEL STYLES ========== */
+    /* ========== MODERN CAROUSEL STYLES ========== */
+    /* Modern Carousel Styles */
+    .carousel-container {
+        padding: 0 20px;
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 24px;
+        padding: 10px 0;
+    }
+
+    /* Modern book cards */
+    .book-card.flex-shrink-0 {
+        flex-shrink: 0;
+        width: 224px; /* w-56 */
+        border: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .book-card.flex-shrink-0:hover {
+        box-shadow: 0 8px 40px rgba(59, 130, 246, 0.15);
+        border-color: transparent;
+        transform: translateY(-4px) scale(1.02);
+    }
+
+    /* Modern badges */
+    .book-badge {
+        position: absolute;
+        top: 8px;
+        font-size: 0.6rem;
+        font-weight: 800;
+        padding: 4px 8px;
+        border-radius: 6px;
+        z-index: 10;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+    }
+
+    .premium-badge {
+        left: 8px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+    }
+
+    .free-badge {
+        right: 8px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #10b981;
+        font-weight: 800;
+        border: 1px solid rgba(220, 252, 231, 0.8);
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Line clamp for text */
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Smooth scrolling */
+    .carousel-track {
+        scroll-behavior: smooth;
+    }
+
+    /* Carousel dot styles */
+    .carousel-dot {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .carousel-dot:hover {
+        transform: scale(1.2);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .carousel-container {
+            padding: 0 16px;
+        }
+        
+        .book-card.flex-shrink-0 {
+            width: 200px;
+        }
+        
+        .carousel-track {
+            gap: 16px;
+        }
+        
+        .carousel-prev,
+        .carousel-next {
+            display: none !important;
+        }
+    }
+
+    /* Dark mode support for modern carousel */
+    [data-theme="dark"] .book-card.flex-shrink-0 {
+        background: linear-gradient(135deg, #334155, #475569);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .book-card.flex-shrink-0:hover {
+        box-shadow: 0 8px 40px rgba(59, 130, 246, 0.2);
+    }
+
+    [data-theme="dark"] .free-badge {
+        background: rgba(30, 41, 59, 0.95);
+        color: #10b981;
+        border-color: rgba(6, 95, 70, 0.8);
+    }
+
+  </style>  <!-- ← KEEP THIS CLOSING TAG -->
   </style>
 </head>
 <body class="antialiased">
@@ -1082,179 +1157,195 @@
 
 
 
-<!-- Health & Wellness Carousel Section -->
-<section id="health-wellness" class="py-12 bg-gradient-to-br from-green-50 to-blue-50">
+<!-- Modern Health & Wellness Carousel -->
+<section id="health-wellness" class="py-16 bg-gradient-to-br from-white to-gray-50/50">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-10">
-            <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Health & Wellness</h2>
-            <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Transform your health with science-backed guides and expert advice</p>
+        <!-- Modern Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <i class="fas fa-heartbeat"></i>
+                <span>Health & Wellness</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Transform Your Health Journey</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Science-backed guides and expert advice to help you achieve your wellness goals</p>
         </div>
         
-        <!-- Carousel Container -->
-        <div class="relative">
-            <!-- Carousel Navigation Buttons -->
-            <button class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 z-10 bg-white hover:bg-gray-50 border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
-                <i class="fas fa-chevron-left text-gray-600"></i>
+        <!-- Modern Carousel Container -->
+        <div class="relative group">
+            <!-- Navigation Buttons - Modern Style -->
+            <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white backdrop-blur-sm border border-gray-200 rounded-2xl w-12 h-12 flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl opacity-0 group-hover:opacity-100">
+                <i class="fas fa-chevron-left text-gray-700 text-sm"></i>
             </button>
             
-            <button class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 z-10 bg-white hover:bg-gray-50 border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
-                <i class="fas fa-chevron-right text-gray-600"></i>
+            <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white backdrop-blur-sm border border-gray-200 rounded-2xl w-12 h-12 flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl opacity-0 group-hover:opacity-100">
+                <i class="fas fa-chevron-right text-gray-700 text-sm"></i>
             </button>
 
             <!-- Carousel Track -->
-            <div class="carousel-container overflow-hidden">
-                <div class="carousel-track flex gap-4 transition-transform duration-500 ease-in-out">
-                    <!-- Book 1 -->
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0 w-48" data-name="The Obesity Code">
+            <div class="carousel-container overflow-visible">
+                <div class="carousel-track flex gap-6 transition-transform duration-500 ease-out">
+                    <!-- Book 1 - Modern Card -->
+                    <div class="book-card rounded-2xl overflow-hidden flex flex-col flex-shrink-0 w-56 transform transition-all duration-300 hover:scale-105" data-name="The Obesity Code">
                         <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge premium-badge">BESTSELLER</span>
                             <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8C9yJZ7h/obesity-code.jpg" alt="The Obesity Code" class="book-image">
+                            <img src="https://i.postimg.cc/8C9yJZ7h/obesity-code.jpg" alt="The Obesity Code" class="book-image rounded-xl">
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Obesity Code</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">The Obesity Code</h3>
+                            <div class="flex items-center text-sm mb-2 text-yellow-400">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
+                                <span class="text-gray-500 ml-2 text-sm">4.8</span>
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="89200">89.2K</span>
+                            <div class="text-gray-500 text-sm mb-3 flex items-center">
+                                <i class="fas fa-download mr-2"></i> 
+                                <span class="download-counter" data-count="89200">89.2K downloads</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-obesity-code')">Download Now</button>
+                            <button class="btn-download mt-auto py-3 px-4 rounded-xl w-full text-sm font-semibold transition-all duration-300 hover:shadow-lg" onclick="startDownload(this, 'https://freeebooks.online/the-obesity-code')">
+                                <i class="fas fa-download mr-2"></i>Download Free
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Book 2 -->
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0 w-48" data-name="The 4-Hour Body">
+                    <!-- Book 2 - Repeat same structure for other 5 books -->
+                    <div class="book-card rounded-2xl overflow-hidden flex flex-col flex-shrink-0 w-56 transform transition-all duration-300 hover:scale-105" data-name="The 4-Hour Body">
                         <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge premium-badge">POPULAR</span>
                             <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8zQ8J0Jz/4-hour-body.jpg" alt="The 4-Hour Body" class="book-image">
+                            <img src="https://i.postimg.cc/8zQ8J0Jz/4-hour-body.jpg" alt="The 4-Hour Body" class="book-image rounded-xl">
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">The 4-Hour Body</h3>
+                            <div class="flex items-center text-sm mb-2 text-yellow-400">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">4.9</span>
+                                <span class="text-gray-500 ml-2 text-sm">4.9</span>
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="75600">75.6K</span>
+                            <div class="text-gray-500 text-sm mb-3 flex items-center">
+                                <i class="fas fa-download mr-2"></i> 
+                                <span class="download-counter" data-count="75600">75.6K downloads</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-4-hour-body')">Download Now</button>
+                            <button class="btn-download mt-auto py-3 px-4 rounded-xl w-full text-sm font-semibold transition-all duration-300 hover:shadow-lg" onclick="startDownload(this, 'https://freeebooks.online/the-4-hour-body')">
+                                <i class="fas fa-download mr-2"></i>Download Free
+                            </button>
                         </div>
                     </div>
 
+                    <!-- Continue with Books 3-6 in the same modern format -->
                     <!-- Book 3 -->
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0 w-48" data-name="Brain Over Binge">
+                    <div class="book-card rounded-2xl overflow-hidden flex flex-col flex-shrink-0 w-56 transform transition-all duration-300 hover:scale-105" data-name="Brain Over Binge">
                         <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge premium-badge">GUIDE</span>
                             <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8C9yJZ7h/brain-over-binge.jpg" alt="Brain Over Binge" class="book-image">
+                            <img src="https://i.postimg.cc/8C9yJZ7h/brain-over-binge.jpg" alt="Brain Over Binge" class="book-image rounded-xl">
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brain Over Binge</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">Brain Over Binge</h3>
+                            <div class="flex items-center text-sm mb-2 text-yellow-400">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.7</span>
+                                <span class="text-gray-500 ml-2 text-sm">4.7</span>
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="68300">68.3K</span>
+                            <div class="text-gray-500 text-sm mb-3 flex items-center">
+                                <i class="fas fa-download mr-2"></i> 
+                                <span class="download-counter" data-count="68300">68.3K downloads</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/brain-over-binge')">Download Now</button>
+                            <button class="btn-download mt-auto py-3 px-4 rounded-xl w-full text-sm font-semibold transition-all duration-300 hover:shadow-lg" onclick="startDownload(this, 'https://freeebooks.online/brain-over-binge')">
+                                <i class="fas fa-download mr-2"></i>Download Free
+                            </button>
                         </div>
                     </div>
 
                     <!-- Book 4 -->
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0 w-48" data-name="The Complete Guide to Fasting">
+                    <div class="book-card rounded-2xl overflow-hidden flex flex-col flex-shrink-0 w-56 transform transition-all duration-300 hover:scale-105" data-name="The Complete Guide to Fasting">
                         <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge premium-badge">EXPERT</span>
                             <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8C9yJZ7h/complete-guide-fasting.jpg" alt="The Complete Guide to Fasting" class="book-image">
+                            <img src="https://i.postimg.cc/8C9yJZ7h/complete-guide-fasting.jpg" alt="The Complete Guide to Fasting" class="book-image rounded-xl">
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Complete Guide to Fasting</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">Complete Guide to Fasting</h3>
+                            <div class="flex items-center text-sm mb-2 text-yellow-400">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                                <span class="text-gray-500 ml-2 text-sm">5.0</span>
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="94500">94.5K</span>
+                            <div class="text-gray-500 text-sm mb-3 flex items-center">
+                                <i class="fas fa-download mr-2"></i> 
+                                <span class="download-counter" data-count="94500">94.5K downloads</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/complete-guide-to-fasting')">Download Now</button>
+                            <button class="btn-download mt-auto py-3 px-4 rounded-xl w-full text-sm font-semibold transition-all duration-300 hover:shadow-lg" onclick="startDownload(this, 'https://freeebooks.online/complete-guide-to-fasting')">
+                                <i class="fas fa-download mr-2"></i>Download Free
+                            </button>
                         </div>
                     </div>
 
                     <!-- Book 5 -->
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0 w-48" data-name="Why We Get Fat">
+                    <div class="book-card rounded-2xl overflow-hidden flex flex-col flex-shrink-0 w-56 transform transition-all duration-300 hover:scale-105" data-name="Why We Get Fat">
                         <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge premium-badge">SCIENCE</span>
                             <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8C9yJZ7h/why-we-get-fat.jpg" alt="Why We Get Fat" class="book-image">
+                            <img src="https://i.postimg.cc/8C9yJZ7h/why-we-get-fat.jpg" alt="Why We Get Fat" class="book-image rounded-xl">
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Why We Get Fat</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">Why We Get Fat</h3>
+                            <div class="flex items-center text-sm mb-2 text-yellow-400">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.6</span>
+                                <span class="text-gray-500 ml-2 text-sm">4.6</span>
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="71200">71.2K</span>
+                            <div class="text-gray-500 text-sm mb-3 flex items-center">
+                                <i class="fas fa-download mr-2"></i> 
+                                <span class="download-counter" data-count="71200">71.2K downloads</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/why-we-get-fat')">Download Now</button>
+                            <button class="btn-download mt-auto py-3 px-4 rounded-xl w-full text-sm font-semibold transition-all duration-300 hover:shadow-lg" onclick="startDownload(this, 'https://freeebooks.online/why-we-get-fat')">
+                                <i class="fas fa-download mr-2"></i>Download Free
+                            </button>
                         </div>
                     </div>
 
                     <!-- Book 6 -->
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0 w-48" data-name="The Plant Paradox">
+                    <div class="book-card rounded-2xl overflow-hidden flex flex-col flex-shrink-0 w-56 transform transition-all duration-300 hover:scale-105" data-name="The Plant Paradox">
                         <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge premium-badge">NUTRITION</span>
                             <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/8C9yJZ7h/plant-paradox.jpg" alt="The Plant Paradox" class="book-image">
+                            <img src="https://i.postimg.cc/8C9yJZ7h/plant-paradox.jpg" alt="The Plant Paradox" class="book-image rounded-xl">
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Plant Paradox</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2">The Plant Paradox</h3>
+                            <div class="flex items-center text-sm mb-2 text-yellow-400">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
+                                <span class="text-gray-500 ml-2 text-sm">4.8</span>
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="59800">59.8K</span>
+                            <div class="text-gray-500 text-sm mb-3 flex items-center">
+                                <i class="fas fa-download mr-2"></i> 
+                                <span class="download-counter" data-count="59800">59.8K downloads</span>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-plant-paradox')">Download Now</button>
+                            <button class="btn-download mt-auto py-3 px-4 rounded-xl w-full text-sm font-semibold transition-all duration-300 hover:shadow-lg" onclick="startDownload(this, 'https://freeebooks.online/the-plant-paradox')">
+                                <i class="fas fa-download mr-2"></i>Download Free
+                            </button>
                         </div>
                     </div>
-
-                    <!-- Add more books here (Books 7-10) following the same pattern -->
                 </div>
             </div>
         </div>
 
-        <!-- Carousel Dots Indicator -->
-        <div class="flex justify-center mt-6 space-x-2">
-            <div class="carousel-dot w-2 h-2 bg-blue-300 rounded-full cursor-pointer"></div>
-            <div class="carousel-dot w-2 h-2 bg-blue-300 rounded-full cursor-pointer"></div>
-            <div class="carousel-dot w-2 h-2 bg-blue-300 rounded-full cursor-pointer"></div>
+        <!-- Modern Dot Indicators -->
+        <div class="flex justify-center mt-8 space-x-3">
+            <div class="carousel-dot w-3 h-3 bg-blue-200 rounded-full cursor-pointer transition-all duration-300 hover:bg-blue-300"></div>
+            <div class="carousel-dot w-3 h-3 bg-blue-200 rounded-full cursor-pointer transition-all duration-300 hover:bg-blue-300"></div>
+            <div class="carousel-dot w-3 h-3 bg-blue-200 rounded-full cursor-pointer transition-all duration-300 hover:bg-blue-300"></div>
         </div>
 
-        <!-- Health Categories Quick Links -->
-        <div class="mt-8 text-center">
-            <div class="flex flex-wrap justify-center gap-3 mb-6">
-                <span class="health-tag bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Weight Loss</span>
-                <span class="health-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Nutrition</span>
-                <span class="health-tag bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Fitness</span>
-                <span class="health-tag bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">Mental Health</span>
-                <span class="health-tag bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium">Wellness</span>
+        <!-- Modern Health Categories -->
+        <div class="mt-12 text-center">
+            <p class="text-gray-600 mb-6 font-medium">Browse by category:</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="health-tag bg-gradient-to-r from-green-500 to-emerald-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">Weight Loss</span>
+                <span class="health-tag bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">Nutrition</span>
+                <span class="health-tag bg-gradient-to-r from-purple-500 to-pink-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">Fitness</span>
+                <span class="health-tag bg-gradient-to-r from-orange-500 to-red-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">Mental Health</span>
+                <span class="health-tag bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">Wellness</span>
             </div>
         </div>
     </div>
 </section>
-
          
          
 
@@ -2466,8 +2557,7 @@ if (backgroundMusic) {
     });
 }
 // ========== END OF MUSIC PLAYER CODE ==========
-         // ========== CAROUSEL CODE ==========
-// Carousel functionality for Health & Wellness section
+// ========== MODERN CAROUSEL CODE ==========
 function initHealthCarousel() {
     const track = document.querySelector('.carousel-track');
     const prevBtn = document.querySelector('.carousel-prev');
@@ -2476,40 +2566,46 @@ function initHealthCarousel() {
     
     if (!track) return;
     
-    const cardWidth = 192 + 16; // card width + gap
-    const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+    // Modern card calculation
+    const card = track.querySelector('.book-card');
+    if (!card) return;
+    
+    const cardWidth = card.offsetWidth + 24; // 24px gap
+    const container = track.parentElement;
+    const containerWidth = container.offsetWidth - 40; // Account for padding
+    
+    const visibleCards = Math.floor(containerWidth / cardWidth);
     const totalCards = track.children.length;
     const totalSlides = Math.ceil(totalCards / visibleCards);
     let currentSlide = 0;
     
-    // Update dots
+    // Modern dot updates
     function updateDots() {
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
+            const isActive = index === currentSlide;
+            dot.style.width = isActive ? '24px' : '12px';
+            dot.style.backgroundColor = isActive ? '#3b82f6' : '#dbeafe';
+            dot.style.borderRadius = isActive ? '6px' : '50%';
+            dot.style.transition = 'all 0.3s ease';
         });
     }
     
-    // Move carousel
+    // Smooth carousel movement
     function moveCarousel() {
         const translateX = -currentSlide * visibleCards * cardWidth;
         track.style.transform = `translateX(${translateX}px)`;
         updateDots();
     }
     
-    // Next button
-    nextBtn.addEventListener('click', () => {
-        if (currentSlide < totalSlides - 1) {
-            currentSlide++;
-            moveCarousel();
-        }
+    // Modern navigation with loop
+    nextBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        moveCarousel();
     });
     
-    // Previous button
-    prevBtn.addEventListener('click', () => {
-        if (currentSlide > 0) {
-            currentSlide--;
-            moveCarousel();
-        }
+    prevBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        moveCarousel();
     });
     
     // Dot navigation
@@ -2520,19 +2616,64 @@ function initHealthCarousel() {
         });
     });
     
-    // Auto-scroll every 5 seconds
-    setInterval(() => {
-        if (currentSlide < totalSlides - 1) {
-            currentSlide++;
-        } else {
-            currentSlide = 0;
-        }
+    // Auto-scroll with pause on hover
+    let autoScroll = setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
         moveCarousel();
-    }, 5000);
+    }, 4000);
+    
+    container.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    container.addEventListener('mouseleave', () => {
+        autoScroll = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            moveCarousel();
+        }, 4000);
+    });
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    track.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) {
+                // Swipe left - next
+                currentSlide = (currentSlide + 1) % totalSlides;
+            } else {
+                // Swipe right - previous
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            }
+            moveCarousel();
+        }
+    });
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newContainerWidth = container.offsetWidth;
+            const newVisibleCards = Math.floor(newContainerWidth / cardWidth);
+            if (newVisibleCards !== visibleCards) {
+                // Recalculate if visible cards changed
+                currentSlide = 0;
+                moveCarousel();
+            }
+        }, 250);
+    });
     
     // Initialize
     updateDots();
+    moveCarousel();
 }
+
+// Make sure it loads
+document.addEventListener('DOMContentLoaded', initHealthCarousel);
     </script>
 </body>
 </html>
