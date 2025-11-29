@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="My Friend: A Novel | Free Download - Emotional Contemporary Fiction">
+    <meta property="og:description" content="Download My Friend: A Novel FREE - A heartwarming story of friendship with 5.0/5 rating from 187,000+ readers">
+    <meta property="og:image" content="https://i.postimg.cc/sDH2N1HP/images-(3).jpg">
+    <meta property="og:url" content="https://freeebooks.online/my-friend">
+    <meta property="og:type" content="book">
+    <meta property="og:site_name" content="FreeEbooks">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Friend: A Novel | Free Download - Emotional Contemporary Fiction">
+    <meta name="twitter:description" content="Download My Friend: A Novel FREE - A heartwarming story of friendship with 5.0/5 rating from 187,000+ readers">
+    <meta name="twitter:image" content="https://i.postimg.cc/sDH2N1HP/images-(3).jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="description" content="Download My Friend: A Novel for FREE. An emotional contemporary fiction with 5.0/5 rating from 187,000+ readers. Experience a story that celebrates the power of friendship.">
+    <meta name="keywords" content="my friend novel, contemporary fiction, free ebook, friendship story, emotional novel, literary fiction, free download">
+    <link rel="canonical" href="https://freeebooks.online/my-friend" />
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Friend: A Novel | Emotional Contemporary Fiction | FreeEbooks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1a1a1a;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #ffffff;
+            --header-bg: #1e293b;
+            --card-bg: #334155;
+            --border-color: #475569;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .header-bg {
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .book-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+            border-color: #3b82f6;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        .author-card {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+        }
+
+        [data-theme="dark"] .author-card {
+            background: linear-gradient(135deg, #1e293b, #334155);
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .share-modal.active {
+            display: flex;
+        }
+        
+        .share-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .share-link {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .share-link input {
+            background: transparent;
+            border: none;
+            flex-grow: 1;
+            padding: 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .share-link button {
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .share-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .share-button:hover {
+            background: var(--bg-color);
+        }
+        
+        .share-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .facebook {
+            background: #1877F2;
+            color: white;
+        }
+        
+        .copy {
+            background: #6B7280;
+            color: white;
+        }
+
+        /* Theme Toggle Styles */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+        }
+
+        .theme-toggle:hover {
+            background-color: transparent;
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-icon.hidden {
+            display: none;
+        }
+
+        /* Dark mode text colors */
+        [data-theme="dark"] .text-gray-900,
+        [data-theme="dark"] .text-gray-800,
+        [data-theme="dark"] .text-gray-700,
+        [data-theme="dark"] .text-gray-600,
+        [data-theme="dark"] .text-gray-500,
+        [data-theme="dark"] .text-gray-400 {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .bg-white {
+            background-color: var(--header-bg) !important;
+        }
+
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: #1e293b !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header - Matching Main Site -->
+    <header class="header-bg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://freeebooks.online" class="flex items-center">
+                <h2 class="text-lg font-bold text-gray-900 tracking-tight">
+    <i class="fas fa-book text-blue-500"></i> Free<span class="text-black">Ebooks</span>
+</h2>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Trending</a>
+                <a href="#all-books-header" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
+                <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">FAQ</a>
+                <a href="#contact-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                    <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
+            <a href="#trending" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Trending</a>
+            <a href="#all-books-header" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">All Books</a>
+            <a href="#faq-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">FAQ</a>
+            <a href="#contact-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <!-- Book title in blue as requested -->
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-200">My Friends: A Novel</h1>
+                    <p class="text-xl mb-6">A Heartwarming Story of Friendship That Will Stay With You Forever</p>
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 text-lg mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-white">5.0/5 (187,000+ downloads)</span>
+                    </div>
+                    <button id="share-btn" class="bg-white/20 text-white py-3 px-6 rounded-lg font-semibold text-base flex items-center justify-center hover:bg-white/30 transition">
+                        <i class="fas fa-share-alt mr-2"></i> Share with a Friend
+                    </button>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="text-center">
+                        <div class="relative inline-block">
+                            <img src="https://i.postimg.cc/sDH2N1HP/images-(3).jpg" alt="My Friends: A Novel Book Cover" class="w-64 md:w-80 rounded-lg book-shadow floating-animation">
+                            <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-gray-800 px-4 py-2 rounded-lg shadow-lg">
+                                <span class="font-bold">FREE</span> Download
+                            </div>
+                        </div>
+                        <!-- Download Button Below Book -->
+                        <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
+                            <i class="fas fa-download mr-2"></i> Download Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Details Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-2/3">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About the Book</h2>
+                    <p class="text-gray-700 mb-6">
+                        <strong>My Friends: A Novel</strong> is a profoundly moving story about the friendsship that saves us, the secrets that define us, and the moments that change us forever. When Emma moves to a small coastal town to escape her past, she never expects to form an unlikely bond with her elderly neighbor, Arthur—a reclusive writer with stories of his own.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Through shared cups of tea, walks on the beach, and conversations that stretch late into the night, these two lonely souls discover that friendsship can blossom in the most unexpected places. Perfect for fans of <a href="https://freeebooks.online/contemporary-fiction" class="text-blue-500 hover:underline">contemporary fiction</a>, this novel explores the healing power of human connection and the extraordinary impact one person can have on another's life.
+                    </p>
+                    <p class="text-gray-700 mb-8">
+                        With its beautiful prose and unforgettable characters, My Friends has been praised as "a masterpiece of emotional storytelling" and "the kind of book that stays with you long after you've turned the final page."
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">What You'll Experience</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">An unlikely friendsship that transcends generations</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Emotional healing and personal transformation</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Beautiful coastal setting that becomes a character itself</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Heartwarming moments that will make you smile and cry</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Profound insights about life, love, and second chances</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">A satisfying and emotionally resonant conclusion</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3">
+                    <div class="feature-card p-6 mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Book Details</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Author:</span>
+                                <span class="font-medium text-gray-900">Sarah Mitchell</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Pages:</span>
+                                <span class="font-medium text-gray-900">312 pages</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Published:</span>
+                                <span class="font-medium text-gray-900">March 15, 2023</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Publisher:</span>
+                                <span class="font-medium text-gray-900">Heartfelt Press</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Language:</span>
+                                <span class="font-medium text-gray-900">English</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Format:</span>
+                                <span class="font-medium text-gray-900">PDF, EPUB, MOBI</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">File Size:</span>
+                                <span class="font-medium text-gray-900">4.8 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="author-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">About the Author</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">SM</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Sarah Mitchell</h4>
+                                <p class="text-gray-600 text-sm">Award-Winning Contemporary Fiction Author</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            Sarah Mitchell is celebrated for her ability to capture the quiet, profound moments of human connection. With a background in psychology and counseling, she brings deep emotional insight to her characters and their journeys. My Friends: A Novel is her third book and has become an international bestseller, touching the hearts of readers worldwide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Readers Are Falling in Love With This Story</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card p-6">
+                    <div class="text-blue-500 text-2xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Emotional Depth</h3>
+                    <p class="text-gray-700">
+                        Experience a story that explores the full spectrum of human emotions—from grief and loneliness to hope and redemption—with remarkable sensitivity.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-blue-500 text-2xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Unforgettable Characters</h3>
+                    <p class="text-gray-700">
+                        Meet Emma and Arthur—two beautifully drawn characters who feel so real you'll find yourself thinking about them long after you finish reading.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-blue-500 text-2xl mb-4">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lyrical Prose</h3>
+                    <p class="text-gray-700">
+                        Immerse yourself in writing that's both beautiful and accessible, with sentences you'll want to underline and return to again and again.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-blue-500 text-2xl mb-4">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Universal Themes</h3>
+                    <p class="text-gray-700">
+                        Explore themes of friendsship, healing, and the search for meaning that resonate across generations and life experiences.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-blue-500 text-2xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Atmospheric Setting</h3>
+                    <p class="text-gray-700">
+                        Lose yourself in the small coastal town of Seabrook, where the ocean becomes a character and the changing seasons mirror the characters' journeys.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-6">
+                    <div class="text-blue-500 text-2xl mb-4">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Healing Journey</h3>
+                    <p class="text-gray-700">
+                        Witness a powerful story of emotional healing that offers comfort and hope to anyone who has experienced loss or loneliness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What Readers Are Saying</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="testimonial-card p-6">
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "I haven't cried this much while reading a book in years—but they were happy tears. My Friends reminded me of the power of human connection and the beauty of unexpected friendsships. This book changed something in me."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3">JR</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Jennifer Roberts</h4>
+                            <p class="text-gray-600 text-sm">Book Club Leader</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6">
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "As someone who recently lost a dear friends, this book was both heartbreaking and healing. The portrayal of friendsship is so authentic and moving. I've already bought copies for three people in my life."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">MP</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Michael Peterson</h4>
+                            <p class="text-gray-600 text-sm">Teacher</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6">
+                    <div class="flex text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "This is the kind of book that makes you want to call your friends and tell them how much they mean to you. The writing is exquisite, the characters feel like family, and the story will stay with me forever."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3">SC</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sophia Chen</h4>
+                            <p class="text-gray-600 text-sm">Librarian</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Discover the Friendship Story Everyone Is Talking About</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Join over 187,000 readers who have been touched by this beautiful story of connection and healing.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i> Download your free eBook
+                </button>
+                <button id="final-share-btn" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-white/30 transition">
+                    <i class="fas fa-share-alt mr-2"></i> Share with a Friend
+                </button>
+            </div>
+            <p class="mt-6 text-blue-100">
+                <i class="fas fa-lock mr-2"></i>100% Free • No Registration Required • Instant Download
+            </p>
+        </div>
+    </section>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="share-modal">
+        <div class="share-box">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Share This Book</h3>
+                <button id="close-share" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="share-link">
+                <input type="text" id="share-url" value="https://freeebooks.online/my-friend" readonly>
+                <button id="copy-link">Copy</button>
+            </div>
+            
+            <div class="share-buttons">
+                <div class="share-button" id="whatsapp-share">
+                    <div class="share-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <span class="text-sm">WhatsApp</span>
+                </div>
+                
+                <div class="share-button" id="facebook-share">
+                    <div class="share-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <span class="text-sm">Facebook</span>
+                </div>
+                
+                <div class="share-button" id="copy-share">
+                    <div class="share-icon copy">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <span class="text-sm">Copy Link</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Restored as requested -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        <i class="fas fa-book text-blue-500"></i> Free<span class="text-black">Ebooks</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 max-w-md">
+                        Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                            <i class="fab fa-facebook text-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#trending" class="hover:text-blue-500 transition">Trending Books</a>
+                        <a href="#all-books-header" class="hover:text-blue-500 transition">All Books</a>
+                        <a href="#faq-section" class="hover:text-blue-500 transition">FAQ</a>
+                        <a href="#contact-section" class="hover:text-blue-500 transition">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                        <a href="#" class="hover:text-blue-500 transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-blue-500 transition">Terms of Service</a>
+                        <a href="#" class="hover:text-blue-500 transition">Cookie Policy</a>
+                        <a href="#" class="hover:text-blue-500 transition">DMCA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or prefer OS color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            enableDarkMode();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                enableLightMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function enableLightMode() {
+            body.removeAttribute('data-theme');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
+        }
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Share functionality
+        const shareBtn = document.getElementById('share-btn');
+        const finalShareBtn = document.getElementById('final-share-btn');
+        const shareModal = document.getElementById('share-modal');
+        const closeShare = document.getElementById('close-share');
+        const copyLink = document.getElementById('copy-link');
+        const shareUrl = document.getElementById('share-url');
+        const whatsappShare = document.getElementById('whatsapp-share');
+        const facebookShare = document.getElementById('facebook-share');
+        const copyShare = document.getElementById('copy-share');
+        
+        shareBtn.addEventListener('click', function() {
+            shareModal.classList.add('active');
+        });
+        
+        finalShareBtn.addEventListener('click', function() {
+            shareModal.classList.add('active');
+        });
+        
+        closeShare.addEventListener('click', function() {
+            shareModal.classList.remove('active');
+        });
+        
+        copyLink.addEventListener('click', function() {
+            shareUrl.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        });
+        
+        whatsappShare.addEventListener('click', function() {
+            const url = encodeURIComponent(shareUrl.value);
+            const text = encodeURIComponent("Check out this beautiful friendship story: My Friends: A Novel by Sarah Mitchell");
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+        });
+        
+        facebookShare.addEventListener('click', function() {
+            const url = 'https://freeebooks.online/my-friend';
+            const text = "Check out My Friend: A Novel by Sarah Mitchell - Available for FREE download! A heartwarming story of friendship with 5.0/5 rating from 187,000+ readers.";
+            
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank', 'width=600,height=500');
+        });
+        
+        copyShare.addEventListener('click', function() {
+            shareUrl.select();
+            document.execCommand('copy');
+            alert('Link copied to clipboard!');
+        });
+        
+        // Close modal when clicking outside
+        shareModal.addEventListener('click', function(e) {
+            if (e.target === shareModal) {
+                shareModal.classList.remove('active');
+            }
+        });
+        
+        // Download button functionality
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, this would trigger the actual download
+                alert('Thank you for your interest! The download will begin shortly.');
+                
+                // Simulate download after a short delay
+                setTimeout(function() {
+                    // This would be the actual download link
+                    // window.location.href = 'https://example.com/download/my-friends.pdf';
+                    console.log('Download initiated for My Friends: A Novel');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
