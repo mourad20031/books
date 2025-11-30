@@ -1035,28 +1035,206 @@
                     </div>
                 </div>
             </section>
-         <!-- Add this RIGHT AFTER the weight loss carousel section -->
-<section class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center mb-8">Effective Weight Loss Strategies</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Sustainable Weight Management</h3>
-                <p class="text-gray-600 mb-4">Our free eBooks teach proven methods for <strong>long term weight loss</strong> and <strong>healthy weight maintenance</strong>. Learn about <strong>eating patterns</strong> that support your <strong>weight loss efforts</strong>.</p>
-                <ul class="list-disc list-inside text-gray-600">
-                    <li>Manage <strong>body fat</strong> effectively</li>
-                    <li>Support <strong>blood pressure</strong> health</li>
-                    <li>Reduce risk of <strong>type 2 diabetes</strong></li>
-                </ul>
+        <!-- Animated Weight Loss Strategies Section -->
+<section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-20 h-20 bg-blue-400 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute top-1/3 right-20 w-16 h-16 bg-purple-400 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div class="absolute bottom-20 left-1/4 w-24 h-24 bg-green-400 rounded-full blur-xl animate-pulse delay-500"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Animated Header -->
+        <div class="text-center mb-12">
+            <div class="inline-block mb-4">
+                <div id="strategies-title" class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></div>
             </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-4">Successful Weight Loss Programs</h3>
-                <p class="text-gray-600 mb-4">Discover how to <strong>stay on track</strong> with your <strong>weight loss programs</strong>. Our books combine <strong>regular physical activity</strong> guidance with nutrition plans for optimal <strong>amount of weight loss</strong>.</p>
-                <p class="text-gray-600">Whether you're looking for <strong>short term</strong> results or lifelong changes, our eBook collection has the resources you need.</p>
+            <div id="strategies-subtitle" class="text-gray-600 text-lg"></div>
+        </div>
+        
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Left Column - Animated Typing -->
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Sustainable Weight Management</h3>
+                <div class="space-y-4">
+                    <div id="typing-text-1" class="text-gray-600 leading-relaxed min-h-[60px] border-l-4 border-blue-500 pl-4 bg-blue-50/50 rounded-r-lg py-2"></div>
+                    <div id="typing-text-2" class="text-gray-600 leading-relaxed min-h-[60px] border-l-4 border-green-500 pl-4 bg-green-50/50 rounded-r-lg py-2"></div>
+                    <ul id="typing-list-1" class="list-disc list-inside text-gray-600 space-y-2 min-h-[100px] border-l-4 border-purple-500 pl-4 bg-purple-50/50 rounded-r-lg py-3"></ul>
+                </div>
+            </div>
+
+            <!-- Right Column - Animated Typing -->
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Successful Weight Loss Programs</h3>
+                <div class="space-y-4">
+                    <div id="typing-text-3" class="text-gray-600 leading-relaxed min-h-[60px] border-l-4 border-orange-500 pl-4 bg-orange-50/50 rounded-r-lg py-2"></div>
+                    <div id="typing-text-4" class="text-gray-600 leading-relaxed min-h-[60px] border-l-4 border-pink-500 pl-4 bg-pink-50/50 rounded-r-lg py-2"></div>
+                    <div id="typing-text-5" class="text-gray-600 leading-relaxed min-h-[40px] border-l-4 border-indigo-500 pl-4 bg-indigo-50/50 rounded-r-lg py-2"></div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+// Typing Animation for Weight Loss Strategies
+document.addEventListener('DOMContentLoaded', function() {
+    // Text content for typing animation
+    const typingContent = {
+        title: "Effective Weight Loss Strategies",
+        subtitle: "Proven methods for sustainable results and healthy transformation",
+        
+        text1: "Our free eBooks teach proven methods for long term weight loss and healthy weight maintenance. Learn about eating patterns that support your weight loss efforts.",
+        text2: "Discover sustainable approaches that fit your lifestyle and help you maintain results over time.",
+        list1: [
+            "Manage body fat effectively with science-backed methods",
+            "Support blood pressure health through proper nutrition", 
+            "Reduce risk of type 2 diabetes with healthy habits"
+        ],
+        
+        text3: "Discover how to stay on track with your weight loss programs. Our books combine regular physical activity guidance with nutrition plans.",
+        text4: "Get optimal amount of weight loss through balanced approaches that consider both diet and exercise.",
+        text5: "Whether you're looking for short term results or lifelong changes, our eBook collection has the resources you need."
+    };
+
+    // Typing animation function
+    function typeWriter(element, text, speed = 30, callback = null) {
+        let i = text.length;
+        const reverseType = () => {
+            if (i >= 0) {
+                element.innerHTML = text.substring(i);
+                i--;
+                setTimeout(reverseType, speed);
+            } else if (callback) {
+                setTimeout(callback, 500);
+            }
+        };
+        reverseType();
+    }
+
+    // Continuous looping animation
+    function startContinuousTyping() {
+        // Title animation
+        typeWriter(document.getElementById('strategies-title'), typingContent.title, 80, () => {
+            // Subtitle animation after title
+            typeWriter(document.getElementById('strategies-subtitle'), typingContent.subtitle, 60, () => {
+                // Start content animations in sequence
+                animateContent();
+            });
+        });
+    }
+
+    function animateContent() {
+        // Left column animations
+        typeWriter(document.getElementById('typing-text-1'), typingContent.text1, 40, () => {
+            typeWriter(document.getElementById('typing-text-2'), typingContent.text2, 40, () => {
+                // Animate list items
+                const listElement = document.getElementById('typing-list-1');
+                listElement.innerHTML = '';
+                animateListItems(listElement, typingContent.list1, 0, () => {
+                    // Right column animations after left completes
+                    animateRightColumn();
+                });
+            });
+        });
+    }
+
+    function animateListItems(listElement, items, index, callback) {
+        if (index < items.length) {
+            const li = document.createElement('li');
+            listElement.appendChild(li);
+            typeWriter(li, items[index], 30, () => {
+                animateListItems(listElement, items, index + 1, callback);
+            });
+        } else if (callback) {
+            setTimeout(callback, 1000);
+        }
+    }
+
+    function animateRightColumn() {
+        typeWriter(document.getElementById('typing-text-3'), typingContent.text3, 40, () => {
+            typeWriter(document.getElementById('typing-text-4'), typingContent.text4, 40, () => {
+                typeWriter(document.getElementById('typing-text-5'), typingContent.text5, 40, () => {
+                    // Restart animation after a pause
+                    setTimeout(() => {
+                        resetAndRestart();
+                    }, 3000);
+                });
+            });
+        });
+    }
+
+    function resetAndRestart() {
+        // Clear all elements
+        const elements = [
+            'strategies-title', 'strategies-subtitle', 
+            'typing-text-1', 'typing-text-2', 'typing-list-1',
+            'typing-text-3', 'typing-text-4', 'typing-text-5'
+        ];
+        
+        elements.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) element.innerHTML = '';
+        });
+
+        // Restart animation
+        setTimeout(startContinuousTyping, 1000);
+    }
+
+    // Start the animation when section comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startContinuousTyping();
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    const section = document.querySelector('.py-16.bg-gradient-to-br');
+    if (section) {
+        observer.observe(section);
+    }
+});
+</script>
+
+<style>
+/* Smooth transitions for the section */
+.py-16 {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Custom scrollbar for better appearance */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #2563eb, #7c3aed);
+}
+
+/* Pulse animation for attention */
+@keyframes gentle-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.animate-gentle-pulse {
+    animation: gentle-pulse 2s infinite;
+}
+</style>
          <!-- Weight Loss Books Section -->
 <section id="weight-loss" class="py-12">
     <div class="text-center mb-10">
