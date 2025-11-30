@@ -1078,29 +1078,51 @@
     </div>
 </section>
 
+<!-- Simple Weight Loss Strategies Section -->
+<section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-gray-900">Effective Weight Loss Strategies</h2>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <!-- Left Column -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Sustainable Weight Management</h3>
+                <div id="typing-text-1" class="text-gray-600 mb-3 border-l-2 border-blue-500 pl-3"></div>
+                <div id="typing-text-2" class="text-gray-600 mb-3 border-l-2 border-green-500 pl-3"></div>
+                <ul id="typing-list-1" class="text-gray-600 space-y-1"></ul>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Successful Weight Loss Programs</h3>
+                <div id="typing-text-3" class="text-gray-600 mb-3 border-l-2 border-orange-500 pl-3"></div>
+                <div id="typing-text-4" class="text-gray-600 mb-3 border-l-2 border-purple-500 pl-3"></div>
+                <div id="typing-text-5" class="text-gray-600 border-l-2 border-indigo-500 pl-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <script>
-// Typing Animation for Weight Loss Strategies
+// Simple Typing Animation
 document.addEventListener('DOMContentLoaded', function() {
-    // Text content for typing animation
     const typingContent = {
-        title: "Effective Weight Loss Strategies",
-        subtitle: "Proven methods for sustainable results and healthy transformation",
-        
-        text1: "Our free eBooks teach proven methods for long term weight loss and healthy weight maintenance. Learn about eating patterns that support your weight loss efforts.",
-        text2: "Discover sustainable approaches that fit your lifestyle and help you maintain results over time.",
+        text1: "Our free eBooks teach proven methods for long term weight loss and healthy weight maintenance.",
+        text2: "Learn about eating patterns that support your weight loss efforts and sustainable approaches.",
         list1: [
-            "Manage body fat effectively with science-backed methods",
-            "Support blood pressure health through proper nutrition", 
-            "Reduce risk of type 2 diabetes with healthy habits"
+            "Manage body fat effectively",
+            "Support blood pressure health", 
+            "Reduce risk of type 2 diabetes"
         ],
-        
-        text3: "Discover how to stay on track with your weight loss programs. Our books combine regular physical activity guidance with nutrition plans.",
-        text4: "Get optimal amount of weight loss through balanced approaches that consider both diet and exercise.",
-        text5: "Whether you're looking for short term results or lifelong changes, our eBook collection has the resources you need."
+        text3: "Discover how to stay on track with your weight loss programs.",
+        text4: "Our books combine regular physical activity guidance with nutrition plans.",
+        text5: "Get optimal amount of weight loss through balanced approaches."
     };
 
-    // Typing animation function
-    function typeWriter(element, text, speed = 30, callback = null) {
+    // Simple typing function - right to left
+    function typeWriter(element, text, speed = 40, callback = null) {
         let i = text.length;
         const reverseType = () => {
             if (i >= 0) {
@@ -1108,68 +1130,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 i--;
                 setTimeout(reverseType, speed);
             } else if (callback) {
-                setTimeout(callback, 500);
+                setTimeout(callback, 800);
             }
         };
         reverseType();
     }
 
-    // Continuous looping animation
-    function startContinuousTyping() {
-        // Title animation
-        typeWriter(document.getElementById('strategies-title'), typingContent.title, 80, () => {
-            // Subtitle animation after title
-            typeWriter(document.getElementById('strategies-subtitle'), typingContent.subtitle, 60, () => {
-                // Start content animations in sequence
-                animateContent();
-            });
-        });
-    }
-
-    function animateContent() {
-        // Left column animations
+    function startTyping() {
         typeWriter(document.getElementById('typing-text-1'), typingContent.text1, 40, () => {
             typeWriter(document.getElementById('typing-text-2'), typingContent.text2, 40, () => {
-                // Animate list items
+                // Animate list
                 const listElement = document.getElementById('typing-list-1');
                 listElement.innerHTML = '';
-                animateListItems(listElement, typingContent.list1, 0, () => {
-                    // Right column animations after left completes
-                    animateRightColumn();
+                animateList(listElement, typingContent.list1, 0, () => {
+                    typeWriter(document.getElementById('typing-text-3'), typingContent.text3, 40, () => {
+                        typeWriter(document.getElementById('typing-text-4'), typingContent.text4, 40, () => {
+                            typeWriter(document.getElementById('typing-text-5'), typingContent.text5, 40, () => {
+                                // Restart after delay
+                                setTimeout(resetAndRestart, 3000);
+                            });
+                        });
+                    });
                 });
             });
         });
     }
 
-    function animateListItems(listElement, items, index, callback) {
+    function animateList(listElement, items, index, callback) {
         if (index < items.length) {
             const li = document.createElement('li');
+            li.innerHTML = '• ';
             listElement.appendChild(li);
             typeWriter(li, items[index], 30, () => {
-                animateListItems(listElement, items, index + 1, callback);
+                animateList(listElement, items, index + 1, callback);
             });
         } else if (callback) {
-            setTimeout(callback, 1000);
+            setTimeout(callback, 500);
         }
     }
 
-    function animateRightColumn() {
-        typeWriter(document.getElementById('typing-text-3'), typingContent.text3, 40, () => {
-            typeWriter(document.getElementById('typing-text-4'), typingContent.text4, 40, () => {
-                typeWriter(document.getElementById('typing-text-5'), typingContent.text5, 40, () => {
-                    // Restart animation after a pause
-                    setTimeout(() => {
-                        resetAndRestart();
-                    }, 3000);
-                });
-            });
-        });
-    }
-
     function resetAndRestart() {
-        // Clear all elements
         const elements = [
-            'strategies-title', 'strategies-subtitle', 
             'typing-text-1', 'typing-text-2', 'typing-list-1',
             'typing-text-3', 'typing-text-4', 'typing-text-5'
         ];
@@ -1179,21 +1180,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (element) element.innerHTML = '';
         });
 
-        // Restart animation
-        setTimeout(startContinuousTyping, 1000);
+        setTimeout(startTyping, 1000);
     }
 
-    // Start the animation when section comes into view
+    // Start when section is visible
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                startContinuousTyping();
+                startTyping();
                 observer.unobserve(entry.target);
             }
         });
     });
 
-    const section = document.querySelector('.py-16.bg-gradient-to-br');
+    const section = document.querySelector('.py-12.bg-white');
     if (section) {
         observer.observe(section);
     }
