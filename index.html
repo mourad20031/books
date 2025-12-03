@@ -679,12 +679,34 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
-            <a href="#trending" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Trending</a>
-            <a href="#all-books-header" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">All Books</a>
-            <a href="#faq-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">FAQ</a>
-            <a href="#contact-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Contact</a>
-        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="grid grid-cols-2 gap-2 p-4">
+        <a href="#trending" class="flex flex-col items-center justify-center p-4 bg-blue-50 text-blue-700 rounded-xl text-center hover:bg-blue-100 transition">
+            <i class="fas fa-fire text-lg mb-1"></i>
+            <span class="text-sm font-medium">Trending</span>
+        </a>
+        <a href="#weight-loss" class="flex flex-col items-center justify-center p-4 bg-green-50 text-green-700 rounded-xl text-center hover:bg-green-100 transition">
+            <i class="fas fa-weight text-lg mb-1"></i>
+            <span class="text-sm font-medium">Weight Loss</span>
+        </a>
+        <a href="#most-downloaded" class="flex flex-col items-center justify-center p-4 bg-purple-50 text-purple-700 rounded-xl text-center hover:bg-purple-100 transition">
+            <i class="fas fa-download text-lg mb-1"></i>
+            <span class="text-sm font-medium">Most Downloaded</span>
+        </a>
+        <a href="#all-books-header" class="flex flex-col items-center justify-center p-4 bg-gray-50 text-gray-700 rounded-xl text-center hover:bg-gray-100 transition">
+            <i class="fas fa-book text-lg mb-1"></i>
+            <span class="text-sm font-medium">All Books</span>
+        </a>
+        <a href="#faq-section" class="flex flex-col items-center justify-center p-4 bg-yellow-50 text-yellow-700 rounded-xl text-center hover:bg-yellow-100 transition">
+            <i class="fas fa-question-circle text-lg mb-1"></i>
+            <span class="text-sm font-medium">FAQ</span>
+        </a>
+        <a href="#contact-section" class="flex flex-col items-center justify-center p-4 bg-red-50 text-red-700 rounded-xl text-center hover:bg-red-100 transition">
+            <i class="fas fa-envelope text-lg mb-1"></i>
+            <span class="text-sm font-medium">Contact</span>
+        </a>
+    </div>
+</div>
     </header>
 
     <main>
@@ -2272,6 +2294,95 @@ mainSearchInput.addEventListener('input', (e) => {
         contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
 
         // Modern See More functionality
+         // Category Filter Functionality
+function initCategoryFilters() {
+    const categoryButtons = document.querySelectorAll('.category-btn, .sticky-category-btn');
+    const allBookCards = document.querySelectorAll('.book-card');
+    const stickyBar = document.getElementById('sticky-category-bar');
+    
+    // Show/hide sticky bar on scroll
+    window.addEventListener('scroll', () => {
+        if (stickyBar) {
+            stickyBar.style.display = window.scrollY > 200 ? 'block' : 'none';
+        }
+    });
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Update active state
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+                
+                if (btn.classList.contains('sticky-category-btn')) {
+                    btn.classList.remove('bg-blue-100', 'text-blue-700', 'border-blue-200');
+                    btn.classList.add('bg-gray-100', 'text-gray-700', 'border-gray-200');
+                }
+            });
+            
+            // Set active state for clicked button
+            this.classList.remove('bg-gray-200', 'text-gray-700', 'bg-gray-100');
+            this.classList.add('active', 'bg-blue-600', 'text-white');
+            
+            if (this.classList.contains('sticky-category-btn')) {
+                this.classList.remove('bg-gray-100', 'text-gray-700', 'border-gray-200');
+                this.classList.add('bg-blue-100', 'text-blue-700', 'border-blue-200');
+            }
+            
+            // Filter books based on category
+            allBookCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                } else {
+                    // Check which section the card is in
+                    const section = card.closest('section');
+                    const sectionId = section ? section.id : '';
+                    
+                    let showCard = false;
+                    
+                    if (category === 'trending' && sectionId === 'trending') {
+                        showCard = true;
+                    } else if (category === 'weight-loss' && sectionId === 'weight-loss') {
+                        showCard = true;
+                    } else if (category === 'most-downloaded' && sectionId === 'most-downloaded') {
+                        showCard = true;
+                    } else if (category === 'recent' && sectionId === 'recently-added') {
+                        showCard = true;
+                    }
+                    
+                    card.style.display = showCard ? 'flex' : 'none';
+                    card.style.opacity = showCard ? '1' : '0';
+                }
+            });
+            
+            // Scroll to appropriate section
+            if (category !== 'all') {
+                const targetSection = document.getElementById(category === 'recent' ? 'recently-added' : category);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
+            // Reset search input
+            document.getElementById('mainSearchInput').value = '';
+            
+            // Show all cards in search results
+            document.querySelectorAll('#books-grid .book-card').forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                }
+            });
+        });
+    });
+}
+
+// Initialize category filters when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initCategoryFilters();
+});
         let isExpanded = false;
         const btnText = seeMoreBtn.querySelector('.text');
         const btnIcon = seeMoreBtn.querySelector('.icon');
