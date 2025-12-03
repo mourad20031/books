@@ -175,59 +175,6 @@
       margin-bottom: 0.5rem;
       pointer-events: none; 
     }
-       /* Category filter styles */
-    .category-btn.active {
-        background: linear-gradient(135deg, #3b82f6, #2563eb);
-        color: white;
-        font-weight: 600;
-        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-    }
-    
-    /* Sticky category bar */
-    #sticky-category-bar {
-        transition: all 0.3s ease;
-    }
-    
-    /* Hide scrollbar for sticky categories */
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-    
-    /* Mobile menu improvements */
-    #mobile-menu a {
-        transition: transform 0.2s ease;
-    }
-    
-    #mobile-menu a:hover {
-        transform: translateY(-2px);
-    }
-    
-    /* Dark mode support for new elements */
-    [data-theme="dark"] #mobile-menu a {
-        background-color: #1e293b;
-        color: #cbd5e1;
-    }
-    
-    [data-theme="dark"] #mobile-menu a:hover {
-        background-color: #334155;
-    }
-    
-    [data-theme="dark"] #sticky-category-bar {
-        background-color: rgba(30, 41, 59, 0.95);
-        border-color: #475569;
-    }
-    
-    [data-theme="dark"] .category-btn:not(.active) {
-        background-color: #475569;
-        color: #cbd5e1;
-        border-color: #64748b;
-    }
-    
     /* Coming Soon placeholder */
     .coming-soon-image {
       display: flex;
@@ -783,27 +730,12 @@
                     <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
                 </h1>
             </a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Trending</a>
-                <a href="#all-books-header" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
-                <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">FAQ</a>
-                <a href="#contact-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
-                <!-- Desktop Category Filter (hidden on mobile) -->
-                <div class="hidden md:flex items-center space-x-2">
-                    <button class="category-btn active px-3 py-1.5 bg-blue-600 text-white rounded-full text-xs font-medium hover:bg-blue-700 transition" data-category="all">
-                        All
-                    </button>
-                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="trending">
-                        🔥
-                    </button>
-                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="weight-loss">
-                        ⚖️
-                    </button>
-                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="recent">
-                        📚
-                    </button>
-                </div>
-            </nav>
+          <nav class="hidden md:flex items-center space-x-6">
+    <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Trending</a>
+    <a href="#all-books-header" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
+    <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">FAQ</a>
+    <a href="#contact-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
+</nav>
             <div class="flex items-center space-x-4">
                 <!-- Theme Toggle Button - Fixed -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -819,38 +751,11 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-    <div class="grid grid-cols-2 gap-2 p-4">
-        <!-- Category Filters in Mobile Menu -->
-        <div class="col-span-2 mb-4">
-            <p class="text-sm font-semibold text-gray-700 mb-2">Categories:</p>
-            <div class="flex flex-wrap gap-2">
-                <button class="category-btn active px-3 py-1.5 bg-blue-600 text-white rounded-full text-xs font-medium hover:bg-blue-700 transition" data-category="all">
-                    All Books
-                </button>
-                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="trending">
-                     Trending
-                </button>
-                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="weight-loss">
-                     Weight Loss
-                </button>
-                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="recent">
-                     Recently Added
-                </button>
-            </div>
-        </div>
-        
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="grid grid-cols-3 gap-2 p-4">
         <a href="#trending" class="flex flex-col items-center justify-center p-4 bg-blue-50 text-blue-700 rounded-xl text-center hover:bg-blue-100 transition">
             <i class="fas fa-fire text-lg mb-1"></i>
             <span class="text-sm font-medium">Trending</span>
-        </a>
-        <a href="#weight-loss" class="flex flex-col items-center justify-center p-4 bg-green-50 text-green-700 rounded-xl text-center hover:bg-green-100 transition">
-            <i class="fas fa-weight text-lg mb-1"></i>
-            <span class="text-sm font-medium">Weight Loss</span>
-        </a>
-        <a href="#all-books-header" class="flex flex-col items-center justify-center p-4 bg-gray-50 text-gray-700 rounded-xl text-center hover:bg-gray-100 transition">
-            <i class="fas fa-book text-lg mb-1"></i>
-            <span class="text-sm font-medium">All Books</span>
         </a>
         <a href="#faq-section" class="flex flex-col items-center justify-center p-4 bg-yellow-50 text-yellow-700 rounded-xl text-center hover:bg-yellow-100 transition">
             <i class="fas fa-question-circle text-lg mb-1"></i>
@@ -899,21 +804,6 @@
         </section>
 
         <div class="container mx-auto px-4 py-4">
-            <!-- Category Filter Buttons (Desktop only - hidden on mobile) -->
-            <div class="hidden md:flex flex-wrap gap-2 justify-center mb-8 mt-4">
-                <button class="category-btn active px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition" data-category="all">
-                    All Books
-                </button>
-                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="trending">
-                    🔥 Trending
-                </button>
-                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="weight-loss">
-                    ⚖️ Weight Loss
-                </button>
-                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="recent">
-                    📚 Recently Added
-                </button>
-            </div>
             
             <!-- Trending Books Section - NOW WITH CAROUSEL -->
             <section id="trending" class="pt-2">
@@ -2319,93 +2209,7 @@ mainSearchInput.addEventListener('input', (e) => {
         contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
 
         // Modern See More functionality
-         // Category Filter Functionality
-function initCategoryFilters() {
-    const categoryButtons = document.querySelectorAll('.category-btn, .sticky-category-btn');
-    const allBookCards = document.querySelectorAll('.book-card');
-    const stickyBar = document.getElementById('sticky-category-bar');
-    
-    // Show/hide sticky bar on scroll
-    window.addEventListener('scroll', () => {
-        if (stickyBar) {
-            stickyBar.style.display = window.scrollY > 200 ? 'block' : 'none';
-        }
-    });
-    
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.dataset.category;
-            
-            // Update active state
-            categoryButtons.forEach(btn => {
-                btn.classList.remove('active', 'bg-blue-600', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-700');
-                
-                if (btn.classList.contains('sticky-category-btn')) {
-                    btn.classList.remove('bg-blue-100', 'text-blue-700', 'border-blue-200');
-                    btn.classList.add('bg-gray-100', 'text-gray-700', 'border-gray-200');
-                }
-            });
-            
-            // Set active state for clicked button
-            this.classList.remove('bg-gray-200', 'text-gray-700', 'bg-gray-100');
-            this.classList.add('active', 'bg-blue-600', 'text-white');
-            
-            if (this.classList.contains('sticky-category-btn')) {
-                this.classList.remove('bg-gray-100', 'text-gray-700', 'border-gray-200');
-                this.classList.add('bg-blue-100', 'text-blue-700', 'border-blue-200');
-            }
-            
-            // Filter books based on category
-            allBookCards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'flex';
-                    card.style.opacity = '1';
-                } else {
-                    // Check which section the card is in
-                    const section = card.closest('section');
-                    const sectionId = section ? section.id : '';
-                    
-                    let showCard = false;
-                    
-                    if (category === 'trending' && sectionId === 'trending') {
-                        showCard = true;
-                    } else if (category === 'weight-loss' && sectionId === 'weight-loss') {
-                        showCard = true;
-                    } else if (category === 'recent' && sectionId === 'recently-added') {
-                        showCard = true;
-                    }
-                    
-                    card.style.display = showCard ? 'flex' : 'none';
-                    card.style.opacity = showCard ? '1' : '0';
-                }
-            });
-            
-            // Scroll to appropriate section
-            if (category !== 'all') {
-                const targetSection = document.getElementById(category === 'recent' ? 'recently-added' : category);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-            
-            // Reset search input
-            document.getElementById('mainSearchInput').value = '';
-            
-            // Show all cards in search results
-            document.querySelectorAll('#books-grid .book-card').forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'flex';
-                }
-            });
-        });
-    });
-}
 
-// Initialize category filters when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    initCategoryFilters();
-});
         let isExpanded = false;
         const btnText = seeMoreBtn.querySelector('.text');
         const btnIcon = seeMoreBtn.querySelector('.icon');
