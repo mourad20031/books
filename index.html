@@ -1877,16 +1877,6 @@
             </div>
         </div>
    
-        </section>
-
-    <section class="text-center py-4 border-t border-gray-100">
-        <div class="flex items-center justify-center space-x-2">
-            <i class="fas fa-shield-alt text-blue-500 text-lg"></i>
-            <div>
-                <h4 class="text-sm font-semibold text-gray-900">100% Free & Legal</h4>
-                <p class="text-gray-500 text-xs">All books are legally available for free download.</p>
-            </div>
-        </div>
     </section>
         <!-- Full Width Footer -->
 <footer class="header-bg border-t border-gray-100 py-8 w-full">
@@ -2013,6 +2003,24 @@
     // Initialize button state
     updateDonateButton();
     </script>
+                 </div>
+
+        <!-- 100% Free & Legal Section -->
+        <div class="text-center py-4">
+            <div class="flex items-center justify-center space-x-2">
+                <i class="fas fa-shield-alt text-blue-500 text-lg"></i>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900">100% Free & Legal</h4>
+                    <p class="text-gray-500 text-xs">All books are legally available for free download.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 mt-6 pt-6 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- All modals -->
     <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
@@ -2023,32 +2031,6 @@
             </div>
         </div>
     </footer>
-    <!-- All modals -->
-    <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-gray-900 rounded-lg w-full max-w-lg relative transform transition-all duration-300 scale-95 opacity-0">
-            <button class="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></button>
-            <div class="p-6">
-                <h2 class="text-2xl font-bold mb-4 text-center">Contact Us</h2>
-                <p class="text-center text-gray-500 mb-6">Have a question or suggestion? Get in touch!</p>
-                <form id="contact-form">
-                    <div class="mb-4">
-                        <label for="fullName" class="block text-gray-700 mb-2">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                    </div>
-                    <div class="mb-6">
-                           <label for="message" class="block text-gray-700 mb-2">Message</label>
-                           <textarea id="message" name="message" rows="4" class="form-input w-full rounded-lg py-2 px-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-download block py-3 px-4 rounded-lg w-full text-base text-center">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
         <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
             <div class="text-blue-500 text-5xl mb-4">
