@@ -718,6 +718,20 @@
     [data-theme="dark"] .carousel-nav:hover {
         background: #334155;
     }
+   /* Simple Mobile Menu */
+[data-theme="dark"] #mobile-menu {
+    background-color: var(--header-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] #mobile-menu a {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] #mobile-menu a:hover {
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+}
   </style>
 </head>
 <body class="antialiased">
@@ -2144,8 +2158,10 @@
         const seeMoreBtn = document.getElementById('see-more-btn');
         const videoBackground = document.querySelector('.video-background');
                 
-        // Mobile menu toggle
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+       // Mobile menu toggle
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
 
         // Search functionality - FIXED
 mainSearchInput.addEventListener('input', (e) => {
