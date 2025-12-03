@@ -178,6 +178,58 @@
     
     /* Coming Soon placeholder */
     .coming-soon-image {
+         /* Category filter styles */
+    .category-btn.active {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Sticky category bar */
+    #sticky-category-bar {
+        transition: all 0.3s ease;
+    }
+    
+    /* Hide scrollbar for sticky categories */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Mobile menu improvements */
+    #mobile-menu a {
+        transition: transform 0.2s ease;
+    }
+    
+    #mobile-menu a:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Dark mode support for new elements */
+    [data-theme="dark"] #mobile-menu a {
+        background-color: #1e293b;
+        color: #cbd5e1;
+    }
+    
+    [data-theme="dark"] #mobile-menu a:hover {
+        background-color: #334155;
+    }
+    
+    [data-theme="dark"] #sticky-category-bar {
+        background-color: rgba(30, 41, 59, 0.95);
+        border-color: #475569;
+    }
+    
+    [data-theme="dark"] .category-btn:not(.active) {
+        background-color: #475569;
+        color: #cbd5e1;
+        border-color: #64748b;
+    }
       display: flex;
       align-items: center;
       justify-content: center;
