@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+ <!-- [ALL YOUR EXISTING HEAD CODE REMAINS EXACTLY THE SAME] -->
  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="shortcut icon" href="favicon.ico">
@@ -698,6 +698,79 @@
     [data-theme="dark"] #search-section {
       background-color: var(--header-bg) !important;
     }
+
+    /* === NEW CAROUSEL STYLES FOR ALL SECTIONS === */
+    .carousel-container {
+        position: relative;
+        padding: 0 2rem;
+        margin: 0 -1rem;
+    }
+
+    .book-carousel {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 0.5rem 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .book-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #e5e7eb;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .carousel-nav:hover {
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+        left: 0;
+    }
+
+    .carousel-nav.next {
+        right: 0;
+    }
+
+    .carousel-nav i {
+        font-size: 0.75rem;
+        color: #4b5563;
+    }
+
+    /* Dark mode for carousel */
+    [data-theme="dark"] .carousel-nav {
+        background: rgba(30, 41, 59, 0.8);
+        border-color: #475569;
+        color: white;
+    }
+
+    [data-theme="dark"] .carousel-nav i {
+        color: #cbd5e1;
+    }
+
+    [data-theme="dark"] .carousel-nav:hover {
+        background: #334155;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -715,6 +788,24 @@
                 <a href="#all-books-header" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
                 <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">FAQ</a>
                 <a href="#contact-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
+                <!-- Desktop Category Filter (hidden on mobile) -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <button class="category-btn active px-3 py-1.5 bg-blue-600 text-white rounded-full text-xs font-medium hover:bg-blue-700 transition" data-category="all">
+                        All
+                    </button>
+                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="trending">
+                        🔥
+                    </button>
+                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="weight-loss">
+                        ⚖️
+                    </button>
+                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="most-downloaded">
+                        📥
+                    </button>
+                    <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="recent">
+                        📚
+                    </button>
+                </div>
             </nav>
             <div class="flex items-center space-x-4">
                 <!-- Theme Toggle Button - Fixed -->
@@ -733,6 +824,28 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
     <div class="grid grid-cols-2 gap-2 p-4">
+        <!-- Category Filters in Mobile Menu -->
+        <div class="col-span-2 mb-4">
+            <p class="text-sm font-semibold text-gray-700 mb-2">Categories:</p>
+            <div class="flex flex-wrap gap-2">
+                <button class="category-btn active px-3 py-1.5 bg-blue-600 text-white rounded-full text-xs font-medium hover:bg-blue-700 transition" data-category="all">
+                    All Books
+                </button>
+                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="trending">
+                    🔥 Trending
+                </button>
+                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="weight-loss">
+                    ⚖️ Weight Loss
+                </button>
+                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="most-downloaded">
+                    📥 Most Downloaded
+                </button>
+                <button class="category-btn px-3 py-1.5 bg-gray-200 text-gray-700 rounded-full text-xs font-medium hover:bg-gray-300 transition" data-category="recent">
+                    📚 Recently Added
+                </button>
+            </div>
+        </div>
+        
         <a href="#trending" class="flex flex-col items-center justify-center p-4 bg-blue-50 text-blue-700 rounded-xl text-center hover:bg-blue-100 transition">
             <i class="fas fa-fire text-lg mb-1"></i>
             <span class="text-sm font-medium">Trending</span>
@@ -796,343 +909,371 @@
         </section>
 
         <div class="container mx-auto px-4 py-4">
-         <!-- Category Filter Buttons -->
-<div class="flex flex-wrap gap-2 justify-center mb-8 mt-4">
-    <button class="category-btn active px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition" data-category="all">
-        All Books
-    </button>
-    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="trending">
-        🔥 Trending
-    </button>
-    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="weight-loss">
-        ⚖️ Weight Loss
-    </button>
-    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="most-downloaded">
-        📥 Most Downloaded
-    </button>
-    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="recent">
-        📚 Recently Added
-    </button>
-</div>
-            <!-- Trending Books Section -->
+            <!-- Category Filter Buttons (Desktop only - hidden on mobile) -->
+            <div class="hidden md:flex flex-wrap gap-2 justify-center mb-8 mt-4">
+                <button class="category-btn active px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition" data-category="all">
+                    All Books
+                </button>
+                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="trending">
+                    🔥 Trending
+                </button>
+                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="weight-loss">
+                    ⚖️ Weight Loss
+                </button>
+                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="most-downloaded">
+                    📥 Most Downloaded
+                </button>
+                <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="recent">
+                    📚 Recently Added
+                </button>
+            </div>
+            
+            <!-- Trending Books Section - NOW WITH CAROUSEL -->
             <section id="trending" class="pt-2">
                 <div class="text-center mb-6">
                     <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Books</h2>
                     <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-4">
+                <div class="carousel-container">
+                    <button class="carousel-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="book-carousel">
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Atomic Habits" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="127000">127K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">Download Now</button>
+                            </div>
+                        </div>
                         
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Alchemist" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/BQf9nVgZ/The-Alchemist-cover.jpg" alt="The Alchemist" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="127000">127K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.9</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="98500">98.5K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-alchemist/')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">Download Now</button>
                         </div>
-                    </div>
-                    
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/BQf9nVgZ/The-Alchemist-cover.jpg" alt="The Alchemist" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.9</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="98500">98.5K</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-alchemist/')">Download Now</button>
-                        </div>
-                    </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Thinking, Fast and Slow">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/hPRvRMQy/Thinking-Fast-and-Slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="215000">215K</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Thinking, Fast and Slow" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/hPRvRMQy/Thinking-Fast-and-Slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/thinking-fast-and-slow')">Download Now</button>
-                        </div>
-                    </div>
-                    
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Psychology of Money">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/RFr5JpBs/POM.webp" alt="The Psychology of Money" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="178000">178K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="215000">215K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/thinking-fast-and-slow')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'http://freeebooks.online/the-psychology-of-money')">Download Now</button>
                         </div>
-                    </div>
+                        
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Psychology of Money" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/RFr5JpBs/POM.webp" alt="The Psychology of Money" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="178000">178K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'http://freeebooks.online/the-psychology-of-money')">Download Now</button>
+                            </div>
+                        </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Deep Work">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/GpXqTqsX/Screenshot-2025-11-27-083409.png" alt="Deep Work" class="book-image">
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Deep Work" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/GpXqTqsX/Screenshot-2025-11-27-083409.png" alt="Deep Work" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="89200">89.2K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/deep-work')">Download Now</button>
+                            </div>
                         </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                        
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 7 Habits of Highly Effective People" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp" alt="The 7 Habits of Highly Effective People" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="89200">89.2K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.8</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="143000">143K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-7-habits-of-highly-effective-people')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/deep-work')">Download Now</button>
                         </div>
                     </div>
-                    
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The 7 Habits of Highly Effective People">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp" alt="The 7 Habits of Highly Effective People" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
-                            </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="143000">143K</span>
-                            </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-7-habits-of-highly-effective-people')">Download Now</button>
-                        </div>
-                    </div>
+                    <button class="carousel-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </section>
 
-            <!-- Most Downloaded Books Section -->
+            <!-- Most Downloaded Books Section - NOW WITH CAROUSEL -->
             <section id="most-downloaded" class="py-12">
                 <div class="text-center mb-10">
                     <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3"> Most Downloaded Books</h2>
                     <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Our community's favorite books with the highest download counts</p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Power of Now">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/y84XgcJK/The-Powerof-Now-min.jpg" alt="The Power of Now" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="book-carousel">
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Power of Now" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/y84XgcJK/The-Powerof-Now-min.jpg" alt="The Power of Now" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="198000">198K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="198000">198K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-power-of-now')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-power-of-now')">Download Now</button>
                         </div>
-                    </div>
-                    
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Sapiens: A Brief History of Humankind">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/GhJVpL28/713j-Io-MO3UL.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.7</span>
+                        
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Sapiens: A Brief History of Humankind" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/GhJVpL28/713j-Io-MO3UL.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="87600">87.6K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.7</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="87600">87.6K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/sapiens')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/sapiens')">Download Now</button>
                         </div>
-                    </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Subtle Art of Not Giving a F*ck">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/NfMf6zHX/images-(1).jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">the Subtle Art of Not Giving a F*ck</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Subtle Art of Not Giving a F*ck" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/NfMf6zHX/images-(1).jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="96700">96.7K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">the Subtle Art of Not Giving a F*ck</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.8</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="96700">96.7K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-subtle-art-of-not-giving-a-fuck/')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-subtle-art-of-not-giving-a-fuck/')">Download Now</button>
                         </div>
-                    </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Educated">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/VNc8VGdg/images-(2).jpg" alt="Educated" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Educated" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/VNc8VGdg/images-(2).jpg" alt="Educated" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="71200">71.2K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="71200">71.2K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/educated')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/educated')">Download Now</button>
                         </div>
                     </div>
+                    <button class="carousel-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </section>
 
-            <!-- Recently Added Section -->
+            <!-- Recently Added Section - NOW WITH CAROUSEL -->
             <section id="recently-added" class="py-12">
                 <div class="text-center mb-10">
                     <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Recently Added</h2>
                     <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Fresh books added to our collection</p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Midnight Library">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/jjd4hKtm/718Q61qx-GSL-UF1000-1000-QL80.jpg" alt="The Midnight Library" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="book-carousel">
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Midnight Library" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/jjd4hKtm/718Q61qx-GSL-UF1000-1000-QL80.jpg" alt="The Midnight Library" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="198000">198K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="198000">198K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-midnight-library')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-midnight-library')">Download Now</button>
                         </div>
-                    </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Project Hail Mary">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/4N0GG4Fb/images-(3).jpg" alt="Project Hail Mary" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.7</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Project Hail Mary" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/4N0GG4Fb/images-(3).jpg" alt="Project Hail Mary" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="87600">87.6K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.7</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="87600">87.6K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/project-hail-mary')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/project-hail-mary')">Download Now</button>
                         </div>
-                    </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Klara and the Sun">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/KvkVnPJH/images-(4).jpg" alt="Klara and the Sun" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span class="text-gray-500 ml-1">4.8</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Klara and the Sun" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/KvkVnPJH/images-(4).jpg" alt="Klara and the Sun" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="96700">96.7K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.8</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="96700">96.7K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/klara-and-the-sun')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/klara-and-the-sun')">Download Now</button>
                         </div>
-                    </div>
 
-                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Four Winds">
-                        <div class="relative">
-                            <span class="book-badge premium-badge">PREMIUM</span>
-                            <span class="book-badge free-badge">FREE</span>
-                            <img src="https://i.postimg.cc/ry0XJ2p4/images-(5).jpg" alt="The Four Winds" class="book-image">
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
-                            <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span class="text-gray-500 ml-1">5.0</span>
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Four Winds" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/ry0XJ2p4/images-(5).jpg" alt="The Four Winds" class="book-image">
                             </div>
-                            <div class="text-gray-500 text-xs mb-2">
-                                <i class="fas fa-download mr-1"></i> 
-                                <span class="download-counter" data-count="71200">71.2K</span>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="71200">71.2K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-four-winds')">Download Now</button>
                             </div>
-                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-four-winds')">Download Now</button>
                         </div>
                     </div>
+                    <button class="carousel-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </section>
-         <!-- Weight Loss Books Section -->
+         
+         <!-- Weight Loss Books Section - ALREADY WITH CAROUSEL (NO CHANGES) -->
 <section id="weight-loss" class="py-12">
     <div class="text-center mb-10">
         <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Weight Loss Books</h2>
         <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
     </div>
     
-    <div class="weight-loss-carousel-container relative">
-        <div class="weight-loss-carousel flex space-x-4 overflow-x-auto pb-4 scrollbar-hide" style="scroll-behavior: smooth;">
+    <div class="carousel-container">
+        <button class="carousel-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="book-carousel">
             <!-- Book 1 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1153,7 +1294,7 @@
             </div>
 
             <!-- Book 2 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Anti-Inflammatory Diet Meal Prep" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Anti-Inflammatory Diet Meal Prep" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1174,7 +1315,7 @@
             </div>
 
             <!-- Book 3 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Plant-Based Weight Loss Solution" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Plant-Based Weight Loss Solution" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1195,7 +1336,7 @@
             </div>
 
             <!-- Book 4 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1216,7 +1357,7 @@
             </div>
 
             <!-- Book 5 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast This Way" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast This Way" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1237,7 +1378,7 @@
             </div>
 
             <!-- Book 6 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Embrace You" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Embrace You" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1258,7 +1399,7 @@
             </div>
 
             <!-- Book 7 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="You Can Drop It!" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="You Can Drop It!" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1279,7 +1420,7 @@
             </div>
 
             <!-- Book 8 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ultimate No Point Weight Loss Cookbook 2025" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ultimate No Point Weight Loss Cookbook 2025" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1300,7 +1441,7 @@
             </div>
 
             <!-- Book 9 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fit Men Cook" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fit Men Cook" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1321,7 +1462,7 @@
             </div>
 
             <!-- Book 10 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diet-Free Revolution" style="width: 200px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diet-Free Revolution" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
@@ -1341,13 +1482,8 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Navigation Arrows -->
-        <button class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center shadow-lg border border-gray-200 z-10 -ml-4">
-            <i class="fas fa-chevron-left text-sm"></i>
-        </button>
-        <button class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center shadow-lg border border-gray-200 z-10 -mr-4">
-            <i class="fas fa-chevron-right text-sm"></i>
+        <button class="carousel-nav next">
+            <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </section>
@@ -1701,9 +1837,6 @@
             <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-surrogate-mother')">Download Now</button>
         </div>
     </div>
-
-    <!-- Continue with existing hidden books... -->
-    <!-- [Rest of your existing hidden books remain unchanged] -->
 </div>
 
 <div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
@@ -1818,53 +1951,6 @@
 [data-theme="dark"] #music-player .text-gray-500 {
     color: #cbd5e1 !important;
 }
- /* Weight Loss Carousel Styles */
-.weight-loss-carousel-container {
-    position: relative;
-    padding: 0 2rem;
-}
-
-.weight-loss-carousel {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-}
-
-.weight-loss-carousel::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-}
-
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
-}
-
-/* Carousel Navigation */
-.carousel-prev, .carousel-next {
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background-color: rgba(255, 255, 255, 0.95);
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* Dark mode support */
-[data-theme="dark"] .carousel-prev,
-[data-theme="dark"] .carousel-next {
-    background-color: rgba(30, 41, 59, 0.8);
-    color: #ffffff;
-    border-color: #475569;
-}
-
-[data-theme="dark"] .carousel-prev:hover,
-[data-theme="dark"] .carousel-next:hover {
-    background-color: rgba(30, 41, 59, 0.95);
-}
 </style>
  
 
@@ -1977,7 +2063,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Contact Us</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Have questions or need help finding a book? We’re here to help!</p>
+                <p class="text-gray-500 max-w-2xl mx-auto">Have questions or need help finding a book? We're here to help!</p>
             </div>
             
             <div class="max-w-lg mx-auto">
@@ -2783,49 +2869,55 @@ if (backgroundMusic) {
     });
 }
 // ========== END OF MUSIC PLAYER CODE ==========
-         // Weight Loss Carousel Functionality
-function initWeightLossCarousel() {
-    const carousel = document.querySelector('.weight-loss-carousel');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-    const bookWidth = 216; // 200px width + 16px gap
-    
-    if (!carousel) return;
-    
-    nextBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: bookWidth * 3, behavior: 'smooth' });
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: -bookWidth * 3, behavior: 'smooth' });
-    });
-    
-    // Auto-scroll every 5 seconds
-    let autoScroll = setInterval(() => {
-        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-            carousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-            carousel.scrollBy({ left: bookWidth, behavior: 'smooth' });
-        }
-    }, 5000);
-    
-    // Pause auto-scroll on hover
-    carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-    carousel.addEventListener('mouseleave', () => {
-        autoScroll = setInterval(() => {
+         
+// ========== NEW CAROUSEL FUNCTIONALITY ==========
+function initCarousels() {
+    // Initialize all carousels on the page
+    document.querySelectorAll('.carousel-container').forEach(container => {
+        const carousel = container.querySelector('.book-carousel');
+        const prevBtn = container.querySelector('.carousel-nav.prev');
+        const nextBtn = container.querySelector('.carousel-nav.next');
+        
+        if (!carousel) return;
+        
+        const scrollAmount = 200; // How much to scroll per click
+        
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        
+        // Auto-scroll every 5 seconds
+        let autoScroll = setInterval(() => {
             if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                 carousel.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-                carousel.scrollBy({ left: bookWidth, behavior: 'smooth' });
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             }
         }, 5000);
+        
+        // Pause auto-scroll on hover
+        carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+        carousel.addEventListener('mouseleave', () => {
+            autoScroll = setInterval(() => {
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }, 5000);
+        });
     });
 }
 
-// Initialize carousel when page loads
+// Initialize carousels when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    initWeightLossCarousel();
+    initCarousels();
 });
+// ========== END OF CAROUSEL FUNCTIONALITY ==========
     </script>
 </body>
-</html> 
+</html>
