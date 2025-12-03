@@ -175,6 +175,58 @@
       margin-bottom: 0.5rem;
       pointer-events: none; 
     }
+       /* Category filter styles */
+    .category-btn.active {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Sticky category bar */
+    #sticky-category-bar {
+        transition: all 0.3s ease;
+    }
+    
+    /* Hide scrollbar for sticky categories */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Mobile menu improvements */
+    #mobile-menu a {
+        transition: transform 0.2s ease;
+    }
+    
+    #mobile-menu a:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Dark mode support for new elements */
+    [data-theme="dark"] #mobile-menu a {
+        background-color: #1e293b;
+        color: #cbd5e1;
+    }
+    
+    [data-theme="dark"] #mobile-menu a:hover {
+        background-color: #334155;
+    }
+    
+    [data-theme="dark"] #sticky-category-bar {
+        background-color: rgba(30, 41, 59, 0.95);
+        border-color: #475569;
+    }
+    
+    [data-theme="dark"] .category-btn:not(.active) {
+        background-color: #475569;
+        color: #cbd5e1;
+        border-color: #64748b;
+    }
     
     /* Coming Soon placeholder */
     .coming-soon-image {
@@ -679,12 +731,34 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 bg-white border-t border-gray-100">
-            <a href="#trending" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Trending</a>
-            <a href="#all-books-header" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">All Books</a>
-            <a href="#faq-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">FAQ</a>
-            <a href="#contact-section" class="block text-gray-600 hover:text-blue-500 transition py-2 text-sm font-medium">Contact</a>
-        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="grid grid-cols-2 gap-2 p-4">
+        <a href="#trending" class="flex flex-col items-center justify-center p-4 bg-blue-50 text-blue-700 rounded-xl text-center hover:bg-blue-100 transition">
+            <i class="fas fa-fire text-lg mb-1"></i>
+            <span class="text-sm font-medium">Trending</span>
+        </a>
+        <a href="#weight-loss" class="flex flex-col items-center justify-center p-4 bg-green-50 text-green-700 rounded-xl text-center hover:bg-green-100 transition">
+            <i class="fas fa-weight text-lg mb-1"></i>
+            <span class="text-sm font-medium">Weight Loss</span>
+        </a>
+        <a href="#most-downloaded" class="flex flex-col items-center justify-center p-4 bg-purple-50 text-purple-700 rounded-xl text-center hover:bg-purple-100 transition">
+            <i class="fas fa-download text-lg mb-1"></i>
+            <span class="text-sm font-medium">Most Downloaded</span>
+        </a>
+        <a href="#all-books-header" class="flex flex-col items-center justify-center p-4 bg-gray-50 text-gray-700 rounded-xl text-center hover:bg-gray-100 transition">
+            <i class="fas fa-book text-lg mb-1"></i>
+            <span class="text-sm font-medium">All Books</span>
+        </a>
+        <a href="#faq-section" class="flex flex-col items-center justify-center p-4 bg-yellow-50 text-yellow-700 rounded-xl text-center hover:bg-yellow-100 transition">
+            <i class="fas fa-question-circle text-lg mb-1"></i>
+            <span class="text-sm font-medium">FAQ</span>
+        </a>
+        <a href="#contact-section" class="flex flex-col items-center justify-center p-4 bg-red-50 text-red-700 rounded-xl text-center hover:bg-red-100 transition">
+            <i class="fas fa-envelope text-lg mb-1"></i>
+            <span class="text-sm font-medium">Contact</span>
+        </a>
+    </div>
+</div>
     </header>
 
     <main>
@@ -708,20 +782,61 @@
             </div>
         </div>
     </div>
+
+</section>  <!-- This closes the video section -->
+
+<!-- Sticky Category Bar -->
+<div id="sticky-category-bar" class="sticky top-12 z-40 bg-white/95 backdrop-blur-sm py-3 shadow-sm border-b border-gray-100 hidden">
+    <div class="container mx-auto px-4">
+        <div class="flex overflow-x-auto gap-2 scrollbar-hide">
+            <button class="sticky-category-btn active whitespace-nowrap px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium border border-blue-200" data-category="all">
+                All
+            </button>
+            <button class="sticky-category-btn whitespace-nowrap px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200" data-category="trending">
+                Trending
+            </button>
+            <button class="sticky-category-btn whitespace-nowrap px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200" data-category="weight-loss">
+                Weight Loss
+            </button>
+            <button class="sticky-category-btn whitespace-nowrap px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200" data-category="most-downloaded">
+                Most Downloaded
+            </button>
+            <button class="sticky-category-btn whitespace-nowrap px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200" data-category="recent">
+                New Releases
+            </button>
+        </div>
+    </div>
+</div>
+
+<section id="search-section" class="pt-4 pb-2 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div class="relative w-full max-w-xs md:max-w-md">
+                <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm">
+                <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
+            </div>
+        </div>
+    </div>
 </section>
 
-        <section id="search-section" class="pt-4 pb-2 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <div class="relative w-full max-w-xs md:max-w-md">
-                        <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm">
-                        <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="container mx-auto px-4 py-4">
+     <!-- Category Filter Buttons -->
+<div class="flex flex-wrap gap-2 justify-center mb-8 mt-4">
+    <button class="category-btn active px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition" data-category="all">
+        All Books
+    </button>
+    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="trending">
+        🔥 Trending
+    </button>
+    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="weight-loss">
+        ⚖️ Weight Loss
+    </button>
+    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="most-downloaded">
+        📥 Most Downloaded
+    </button>
+    <button class="category-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition" data-category="recent">
+        📚 Recently Added
+    </button>
+</div>
             <!-- Trending Books Section -->
             <section id="trending" class="pt-2">
                 <div class="text-center mb-6">
@@ -2195,22 +2310,28 @@
         // Mobile menu toggle
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        // Search functionality
-        mainSearchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const allBookCards = document.querySelectorAll('.book-card');
-            const noResults = document.getElementById('no-results');
-            let visibleCount = 0;
+        // Search functionality - FIXED
+mainSearchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const allBookCards = document.querySelectorAll('.book-card');
+    const noResults = document.getElementById('no-results');
+    const seeMoreContainer = document.getElementById('see-more-container');
+    let visibleCount = 0;
 
-            allBookCards.forEach(card => {
-                const isVisible = card.dataset.name.toLowerCase().includes(searchTerm);
-                card.style.display = isVisible ? 'flex' : 'none';
-                if (isVisible) visibleCount++;
-            });
+    allBookCards.forEach(card => {
+        const isVisible = card.dataset.name.toLowerCase().includes(searchTerm);
+        card.style.display = isVisible ? 'flex' : 'none';
+        card.style.opacity = isVisible ? '1' : '0';
+        if (isVisible) visibleCount++;
+    });
 
-            noResults.classList.toggle('hidden', visibleCount > 0);
-        });
-
+    noResults.classList.toggle('hidden', visibleCount > 0);
+    
+    // Show/hide "See More" button based on results
+    if (seeMoreContainer) {
+        seeMoreContainer.style.display = visibleCount > 0 ? 'block' : 'none';
+    }
+});
         function openContactModal() {
             contactModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -2245,54 +2366,144 @@
         });
         
         contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
+         // Category Filter Functionality
+function initCategoryFilters() {
+    const categoryButtons = document.querySelectorAll('.category-btn, .sticky-category-btn');
+    const allBookCards = document.querySelectorAll('.book-card');
+    const stickyBar = document.getElementById('sticky-category-bar');
+    
+    // Show/hide sticky bar on scroll
+    window.addEventListener('scroll', () => {
+        if (stickyBar) {
+            stickyBar.style.display = window.scrollY > 200 ? 'block' : 'none';
+        }
+    });
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Update active state
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+                
+                if (btn.classList.contains('sticky-category-btn')) {
+                    btn.classList.remove('bg-blue-100', 'text-blue-700', 'border-blue-200');
+                    btn.classList.add('bg-gray-100', 'text-gray-700', 'border-gray-200');
+                }
+            });
+            
+            // Set active state for clicked button
+            this.classList.remove('bg-gray-200', 'text-gray-700', 'bg-gray-100');
+            this.classList.add('active', 'bg-blue-600', 'text-white');
+            
+            if (this.classList.contains('sticky-category-btn')) {
+                this.classList.remove('bg-gray-100', 'text-gray-700', 'border-gray-200');
+                this.classList.add('bg-blue-100', 'text-blue-700', 'border-blue-200');
+            }
+            
+            // Filter books based on category
+            allBookCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                } else {
+                    // Check which section the card is in
+                    const section = card.closest('section');
+                    const sectionId = section ? section.id : '';
+                    
+                    let showCard = false;
+                    
+                    if (category === 'trending' && sectionId === 'trending') {
+                        showCard = true;
+                    } else if (category === 'weight-loss' && sectionId === 'weight-loss') {
+                        showCard = true;
+                    } else if (category === 'most-downloaded' && sectionId === 'most-downloaded') {
+                        showCard = true;
+                    } else if (category === 'recent' && sectionId === 'recently-added') {
+                        showCard = true;
+                    }
+                    
+                    card.style.display = showCard ? 'flex' : 'none';
+                    card.style.opacity = showCard ? '1' : '0';
+                }
+            });
+            
+            // Scroll to appropriate section
+            if (category !== 'all') {
+                const targetSection = document.getElementById(category === 'recent' ? 'recently-added' : category);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
+            // Reset search input
+            document.getElementById('mainSearchInput').value = '';
+            
+            // Show all cards in search results
+            document.querySelectorAll('#books-grid .book-card').forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                }
+            });
+        });
+    });
+}
+
+// Initialize category filters when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initCategoryFilters();
+});
 
         // Modern See More functionality
         let isExpanded = false;
         const btnText = seeMoreBtn.querySelector('.text');
         const btnIcon = seeMoreBtn.querySelector('.icon');
+
+
+seeMoreBtn.addEventListener('click', () => {
+    const hiddenCards = document.querySelectorAll('#books-grid .book-card.hidden');
+    
+    if (!isExpanded) {
+        // Show all hidden books with animation
+        hiddenCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.remove('hidden');
+            }, index * 50);
+        });
         
-        seeMoreBtn.addEventListener('click', () => {
-            const hiddenCards = document.querySelectorAll('#books-grid .book-card.hidden');
-            
-            if (!isExpanded) {
-                // Show all hidden books with animation
-                hiddenCards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.remove('hidden');
-                    }, index * 50); // Stagger the animation
-                });
-                
-                btnText.textContent = 'See Less';
-                seeMoreBtn.classList.add('expanded');
-                seeMoreBtn.classList.remove('pulse');
-                isExpanded = true;
-                
-                // Scroll to newly shown content if needed
+        btnText.textContent = 'See Less';
+        seeMoreBtn.classList.add('expanded');
+        seeMoreBtn.classList.remove('pulse');
+        isExpanded = true;
+        
+        // Scroll to newly shown content if needed
+        setTimeout(() => {
+            if (hiddenCards.length > 0) {
+                hiddenCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 300);
+    } else {
+        // Hide all but first 8 books with animation
+        const allCards = document.querySelectorAll('#books-grid .book-card');
+        allCards.forEach((card, index) => {
+            if (index >= 8) {
                 setTimeout(() => {
-                    if (hiddenCards.length > 0) {
-                        hiddenCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }
-                }, 300);
-            } else {
-                // Hide all but first 4 books with animation
-                const allCards = document.querySelectorAll('#books-grid .book-card');
-                allCards.forEach((card, index) => {
-                    if (index >= 4) {
-                        setTimeout(() => {
-                            card.classList.add('hidden');
-                        }, (index - 4) * 30); // Stagger the animation
-                    }
-                });
-                
-                btnText.textContent = 'See More Books';
-                seeMoreBtn.classList.remove('expanded');
-                seeMoreBtn.classList.add('pulse');
-                isExpanded = false;
-                
-                // Scroll to the top of the books section
-                document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' });
+                    card.classList.add('hidden');
+                }, (index - 8) * 30);
             }
         });
+        
+        btnText.textContent = 'See More Books';
+        seeMoreBtn.classList.remove('expanded');
+        seeMoreBtn.classList.add('pulse');
+        isExpanded = false;
+        
+        // Scroll to the top of the books section
+        document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' });
+    }
+});
 
         // FAQ toggle functionality
         function toggleFAQ(element) {
@@ -2639,5 +2850,18 @@ document.addEventListener('DOMContentLoaded', function() {
     initWeightLossCarousel();
 });
     </script>
+     <!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-20 right-4 z-50 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 hidden items-center justify-center border-2 border-white/20 backdrop-blur-sm">
+    <i class="fas fa-chevron-up text-sm"></i>
+</button>
+
+<script>
+// Back to Top Button
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+</script>
 </body>
 </html>
