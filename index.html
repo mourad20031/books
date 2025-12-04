@@ -625,17 +625,18 @@
     [data-theme="dark"] .text-gray-400 {
       color: #ffffff !important;
     }
-   /* Simple donation text */
+  /* Simple donation text */
 .donate-text {
     text-decoration: none;
+    color: #374151; /* Gray-700 for light mode */
 }
 
 [data-theme="dark"] .donate-text {
-    color: #f87171 !important; /* Light red for dark mode */
+    color: #e5e7eb !important; /* Gray-200 for dark mode */
 }
 
-[data-theme="dark"] .donate-text:hover {
-    color: #fca5a5 !important;
+.donate-text:hover {
+    opacity: 0.8;
 }
    /* Add this to your existing styles, right after the dark mode text color rules */
 [data-theme="dark"] #custom-amount {
@@ -775,11 +776,12 @@
 <div class="flex items-center space-x-4">
     <!-- Theme Toggle with Simple Donation Text -->
     <div class="relative flex items-center">
-        <a href="https://freeebooks.online/donate" 
-           class="donate-text hidden md:inline-block mr-3 text-sm text-red-500 hover:text-red-600 font-medium transition-colors duration-200"
-           target="_blank">
-            Donate ❤️
-        </a>
+    <a href="https://freeebooks.online/donate" 
+       class="donate-text text-xs font-normal hover:opacity-80 transition-opacity duration-200"
+       target="_blank">
+        Donate ❤️
+    </a>
+    <div class="w-3"></div> <!-- Small spacer -->
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
