@@ -732,6 +732,41 @@
     color: #3b82f6;
     background-color: rgba(59, 130, 246, 0.1);
 }
+   /* Remove side gaps for FAQ and footer sections */
+#faq-section > div,
+#donation-section > div,
+footer > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+}
+
+/* Ensure full width */
+#faq-section,
+#donation-section,
+footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Optional: Adjust container padding for better spacing */
+.w-full {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .w-full {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
   </style>
 </head>
 <body class="antialiased">
