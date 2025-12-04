@@ -628,13 +628,13 @@
   /* Simple donation text */
 .donate-text {
     text-decoration: none;
-    color: #374151; /* Gray-700 for light mode */
-    font-size: 0.875rem; /* text-sm */
+    color: #374151;
+    font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 400;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    transition: all 0.2s ease;
+    /* REMOVE THE TRANSITION LINE */
 }
 
 [data-theme="dark"] .donate-text {
@@ -642,11 +642,11 @@
 }
 
 .donate-text:hover {
-    opacity: 0.9;
+    /* No effects */
 }
 
 [data-theme="dark"] .donate-text:hover {
-    opacity: 0.9;
+    /* No effects */
 }
    /* Remove click flash/overlay */
 .donate-text {
@@ -803,10 +803,10 @@
     <!-- Theme Toggle with Simple Donation Text -->
    <div class="relative flex items-center">
     <a href="https://freeebooks.online/donate" 
-       class="donate-text text-sm font-normal hover:opacity-80 transition-opacity duration-200"
-       target="_blank">
-        Donate ❤️
-    </a>
+   class="donate-text text-sm font-normal"
+   target="_blank">
+    Donate ❤️
+</a>
     <div class="w-3"></div> <!-- Small spacer -->
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
