@@ -23,20 +23,40 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
+        <style>
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #333;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --search-bg: #f9fafb;
+            --border-color: #e5e5e5;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #ffffff;
+            --header-bg: #1e293b;
+            --card-bg: #334155;
+            --search-bg: #475569;
+            --border-color: #475569;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fafafa;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .book-item {
             transition: all 0.2s ease;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--card-bg);
         }
         
         .book-item:hover {
-            background-color: #f8f9fa;
+            background-color: var(--border-color);
         }
         
         .book-cover {
@@ -71,14 +91,20 @@
             font-weight: 500;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+        [data-theme="dark"] .coming-soon-cover {
+            background: linear-gradient(135deg, #475569, #334155);
+            color: #cbd5e1;
+        }
         
         .rating-stars {
             color: #f59e0b;
         }
         
         .search-bar {
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
+            background-color: var(--search-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
             transition: all 0.3s ease;
         }
         
@@ -86,6 +112,39 @@
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Header styles for dark mode */
+        header {
+            background-color: var(--header-bg);
+            border-color: var(--border-color);
+        }
+        
+        footer {
+            background-color: var(--header-bg);
+            border-color: var(--border-color);
+        }
+        
+        /* Dark mode text colors */
+        [data-theme="dark"] .text-gray-900,
+        [data-theme="dark"] .text-gray-700,
+        [data-theme="dark"] .text-gray-600,
+        [data-theme="dark"] .text-gray-500,
+        [data-theme="dark"] .text-gray-400 {
+            color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] .bg-white {
+            background-color: var(--header-bg) !important;
+        }
+        
+        [data-theme="dark"] .bg-blue-50 {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+        }
+        
+        [data-theme="dark"] #all-books {
+            background-color: var(--card-bg);
+            border-color: var(--border-color);
         }
         
         @media (max-width: 768px) {
@@ -780,7 +839,7 @@
             }
         });
         
-        // Clear search on escape key
+                // Clear search on escape key
         searchInput.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 this.value = '';
@@ -804,6 +863,19 @@
                 }
             });
         });
+        
+        // Auto-detect and apply dark mode from main page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if dark mode is enabled in localStorage (set by main page)
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark') {
+                // Apply dark mode to this page
+                document.body.setAttribute('data-theme', 'dark');
+            }
+            // If theme is 'light' or not set, do nothing (light mode is default)
+        });
+        
     </script>
 </body>
 </html>
