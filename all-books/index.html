@@ -1,931 +1,2302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free eBooks Online - Download Premium Books for Free</title>
-    <meta name="description" content="Download free premium eBooks including bestsellers, weight loss books, and more. All books are 100% free to download.">
+ <!-- [ALL YOUR EXISTING HEAD CODE REMAINS EXACTLY THE SAME] -->
+ <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+
+ <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6FR9YXVV8Z');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Weight Loss eBooks Download | Premium Diet Books - FreeEbooks</title>
+<meta name="description" content="Download free weight-loss eBooks, including The Ozempic Revolution. Start losing weight and living healthier today.">  <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
+  <meta name="author" content="FreeEbooks">
+  <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Free Weight Loss eBooks | Download Premium Diet Books">
+<meta property="og:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://freeebooks.online/">
+  <!-- Open Graph Image -->
+<meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
+<meta property="og:site_name" content="Free eBooks Online">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Weight Loss eBooks | Premium Diet Books Download">
+<meta name="twitter:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
+  <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+<meta name="twitter:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
+  
+  <!-- Canonical URL -->
+<link rel="canonical" href="https://freeebooks.online/">
+  <!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Free eBooks Online",
+  "url": "https://freeebooks.online/",
+  "potentialAction": {
+    "@type": "SearchAction", 
+    "target": "https://freeebooks.online/?q={search_term_string}"
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --search-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --modal-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #ffffff;
+      --header-bg: #1e293b;
+      --card-bg: #334155;
+      --search-bg: #475569;
+      --border-color: #475569;
+      --modal-bg: #1e293b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .header-bg {
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
+    }
+    .book-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .book-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+      border-color: #3b82f6;
+    }
+    .btn-download {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .btn-download:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-download.loading {
+      background: linear-gradient(90deg, #10b981, #059669, #10b981);
+      background-size: 200% 100%;
+      animation: loading-shine 2s infinite;
+    }
+    @keyframes loading-shine {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .search-bar, .form-input {
+      background-color: var(--search-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      background-color: var(--modal-bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    /* Book image styling */
+    .book-image {
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+    /* Coming Soon placeholder */
+    .coming-soon-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
+      border-radius: 8px;
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+
+    [data-theme="dark"] .coming-soon-image {
+      background-color: #475569;
+      color: #cbd5e1;
+    }
+
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-6FR9YXVV8Z');
-    </script>
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+      transform: translateY(-2px);
+    }
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+    }
     
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
     
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
     
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        
-        .book-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .book-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
-            border-color: #3b82f6;
-        }
-        
-        .book-image {
-            aspect-ratio: 2 / 3;
-            object-fit: cover;
-            width: 100%;
-            border-radius: 8px;
-        }
-        
-        .btn-download {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-download:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-        
-        .book-badge {
-            position: absolute;
-            top: 8px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 4px;
-            z-index: 10;
-        }
-        
-        .premium-badge {
-            left: 8px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-        }
-        
-        .free-badge {
-            right: 8px;
-            background: white;
-            color: #10b981;
-            border: 1px solid #dcfce7;
-        }
-        
-        .coming-soon-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9ca3af;
-            font-size: 0.8rem;
-            background-color: #f3f4f6;
-            border-radius: 8px;
-            aspect-ratio: 2 / 3;
-            width: 100%;
-        }
-        
-        .search-bar {
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .compact-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        
-        @media (min-width: 768px) {
-            .compact-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .compact-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-        }
-        
-        @media (min-width: 1280px) {
-            .compact-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 16px;
-            }
-        }
-        
-        .btn-see-more {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-see-more:hover {
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
-            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
-            transform: translateY(-2px);
-        }
-    </style>
+    /* Pulse animation for the button */
+    @keyframes pulse {
+      0% { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); }
+      50% { box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); }
+      100% { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); }
+    }
+    
+    .btn-see-more.pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Smooth transition for showing/hiding books */
+    .book-card {
+      transition: all 0.4s ease;
+    }
+    
+    .book-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Safety badge */
+    .safety-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #dbeafe;
+    }
+
+    [data-theme="dark"] .safety-badge {
+      background: #1e3a8a;
+      color: #60a5fa;
+      border-color: #1e40af;
+    }
+    
+    /* Compact book grid layout */
+    .compact-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    @media (min-width: 768px) {
+      .compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .compact-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .compact-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    /* Hero section styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+    
+    /* Loading dots animation */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .loading-dots div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+      animation: loading-dots 1.4s ease-in-out infinite both;
+    }
+    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    @keyframes loading-dots {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* FAQ Section Styles */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question:hover {
+      color: #3b82f6;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #6b7280;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding-bottom: 16px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Modern Book card badges - SMALLER SIZE */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 6px;
+      color: #10b981;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Hero Section Animations */
+    .hero-content {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .hero-title {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease 0.2s;
+    }
+    
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.4s;
+    }
+    
+    .hero-badges {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.6s;
+    }
+    
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 1s;
+      animation: gentle-pulse 2s infinite 1.5s;
+    }
+    
+    @keyframes gentle-pulse {
+      0% { transform: translateY(20px) scale(1); }
+      50% { transform: translateY(20px) scale(1.05); }
+      100% { transform: translateY(20px) scale(1); }
+    }
+    
+    .hero-content.animate,
+    .hero-title.animate,
+    .hero-subtitle.animate,
+    .hero-badges.animate,
+    .hero-cta.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Background Video */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+      z-index: -1;
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+    
+    /* Section Animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.2s;
+    }
+    
+    .section-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.4s;
+    }
+    
+    .section-title.animate,
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+   /* Music Player Styles */
+#music-player {
+    transition: all 0.3s ease;
+}
+
+#volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Dark mode support */
+[data-theme="dark"] #music-player .bg-white {
+    background-color: #334155 !important;
+}
+
+[data-theme="dark"] #volume-slider {
+    background: #475569;
+}
+
+   
+
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }    
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+    
+    /* Enhanced Badge Styles */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #10b981;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] .free-badge {
+      background: rgba(30, 41, 59, 0.95);
+      color: #10b981;
+      border-color: #065f46;
+    }
+
+    /* Theme Toggle Styles - Fixed */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Remove hover background to eliminate shadow effect */
+    .theme-toggle:hover {
+      background-color: transparent;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-icon.hidden {
+      display: none;
+    }
+
+    /* Dark mode text colors - ensure ALL text is white in dark mode */
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-800,
+    [data-theme="dark"] .text-gray-700,
+    [data-theme="dark"] .text-gray-600,
+    [data-theme="dark"] .text-gray-500,
+    [data-theme="dark"] .text-gray-400 {
+      color: #ffffff !important;
+    }
+   /* Simple donation text */
+.donate-text {
+    text-decoration: none;
+}
+
+[data-theme="dark"] .donate-text {
+    color: #f87171 !important; /* Light red for dark mode */
+}
+
+[data-theme="dark"] .donate-text:hover {
+    color: #fca5a5 !important;
+}
+   /* Add this to your existing styles, right after the dark mode text color rules */
+[data-theme="dark"] #custom-amount {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #custom-amount::placeholder {
+  color: #94a3b8 !important;
+}
+
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: #1e293b !important;
+    }
+
+    /* Ensure all text in book cards is visible in dark mode */
+    [data-theme="dark"] .book-card h3,
+    [data-theme="dark"] .book-card .text-gray-500,
+    [data-theme="dark"] .book-card .text-yellow-500 {
+      color: #ffffff !important;
+    }
+
+    /* Ensure search section background in dark mode */
+    [data-theme="dark"] #search-section {
+      background-color: var(--header-bg) !important;
+    }
+
+    /* === NEW CAROUSEL STYLES FOR ALL SECTIONS === */
+    .carousel-container {
+        position: relative;
+        padding: 0 2rem;
+        margin: 0 -1rem;
+    }
+
+    .book-carousel {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 0.5rem 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .book-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #e5e7eb;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .carousel-nav:hover {
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+        left: 0;
+    }
+
+    .carousel-nav.next {
+        right: 0;
+    }
+
+    .carousel-nav i {
+        font-size: 0.75rem;
+        color: #4b5563;
+    }
+
+    /* Dark mode for carousel */
+    [data-theme="dark"] .carousel-nav {
+        background: rgba(30, 41, 59, 0.8);
+        border-color: #475569;
+        color: white;
+    }
+
+    [data-theme="dark"] .carousel-nav i {
+        color: #cbd5e1;
+    }
+
+    [data-theme="dark"] .carousel-nav:hover {
+        background: #334155;
+    }
+   /* Simple Mobile Menu */
+[data-theme="dark"] #mobile-menu {
+    background-color: var(--header-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] #mobile-menu a {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] #mobile-menu a:hover {
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+}
+  </style>
 </head>
 <body class="antialiased">
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+
+    <!-- Header - Updated with theme toggle -->
+    <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/" class="flex items-center">
+            <a href="https://freeebooks.online/" class="flex items-center">
                 <h1 class="text-lg font-bold text-gray-900 tracking-tight">
                     <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
                 </h1>
             </a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="#all-books" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
-                <a href="#weight-loss" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Weight Loss</a>
-                <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Trending</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <a href="https://freeebooks.online/donate" 
-                   class="hidden md:inline-block mr-3 text-sm text-red-500 hover:text-red-600 font-medium"
-                   target="_blank">
-                    Donate ❤️
-                </a>
-                <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
-                    <i class="fas fa-bars"></i>
+          <nav class="hidden md:flex items-center space-x-6">
+    <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Trending</a>
+    <a href="#all-books-header" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
+    <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">FAQ</a>
+    <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+    <!-- Theme Toggle with Simple Donation Text -->
+    <div class="relative flex items-center">
+        <a href="https://freeebooks.online/donate" 
+           class="donate-text hidden md:inline-block mr-3 text-sm text-red-500 hover:text-red-600 font-medium transition-colors duration-200"
+           target="_blank">
+            Donate ❤️
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+            </svg>
+            <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+    <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+        <i class="fas fa-bars"></i>
+    </button>
+</div>
+        </div>
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="flex flex-col p-4">
+        <a href="#trending" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+            Trending
+        </a>
+        <a href="#faq-section" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+            FAQ
+        </a>
+        <a href="https://freeebooks.online/contact" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+            Contact
+        </a>
+    </div>
+</div>
+    </header>
+
+    <main>
+        
+        <!-- Single Video Section -->
+<section id="video-section" class="relative w-full h-96 overflow-hidden">
+    <!-- Single Video -->
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Content Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
+        <div class="hero-content animate">
+            <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-8 whitespace-nowrap">Free Weight Loss Ebooks</h2>
+            <div class="hero-cta">
+                <button class="btn-download py-3 px-8 rounded-xl text-base font-semibold" onclick="document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' })">
+                    <i class="fas fa-book-open mr-2"></i>Explore Books
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="flex flex-col p-4">
-                <a href="#all-books" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
-                    All Books
-                </a>
-                <a href="#weight-loss" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
-                    Weight Loss
-                </a>
-                <a href="#trending" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
-                    Trending
-                </a>
+    </div>
+</section>
+
+        <section id="search-section" class="pt-4 pb-2 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <div class="relative w-full max-w-xs md:max-w-md">
+                        <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm">
+                        <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 py-4">
+            
+            <!-- Trending Books Section - NOW WITH CAROUSEL -->
+            <section id="trending" class="pt-2">
+                <div class="text-center mb-6">
+                    <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Books</h2>
+                    <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
+                </div>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="book-carousel">
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Atomic Habits" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="127000">127K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">Download Now</button>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Alchemist" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/BQf9nVgZ/The-Alchemist-cover.jpg" alt="The Alchemist" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.9</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="98500">98.5K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-alchemist/')">Download Now</button>
+                            </div>
+                        </div>
+
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Thinking, Fast and Slow" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/hPRvRMQy/Thinking-Fast-and-Slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="215000">215K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/thinking-fast-and-slow')">Download Now</button>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Psychology of Money" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/RFr5JpBs/POM.webp" alt="The Psychology of Money" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Psychology of Money</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="178000">178K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'http://freeebooks.online/the-psychology-of-money')">Download Now</button>
+                            </div>
+                        </div>
+
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Deep Work" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/GpXqTqsX/Screenshot-2025-11-27-083409.png" alt="Deep Work" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Deep Work</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="89200">89.2K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/deep-work')">Download Now</button>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 7 Habits of Highly Effective People" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp" alt="The 7 Habits of Highly Effective People" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">7 Habits of Effective People</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.8</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="143000">143K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-7-habits-of-highly-effective-people')">Download Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recently Added Section - NOW WITH CAROUSEL -->
+            <section id="recently-added" class="py-12">
+                <div class="text-center mb-10">
+                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Recently Added</h2>
+                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Fresh books added to our collection</p>
+                </div>
+                <div class="carousel-container">
+                    <button class="carousel-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="book-carousel">
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Midnight Library" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/jjd4hKtm/718Q61qx-GSL-UF1000-1000-QL80.jpg" alt="The Midnight Library" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Midnight Library</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="198000">198K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-midnight-library')">Download Now</button>
+                            </div>
+                        </div>
+
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Project Hail Mary" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/4N0GG4Fb/images-(3).jpg" alt="Project Hail Mary" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Project Hail Mary</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.7</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="87600">87.6K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/project-hail-mary')">Download Now</button>
+                            </div>
+                        </div>
+
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Klara and the Sun" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/KvkVnPJH/images-(4).jpg" alt="Klara and the Sun" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Klara and the Sun</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-500 ml-1">4.8</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="96700">96.7K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/klara-and-the-sun')">Download Now</button>
+                            </div>
+                        </div>
+
+                        <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Four Winds" style="width: 180px;">
+                            <div class="relative">
+                                <span class="book-badge premium-badge">PREMIUM</span>
+                                <span class="book-badge free-badge">FREE</span>
+                                <img src="https://i.postimg.cc/ry0XJ2p4/images-(5).jpg" alt="The Four Winds" class="book-image">
+                            </div>
+                            <div class="p-3 flex flex-col flex-grow">
+                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
+                                <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-gray-500 ml-1">5.0</span>
+                                </div>
+                                <div class="text-gray-500 text-xs mb-2">
+                                    <i class="fas fa-download mr-1"></i> 
+                                    <span class="download-counter" data-count="71200">71.2K</span>
+                                </div>
+                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-four-winds')">Download Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+         
+         <!-- Weight Loss Books Section - ALREADY WITH CAROUSEL (NO CHANGES) -->
+<section id="weight-loss" class="py-12">
+    <div class="text-center mb-10">
+        <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Weight Loss Books</h2>
+        <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
+    </div>
+    
+    <div class="carousel-container">
+        <button class="carousel-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="book-carousel">
+            <!-- Book 1 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Ozempic Revolution</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="45600">45.6K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-ozempic-revolution')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Anti-Inflammatory Diet Meal Prep" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Anti-Inflammatory Diet Meal Prep</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="38900">38.9K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/anti-inflammatory-diet-meal-prep')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Plant-Based Weight Loss Solution" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Plant-Based Weight Loss Solution</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="52300">52.3K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/plant-based-weight-loss-solution')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Glucose Revolution</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">4.9</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="67800">67.8K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/glucose-revolution')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast This Way" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast This Way</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.6</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="41200">41.2K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/fast-this-way')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Embrace You" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Embrace You</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="56700">56.7K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/embrace-you')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="You Can Drop It!" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">You Can Drop It!</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="49800">49.8K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/you-can-drop-it')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ultimate No Point Weight Loss Cookbook 2025" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">No Point Weight Loss Cookbook 2025</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">4.9</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="72300">72.3K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/no-point-weight-loss-cookbook')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fit Men Cook" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fit Men Cook</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="63400">63.4K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/fit-men-cook')">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 10 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diet-Free Revolution" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <div class="coming-soon-image">Cover Coming Soon</div>
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Diet-Free Revolution</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="58900">58.9K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/diet-free-revolution')">Download Now</button>
+                </div>
             </div>
         </div>
-    </header>
+        <button class="carousel-nav next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
 
-    <!-- Search Section -->
-    <section class="pt-4 pb-2 bg-white">
+            <div id="all-books-header" class="text-center my-8">
+    <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Books</h2>
+    <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium eBooks with unlimited access</p>
+</div>
+
+<div id="books-grid" class="compact-grid grid">
+<!-- Add these 4 books at the beginning of All Available Books -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Power of Now">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/y84XgcJK/The-Powerof-Now-min.jpg" alt="The Power of Now" class="book-image">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Power of Now</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="198000">198K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-power-of-now')">Download Now</button>
+    </div>
+</div>
+
+<div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Sapiens: A Brief History of Humankind">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/GhJVpL28/713j-Io-MO3UL.jpg" alt="Sapiens: A Brief History of Humankind" class="book-image">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sapiens</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.7</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="87600">87.6K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/sapiens')">Download Now</button>
+    </div>
+</div>
+
+<div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Subtle Art of Not Giving a F*ck">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/NfMf6zHX/images-(1).jpg" alt="The Subtle Art of Not Giving a F*ck" class="book-image">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Subtle Art of Not Giving a F*ck</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.8</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="96700">96.7K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-subtle-art-of-not-giving-a-fuck/')">Download Now</button>
+    </div>
+</div>
+
+<div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Educated">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/VNc8VGdg/images-(2).jpg" alt="Educated" class="book-image">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Educated</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="71200">71.2K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/educated')">Download Now</button>
+    </div>
+</div>
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Alchemist">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/J79sR6LP/The-Alchemist-cover.jpg" alt="The Alchemist" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Alchemist</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="267000">98.5K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-alchemist')">Download Now</button>
+        </div>
+    </div>
+    
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/3NxNwg0q/Atomic.webp" alt="Atomic Habits" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.9</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="189000">127K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">Download Now</button>
+    </div>
+</div>
+    
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Thinking, Fast and Slow">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/tTJj6jhY/Thinking-Fast-and-Slow.jpg" alt="Thinking, Fast and Slow" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Thinking, Fast and Slow</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">4.9</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="156000">156K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/thinking-fast-and-slow')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="The Four Winds">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/ry0XJ2p4/images-(5).jpg" alt="The Four Winds" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Four Winds</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="134000">134K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-four-winds')">Download Now</button>
+        </div>
+    </div>
+
+    <!-- NEW BOOKS ADDED HERE -->
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Onyx Storm">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/2S3DbwwG/images-(6).jpg" alt="Onyx Storm" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Onyx Storm</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="52300">52.3K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/onyx-storm')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Quicksilver">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/tTFZ0ynY/images.jpg" alt="Quicksilver" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Quicksilver</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.7</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="38700">38.7K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/quicksilver')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Housemaid">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/bwMssdQt/images-(1).jpg" alt="The Housemaid" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Housemaid</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="187000">187K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-housemaid')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Atmosphere">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/j565gXBf/images-(2).jpg" alt="Atmosphere" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atmosphere</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="52300">52.3K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atmosphere')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Fourth Wing">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/hv6VgMPv/images-(8).jpg" alt="Fourth Wing" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fourth Wing</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.7</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="38700">38.7K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/fourth-wing')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="My Friends: A Novel">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/sDH2N1HP/images-(3).jpg" alt="My Friends: A Novel" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">My Friends: A Novel</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="187000">187K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/my-friends-a-novel')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="Sunrise on the Reaping">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/T17TFH0h/images-(4).jpg" alt="Sunrise on the Reaping" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Sunrise on the Reaping</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.8</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="52300">52.3K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/sunrise-on-the-reaping')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Let Them Theory">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/gk1WhhTc/images-(15).jpg" alt="The Let Them Theory" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Let Them Theory</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-500 ml-1">4.7</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="38700">38.7K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-let-them-theory')">Download Now</button>
+        </div>
+    </div>
+
+    <div class="book-card rounded-lg overflow-hidden flex flex-col hidden" data-name="The Surrogate Mother">
+        <div class="relative">
+            <span class="book-badge premium-badge">PREMIUM</span>
+            <span class="book-badge free-badge">FREE</span>
+            <img src="https://i.postimg.cc/2ywxDnLZ/images-(7).jpg" alt="The Surrogate Mother" class="book-image">
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Surrogate Mother</h3>
+            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span class="text-gray-500 ml-1">5.0</span>
+            </div>
+            <div class="text-gray-500 text-xs mb-2">
+                <i class="fas fa-download mr-1"></i> 
+                <span class="download-counter" data-count="187000">187K</span>
+            </div>
+            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-surrogate-mother')">Download Now</button>
+        </div>
+    </div>
+</div>
+
+<div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
+    <i class="fas fa-frown text-2xl mb-2"></i>
+    <p class="text-sm">No books found matching your search.</p>
+</div>
+
+<div id="see-more-container" class="text-center mt-8">
+    <button id="see-more-btn" class="btn-see-more pulse">
+        <span class="text">See More Books</span>
+        <span class="icon">
+            <i class="fas fa-chevron-down"></i>
+        </span>
+    </button>
+</div>
+
+   <!-- Music Player -->
+<div id="music-player" class="fixed bottom-4 right-4 z-50">
+    <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20">
+        <i class="fas fa-play text-sm transform translate-x-0.5"></i>
+    </button>
+    
+    <audio id="background-music" loop preload="metadata">
+        <source src="ElevenLabs_2025-11-28T21_41_38_Russell - Young and Excited_pvc_sp100_s50_sb75_v3.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<style>
+[data-theme="dark"] #music-toggle {
+    border-color: rgba(30, 41, 59, 0.9);
+}
+</style>
+</div>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="py-12 bg-gray-50 -mx-4 px-4 md:-mx-8 md:px-8">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col items-center">
-                <div class="relative w-full max-w-xs md:max-w-md mb-4">
-                    <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm">
-                    <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Frequently Asked Questions</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">Are these books really free to download?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">What formats are available for download?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">How often are new books added?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">We add new books regularly, typically several times per week.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">Do I need to create an account to download books?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">No account is required for downloading books. We believe in making the process as simple as possible.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-4">
-        
-        <!-- Trending Books Section -->
-        <section id="trending" class="py-4">
-            <div class="text-center mb-6">
-                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Books</h2>
-                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
-            </div>
-            <div class="grid compact-grid">
-                <!-- Trending books will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Weight Loss Books Section -->
-        <section id="weight-loss" class="py-8">
-            <div class="text-center mb-6">
-                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Weight Loss Books</h2>
-                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
-            </div>
-            <div class="grid compact-grid">
-                <!-- Weight loss books will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <!-- All Available Books Section -->
-        <section id="all-books" class="py-8">
-            <div class="text-center mb-6">
-                <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">All Available Books</h2>
-                <p class="text-sm text-gray-500 max-w-2xl mx-auto">Premium eBooks with unlimited access</p>
-            </div>
-            <div id="books-grid" class="grid compact-grid">
-                <!-- All books will be populated by JavaScript -->
-            </div>
-            
-            <div id="no-results" class="text-center text-gray-500 text-lg mt-8 hidden">
-                <i class="fas fa-frown text-2xl mb-2"></i>
-                <p class="text-sm">No books found matching your search.</p>
-            </div>
-            
-            <div id="see-more-container" class="text-center mt-8">
-                <button id="see-more-btn" class="btn-see-more">
-                    <span class="text">See More Books</span>
-                    <span class="icon">
-                        <i class="fas fa-chevron-down"></i>
-                    </span>
-                </button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 py-8">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
+<!-- Footer -->
+<footer class="header-bg border-t border-gray-100 py-8">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
                 <h3 class="text-lg font-bold text-gray-900 mb-4">
                     <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
                 </h3>
-                <p class="text-gray-600 text-sm mb-4 max-w-2xl mx-auto">
-                    Your trusted source for free premium eBooks. All our books are legally available for free download.
+                <p class="text-gray-600 text-sm mb-4">
+                    Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
                 </p>
-                <div class="mb-6">
-                    <a href="https://paypal.me/MouradAsmine" 
-                       target="_blank"
-                       class="inline-flex items-center bg-green-50 text-green-600 hover:bg-green-100 hover:text-green-700 py-2 px-4 rounded-full text-sm font-medium transition-all duration-200 border border-green-200">
-                        <i class="fas fa-heart mr-2 text-red-400"></i>Support Our Mission
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                        <i class="fab fa-facebook text-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                        <i class="fab fa-instagram text-lg"></i>
                     </a>
                 </div>
-                <div class="border-t border-gray-200 pt-6">
-                    <p class="text-gray-500 text-sm">
-                        © 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.
-                    </p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                    <a href="#trending" class="hover:text-blue-500 transition">Trending Books</a>
+                    <a href="#all-books-header" class="hover:text-blue-500 transition">All Books</a>
+                    <a href="#faq-section" class="hover:text-blue-500 transition">FAQ</a>
+                    <a href="https://freeebooks.online/contact" class="hover:text-blue-500 transition">Contact</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                    <a href="#" class="hover:text-blue-500 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-blue-500 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-blue-500 transition">Cookie Policy</a>
+                    <a href="#" class="hover:text-blue-500 transition">DMCA</a>
                 </div>
             </div>
         </div>
-    </footer>
+        
+        <!-- Donation Link in Footer -->
+        <div class="text-center mt-8 mb-6">
+            <a href="https://freeebooks.online/donate" 
+               target="_blank"
+               class="inline-flex items-center bg-green-50 text-green-600 hover:bg-green-100 hover:text-green-700 py-2 px-4 rounded-full text-sm font-medium transition-all duration-200 border border-green-200">
+                <i class="fas fa-heart mr-2 text-red-400"></i>Support Our Mission
+            </a>
+        </div>
+        
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-200 mt-6 pt-6 text-center">
+            <p class="text-gray-500 text-sm px-4 break-words leading-relaxed">
+                © 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.
+            </p>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        // All Books Data
-        const allBooks = [
-            // Weight Loss Books
-            {
-                id: 1,
-                title: "The Ozempic Revolution",
-                category: "weight-loss",
-                trending: true,
-                rating: 4.7,
-                downloads: 45600,
-                image: "",
-                link: "https://freeebooks.online/the-ozempic-revolution",
-                coverType: "coming-soon"
-            },
-            {
-                id: 2,
-                title: "Anti-Inflammatory Diet Meal Prep",
-                category: "weight-loss",
-                trending: true,
-                rating: 5.0,
-                downloads: 38900,
-                image: "",
-                link: "https://freeebooks.online/anti-inflammatory-diet-meal-prep",
-                coverType: "coming-soon"
-            },
-            {
-                id: 3,
-                title: "The Plant-Based Weight Loss Solution",
-                category: "weight-loss",
-                trending: false,
-                rating: 4.8,
-                downloads: 52300,
-                image: "",
-                link: "https://freeebooks.online/plant-based-weight-loss-solution",
-                coverType: "coming-soon"
-            },
-            {
-                id: 4,
-                title: "Glucose Revolution",
-                category: "weight-loss",
-                trending: false,
-                rating: 4.9,
-                downloads: 67800,
-                image: "",
-                link: "https://freeebooks.online/glucose-revolution",
-                coverType: "coming-soon"
-            },
-            {
-                id: 5,
-                title: "Fast This Way",
-                category: "weight-loss",
-                trending: false,
-                rating: 4.6,
-                downloads: 41200,
-                image: "",
-                link: "https://freeebooks.online/fast-this-way",
-                coverType: "coming-soon"
-            },
-            {
-                id: 6,
-                title: "Embrace You",
-                category: "weight-loss",
-                trending: false,
-                rating: 5.0,
-                downloads: 56700,
-                image: "",
-                link: "https://freeebooks.online/embrace-you",
-                coverType: "coming-soon"
-            },
-            {
-                id: 7,
-                title: "You Can Drop It!",
-                category: "weight-loss",
-                trending: false,
-                rating: 4.7,
-                downloads: 49800,
-                image: "",
-                link: "https://freeebooks.online/you-can-drop-it",
-                coverType: "coming-soon"
-            },
-            {
-                id: 8,
-                title: "The Ultimate No Point Weight Loss Cookbook 2025",
-                category: "weight-loss",
-                trending: false,
-                rating: 4.9,
-                downloads: 72300,
-                image: "",
-                link: "https://freeebooks.online/no-point-weight-loss-cookbook",
-                coverType: "coming-soon"
-            },
-            {
-                id: 9,
-                title: "Fit Men Cook",
-                category: "weight-loss",
-                trending: false,
-                rating: 4.8,
-                downloads: 63400,
-                image: "",
-                link: "https://freeebooks.online/fit-men-cook",
-                coverType: "coming-soon"
-            },
-            {
-                id: 10,
-                title: "The Diet-Free Revolution",
-                category: "weight-loss",
-                trending: false,
-                rating: 5.0,
-                downloads: 58900,
-                image: "",
-                link: "https://freeebooks.online/diet-free-revolution",
-                coverType: "coming-soon"
-            },
-            // Trending Books (Non Weight Loss)
-            {
-                id: 11,
-                title: "Atomic Habits",
-                category: "trending",
-                trending: true,
-                rating: 5.0,
-                downloads: 127000,
-                image: "https://i.postimg.cc/rwtLndSP/Atomic.webp",
-                link: "https://freeebooks.online/atomic-habits",
-                coverType: "image"
-            },
-            {
-                id: 12,
-                title: "The Alchemist",
-                category: "trending",
-                trending: true,
-                rating: 4.9,
-                downloads: 98500,
-                image: "https://i.postimg.cc/BQf9nVgZ/The-Alchemist-cover.jpg",
-                link: "https://freeebooks.online/the-alchemist/",
-                coverType: "image"
-            },
-            {
-                id: 13,
-                title: "Thinking, Fast and Slow",
-                category: "trending",
-                trending: true,
-                rating: 5.0,
-                downloads: 215000,
-                image: "https://i.postimg.cc/hPRvRMQy/Thinking-Fast-and-Slow.jpg",
-                link: "https://freeebooks.online/thinking-fast-and-slow",
-                coverType: "image"
-            },
-            {
-                id: 14,
-                title: "The Psychology of Money",
-                category: "trending",
-                trending: true,
-                rating: 4.8,
-                downloads: 178000,
-                image: "https://i.postimg.cc/RFr5JpBs/POM.webp",
-                link: "http://freeebooks.online/the-psychology-of-money",
-                coverType: "image"
-            },
-            {
-                id: 15,
-                title: "Deep Work",
-                category: "trending",
-                trending: true,
-                rating: 5.0,
-                downloads: 89200,
-                image: "https://i.postimg.cc/GpXqTqsX/Screenshot-2025-11-27-083409.png",
-                link: "https://freeebooks.online/deep-work",
-                coverType: "image"
-            },
-            {
-                id: 16,
-                title: "The 7 Habits of Highly Effective People",
-                category: "trending",
-                trending: true,
-                rating: 4.8,
-                downloads: 143000,
-                image: "https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp",
-                link: "https://freeebooks.online/the-7-habits-of-highly-effective-people",
-                coverType: "image"
-            },
-            // Other Books
-            {
-                id: 17,
-                title: "The Midnight Library",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 198000,
-                image: "https://i.postimg.cc/jjd4hKtm/718Q61qx-GSL-UF1000-1000-QL80.jpg",
-                link: "https://freeebooks.online/the-midnight-library",
-                coverType: "image"
-            },
-            {
-                id: 18,
-                title: "Project Hail Mary",
-                category: "other",
-                trending: false,
-                rating: 4.7,
-                downloads: 87600,
-                image: "https://i.postimg.cc/4N0GG4Fb/images-(3).jpg",
-                link: "https://freeebooks.online/project-hail-mary",
-                coverType: "image"
-            },
-            {
-                id: 19,
-                title: "Klara and the Sun",
-                category: "other",
-                trending: false,
-                rating: 4.8,
-                downloads: 96700,
-                image: "https://i.postimg.cc/KvkVnPJH/images-(4).jpg",
-                link: "https://freeebooks.online/klara-and-the-sun",
-                coverType: "image"
-            },
-            {
-                id: 20,
-                title: "The Four Winds",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 71200,
-                image: "https://i.postimg.cc/ry0XJ2p4/images-(5).jpg",
-                link: "https://freeebooks.online/the-four-winds",
-                coverType: "image"
-            },
-            {
-                id: 21,
-                title: "The Power of Now",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 198000,
-                image: "https://i.postimg.cc/y84XgcJK/The-Powerof-Now-min.jpg",
-                link: "https://freeebooks.online/the-power-of-now",
-                coverType: "image"
-            },
-            {
-                id: 22,
-                title: "Sapiens: A Brief History of Humankind",
-                category: "other",
-                trending: false,
-                rating: 4.7,
-                downloads: 87600,
-                image: "https://i.postimg.cc/GhJVpL28/713j-Io-MO3UL.jpg",
-                link: "https://freeebooks.online/sapiens",
-                coverType: "image"
-            },
-            {
-                id: 23,
-                title: "The Subtle Art of Not Giving a F*ck",
-                category: "other",
-                trending: false,
-                rating: 4.8,
-                downloads: 96700,
-                image: "https://i.postimg.cc/NfMf6zHX/images-(1).jpg",
-                link: "https://freeebooks.online/the-subtle-art-of-not-giving-a-fuck/",
-                coverType: "image"
-            },
-            {
-                id: 24,
-                title: "Educated",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 71200,
-                image: "https://i.postimg.cc/VNc8VGdg/images-(2).jpg",
-                link: "https://freeebooks.online/educated",
-                coverType: "image"
-            },
-            {
-                id: 25,
-                title: "Onyx Storm",
-                category: "other",
-                trending: false,
-                rating: 4.8,
-                downloads: 52300,
-                image: "https://i.postimg.cc/2S3DbwwG/images-(6).jpg",
-                link: "https://freeebooks.online/onyx-storm",
-                coverType: "image"
-            },
-            {
-                id: 26,
-                title: "Quicksilver",
-                category: "other",
-                trending: false,
-                rating: 4.7,
-                downloads: 38700,
-                image: "https://i.postimg.cc/tTFZ0ynY/images.jpg",
-                link: "https://freeebooks.online/quicksilver",
-                coverType: "image"
-            },
-            {
-                id: 27,
-                title: "The Housemaid",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 187000,
-                image: "https://i.postimg.cc/bwMssdQt/images-(1).jpg",
-                link: "https://freeebooks.online/the-housemaid",
-                coverType: "image"
-            },
-            {
-                id: 28,
-                title: "Atmosphere",
-                category: "other",
-                trending: false,
-                rating: 4.8,
-                downloads: 52300,
-                image: "https://i.postimg.cc/j565gXBf/images-(2).jpg",
-                link: "https://freeebooks.online/atmosphere",
-                coverType: "image"
-            },
-            {
-                id: 29,
-                title: "Fourth Wing",
-                category: "other",
-                trending: false,
-                rating: 4.7,
-                downloads: 38700,
-                image: "https://i.postimg.cc/hv6VgMPv/images-(8).jpg",
-                link: "https://freeebooks.online/fourth-wing",
-                coverType: "image"
-            },
-            {
-                id: 30,
-                title: "My Friends: A Novel",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 187000,
-                image: "https://i.postimg.cc/sDH2N1HP/images-(3).jpg",
-                link: "https://freeebooks.online/my-friends-a-novel",
-                coverType: "image"
-            },
-            {
-                id: 31,
-                title: "Sunrise on the Reaping",
-                category: "other",
-                trending: false,
-                rating: 4.8,
-                downloads: 52300,
-                image: "https://i.postimg.cc/T17TFH0h/images-(4).jpg",
-                link: "https://freeebooks.online/sunrise-on-the-reaping",
-                coverType: "image"
-            },
-            {
-                id: 32,
-                title: "The Let Them Theory",
-                category: "other",
-                trending: false,
-                rating: 4.7,
-                downloads: 38700,
-                image: "https://i.postimg.cc/gk1WhhTc/images-(15).jpg",
-                link: "https://freeebooks.online/the-let-them-theory",
-                coverType: "image"
-            },
-            {
-                id: 33,
-                title: "The Surrogate Mother",
-                category: "other",
-                trending: false,
-                rating: 5.0,
-                downloads: 187000,
-                image: "https://i.postimg.cc/2ywxDnLZ/images-(7).jpg",
-                link: "https://freeebooks.online/the-surrogate-mother",
-                coverType: "image"
-            }
-        ];
+<!-- All modals -->
+<div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+    <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+        <div class="text-blue-500 text-5xl mb-4">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">Success!</h2>
+        <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+    </div>
+</div>
 
-        // DOM Elements
-        const booksGrid = document.getElementById('books-grid');
-        const trendingSection = document.querySelector('#trending .compact-grid');
-        const weightLossSection = document.querySelector('#weight-loss .compact-grid');
-        const searchInput = document.getElementById('mainSearchInput');
-        const seeMoreBtn = document.getElementById('see-more-btn');
+<div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+    <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+        <div class="text-blue-500 text-5xl mb-4">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">Success!</h2>
+        <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+    </div>
+</div>
+
+<script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        enableDarkMode();
+    }
+
+    themeToggle.addEventListener('click', () => {
+        if (body.getAttribute('data-theme') === 'dark') {
+            enableLightMode();
+        } else {
+            enableDarkMode();
+        }
+    });
+
+    function enableDarkMode() {
+        body.setAttribute('data-theme', 'dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function enableLightMode() {
+        body.removeAttribute('data-theme');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+        localStorage.setItem('theme', 'light');
+    }
+
+    // Download functionality
+    function startDownload(buttonElement, downloadLink) {
+        window.location.href = downloadLink;
+    }
+
+    // DOM elements
+    const contactModal = document.getElementById('contactModal');
+    const successModal = document.getElementById('successModal');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mainSearchInput = document.getElementById('mainSearchInput');
+    const seeMoreBtn = document.getElementById('see-more-btn');
+    const videoBackground = document.querySelector('.video-background');
+            
+    // Mobile menu toggle
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Search functionality
+    mainSearchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const allBookCards = document.querySelectorAll('.book-card');
         const noResults = document.getElementById('no-results');
         const seeMoreContainer = document.getElementById('see-more-container');
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        let visibleCount = 0;
 
-        // Variables for pagination
-        let visibleBooksCount = 8;
-        const booksPerLoad = 8;
-        let isExpanded = false;
+        allBookCards.forEach(card => {
+            const isVisible = card.dataset.name.toLowerCase().includes(searchTerm);
+            card.style.display = isVisible ? 'flex' : 'none';
+            card.style.opacity = isVisible ? '1' : '0';
+            if (isVisible) visibleCount++;
+        });
 
-        // Format download numbers
-        function formatDownloads(downloads) {
-            if (downloads >= 1000) {
-                return (downloads / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-            }
-            return downloads.toString();
+        noResults.classList.toggle('hidden', visibleCount > 0);
+        
+        if (seeMoreContainer) {
+            seeMoreContainer.style.display = visibleCount > 0 ? 'block' : 'none';
         }
+    });
 
-        // Generate star rating HTML
-        function generateStarRating(rating) {
-            const fullStars = Math.floor(rating);
-            const hasHalfStar = rating % 1 >= 0.5;
-            let starsHtml = '';
+    function openContactModal() {
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => contactModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+    }
+
+    function openSuccessModal() {
+        successModal.classList.remove('hidden');
+        setTimeout(() => successModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+        setTimeout(() => closeModal('successModal'), 3000);
+    }
+    
+    function closeModal(modalId) {
+        const modalToClose = document.getElementById(modalId);
+        if (!modalToClose || modalToClose.classList.contains('hidden')) return;
+        
+        modalToClose.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modalToClose.classList.add('hidden');
+            const isAnyModalOpen = !contactModal.classList.contains('hidden') || !successModal.classList.contains('hidden');
+            if (!isAnyModalOpen) {
+                document.body.style.overflow = 'auto';
+            }
+        }, 300);
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal('contactModal');
+            closeModal('successModal');
+        }
+    });
+    
+    contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
+
+    // Modern See More functionality
+
+    let isExpanded = false;
+    const btnText = seeMoreBtn.querySelector('.text');
+    const btnIcon = seeMoreBtn.querySelector('.icon');
+    
+    seeMoreBtn.addEventListener('click', () => {
+        const hiddenCards = document.querySelectorAll('#books-grid .book-card.hidden');
+        
+        if (!isExpanded) {
+            hiddenCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.remove('hidden');
+                }, index * 50);
+            });
             
-            for (let i = 1; i <= 5; i++) {
-                if (i <= fullStars) {
-                    starsHtml += '<i class="fas fa-star"></i>';
-                } else if (i === fullStars + 1 && hasHalfStar) {
-                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
-                } else {
-                    starsHtml += '<i class="far fa-star"></i>';
+            btnText.textContent = 'See Less';
+            seeMoreBtn.classList.add('expanded');
+            seeMoreBtn.classList.remove('pulse');
+            isExpanded = true;
+            
+            setTimeout(() => {
+                if (hiddenCards.length > 0) {
+                    hiddenCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
-            }
-            
-            return starsHtml;
-        }
-
-        // Create book card HTML
-        function createBookCard(book, index) {
-            const isHidden = index >= visibleBooksCount ? 'hidden' : '';
-            
-            const coverHtml = book.coverType === 'coming-soon' 
-                ? '<div class="coming-soon-image">Cover Coming Soon</div>'
-                : `<img src="${book.image}" alt="${book.title}" class="book-image">`;
-            
-            return `
-                <div class="book-card rounded-lg overflow-hidden flex flex-col ${isHidden}" data-name="${book.title.toLowerCase()}">
-                    <div class="relative">
-                        <span class="book-badge premium-badge">PREMIUM</span>
-                        <span class="book-badge free-badge">FREE</span>
-                        ${coverHtml}
-                    </div>
-                    <div class="p-3 flex flex-col flex-grow">
-                        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">${book.title}</h3>
-                        <div class="flex items-center text-xs mb-1 text-yellow-500">
-                            ${generateStarRating(book.rating)}
-                            <span class="text-gray-500 ml-1">${book.rating.toFixed(1)}</span>
-                        </div>
-                        <div class="text-gray-500 text-xs mb-2">
-                            <i class="fas fa-download mr-1"></i> 
-                            <span class="download-counter">${formatDownloads(book.downloads)}</span>
-                        </div>
-                        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload('${book.link}')">Download Now</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Render books to sections
-        function renderBooks() {
-            // Clear existing content
-            booksGrid.innerHTML = '';
-            trendingSection.innerHTML = '';
-            weightLossSection.innerHTML = '';
-            
-            // Get trending books (top 6 trending)
-            const trendingBooks = allBooks
-                .filter(book => book.trending)
-                .slice(0, 6);
-            
-            // Get weight loss books
-            const weightLossBooks = allBooks
-                .filter(book => book.category === 'weight-loss')
-                .slice(0, 6);
-            
-            // Get other books for main grid
-            const otherBooks = allBooks.filter(book => book.category === 'other');
-            
-            // Render trending books
-            trendingBooks.forEach(book => {
-                trendingSection.innerHTML += createBookCard(book);
-            });
-            
-            // Render weight loss books
-            weightLossBooks.forEach(book => {
-                weightLossSection.innerHTML += createBookCard(book);
-            });
-            
-            // Render all books in main grid
-            allBooks.forEach((book, index) => {
-                booksGrid.innerHTML += createBookCard(book, index);
-            });
-            
-            // Update see more button state
-            updateSeeMoreButton();
-        }
-
-        // Update see more button
-        function updateSeeMoreButton() {
-            const hiddenBooks = document.querySelectorAll('#books-grid .book-card.hidden');
-            seeMoreContainer.style.display = hiddenBooks.length > 0 ? 'block' : 'none';
-            
-            if (isExpanded) {
-                seeMoreBtn.innerHTML = `
-                    <span class="text">See Less</span>
-                    <span class="icon">
-                        <i class="fas fa-chevron-up"></i>
-                    </span>
-                `;
-            } else {
-                seeMoreBtn.innerHTML = `
-                    <span class="text">See More Books</span>
-                    <span class="icon">
-                        <i class="fas fa-chevron-down"></i>
-                    </span>
-                `;
-            }
-        }
-
-        // Download function
-        function startDownload(link) {
-            window.location.href = link;
-        }
-
-        // Search functionality
-        function handleSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const allBookCards = document.querySelectorAll('#books-grid .book-card');
-            let visibleCount = 0;
-            
-            allBookCards.forEach(card => {
-                const bookName = card.getAttribute('data-name');
-                const isVisible = bookName.includes(searchTerm);
-                
-                card.style.display = isVisible ? 'flex' : 'none';
-                if (isVisible) visibleCount++;
-            });
-            
-            // Show/hide no results message
-            noResults.classList.toggle('hidden', visibleCount > 0 || searchTerm === '');
-            
-            // Show/hide see more button
-            seeMoreContainer.style.display = (visibleCount > 0 && searchTerm === '') ? 'block' : 'none';
-            
-            // If searching, show all matching books
-            if (searchTerm) {
-                document.querySelectorAll('#books-grid .book-card').forEach(card => {
-                    card.classList.remove('hidden');
-                });
-                isExpanded = true;
-            } else {
-                // Reset to paginated view
-                resetPagination();
-            }
-        }
-
-        // Reset pagination
-        function resetPagination() {
-            const allBookCards = document.querySelectorAll('#books-grid .book-card');
-            allBookCards.forEach((card, index) => {
-                if (index >= visibleBooksCount) {
-                    card.classList.add('hidden');
-                } else {
-                    card.classList.remove('hidden');
-                }
-            });
-            isExpanded = false;
-            updateSeeMoreButton();
-        }
-
-        // Toggle see more/less
-        function toggleSeeMore() {
-            const allBookCards = document.querySelectorAll('#books-grid .book-card');
-            
-            if (!isExpanded) {
-                // Show all books
-                allBookCards.forEach(card => {
-                    card.classList.remove('hidden');
-                });
-                isExpanded = true;
-            } else {
-                // Show only first batch
-                allBookCards.forEach((card, index) => {
-                    if (index >= visibleBooksCount) {
+            }, 300);
+        } else {
+            const allCards = document.querySelectorAll('#books-grid .book-card');
+            allCards.forEach((card, index) => {
+                if (index >= 4) {
+                    setTimeout(() => {
                         card.classList.add('hidden');
-                    }
-                });
-                isExpanded = false;
-                
-                // Scroll to top of books section
-                document.getElementById('all-books').scrollIntoView({ behavior: 'smooth' });
-            }
-            
-            updateSeeMoreButton();
-        }
-
-        // Mobile menu toggle
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Event Listeners
-        searchInput.addEventListener('input', handleSearch);
-        seeMoreBtn.addEventListener('click', toggleSeeMore);
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', () => {
-            renderBooks();
-            
-            // Add smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        
-                        // Close mobile menu if open
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // Animate book cards on scroll
-        function animateOnScroll() {
-            const bookCards = document.querySelectorAll('.book-card');
-            bookCards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (cardTop < windowHeight * 0.85) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+                    }, (index - 4) * 30);
                 }
             });
+            
+            btnText.textContent = 'See More Books';
+            seeMoreBtn.classList.remove('expanded');
+            seeMoreBtn.classList.add('pulse');
+            isExpanded = false;
+            
+            document.getElementById('all-books-header').scrollIntoView({ behavior: 'smooth' });
         }
+    });
 
-        // Add animation styles
-        document.querySelectorAll('.book-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease';
+    // FAQ toggle functionality
+    function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').classList.remove('open');
+            }
         });
+        
+        faqItem.classList.toggle('active');
+        answer.classList.toggle('open');
+    }
 
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
+    // Hero section animations
+    function animateHeroSection() {
+        const heroContent = document.querySelector('.hero-content');
+        const heroTitle = document.querySelector('.hero-title');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        const heroBadges = document.querySelector('.hero-badges');
+        const heroCta = document.querySelector('.hero-cta');
+        
+        setTimeout(() => heroContent.classList.add('animate'), 100);
+        setTimeout(() => heroTitle.classList.add('animate'), 300);
+        setTimeout(() => heroSubtitle.classList.add('animate'), 500);
+        setTimeout(() => heroBadges.classList.add('animate'), 700);
+        setTimeout(() => heroCta.classList.add('animate'), 1000);
+    }
+    
+    // Scroll animation functionality
+    function animateOnScroll() {
+        const sections = document.querySelectorAll('section');
+        const bookCards = document.querySelectorAll('.book-card');
+        const sectionTitles = document.querySelectorAll('.section-title');
+        const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+        
+        if (videoBackground) {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            videoBackground.style.transform = `translateY(${rate}px)`;
+        }
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (sectionTop < windowHeight * 0.85) {
+                section.classList.add('animate');
+            }
+        });
+        
+        sectionTitles.forEach(title => {
+            const titleTop = title.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (titleTop < windowHeight * 0.85) {
+                title.classList.add('animate');
+            }
+        });
+        
+        sectionSubtitles.forEach(subtitle => {
+            const subtitleTop = subtitle.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (subtitleTop < windowHeight * 0.85) {
+                subtitle.classList.add('animate');
+            }
+        });
+        
+        bookCards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (cardTop < windowHeight * 0.85) {
+                card.classList.add('animate');
+            }
+        });
+    }
+    
+    // Initial animation on page load
+    window.addEventListener('load', () => {
+        animateHeroSection();
+        animateOnScroll();
+        
+        setTimeout(() => {
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 100);
+            });
+        }, 300);
+    });
+
+    // Animate on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Simple video looping
+    const video = document.querySelector('#video-section video');
+    if (video) {
+        video.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        });
+    }
+
+    // ========== MUSIC PLAYER CODE ==========
+    const musicToggle = document.getElementById('music-toggle');
+    const backgroundMusic = document.getElementById('background-music');
+    let musicPlaying = false;
+    let audioNotificationShown = false;
+    let audioInitialized = false;
+
+    function initAudio() {
+        if (audioInitialized) return;
+        
+        try {
+            backgroundMusic.volume = 0.3;
+            backgroundMusic.load();
+            
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) {
+                const audioContext = new AudioContext();
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+            }
+            
+            audioInitialized = true;
+        } catch (error) {
+            console.error('Audio initialization failed:', error);
+        }
+    }
+
+    function setupAudioInteractions() {
+        const initEvents = ['click', 'touchstart', 'keydown', 'scroll'];
+        
+        initEvents.forEach(eventType => {
+            document.addEventListener(eventType, function initHandler() {
+                initAudio();
+                initEvents.forEach(type => {
+                    document.removeEventListener(type, initHandler);
+                });
+            }, { once: true });
+        });
+    }
+
+    musicToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        initAudio();
+        
+        if (musicPlaying) {
+            backgroundMusic.pause();
+            updateMusicButton(false);
+            musicPlaying = false;
+        } else {
+            const playPromise = backgroundMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    updateMusicButton(true);
+                    musicPlaying = true;
+                }).catch(error => {
+                    console.error('Audio play failed:', error);
+                    showAudioInstructions();
+                    updateMusicButton(false);
+                    musicPlaying = false;
+                });
+            }
+        }
+    });
+
+    function updateMusicButton(isPlaying) {
+        if (isPlaying) {
+            musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
+            musicToggle.classList.remove('from-blue-500', 'to-purple-600');
+            musicToggle.classList.add('from-green-500', 'to-green-600');
+        } else {
+            musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
+            musicToggle.classList.remove('from-green-500', 'to-green-600');
+            musicToggle.classList.add('from-blue-500', 'to-purple-600');
+        }
+    }
+
+    function showAudioInstructions() {
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
+        notification.innerHTML = `
+            <div class="flex items-center gap-2">
+                <i class="fas fa-info-circle text-sm"></i>
+                <span class="font-semibold text-sm">Click the music button to play audio</span>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+
+    function showAudioNotification() {
+        if (audioNotificationShown || musicPlaying) return;
+        
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
+        notification.innerHTML = `
+            <div class="flex items-center gap-2">
+                <i class="fas fa-music text-sm"></i>
+                <span class="font-semibold text-sm">You hear? </span>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        audioNotificationShown = true;
+        
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 4000);
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.5s ease-out;
+    }
+    `;
+    document.head.appendChild(style);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setupAudioInteractions();
+        
+        setTimeout(() => {
+            if (!musicPlaying && !audioNotificationShown) {
+                showAudioNotification();
+            }
+        }, 5000);
+    });
+
+    if (backgroundMusic) {
+        backgroundMusic.addEventListener('error', function(e) {
+            console.error('Audio error:', e);
+            if (backgroundMusic.src.includes('ElevenLabs')) {
+                backgroundMusic.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+                backgroundMusic.load();
+            }
+        });
+        
+        backgroundMusic.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play().catch(e => console.log('Auto-restart failed:', e));
+        });
+    }
+    // ========== END OF MUSIC PLAYER CODE ==========
+            
+    // ========== NEW CAROUSEL FUNCTIONALITY ==========
+    function initCarousels() {
+        document.querySelectorAll('.carousel-container').forEach(container => {
+            const carousel = container.querySelector('.book-carousel');
+            const prevBtn = container.querySelector('.carousel-nav.prev');
+            const nextBtn = container.querySelector('.carousel-nav.next');
+            
+            if (!carousel) return;
+            
+            const scrollAmount = 200;
+            
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            
+            let autoScroll = setInterval(() => {
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }, 5000);
+            
+            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+            carousel.addEventListener('mouseleave', () => {
+                autoScroll = setInterval(() => {
+                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                }, 5000);
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initCarousels();
+    });
+    // ========== END OF CAROUSEL FUNCTIONALITY ==========
+</script>
 </body>
 </html>
