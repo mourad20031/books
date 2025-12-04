@@ -812,6 +812,9 @@
         <a href="#trending" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
             Trending
         </a>
+     <a href="https://freeebooks.online/all-books" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+    All Books
+</a>
         <a href="#faq-section" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
             FAQ
         </a>
@@ -1503,7 +1506,7 @@
                 <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
                 <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
                     <a href="#trending" class="hover:text-blue-500 transition">Trending Books</a>
-                    <a href="#all-books-header" class="hover:text-blue-500 transition">All Books</a>
+                    <a href="https://freeebooks.online/all-books" class="hover:text-blue-500 transition">All Books</a>
                     <a href="#faq-section" class="hover:text-blue-500 transition">FAQ</a>
                     <a href="https://freeebooks.online/contact" class="hover:text-blue-500 transition">Contact</a>
                 </div>
@@ -1612,29 +1615,6 @@
     // Mobile menu toggle
     menuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-    });
-
-    // Search functionality - FIXED
-    mainSearchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const allBookCards = document.querySelectorAll('.book-card');
-        const noResults = document.getElementById('no-results');
-        const seeMoreContainer = document.getElementById('see-more-container');
-        let visibleCount = 0;
-
-        allBookCards.forEach(card => {
-            const isVisible = card.dataset.name.toLowerCase().includes(searchTerm);
-            card.style.display = isVisible ? 'flex' : 'none';
-            card.style.opacity = isVisible ? '1' : '0';
-            if (isVisible) visibleCount++;
-        });
-
-        noResults.classList.toggle('hidden', visibleCount > 0);
-        
-        // Show/hide "See More" button based on results
-        if (seeMoreContainer) {
-            seeMoreContainer.style.display = visibleCount > 0 ? 'block' : 'none';
-        }
     });
 
     function openContactModal() {
