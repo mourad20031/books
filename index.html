@@ -56,6 +56,14 @@
     "query-input": "required name=search_term_string"
   }
 }
+     // ========== STRONGER DONATION FIX ==========
+    document.getElementById('donate-link')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        window.open(this.href, '_blank');
+    });
+    // ========== END STRONGER DONATION FIX ==========
 </script>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -804,11 +812,12 @@
 <div class="relative flex items-center">
     <!-- Simple donation link without any styling interference -->
     <a href="https://freeebooks.online/donate" 
-       class="text-sm font-normal text-gray-700 hover:text-blue-500 transition-colors px-2 py-1"
-       target="_blank"
-       onclick="event.stopPropagation()">
-        Donate ❤️
-    </a>
+   id="donate-link"
+   class="text-sm font-normal text-gray-700 hover:text-blue-500 transition-colors px-2 py-1"
+   target="_blank"
+   onclick="event.stopPropagation(); return true;">
+    Donate ❤️
+</a>
     <div class="w-3"></div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
