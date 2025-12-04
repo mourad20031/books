@@ -629,14 +629,25 @@
 .donate-text {
     text-decoration: none;
     color: #374151; /* Gray-700 for light mode */
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.25rem;
+    font-weight: 400;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
 }
 
 [data-theme="dark"] .donate-text {
-    color: #e5e7eb !important; /* Gray-200 for dark mode */
+    color: #f3f4f6 !important; /* Slightly brighter white for dark mode */
 }
 
 .donate-text:hover {
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .donate-text:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
    /* Add this to your existing styles, right after the dark mode text color rules */
 [data-theme="dark"] #custom-amount {
@@ -775,9 +786,9 @@
 </nav>
 <div class="flex items-center space-x-4">
     <!-- Theme Toggle with Simple Donation Text -->
-    <div class="relative flex items-center">
+   <div class="relative flex items-center">
     <a href="https://freeebooks.online/donate" 
-       class="donate-text text-xs font-normal hover:opacity-80 transition-opacity duration-200"
+       class="donate-text text-sm font-normal hover:opacity-80 transition-opacity duration-200"
        target="_blank">
         Donate ❤️
     </a>
