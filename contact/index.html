@@ -21,6 +21,11 @@
             background-color: #f8fafc;
         }
         
+        .header-bg {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
         .contact-form-container {
             max-width: 600px;
             margin: 0 auto;
@@ -60,28 +65,25 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-gray-50">
+<body class="antialiased">
     
-    <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="https://freeebooks.online/" class="flex items-center">
-                    <h1 class="text-xl font-bold text-gray-900 tracking-tight">
-                        <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
-                    </h1>
-                </a>
-                <nav>
-                    <a href="https://freeebooks.online/" class="text-gray-600 hover:text-blue-500 font-medium">
-                        <i class="fas fa-home mr-1"></i> Back to Home
-                    </a>
-                </nav>
-            </div>
+    <!-- Simple Header - EXACTLY like donate page -->
+    <header class="header-bg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="https://freeebooks.online/" class="flex items-center">
+                <h1 class="text-lg font-bold text-gray-900">
+                    <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
+                </h1>
+            </a>
+            <!-- EXACT same back to home button as donate page -->
+            <a href="https://freeebooks.online/" class="text-sm font-medium text-gray-600 hover:text-blue-500 transition">
+                ← Back to Home
+            </a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="py-12">
+    <main class="min-h-screen py-12">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
@@ -186,36 +188,12 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-12">
-        <div class="container mx-auto px-4 py-8">
-            <div class="text-center">
-                <h3 class="text-lg font-bold mb-2">
-                    <i class="fas fa-book text-blue-400"></i> Free<span class="text-blue-400">Ebooks</span>
-                </h3>
-                <p class="text-gray-400 text-sm mb-6">
-                    Your trusted source for free premium eBooks
-                </p>
-                
-                <div class="flex justify-center space-x-6 mb-6">
-                    <a href="https://freeebooks.online/#trending" class="text-gray-400 hover:text-white transition">
-                        Trending Books
-                    </a>
-                    <a href="https://freeebooks.online/#faq-section" class="text-gray-400 hover:text-white transition">
-                        FAQ
-                    </a>
-                    <a href="/contact.html" class="text-gray-400 hover:text-white transition font-semibold">
-                        Contact
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        Privacy Policy
-                    </a>
-                </div>
-                
-                <p class="text-gray-500 text-sm">
-                    &copy; 2024 FreeEbooks. All Rights Reserved.
-                </p>
-            </div>
+    <!-- Simple Footer - EXACTLY like donate page -->
+    <footer class="py-6 border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-600">
+                © 2024 FreeEbooks. All Rights Reserved.
+            </p>
         </div>
     </footer>
 
