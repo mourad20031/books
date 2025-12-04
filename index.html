@@ -794,6 +794,34 @@
     border-color: #475569 !important;
     color: #fecaca !important;
 }
+ /* Fix for donate tooltip visibility */
+.group:hover .absolute {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure the tooltip is properly positioned */
+.group .absolute {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 50;
+    pointer-events: none;
+}
+
+/* Ensure the heart icon is visible */
+.text-red-500 {
+    color: #ef4444 !important;
+}
+
+/* Dark mode fix for donate icon */
+[data-theme="dark"] .text-red-500 {
+    color: #f87171 !important;
+}
+
+[data-theme="dark"] .dark\:text-red-400 {
+    color: #f87171 !important;
+}
 </style>
  </head>
 <body class="antialiased">
