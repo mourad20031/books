@@ -616,15 +616,20 @@
       display: none;
     }
 
-    /* Dark mode text colors - ensure ALL text is white in dark mode */
-    [data-theme="dark"] .text-gray-900,
-    [data-theme="dark"] .text-gray-800,
-    [data-theme="dark"] .text-gray-700,
-    [data-theme="dark"] .text-gray-600,
-    [data-theme="dark"] .text-gray-500,
-    [data-theme="dark"] .text-gray-400 {
-      color: #ffffff !important;
-    }
+    /* Dark mode text colors - but NOT for footer */
+[data-theme="dark"] .text-gray-900:not(footer *),
+[data-theme="dark"] .text-gray-800:not(footer *),
+[data-theme="dark"] .text-gray-700:not(footer *),
+[data-theme="dark"] .text-gray-600:not(footer *),
+[data-theme="dark"] .text-gray-500:not(footer *),
+[data-theme="dark"] .text-gray-400:not(footer *) {
+  color: #ffffff !important;
+}
+
+/* Special rule for footer in dark mode */
+[data-theme="dark"] footer .text-gray-900 {
+  color: #1a1a1a !important;
+}
 
     [data-theme="dark"] .bg-white {
       background-color: var(--header-bg) !important;
@@ -1850,9 +1855,9 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="md:col-span-2">
-                <h3 class="text-lg font-bold text-gray-900 mb-4">
-                    <i class="fas fa-book text-blue-500"></i> Free<span class="text-black">Ebooks</span>
-                </h3>
+                <h3 class="text-lg font-bold mb-4">
+    <i class="fas fa-book text-blue-500"></i> Free<span class="text-gray-900 dark:text-white">Ebooks</span>
+</h3>
                 <p class="text-gray-600 text-sm mb-4 max-w-md">
                     Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
                 </p>
