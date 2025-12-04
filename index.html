@@ -625,6 +625,16 @@
     [data-theme="dark"] .text-gray-400 {
       color: #ffffff !important;
     }
+   /* Add this to your existing styles, right after the dark mode text color rules */
+[data-theme="dark"] #custom-amount {
+  color: #ffffff !important;
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #custom-amount::placeholder {
+  color: #94a3b8 !important;
+}
 
     [data-theme="dark"] .bg-white {
       background-color: var(--header-bg) !important;
