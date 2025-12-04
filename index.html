@@ -742,7 +742,12 @@
     color: #3b82f6;
     background-color: rgba(59, 130, 246, 0.1);
 }
-   /* Fix for donate text in dark mode */
+  /* Fix for donate text in both light and dark modes */
+.group a.text-gray-900 {
+    color: #1a1a1a !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+}
 [data-theme="dark"] .group a.text-gray-900 {
     color: #ffffff !important;
 }
@@ -768,10 +773,10 @@
     <!-- Theme Toggle Button with Donate Hover Text -->
     <div class="relative group">
         <!-- Simple Donate text that appears on hover -->
-        <a href="https://freeebooks.online/donate" 
-           class="absolute right-full mr-2 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-900 dark:text-white group-hover:opacity-100 opacity-0 transition-opacity duration-200 whitespace-nowrap">
-            Donate ❤️
-        </a>
+      <a href="https://freeebooks.online/donate" 
+   class="absolute right-full mr-2 top-1/2 -translate-y-1/2 text-sm font-medium text-gray-900 dark:text-white group-hover:opacity-100 opacity-0 transition-opacity duration-200 whitespace-nowrap">
+    Donate ❤️
+</a>
         
         <!-- Theme Toggle Button - Fixed -->
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
