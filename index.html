@@ -648,6 +648,22 @@
 [data-theme="dark"] .donate-text:hover {
     opacity: 0.9;
 }
+   /* Remove click flash/overlay */
+.donate-text {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.donate-text:active,
+.donate-text:focus {
+    background-color: transparent !important;
+    outline: none !important;
+}
+
+[data-theme="dark"] .donate-text:active,
+[data-theme="dark"] .donate-text:focus {
+    background-color: transparent !important;
+    outline: none !important;
+}
    /* Add this to your existing styles, right after the dark mode text color rules */
 [data-theme="dark"] #custom-amount {
   color: #ffffff !important;
