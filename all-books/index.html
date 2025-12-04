@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Copy ALL the head section from your current index.html -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6FR9YXVV8Z');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books | Complete eBook Collection - FreeEbooks</title>
+    <meta name="description" content="Browse our complete collection of free eBooks. Search and download thousands of premium books across all categories.">
+    <meta name="keywords" content="ebooks, free books, digital library, epub books, pdf books, audiobooks, reading app, book downloads">
+    <meta name="author" content="FreeEbooks">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="All Books | Complete Free eBook Collection">
+    <meta property="og:description" content="Browse and download thousands of free eBooks. Search our complete collection of premium books across all genres.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://freeebooks.online/all-books">
+    <meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Free eBooks Online - Complete Book Collection">
+    <meta property="og:site_name" content="Free eBooks Online">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All Books | Complete Free eBook Collection">
+    <meta name="twitter:description" content="Browse and download thousands of free eBooks. Search our complete collection of premium books across all genres.">
+    <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+    <meta name="twitter:image:alt" content="Free eBooks Online - Complete Book Collection">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://freeebooks.online/all-books">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Free eBooks Collection",
+      "description": "Complete collection of free downloadable eBooks",
+      "url": "https://freeebooks.online/all-books",
+      "numberOfItems": "50",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Book",
+            "name": "Atomic Habits",
+            "url": "https://freeebooks.online/atomic-habits"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Copy ALL the CSS from your index.html <style> section -->
+    <style>
+        /* Copy ALL your existing CSS styles here */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1a1a1a;
+            /* ... all your CSS variables ... */
+        }
+        
+        /* ... all your existing CSS ... */
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Copy the Header from your index.html -->
+    <header class="header-bg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://freeebooks.online/" class="flex items-center">
+                <h1 class="text-lg font-bold text-gray-900 tracking-tight">
+                    <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
+                </h1>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="https://freeebooks.online/" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Home</a>
+                <a href="#all-books" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">All Books</a>
+                <a href="#categories" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Categories</a>
+                <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <!-- Donate Text -->
+                <div class="relative flex items-center">
+                    <a href="https://freeebooks.online/donate" 
+                       class="donate-text text-sm font-normal hover:opacity-80 transition-opacity duration-200"
+                       target="_blank">
+                        Donate ❤️
+                    </a>
+                    <div class="w-3"></div>
+                </div>
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                    <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="flex flex-col p-4">
+                <a href="https://freeebooks.online/" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Home</a>
+                <a href="#all-books" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">All Books</a>
+                <a href="#categories" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Categories</a>
+                <a href="https://freeebooks.online/contact" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Search Section -->
+        <section class="hero-gradient py-16 md:py-24 relative overflow-hidden">
+            <div class="video-overlay"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-6">
+                        Browse Our Complete eBook Collection
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+                        Search and download from thousands of premium eBooks across all genres
+                    </p>
+                    
+                    <!-- Modern Search Bar -->
+                    <div class="max-w-2xl mx-auto">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <i class="fas fa-search text-gray-400 text-lg"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="mainSearch" 
+                                placeholder="Search books by title, author, or genre..."
+                                class="w-full pl-12 pr-12 py-4 rounded-xl bg-white/90 backdrop-blur-sm border-2 border-white/30 focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20 outline-none transition-all duration-300 text-gray-900 placeholder-gray-500 shadow-2xl"
+                                autocomplete="off"
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                                <button id="clearSearch" class="hidden text-gray-400 hover:text-gray-600">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Filters -->
+                        <div class="flex flex-wrap justify-center gap-3 mt-6">
+                            <button class="quick-filter px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-all" data-filter="trending">
+                                <i class="fas fa-fire mr-2"></i>Trending
+                            </button>
+                            <button class="quick-filter px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-all" data-filter="new">
+                                <i class="fas fa-star mr-2"></i>New Releases
+                            </button>
+                            <button class="quick-filter px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-all" data-filter="fiction">
+                                <i class="fas fa-book-open mr-2"></i>Fiction
+                            </button>
+                            <button class="quick-filter px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full hover:bg-white/30 transition-all" data-filter="nonfiction">
+                                <i class="fas fa-graduation-cap mr-2"></i>Non-Fiction
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Grid Section -->
+        <section id="all-books" class="py-12">
+            <div class="container mx-auto px-4">
+                <!-- Results Header -->
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
+                            All Books <span id="results-count" class="text-blue-500"></span>
+                        </h2>
+                        <p class="text-gray-500" id="search-info">
+                            Showing all available books
+                        </p>
+                    </div>
+                    
+                    <!-- Sort Options -->
+                    <div class="mt-4 md:mt-0">
+                        <select id="sort-options" class="px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-700">
+                            <option value="popular">Most Popular</option>
+                            <option value="newest">Newest First</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="title">Title A-Z</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Books Grid -->
+                <div id="books-grid" class="compact-grid grid">
+                    <!-- ALL your book cards from the index.html will go here -->
+                    <!-- Copy all the book card HTML from your index.html books-grid -->
+                    
+                    <!-- Example book card (copy all your book cards here) -->
+                    <div class="book-card rounded-lg overflow-hidden flex flex-col" data-name="Atomic Habits" data-category="nonfiction" data-rating="4.9" data-downloads="127000" data-date="2024">
+                        <div class="relative">
+                            <span class="book-badge premium-badge">PREMIUM</span>
+                            <span class="book-badge free-badge">FREE</span>
+                            <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits" class="book-image">
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Atomic Habits</h3>
+                            <div class="flex items-center text-xs mb-1 text-yellow-500">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">4.9</span>
+                            </div>
+                            <div class="text-gray-500 text-xs mb-2">
+                                <i class="fas fa-download mr-1"></i> 
+                                <span class="download-counter" data-count="127000">127K</span>
+                            </div>
+                            <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Copy ALL other book cards here -->
+                    <!-- The Alchemist, Thinking Fast and Slow, etc. -->
+                    
+                </div>
+                
+                <!-- Loading and No Results -->
+                <div id="loading" class="text-center py-12 hidden">
+                    <div class="loading-dots inline-block">
+                        <div></div><div></div><div></div>
+                    </div>
+                    <p class="text-gray-500 mt-4">Loading books...</p>
+                </div>
+                
+                <div id="no-results" class="text-center py-12 hidden">
+                    <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">No books found</h3>
+                    <p class="text-gray-500">Try adjusting your search or filter to find what you're looking for.</p>
+                </div>
+                
+                <!-- Pagination -->
+                <div id="pagination" class="flex justify-center items-center space-x-2 mt-12 hidden">
+                    <button class="pagination-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed" id="prev-page">
+                        <i class="fas fa-chevron-left mr-2"></i>Previous
+                    </button>
+                    <div class="flex items-center space-x-1">
+                        <span class="text-gray-700">Page</span>
+                        <span id="current-page" class="font-bold text-blue-500">1</span>
+                        <span class="text-gray-700">of</span>
+                        <span id="total-pages" class="font-bold text-gray-700">5</span>
+                    </div>
+                    <button class="pagination-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed" id="next-page">
+                        Next<i class="fas fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Load More Button -->
+                <div id="load-more-container" class="text-center mt-12">
+                    <button id="load-more" class="btn-see-more">
+                        <i class="fas fa-sync-alt mr-2"></i>Load More Books
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Browse by Category</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Find books in your favorite genres</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="#fiction" class="category-card bg-white rounded-xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <div class="text-blue-500 text-3xl mb-3">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-1">Fiction</h3>
+                        <p class="text-gray-500 text-sm">Novels & Stories</p>
+                    </a>
+                    
+                    <a href="#nonfiction" class="category-card bg-white rounded-xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <div class="text-green-500 text-3xl mb-3">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-1">Non-Fiction</h3>
+                        <p class="text-gray-500 text-sm">Knowledge & Learning</p>
+                    </a>
+                    
+                    <a href="#selfhelp" class="category-card bg-white rounded-xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <div class="text-purple-500 text-3xl mb-3">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-1">Self-Help</h3>
+                        <p class="text-gray-500 text-sm">Personal Growth</p>
+                    </a>
+                    
+                    <a href="#business" class="category-card bg-white rounded-xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <div class="text-yellow-500 text-3xl mb-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-1">Business</h3>
+                        <p class="text-gray-500 text-sm">Career & Finance</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="py-12 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2" id="total-books">50+</div>
+                        <p class="text-gray-600">Free Books</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2" id="total-downloads">1M+</div>
+                        <p class="text-gray-600">Downloads</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2" id="categories-count">10+</div>
+                        <p class="text-gray-600">Categories</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-yellow-600 mb-2">4.8★</div>
+                        <p class="text-gray-600">Avg. Rating</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Copy the Footer from your index.html -->
+    <footer class="header-bg border-t border-gray-100 py-8">
+        <!-- Copy your existing footer here -->
+    </footer>
+
+    <!-- Copy ALL your JavaScript from index.html -->
+    <script>
+        // Copy ALL your JavaScript from index.html
+        // Theme toggle, search functionality, animations, etc.
+        
+        // Add new JavaScript for the all-books page functionality:
+        
+        // Enhanced Search Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainSearch = document.getElementById('mainSearch');
+            const clearSearch = document.getElementById('clearSearch');
+            const booksGrid = document.getElementById('books-grid');
+            const bookCards = booksGrid.querySelectorAll('.book-card');
+            const noResults = document.getElementById('no-results');
+            const resultsCount = document.getElementById('results-count');
+            const searchInfo = document.getElementById('search-info');
+            const sortOptions = document.getElementById('sort-options');
+            const quickFilters = document.querySelectorAll('.quick-filter');
+            const loadMoreBtn = document.getElementById('load-more');
+            const loadingDiv = document.getElementById('loading');
+            const paginationDiv = document.getElementById('pagination');
+            
+            let currentFilter = 'all';
+            let currentSort = 'popular';
+            let currentPage = 1;
+            const booksPerPage = 12;
+            let allBooks = Array.from(bookCards);
+            
+            // Initialize
+            updateResultsCount();
+            setupPagination();
+            
+            // Search functionality
+            mainSearch.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                
+                if (searchTerm) {
+                    clearSearch.classList.remove('hidden');
+                } else {
+                    clearSearch.classList.add('hidden');
+                }
+                
+                filterAndSortBooks(searchTerm);
+            });
+            
+            // Clear search
+            clearSearch.addEventListener('click', function() {
+                mainSearch.value = '';
+                clearSearch.classList.add('hidden');
+                filterAndSortBooks('');
+            });
+            
+            // Quick filters
+            quickFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    currentFilter = this.dataset.filter;
+                    
+                    // Update active state
+                    quickFilters.forEach(f => f.classList.remove('bg-white/40', 'text-white', 'font-bold'));
+                    this.classList.add('bg-white/40', 'text-white', 'font-bold');
+                    
+                    filterAndSortBooks(mainSearch.value);
+                });
+            });
+            
+            // Sort options
+            sortOptions.addEventListener('change', function() {
+                currentSort = this.value;
+                filterAndSortBooks(mainSearch.value);
+            });
+            
+            // Load more
+            loadMoreBtn.addEventListener('click', function() {
+                currentPage++;
+                showPage(currentPage);
+            });
+            
+            function filterAndSortBooks(searchTerm) {
+                currentPage = 1;
+                loadingDiv.classList.remove('hidden');
+                booksGrid.classList.add('opacity-50');
+                
+                setTimeout(() => {
+                    let filteredBooks = allBooks;
+                    
+                    // Apply search filter
+                    if (searchTerm) {
+                        filteredBooks = filteredBooks.filter(book => {
+                            const bookName = book.dataset.name.toLowerCase();
+                            const bookCategory = book.dataset.category || '';
+                            return bookName.includes(searchTerm) || bookCategory.includes(searchTerm);
+                        });
+                        searchInfo.textContent = `Search results for "${searchTerm}"`;
+                    } else {
+                        searchInfo.textContent = 'Showing all available books';
+                    }
+                    
+                    // Apply category filter
+                    if (currentFilter !== 'all') {
+                        filteredBooks = filteredBooks.filter(book => {
+                            const category = book.dataset.category || '';
+                            return category.includes(currentFilter);
+                        });
+                    }
+                    
+                    // Apply sorting
+                    filteredBooks.sort((a, b) => {
+                        switch(currentSort) {
+                            case 'newest':
+                                return (parseInt(b.dataset.date) || 0) - (parseInt(a.dataset.date) || 0);
+                            case 'rating':
+                                return (parseFloat(b.dataset.rating) || 0) - (parseFloat(a.dataset.rating) || 0);
+                            case 'title':
+                                return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+                            case 'popular':
+                            default:
+                                return (parseInt(b.dataset.downloads) || 0) - (parseInt(a.dataset.downloads) || 0);
+                        }
+                    });
+                    
+                    // Update display
+                    allBooks.forEach(book => book.style.display = 'none');
+                    filteredBooks.forEach(book => book.style.display = 'flex');
+                    
+                    // Update UI
+                    updateResultsCount(filteredBooks.length);
+                    setupPagination(filteredBooks.length);
+                    showPage(1);
+                    
+                    // Show/hide no results
+                    noResults.classList.toggle('hidden', filteredBooks.length > 0);
+                    loadMoreBtn.parentElement.classList.toggle('hidden', filteredBooks.length <= booksPerPage);
+                    
+                    loadingDiv.classList.add('hidden');
+                    booksGrid.classList.remove('opacity-50');
+                }, 300);
+            }
+            
+            function updateResultsCount(count) {
+                const total = count || allBooks.length;
+                resultsCount.textContent = `(${total})`;
+            }
+            
+            function setupPagination(totalBooks = allBooks.length) {
+                const totalPages = Math.ceil(totalBooks / booksPerPage);
+                
+                if (totalPages > 1) {
+                    paginationDiv.classList.remove('hidden');
+                    document.getElementById('total-pages').textContent = totalPages;
+                } else {
+                    paginationDiv.classList.add('hidden');
+                }
+            }
+            
+            function showPage(page) {
+                const allVisibleBooks = Array.from(bookCards).filter(b => b.style.display !== 'none');
+                const startIndex = (page - 1) * booksPerPage;
+                const endIndex = startIndex + booksPerPage;
+                
+                // Hide all books
+                allVisibleBooks.forEach(book => book.style.display = 'none');
+                
+                // Show books for current page
+                for (let i = startIndex; i < endIndex && i < allVisibleBooks.length; i++) {
+                    allVisibleBooks[i].style.display = 'flex';
+                }
+                
+                // Update pagination UI
+                document.getElementById('current-page').textContent = page;
+                currentPage = page;
+                
+                // Show/hide pagination buttons
+                document.getElementById('prev-page').disabled = page === 1;
+                document.getElementById('next-page').disabled = endIndex >= allVisibleBooks.length;
+                
+                // Scroll to top of books grid
+                booksGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // Pagination button events
+            document.getElementById('prev-page').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    showPage(currentPage - 1);
+                }
+            });
+            
+            document.getElementById('next-page').addEventListener('click', () => {
+                const allVisibleBooks = Array.from(bookCards).filter(b => b.style.display !== 'none');
+                if (currentPage * booksPerPage < allVisibleBooks.length) {
+                    showPage(currentPage + 1);
+                }
+            });
+            
+            // Update stats with animation
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current) + '+';
+                }, 30);
+            }
+            
+            // Animate stats on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(document.getElementById('total-books'), 50);
+                        animateCounter(document.getElementById('total-downloads'), 1000);
+                        animateCounter(document.getElementById('categories-count'), 10);
+                    }
+                });
+            });
+            
+            const statsSection = document.querySelector('.bg-gradient-to-r');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>
