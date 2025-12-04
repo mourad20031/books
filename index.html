@@ -742,13 +742,22 @@
     color: #3b82f6;
     background-color: rgba(59, 130, 246, 0.1);
 }
-  /* Fix for donate text in both light and dark modes */
-.group a.text-gray-900 {
+ /* Fix for donate text in both light and dark modes - MORE SPECIFIC */
+.group a.text-gray-900.dark\:text-white {
     color: #1a1a1a !important;
     font-size: 0.875rem !important;
     font-weight: 600 !important;
 }
-[data-theme="dark"] .group a.text-gray-900 {
+[data-theme="dark"] .group a.text-gray-900.dark\:text-white {
+    color: #ffffff !important;
+}
+   /* Custom class for donate hover text to avoid conflicts */
+.donate-hover-text {
+    color: #1a1a1a !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+}
+[data-theme="dark"] .donate-hover-text {
     color: #ffffff !important;
 }
   </style>
@@ -773,8 +782,8 @@
     <!-- Theme Toggle Button with Donate Hover Text -->
     <div class="relative group">
         <!-- Simple Donate text that appears on hover -->
-      <a href="https://freeebooks.online/donate" 
-   class="absolute right-full mr-2 top-1/2 -translate-y-1/2 text-sm font-medium text-gray-900 dark:text-white group-hover:opacity-100 opacity-0 transition-opacity duration-200 whitespace-nowrap">
+    <a href="https://freeebooks.online/donate" 
+   class="absolute right-full mr-2 top-1/2 -translate-y-1/2 text-sm font-medium text-gray-900 dark:text-white group-hover:opacity-100 opacity-0 transition-opacity duration-200 whitespace-nowrap donate-hover-text">
     Donate ❤️
 </a>
         
