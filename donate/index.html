@@ -3,296 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support FreeEbooks - Donate Today</title>
+    <title>Support FreeEbooks - Donate</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
     
     <!-- Meta Tags -->
-    <meta name="description" content="Support FreeEbooks and help us keep providing free premium eBooks to readers worldwide. Your donation makes a difference!">
-    <meta name="keywords" content="donate, support, free ebooks, donation, contribute, help readers">
+    <meta name="description" content="Support FreeEbooks and help us keep providing free premium eBooks.">
+    <meta name="keywords" content="donate, support, free ebooks, donation">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --bg-color: #f8fafc;
-            --text-color: #1a1a1a;
-            --header-bg: #ffffff;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #0f172a;
-            --text-color: #ffffff;
-            --header-bg: #1e293b;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #f8fafc;
+            color: #1a1a1a;
         }
 
-        .donate-hero {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        .header-bg {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .impact-card {
-            transition: transform 0.3s ease;
+        .donate-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
         }
 
-        .impact-card:hover {
-            transform: translateY(-5px);
+        .donate-option {
+            transition: all 0.2s ease;
+            border: 1px solid #e5e7eb;
         }
 
-        .donation-option {
-            transition: all 0.3s ease;
-            border: 2px solid #e5e7eb;
+        .donate-option:hover {
+            border-color: #059669;
+            background-color: #f0fdf4;
         }
 
-        .donation-option:hover {
-            border-color: #dc2626;
-            background-color: #fef2f2;
-        }
-
-        .donation-option.active {
-            border-color: #dc2626;
-            background-color: #fef2f2;
-        }
-
-        [data-theme="dark"] .donation-option:hover {
-            background-color: #1f2937;
-        }
-
-        [data-theme="dark"] .donation-option.active {
-            background-color: #1f2937;
-            border-color: #dc2626;
+        .donate-option.active {
+            border-color: #059669;
+            background-color: #f0fdf4;
+            color: #065f46;
         }
 
         .btn-donate {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            transition: all 0.3s ease;
+            background-color: #059669;
+            transition: all 0.2s ease;
         }
 
         .btn-donate:hover {
-            background: linear-gradient(135deg, #b91c1c, #991b1b);
-            transform: scale(1.05);
+            background-color: #047857;
+            transform: translateY(-1px);
         }
 
-        .pulse-heart {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .paypal-green {
+            color: #0070ba;
         }
     </style>
 </head>
 <body class="antialiased">
     
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm" style="background-color: var(--header-bg);">
+    <!-- Simple Header -->
+    <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="https://freeebooks.online/" class="flex items-center">
-                <h1 class="text-lg font-bold" style="color: var(--text-color);">
+                <h1 class="text-lg font-bold text-gray-900">
                     <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
                 </h1>
             </a>
-            <a href="https://freeebooks.online/" class="text-sm font-medium hover:text-blue-500 transition">
+            <a href="https://freeebooks.online/" class="text-sm font-medium text-gray-600 hover:text-blue-500 transition">
                 ← Back to Home
             </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="donate-hero text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-3xl mx-auto">
-                <div class="pulse-heart inline-block mb-6">
-                    <i class="fas fa-heart text-6xl text-white"></i>
-                </div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Support FreeEbooks</h1>
-                <p class="text-xl mb-8 opacity-90">
-                    Help us keep providing free premium eBooks to millions of readers worldwide. 
-                    Every donation helps us add more books and maintain our free library.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4">
-                        <div class="text-2xl font-bold">500K+</div>
-                        <div class="text-sm">Readers Served</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4">
-                        <div class="text-2xl font-bold">10K+</div>
-                        <div class="text-sm">Books Available</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4">
-                        <div class="text-2xl font-bold">100%</div>
-                        <div class="text-sm">Free Forever</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Donation Options -->
-    <section class="py-16">
+    <!-- Main Content -->
+    <main class="min-h-screen py-12">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Choose Your Donation Amount</h2>
-                    <p class="text-lg opacity-80">Select a donation amount or enter a custom one</p>
-                </div>
-
-                <!-- Quick Donation Options -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <button class="donation-option rounded-xl p-6 text-center" data-amount="5">
-                        <div class="text-2xl font-bold mb-2">$5</div>
-                        <div class="text-sm opacity-80">Helps add 1 new book</div>
-                    </button>
-                    <button class="donation-option active rounded-xl p-6 text-center" data-amount="10">
-                        <div class="text-2xl font-bold mb-2">$10</div>
-                        <div class="text-sm opacity-80">Supports 10 readers</div>
-                    </button>
-                    <button class="donation-option rounded-xl p-6 text-center" data-amount="25">
-                        <div class="text-2xl font-bold mb-2">$25</div>
-                        <div class="text-sm opacity-80">Sponsors a book category</div>
-                    </button>
-                    <button class="donation-option rounded-xl p-6 text-center" data-amount="50">
-                        <div class="text-2xl font-bold mb-2">$50</div>
-                        <div class="text-sm opacity-80">Premium supporter</div>
-                    </button>
-                </div>
-
-                <!-- Custom Amount -->
-                <div class="mb-8 p-6 rounded-xl border" style="border-color: var(--border-color);">
-                    <h3 class="text-xl font-bold mb-4" style="color: var(--text-color);">Custom Amount</h3>
-                    <div class="flex flex-col md:flex-row items-center gap-4">
-                        <div class="flex items-center">
-                            <span class="text-2xl mr-2">$</span>
-                            <input type="number" id="customAmount" 
-                                   class="text-3xl font-bold w-32 px-3 py-2 rounded-lg border" 
-                                   min="1" 
-                                   value="10"
-                                   style="background-color: var(--header-bg); color: var(--text-color); border-color: var(--border-color);">
+            <div class="max-w-md mx-auto">
+                
+                <!-- Simple Donation Card -->
+                <div class="donate-card p-8 shadow-sm mb-8">
+                    <div class="text-center mb-8">
+                        <div class="mb-4">
+                            <i class="fas fa-heart text-red-500 text-4xl"></i>
                         </div>
-                        <span class="text-lg">USD</span>
+                        <h1 class="text-2xl font-bold text-gray-900 mb-3">Support FreeEbooks</h1>
+                        <p class="text-gray-600 text-sm">
+                            Your donation helps us keep providing free premium eBooks.
+                        </p>
+                    </div>
+
+                    <!-- Donation Amount Selection -->
+                    <div class="mb-6">
+                        <p class="text-gray-700 text-sm font-medium mb-3">Select amount:</p>
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <button class="donate-option py-3 rounded-lg text-center" data-amount="5">
+                                <div class="font-semibold">$5</div>
+                            </button>
+                            <button class="donate-option active py-3 rounded-lg text-center" data-amount="10">
+                                <div class="font-semibold">$10</div>
+                            </button>
+                            <button class="donate-option py-3 rounded-lg text-center" data-amount="25">
+                                <div class="font-semibold">$25</div>
+                            </button>
+                        </div>
+                        
+                        <!-- Custom Amount -->
+                        <div class="mb-6">
+                            <p class="text-gray-700 text-sm font-medium mb-2">Or enter custom amount:</p>
+                            <div class="flex items-center">
+                                <span class="text-gray-600 mr-2">$</span>
+                                <input type="number" id="customAmount" 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                       min="1" 
+                                       value="10">
+                                <span class="text-gray-600 ml-2 text-sm">USD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Donate Button -->
+                    <div class="mb-6">
+                        <button id="donateButton" class="btn-donate text-white font-semibold py-3 w-full rounded-lg text-sm">
+                            <i class="fab fa-paypal mr-2"></i> Donate via PayPal
+                        </button>
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            <i class="fas fa-lock mr-1"></i> Secure payment
+                        </p>
+                    </div>
+
+                    <!-- PayPal Logo -->
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center space-x-1 text-sm paypal-green">
+                            <i class="fab fa-paypal"></i>
+                            <span>Powered by PayPal</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Donate Button -->
-                <div class="text-center">
-                    <button id="donateButton" class="btn-donate text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg">
-                        <i class="fas fa-heart mr-2"></i> Donate Now via PayPal
-                    </button>
-                    <p class="text-sm opacity-80 mt-4">
-                        <i class="fas fa-lock mr-1"></i> Secure payment powered by PayPal
-                    </p>
+                <!-- Simple FAQ -->
+                <div class="donate-card p-6">
+                    <h3 class="font-semibold text-gray-900 mb-4">Common Questions</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium text-gray-700 mb-1">Is my payment secure?</p>
+                            <p class="text-xs text-gray-600">Yes, PayPal provides secure payment processing.</p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium text-gray-700 mb-1">Will I get a receipt?</p>
+                            <p class="text-xs text-gray-600">Yes, PayPal will email you a receipt.</p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium text-gray-700 mb-1">Can I donate anonymously?</p>
+                            <p class="text-xs text-gray-600">Yes, through PayPal's privacy options.</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Impact Section -->
-    <section class="py-16" style="background-color: var(--header-bg);">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Your Impact</h2>
-                <p class="text-lg opacity-80">See how your donation helps</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="impact-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                    <div class="text-blue-500 text-4xl mb-4">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">More Free Books</h3>
-                    <p class="opacity-80">Your donation helps us license and add new premium books to our collection.</p>
-                </div>
-                
-                <div class="impact-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                    <div class="text-green-500 text-4xl mb-4">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Better Infrastructure</h3>
-                    <p class="opacity-80">Funds go toward faster servers, better security, and improved user experience.</p>
-                </div>
-                
-                <div class="impact-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-                    <div class="text-purple-500 text-4xl mb-4">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--text-color);">Global Access</h3>
-                    <p class="opacity-80">We make books available to readers in countries where access is limited.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-color);">Donation FAQ</h2>
-                
-                <div class="space-y-6">
-                    <div class="border-b pb-6" style="border-color: var(--border-color);">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Is my donation secure?</h3>
-                        <p class="opacity-80">Yes, all donations are processed through PayPal's secure payment system. We never store your payment information.</p>
-                    </div>
-                    
-                    <div class="border-b pb-6" style="border-color: var(--border-color);">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Can I donate anonymously?</h3>
-                        <p class="opacity-80">Yes, PayPal allows you to make anonymous donations. Your privacy is important to us.</p>
-                    </div>
-                    
-                    <div class="border-b pb-6" style="border-color: var(--border-color);">
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Will I get a receipt?</h3>
-                        <p class="opacity-80">Yes, PayPal will automatically email you a receipt for your donation for tax purposes.</p>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Are donations tax-deductible?</h3>
-                        <p class="opacity-80">We're working on obtaining 501(c)(3) non-profit status. Currently, donations are not tax-deductible but help support our mission immensely.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t" style="border-color: var(--border-color);">
+    <!-- Simple Footer -->
+    <footer class="py-6 border-t border-gray-200">
         <div class="container mx-auto px-4 text-center">
-            <p class="opacity-80 mb-2">Thank you for supporting free education and access to knowledge!</p>
-            <p class="text-sm opacity-60">
-                © 2024 FreeEbooks. All donations help maintain and grow our free library.
-                <a href="https://freeebooks.online/" class="text-blue-500 hover:underline ml-2">Back to Home</a>
+            <p class="text-sm text-gray-600">
+                © 2024 FreeEbooks. All donations support our free library.
             </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Theme detection (matching your main site)
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.body.setAttribute('data-theme', 'dark');
-        }
-
         // Donation functionality
         let selectedAmount = 10;
         
         // Donation option selection
-        document.querySelectorAll('.donation-option').forEach(option => {
+        document.querySelectorAll('.donate-option').forEach(option => {
             option.addEventListener('click', function() {
-                document.querySelectorAll('.donation-option').forEach(opt => {
+                document.querySelectorAll('.donate-option').forEach(opt => {
                     opt.classList.remove('active');
                 });
                 this.classList.add('active');
@@ -304,7 +202,7 @@
         // Custom amount input
         document.getElementById('customAmount').addEventListener('input', function() {
             selectedAmount = parseInt(this.value) || 10;
-            document.querySelectorAll('.donation-option').forEach(opt => {
+            document.querySelectorAll('.donate-option').forEach(opt => {
                 opt.classList.remove('active');
             });
         });
@@ -318,7 +216,7 @@
                 return;
             }
             
-            // PayPal donation link - UPDATE THIS WITH YOUR ACTUAL PAYPAL LINK
+            // PayPal donation link
             const paypalLink = `https://paypal.me/MouradAsmine/${amount}`;
             
             // Open PayPal in new tab
@@ -326,18 +224,18 @@
             
             // Show thank you message
             const thankYou = document.createElement('div');
-            thankYou.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            thankYou.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm';
             thankYou.innerHTML = `
                 <div class="flex items-center gap-2">
                     <i class="fas fa-check-circle"></i>
-                    <span>Thank you for your $${amount} donation!</span>
+                    <span>Thank you for your donation!</span>
                 </div>
             `;
             document.body.appendChild(thankYou);
             
             setTimeout(() => {
                 thankYou.remove();
-            }, 5000);
+            }, 3000);
         });
     </script>
 </body>
