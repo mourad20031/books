@@ -48,14 +48,14 @@
         }
         
         .btn-download {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         .btn-download:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
         }
         
         .coming-soon-cover {
@@ -74,6 +74,18 @@
         
         .rating-stars {
             color: #f59e0b;
+        }
+        
+        .search-bar {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         @media (max-width: 768px) {
@@ -98,9 +110,6 @@
                     <a href="https://freeebooks.online/" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Home</a>
                     <a href="#all-books" class="text-blue-500 font-medium text-sm">All Books</a>
                     <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
-                    <a href="https://freeebooks.online/donate" class="bg-green-50 text-green-600 hover:bg-green-100 py-1.5 px-3 rounded-full text-sm font-medium transition">
-                        <i class="fas fa-heart mr-1 text-red-400"></i>Donate
-                    </a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-lg"></i>
@@ -120,9 +129,6 @@
                 <a href="https://freeebooks.online/contact" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
                     Contact
                 </a>
-                <a href="https://freeebooks.online/donate" class="py-3 px-4 text-green-600 hover:bg-green-50 rounded-lg text-sm font-medium mt-2">
-                    <i class="fas fa-heart mr-2 text-red-400"></i>Support Our Mission
-                </a>
             </div>
         </div>
     </header>
@@ -134,19 +140,11 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">All Books Collection</h1>
             <p class="text-gray-600 max-w-2xl mx-auto">Browse and download our complete collection of premium eBooks. All books are 100% free.</p>
             
-            <!-- Stats -->
-            <div class="flex flex-wrap justify-center gap-4 mt-6">
-                <div class="bg-white rounded-lg border border-gray-200 px-4 py-2 text-center">
-                    <div class="text-2xl font-bold text-blue-600">24</div>
-                    <div class="text-gray-600 text-sm">Total Books</div>
-                </div>
-                <div class="bg-white rounded-lg border border-gray-200 px-4 py-2 text-center">
-                    <div class="text-2xl font-bold text-green-600">1.8M+</div>
-                    <div class="text-gray-600 text-sm">Total Downloads</div>
-                </div>
-                <div class="bg-white rounded-lg border border-gray-200 px-4 py-2 text-center">
-                    <div class="text-2xl font-bold text-yellow-600">4.8</div>
-                    <div class="text-gray-600 text-sm">Avg Rating</div>
+            <!-- Search Bar -->
+            <div class="max-w-md mx-auto mt-8">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-3 pl-5 pr-12 w-full focus:outline-none text-sm">
+                    <i class="fas fa-search text-gray-400 absolute right-4 top-1/2 -translate-y-1/2 text-sm"></i>
                 </div>
             </div>
         </div>
@@ -154,7 +152,7 @@
         <!-- Books List -->
         <div id="all-books" class="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <!-- Book 1 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Atomic Habits">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/rwtLndSP/Atomic.webp" alt="Atomic Habits" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -173,7 +171,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Tiny Changes, Remarkable Results: An Easy & Proven Way to Build Good Habits & Break Bad Ones</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/atomic-habits')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/atomic-habits'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -182,7 +180,7 @@
             </div>
 
             <!-- Book 2 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="The Alchemist">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/BQf9nVgZ/The-Alchemist-cover.jpg" alt="The Alchemist" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -201,7 +199,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">A magical fable about following your dreams</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/the-alchemist/')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/the-alchemist/'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -210,7 +208,7 @@
             </div>
 
             <!-- Book 3 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Thinking Fast and Slow">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/hPRvRMQy/Thinking-Fast-and-Slow.jpg" alt="Thinking, Fast and Slow" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -229,7 +227,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">The groundbreaking work by Nobel Prize winner Daniel Kahneman</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/thinking-fast-and-slow')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/thinking-fast-and-slow'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -238,7 +236,7 @@
             </div>
 
             <!-- Book 4 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Psychology of Money">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/RFr5JpBs/POM.webp" alt="The Psychology of Money" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -257,7 +255,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Timeless lessons on wealth, greed, and happiness</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'http://freeebooks.online/the-psychology-of-money')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='http://freeebooks.online/the-psychology-of-money'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -266,7 +264,7 @@
             </div>
 
             <!-- Book 5 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Deep Work">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/GpXqTqsX/Screenshot-2025-11-27-083409.png" alt="Deep Work" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -285,7 +283,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Rules for Focused Success in a Distracted World</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/deep-work')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/deep-work'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -294,7 +292,7 @@
             </div>
 
             <!-- Book 6 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="7 Habits of Effective People">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/D0TJvKw2/51f-EYMht-Ho-L-min.webp" alt="The 7 Habits of Highly Effective People" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -313,7 +311,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Powerful Lessons in Personal Change</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/the-7-habits-of-highly-effective-people')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/the-7-habits-of-highly-effective-people'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -322,7 +320,7 @@
             </div>
 
             <!-- Book 7 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="The Midnight Library">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/jjd4hKtm/718Q61qx-GSL-UF1000-1000-QL80.jpg" alt="The Midnight Library" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -341,7 +339,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Between life and death there is a library...</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/the-midnight-library')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/the-midnight-library'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -350,7 +348,7 @@
             </div>
 
             <!-- Book 8 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Project Hail Mary">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/4N0GG4Fb/images-(3).jpg" alt="Project Hail Mary" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -369,7 +367,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">A lone astronaut must save our doomed planet</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/project-hail-mary')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/project-hail-mary'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -378,7 +376,7 @@
             </div>
 
             <!-- Book 9 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Klara and the Sun">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/KvkVnPJH/images-(4).jpg" alt="Klara and the Sun" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -397,7 +395,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">What does it mean to love?</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/klara-and-the-sun')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/klara-and-the-sun'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -406,7 +404,7 @@
             </div>
 
             <!-- Book 10 -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="The Four Winds">
                 <div class="flex items-start gap-4 md:gap-6">
                     <img src="https://i.postimg.cc/ry0XJ2p4/images-(5).jpg" alt="The Four Winds" class="book-cover">
                     <div class="flex-1 min-w-0">
@@ -425,7 +423,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">A story of love, heroism, and hope</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/the-four-winds')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/the-four-winds'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -434,7 +432,7 @@
             </div>
 
             <!-- Book 11 - Weight Loss Book (The Ozempic Revolution) -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="The Ozempic Revolution">
                 <div class="flex items-start gap-4 md:gap-6">
                     <div class="coming-soon-cover">Cover Coming Soon</div>
                     <div class="flex-1 min-w-0">
@@ -453,7 +451,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Transformative weight loss guide</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/the-ozempic-revolution')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/the-ozempic-revolution'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -462,7 +460,7 @@
             </div>
 
             <!-- Book 12 - Weight Loss Book (Anti-Inflammatory Diet Meal Prep) -->
-            <div class="book-item p-4 md:p-6">
+            <div class="book-item p-4 md:p-6" data-name="Anti Inflammatory Diet Meal Prep">
                 <div class="flex items-start gap-4 md:gap-6">
                     <div class="coming-soon-cover">Cover Coming Soon</div>
                     <div class="flex-1 min-w-0">
@@ -481,7 +479,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Healthy meal preparation guide</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="startDownload(this, 'https://freeebooks.online/anti-inflammatory-diet-meal-prep')">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/anti-inflammatory-diet-meal-prep'">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -489,13 +487,237 @@
                 </div>
             </div>
 
-            <!-- Continue adding all other weight loss books in the same format... -->
+            <!-- Book 13 - Weight Loss Book (Plant-Based Weight Loss Solution) -->
+            <div class="book-item p-4 md:p-6" data-name="Plant Based Weight Loss Solution">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Plant-Based Weight Loss Solution</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">4.8 • 52.3K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Vegan weight loss guide</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/plant-based-weight-loss-solution'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 14 - Weight Loss Book (Glucose Revolution) -->
+            <div class="book-item p-4 md:p-6" data-name="Glucose Revolution">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Glucose Revolution</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">4.9 • 67.8K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Blood sugar management guide</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/glucose-revolution'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 15 - Weight Loss Book (Fast This Way) -->
+            <div class="book-item p-4 md:p-6" data-name="Fast This Way">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Fast This Way</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">4.6 • 41.2K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Intermittent fasting guide</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/fast-this-way'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 16 - Weight Loss Book (Embrace You) -->
+            <div class="book-item p-4 md:p-6" data-name="Embrace You">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Embrace You</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">5.0 • 56.7K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Body positivity guide</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/embrace-you'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 17 - Weight Loss Book (You Can Drop It!) -->
+            <div class="book-item p-4 md:p-6" data-name="You Can Drop It">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">You Can Drop It!</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">4.7 • 49.8K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Weight loss motivation guide</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/you-can-drop-it'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 18 - Weight Loss Book (No Point Weight Loss Cookbook 2025) -->
+            <div class="book-item p-4 md:p-6" data-name="No Point Weight Loss Cookbook">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">No Point Weight Loss Cookbook 2025</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">4.9 • 72.3K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Weight Watchers cookbook</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/no-point-weight-loss-cookbook'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 19 - Weight Loss Book (Fit Men Cook) -->
+            <div class="book-item p-4 md:p-6" data-name="Fit Men Cook">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">Fit Men Cook</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">4.8 • 63.4K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Healthy cooking for men</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/fit-men-cook'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 20 - Weight Loss Book (The Diet-Free Revolution) -->
+            <div class="book-item p-4 md:p-6" data-name="Diet Free Revolution">
+                <div class="flex items-start gap-4 md:gap-6">
+                    <div class="coming-soon-cover">Cover Coming Soon</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-1">The Diet-Free Revolution</h3>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">5.0 • 58.9K downloads</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-3">Sustainable weight loss approach</p>
+                            </div>
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="window.location.href='https://freeebooks.online/diet-free-revolution'">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
-        <!-- Note about collection -->
-        <div class="mt-8 text-center text-gray-500 text-sm">
-            <p>This collection contains all available books from our main page. New books are added regularly.</p>
+        <!-- No results message -->
+        <div id="noResults" class="text-center py-10 hidden">
+            <i class="fas fa-search text-gray-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-700 mb-2">No books found</h3>
+            <p class="text-gray-500">Try a different search term</p>
         </div>
     </main>
 
@@ -529,24 +751,42 @@
             }
         });
         
-        // Download functionality
-        function startDownload(buttonElement, downloadLink) {
-            // Add loading state
-            const originalText = buttonElement.innerHTML;
-            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Downloading...';
-            buttonElement.disabled = true;
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const bookItems = document.querySelectorAll('.book-item');
+        const noResults = document.getElementById('noResults');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            let visibleCount = 0;
             
-            // Redirect to download link after a brief delay for UX
-            setTimeout(() => {
-                window.location.href = downloadLink;
+            bookItems.forEach(item => {
+                const bookName = item.getAttribute('data-name').toLowerCase();
+                const title = item.querySelector('h3').textContent.toLowerCase();
                 
-                // Reset button after 3 seconds (in case user returns)
-                setTimeout(() => {
-                    buttonElement.innerHTML = originalText;
-                    buttonElement.disabled = false;
-                }, 3000);
-            }, 500);
-        }
+                if (bookName.includes(searchTerm) || title.includes(searchTerm)) {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no results message
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        });
+        
+        // Clear search on escape key
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                this.value = '';
+                this.dispatchEvent(new Event('input'));
+            }
+        });
         
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
