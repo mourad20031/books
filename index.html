@@ -744,6 +744,46 @@
     color: #3b82f6;
     background-color: rgba(59, 130, 246, 0.1);
 }
+       /* ========== SEARCH FUNCTIONALITY STYLES ========== */
+    #search-section {
+        display: block !important;
+    }
+
+    #no-results-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem 1rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .book-card.hidden {
+        display: none !important;
+        opacity: 0;
+        transform: translateY(10px);
+        height: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    /* Search highlight */
+    .highlight {
+        background-color: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    /* Search input focus */
+    #mainSearchInput:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Ensure search input stays visible */
+    #mainSearchInput {
+        z-index: 100;
+        position: relative;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -2061,6 +2101,7 @@
         initCarousels();
     });
     // ========== END OF CAROUSEL FUNCTIONALITY ==========
+        // ========== END OF CAROUSEL FUNCTIONALITY ==========
      // ========== SEARCH FUNCTIONALITY ==========
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('mainSearchInput');
@@ -2098,6 +2139,12 @@
             let hasResults = false;
             
             allSections.forEach(section => {
+                // NEVER hide the search section!
+                if (section.id === 'search-section') {
+                    section.style.display = 'block';
+                    return;
+                }
+                
                 const books = section.querySelectorAll('.book-card');
                 let sectionHasVisibleBooks = false;
                 
