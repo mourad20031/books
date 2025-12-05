@@ -71,11 +71,53 @@
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
             transition: all 0.2s ease;
+            position: relative;
         }
         
         .btn-download:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+        
+        /* Button press animation */
+        .btn-download:active {
+            transform: scale(0.95) translateY(0);
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+            transition: transform 0.1s ease;
+        }
+        
+        /* Ripple effect for button */
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn-download:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
         }
         
         .rating-stars {
@@ -215,7 +257,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">A comprehensive guide to GLP-1 medications for sustainable weight loss and better health</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/weightless'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/weightless')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -243,7 +285,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Transform your health by mastering your blood sugar levels</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/glucose-revolution'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/glucose-revolution')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -271,7 +313,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">A woman's guide to using fasting for fat burning, energy, and hormone balance</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/fast-like-a-girl'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/fast-like-a-girl')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -299,7 +341,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Navigate menopause with purpose, power, and scientific facts</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/new-menopause'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/new-menopause')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -327,7 +369,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Reset your body's fat thermostat in the age of ultra-processed food</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/hunger-code'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/hunger-code')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -355,7 +397,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Will Tennyson's guide to delicious low-calorie, high-protein meals</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/bite-me'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/bite-me')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -383,7 +425,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">A doctor's proven plan to reverse obesity and end yo-yo dieting</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/ozempic-revolution'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/ozempic-revolution')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -411,7 +453,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Eliminate menopause symptoms and feel like your younger self again</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/menopause-reset'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/menopause-reset')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -439,7 +481,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Biblical healing secrets for longevity, metabolism, and health</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/biblio-diet'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/biblio-diet')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -467,7 +509,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">4-week guide to cutting cravings and restoring energy</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/glucose-goddess'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/glucose-goddess')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -495,7 +537,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Unlock the secrets of weight loss through intermittent fasting</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/the-obesity-code'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/the-obesity-code')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -523,7 +565,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Groundbreaking science for healthy, permanent weight loss</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/how-not-to-diet'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/how-not-to-diet')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -551,7 +593,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Amazing nutrient-rich program for fast and sustained weight loss</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/eat-to-live'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/eat-to-live')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -579,7 +621,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Comprehensive guide to healing your body through various fasting methods</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/complete-guide-to-fasting'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/complete-guide-to-fasting')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -607,7 +649,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Comprehensive guide to intermittent fasting with 28-day FAST start</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/fast-feast-repeat'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/fast-feast-repeat')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -635,7 +677,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Burn fat, heal your metabolism, and live healthier</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/eat-to-beat-your-diet'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/eat-to-beat-your-diet')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -663,7 +705,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Doctor-developed plan to burn fat and tame hormonal symptoms</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/the-galveston-diet'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/the-galveston-diet')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -691,7 +733,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">How to eat real food and lose weight with 100+ recipes</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/instant-loss'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/instant-loss')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -719,7 +761,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">Maintain a consistent keto diet for lifelong health</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/keto-continuum'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/keto-continuum')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -747,7 +789,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-3">3-week program to restore youthful body contours using new science</p>
                             </div>
-                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="event.stopPropagation(); window.location.href='https://freeebooks.online/super-body'">
+                            <button class="btn-download py-2 px-4 rounded-lg text-sm font-semibold self-start" onclick="handleDownload(event, 'https://freeebooks.online/super-body')">
                                 <i class="fas fa-download mr-2"></i>Download
                             </button>
                         </div>
@@ -860,6 +902,30 @@
             }
             // If theme is 'light' or not set, do nothing (light mode is default)
         });
+        
+        // Handle download button click with animation
+        function handleDownload(event, url) {
+            event.stopPropagation();
+            event.preventDefault();
+            
+            // Add active state to button for press effect
+            const button = event.target;
+            button.classList.add('active');
+            
+            // Apply press animation
+            button.style.transform = 'scale(0.95) translateY(0)';
+            button.style.boxShadow = '0 2px 4px rgba(16, 185, 129, 0.3)';
+            
+            // Remove animation after a short delay
+            setTimeout(() => {
+                button.classList.remove('active');
+                button.style.transform = '';
+                button.style.boxShadow = '';
+                
+                // Navigate to download URL
+                window.location.href = url;
+            }, 150);
+        }
         
     </script>
 </body>
