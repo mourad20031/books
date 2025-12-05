@@ -2061,6 +2061,104 @@
         initCarousels();
     });
     // ========== END OF CAROUSEL FUNCTIONALITY ==========
+     // ========== SEARCH FUNCTIONALITY ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('mainSearchInput');
+        const allSections = document.querySelectorAll('section[id]');
+        const allBookCards = document.querySelectorAll('.book-card');
+        
+        if (!searchInput) return;
+        
+        // Clear any existing search on page load
+        searchInput.value = '';
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            const container = document.querySelector('.container.mx-auto.px-4.py-4');
+            
+            // Remove existing "no results" message
+            const existingMessage = document.getElementById('no-results-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            if (searchTerm.length === 0) {
+                // Show all sections and books when search is empty
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                    const books = section.querySelectorAll('.book-card');
+                    books.forEach(book => {
+                        book.style.display = 'flex';
+                        book.classList.remove('hidden');
+                    });
+                });
+                return;
+            }
+            
+            let hasResults = false;
+            
+            allSections.forEach(section => {
+                const books = section.querySelectorAll('.book-card');
+                let sectionHasVisibleBooks = false;
+                
+                books.forEach(book => {
+                    // Get all searchable text from the book
+                    const bookName = book.getAttribute('data-name')?.toLowerCase() || '';
+                    const bookTitle = book.querySelector('h3')?.textContent.toLowerCase() || '';
+                    const bookAlt = book.querySelector('img')?.getAttribute('alt')?.toLowerCase() || '';
+                    
+                    // Check if book matches search term
+                    if (bookName.includes(searchTerm) || 
+                        bookTitle.includes(searchTerm) || 
+                        bookAlt.includes(searchTerm)) {
+                        book.style.display = 'flex';
+                        book.classList.remove('hidden');
+                        sectionHasVisibleBooks = true;
+                        hasResults = true;
+                    } else {
+                        book.style.display = 'none';
+                        book.classList.add('hidden');
+                    }
+                });
+                
+                // Show/hide section based on whether it has visible books
+                const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
+                const sectionSubtitle = section.querySelector('.section-subtitle')?.textContent.toLowerCase() || '';
+                
+                if (sectionHasVisibleBooks || 
+                    sectionTitle.includes(searchTerm) ||
+                    sectionSubtitle.includes(searchTerm)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Show "no results" message if nothing found
+            if (!hasResults && searchTerm.length > 0) {
+                const message = document.createElement('div');
+                message.id = 'no-results-message';
+                message.className = 'text-center py-8 text-gray-500';
+                message.innerHTML = `
+                    <i class="fas fa-search text-3xl mb-4 text-gray-400"></i>
+                    <h3 class="text-xl font-semibold mb-2">No books found</h3>
+                    <p>Try searching for different keywords like "weight loss", "diet", "fasting", etc.</p>
+                `;
+                if (container) {
+                    container.appendChild(message);
+                }
+            }
+        });
+        
+        // Clear search when pressing Escape key
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                this.value = '';
+                this.dispatchEvent(new Event('input'));
+            }
+        });
+    });
+    // ========== END OF SEARCH FUNCTIONALITY ==========
 </script>
 </body>
 </html>
