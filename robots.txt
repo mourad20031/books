@@ -16,5 +16,5 @@ Allow: /
 # Standard bots
 User-agent: *
 Allow: /
-Disallow: /donate
-Disallow: /contact
+Allow: /donate
+Allow: /contact
