@@ -5,3 +5,16 @@ Sitemap: https://freeebooks.online/sitemap.xml
 # GitHub Pages specific
 User-agent: GPTBot
 Allow: /
+# AI Search Bots
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Standard bots
+User-agent: *
+Allow: /
+Disallow: /donate
+Disallow: /contact
