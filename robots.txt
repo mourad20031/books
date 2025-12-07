@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://freeebooks.online/sitemap.xml
-
-# GitHub Pages specific
-User-agent: GPTBot
-Allow: /
