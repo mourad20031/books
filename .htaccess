@@ -17,3 +17,5 @@ Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=H
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
+Redirect 301 /health-books https://freeebooks.online/all-books/
+Redirect 301 /weight-loss-books https://freeebooks.online/all-books/
