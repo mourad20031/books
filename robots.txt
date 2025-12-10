@@ -1,13 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://freeebooks.online/sitemap.xml
-
-# AI bots welcome
-User-agent: GPTBot
-Allow: /
-User-agent: ChatGPT-User
-Allow: /
-User-agent: OAI-SearchBot
-Allow: /
-User-agent: Google-Extended
-Allow: /
