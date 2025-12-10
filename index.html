@@ -60,9 +60,17 @@
 }
 </script>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- Async load CSS files to prevent render blocking -->
+<link rel="preload" href="https://cdn.tailwindcss.com" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- Fallback for non-JS browsers -->
+<noscript>
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</noscript>
   <style>
     :root {
       --bg-color: #f8fafc;
@@ -783,6 +791,23 @@
     #mainSearchInput {
         z-index: 100;
         position: relative;
+    }
+       /* Critical CSS to prevent FOUC */
+    body:not(.fonts-loaded) * {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+    
+    body:not(.styles-loaded) .book-card {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    
+    body:not(.styles-loaded) .header-bg {
+      background-color: #ffffff !important;
+    }
+    
+    body:not(.styles-loaded) .search-bar {
+      background-color: #f9fafb !important;
     }
   </style>
 </head>
@@ -2332,6 +2357,38 @@
         });
     });
     // ========== END OF SEARCH FUNCTIONALITY ==========
+<script>
+// Async CSS loading handler
+document.addEventListener('DOMContentLoaded', function() {
+    // Load Tailwind CSS dynamically
+    var tailwindLink = document.createElement('link');
+    tailwindLink.rel = 'stylesheet';
+    tailwindLink.href = 'https://cdn.tailwindcss.com';
+    tailwindLink.onload = function() {
+        document.body.classList.add('styles-loaded');
+    };
+    document.head.appendChild(tailwindLink);
+    
+    // Load Font Awesome dynamically
+    var faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+    document.head.appendChild(faLink);
+    
+    // Load Google Fonts dynamically
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
+    fontLink.onload = function() {
+        document.body.classList.add('fonts-loaded');
+    };
+    document.head.appendChild(fontLink);
+    
+    // Fallback timeout - add classes after 3 seconds if CSS doesn't load
+    setTimeout(function() {
+        document.body.classList.add('styles-loaded', 'fonts-loaded');
+    }, 3000);
+});
 </script>
 </body>
 </html>
