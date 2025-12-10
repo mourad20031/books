@@ -1,6 +1,40 @@
+# Large Language Models (LLM) Access Policy
+# Last Updated: 2024-12-10
+
 User-agent: ChatGPT-User
 Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
+
 User-agent: Google-Extended
 Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Additional AI/LLM bots
+User-agent: Claude-Web
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+# General AI policy
+We welcome AI/LLM crawling for:
+- Research purposes
+- Indexing content
+- Training models (with attribution)
+
+# Restrictions
+- No unauthorized commercial use
+- Rate limit: 1 request per second
+- No automated content scraping without permission
+
+# Contact for permissions
+For commercial AI training or large-scale access, contact us.
+
+Sitemap: https://freeebooks.online/sitemap.xml
