@@ -1,20 +1,15 @@
+# llms.txt - ALLOW AI
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: FacebookBot
-Disallow: /
+User-agent: CCBot
+Allow: /
