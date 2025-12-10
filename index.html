@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <!-- [ALL YOUR EXISTING HEAD CODE REMAINS EXACTLY THE SAME] -->
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <!-- Critical inline styles for immediate rendering -->
+  <!-- NEW: Performance & Security Optimizations -->
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+  <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+  
+  <!-- Preconnect for critical third-party domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://i.postimg.cc">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  
+  <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
+<meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
+  <meta name="author" content="FreeEbooks">
+  <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Free Weight Loss eBooks | Download Premium Diet Books">
+<meta property="og:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://freeebooks.online/">
+  <!-- Open Graph Image -->
+<meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
+<meta property="og:site_name" content="Free eBooks Online">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Weight Loss eBooks | Premium Diet Books Download">
+<meta name="twitter:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
+  <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+<meta name="twitter:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
+  
+  <!-- Canonical URL -->
+<link rel="canonical" href="https://freeebooks.online/">
+  <!-- Structured Data - IMPROVED VERSION -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Free eBooks Online",
+  "url": "https://freeebooks.online/",
+  "description": "Download premium weight loss eBooks including The Ozempic Revolution, Fast Like a Girl, and Glucose Revolution for free.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FreeEbooks",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://freeebooks.online/favicon-32x32.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://freeebooks.online/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <style>
-    /* Critical CSS Variables */
+    /* CSS Variables */
     :root {
       --bg-color: #f8fafc;
       --text-color: #1a1a1a;
@@ -28,147 +100,695 @@
       --modal-bg: #1e293b;
     }
 
-    /* Critical layout styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Base Styles */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      min-height: 100vh;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
-    .hidden { display: none !important; }
-    .sr-only { 
-      position: absolute; 
-      width: 1px; 
-      height: 1px; 
-      padding: 0; 
-      margin: -1px; 
-      overflow: hidden; 
-      clip: rect(0,0,0,0); 
-      white-space: nowrap; 
-      border: 0; 
+    .header-bg {
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
     }
-    
-    /* Minimal critical book card styles */
-    .book-card { 
-      background: var(--card-bg); 
-      border: 1px solid var(--border-color); 
-      border-radius: 12px; 
-      overflow: hidden; 
+    .book-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
     }
-    
-    /* Critical header styles */
-    .header-bg { 
-      background: var(--header-bg); 
-      position: sticky; 
-      top: 0; 
-      z-index: 50; 
+    .book-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
     }
-    
-    /* Critical hero styles */
-    #video-section { 
-      position: relative; 
-      width: 100%; 
-      height: 24rem; 
-      overflow: hidden; 
+    .book-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+      border-color: #3b82f6;
     }
-    
-    /* Font face for Inter - critical weights only */
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
-      unicode-range: U+0000-00FF;
-    }
-    
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
+    .btn-download {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
       font-weight: 600;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYfAZ9hiA.woff2) format('woff2');
-      unicode-range: U+0000-00FF;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .btn-download:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-download.loading {
+      background: linear-gradient(90deg, #10b981, #059669, #10b981);
+      background-size: 200% 100%;
+      animation: loading-shine 2s infinite;
+    }
+    @keyframes loading-shine {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .search-bar, .form-input {
+      background-color: var(--search-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      background-color: var(--modal-bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
+    /* Book image styling */
+    .book-image {
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+    /* Coming Soon placeholder */
+    .coming-soon-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
+      border-radius: 8px;
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+
+    [data-theme="dark"] .coming-soon-image {
+      background-color: #475569;
+      color: #cbd5e1;
+    }
+
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+      transform: translateY(-2px);
+    }
+    
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+    }
+    
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Smooth transition for showing/hiding books */
+    .book-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Safety badge */
+    .safety-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #dbeafe;
+    }
+
+    [data-theme="dark"] .safety-badge {
+      background: #1e3a8a;
+      color: #60a5fa;
+      border-color: #1e40af;
+    }
+    
+    /* Hero section styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+    
+    /* Loading dots animation */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .loading-dots div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+      animation: loading-dots 1.4s ease-in-out infinite both;
+    }
+    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    @keyframes loading-dots {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* FAQ Section Styles */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question:hover {
+      color: #3b82f6;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #6b7280;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding-bottom: 16px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Modern Book card badges - SMALLER SIZE */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
       font-weight: 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYfAZ9hiA.woff2) format('woff2');
-      unicode-range: U+0000-00FF;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 6px;
+      color: #10b981;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
     
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    /* Hero Section Animations */
+    .hero-content {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .hero-title {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease 0.2s;
+    }
+    
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.4s;
+    }
+    
+    .hero-badges {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.6s;
+    }
+    
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 1s;
+      animation: gentle-pulse 2s infinite 1.5s;
+    }
+    
+    @keyframes gentle-pulse {
+      0% { transform: translateY(20px) scale(1); }
+      50% { transform: translateY(20px) scale(1.05); }
+      100% { transform: translateY(20px) scale(1); }
+    }
+    
+    .hero-content.animate,
+    .hero-title.animate,
+    .hero-subtitle.animate,
+    .hero-badges.animate,
+    .hero-cta.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Background Video */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+      z-index: -1;
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+    
+    /* Section Animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.2s;
+    }
+    
+    .section-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.4s;
+    }
+    
+    .section-title.animate,
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Music Player Styles */
+    #music-player {
+      transition: all 0.3s ease;
+    }
+
+    #volume-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 2px;
+      outline: none;
+    }
+
+    #volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #volume-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"] #music-player .bg-white {
+      background-color: #334155 !important;
+    }
+
+    [data-theme="dark"] #volume-slider {
+      background: #475569;
+    }
+
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+    
+    /* Enhanced Badge Styles */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #10b981;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] .free-badge {
+      background: rgba(30, 41, 59, 0.95);
+      color: #10b981;
+      border-color: #065f46;
+    }
+
+    /* Theme Toggle Styles - Fixed */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Remove hover background to eliminate shadow effect */
+    .theme-toggle:hover {
+      background-color: transparent;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-icon.hidden {
+      display: none;
+    }
+
+    /* FIXED: Dark mode text colors with better contrast */
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-800,
+    [data-theme="dark"] .text-gray-700 {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .text-gray-600 {
+      color: #9ca3af !important; /* Better contrast */
+    }
+    
+    [data-theme="dark"] .text-gray-500 {
+      color: #d1d5db !important; /* Much better contrast */
+    }
+    
+    [data-theme="dark"] .text-gray-400 {
+      color: #9ca3af !important;
+    }
+    
+    [data-theme="dark"] #custom-amount {
+      color: #ffffff !important;
+      background-color: #1e293b !important;
+      border-color: #475569 !important;
+    }
+
+    [data-theme="dark"] #custom-amount::placeholder {
+      color: #94a3b8 !important;
+    }
+
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: #1e293b !important;
+    }
+
+    /* Ensure all text in book cards is visible in dark mode */
+    [data-theme="dark"] .book-card h3,
+    [data-theme="dark"] .book-card .text-yellow-500 {
+      color: #ffffff !important;
+    }
+
+    /* Ensure search section background in dark mode */
+    [data-theme="dark"] #search-section {
+      background-color: var(--header-bg) !important;
+    }
+
+    /* === NEW CAROUSEL STYLES FOR ALL SECTIONS === */
+    .carousel-container {
+        position: relative;
+        padding: 0 2rem;
+        margin: 0 -1rem;
+    }
+
+    .book-carousel {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 0.5rem 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .book-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #e5e7eb;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .carousel-nav:hover {
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+        left: 0;
+    }
+
+    .carousel-nav.next {
+        right: 0;
+    }
+
+    .carousel-nav i {
+        font-size: 0.75rem;
+        color: #4b5563;
+    }
+
+    /* Dark mode for carousel */
+    [data-theme="dark"] .carousel-nav {
+        background: rgba(30, 41, 59, 0.8);
+        border-color: #475569;
+        color: white;
+    }
+
+    [data-theme="dark"] .carousel-nav i {
+        color: #cbd5e1;
+    }
+
+    [data-theme="dark"] .carousel-nav:hover {
+        background: #334155;
+    }
+    
+    /* Simple Mobile Menu */
+    [data-theme="dark"] #mobile-menu {
+        background-color: var(--header-bg);
+        border-color: var(--border-color);
+    }
+
+    [data-theme="dark"] #mobile-menu a {
+        color: #cbd5e1;
+    }
+
+    [data-theme="dark"] #mobile-menu a:hover {
+        color: #3b82f6;
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* ========== SEARCH FUNCTIONALITY STYLES ========== */
+    #search-section {
+        display: block !important;
+    }
+
+    #no-results-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem 1rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .book-card.hidden {
+        display: none !important;
+        opacity: 0;
+        transform: translateY(10px);
+        height: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    /* Search highlight */
+    .highlight {
+        background-color: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    /* Search input focus */
+    #mainSearchInput:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Ensure search input stays visible */
+    #mainSearchInput {
+        z-index: 100;
+        position: relative;
+    }
+    
+    /* FAQ Answer Text Contrast Fix */
+    .faq-answer p {
+        color: #4b5563;
+    }
+    
+    [data-theme="dark"] .faq-answer p {
+        color: #cbd5e1 !important; /* Better contrast */
+    }
+    
+    /* Animation for notifications */
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-fade-in-up {
+        animation: fade-in-up 0.5s ease-out;
+    }
   </style>
-  
-  <!-- SEO Meta Tags -->
-  <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
-  <meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
-  <meta name="author" content="FreeEbooks">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  
-  <!-- Preconnect for critical third-party domains -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
-  
-  <!-- Preload critical images -->
-  <link rel="preload" as="image" href="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
-  <link rel="preload" as="image" href="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp">
-  <link rel="preload" as="image" href="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp">
-  
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <!-- Theme color -->
-  <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Free Weight Loss eBooks | Download Premium Diet Books">
-  <meta property="og:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://freeebooks.online/">
-  <meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
-  <meta property="og:site_name" content="Free eBooks Online">
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free Weight Loss eBooks | Premium Diet Books Download">
-  <meta name="twitter:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
-  <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
-  <meta name="twitter:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://freeebooks.online/">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Free eBooks Online",
-    "url": "https://freeebooks.online/",
-    "description": "Download premium weight loss eBooks including The Ozempic Revolution, Fast Like a Girl, and Glucose Revolution for free."
-  }
-  </script>
-  
-  <!-- Deferred CSS and JS -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script" crossorigin>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" crossorigin>
 </head>
 <body class="antialiased">
 
@@ -230,14 +850,11 @@
 
     <main>
         
-        <!-- Single Video Section - Optimized -->
+        <!-- Single Video Section -->
 <section id="video-section" class="relative w-full h-96 overflow-hidden">
-    <!-- Optimized Video with poster -->
-    <video class="absolute inset-0 w-full h-full object-cover" 
-           autoplay muted loop playsinline 
-           preload="metadata"
-           poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIHZpZXdCb3g9IjAgMCAxMjAwIDY3NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjc1IiBmaWxsPSIjM0I4MkY2Ii8+CjxwYXRoIGQ9Ik0wIDMzN0gxMjAwTTYwMCAwVjY3NSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=">
-        <source src="5726625-uhd_2732_1440_25fps.mp4#t=0.1" type="video/mp4">
+    <!-- Single Video -->
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="none">
+        <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
         <track kind="captions" src="" label="English" srclang="en" default>
         Your browser does not support the video tag.
     </video>
@@ -291,20 +908,12 @@
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
-            <!-- Book 1 - Optimized image -->
+            <!-- Book 1 -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" 
-                         alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Weightless: A Doctor's Guide to GLP-1 Medications</h3>
@@ -320,20 +929,12 @@
                 </div>
             </div>
             
-            <!-- Book 2 - Optimized image -->
+            <!-- Book 2 -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" 
-                         alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Glucose Revolution: Balancing Your Blood Sugar</h3>
@@ -349,20 +950,12 @@
                 </div>
             </div>
 
-            <!-- Book 3 - Optimized image -->
+            <!-- Book 3 -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" 
-                         alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast Like a Girl: Healing Power of Fasting</h3>
@@ -378,20 +971,12 @@
                 </div>
             </div>
             
-            <!-- Book 4 - Optimized image -->
+            <!-- Book 4 -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" 
-                         alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The New Menopause: Navigating Hormonal Change</h3>
@@ -407,20 +992,12 @@
                 </div>
             </div>
 
-            <!-- Book 5 - Optimized image -->
+            <!-- Book 5 -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" 
-                         alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hunger Code: Resetting Your Fat Thermostat</h3>
@@ -436,20 +1013,12 @@
                 </div>
             </div>
             
-            <!-- Book 6 - Optimized image -->
+            <!-- Book 6 -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" 
-                         alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Bite Me: Low-Calorie High-Protein Cooking</h3>
@@ -464,72 +1033,54 @@
                     <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/bite-me-book/')" aria-label="Download Bite Me eBook">Download Now</button>
                 </div>
             </div>
-            
-            <!-- Book 7 - Optimized image -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" 
-                         alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="91200">91.2K</span>
-                    </div>
-                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-4-hour-body-pdf/')" aria-label="Download The 4-Hour Body eBook">Download Now</button>
-                </div>
-            </div>
+         <!-- ✅ Book 7: The 4-Hour Body -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="book-image" loading="lazy" width="120" height="180">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.6</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="91200">91.2K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-4-hour-body-pdf/')" aria-label="Download The 4-Hour Body eBook">Download Now</button>
+    </div>
+</div>
 
-            <!-- Book 8 - Optimized image -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Whole30: The 30-Day Guide to Total Health and Food Freedom" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" 
-                         alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="85600">85.6K</span>
-                    </div>
-                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-whole-30-book-pdf/')" aria-label="Download The Whole30 eBook">Download Now</button>
-                </div>
-            </div>
+<!-- ✅ Book 8: The Whole30 -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Whole30: The 30-Day Guide to Total Health and Food Freedom" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="book-image" loading="lazy" width="120" height="180">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="85600">85.6K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-whole-30-book-pdf/')" aria-label="Download The Whole30 eBook">Download Now</button>
+    </div>
+</div>
         </div>
         <button class="carousel-nav next" aria-label="Next books">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </section>
-
-<!-- Recently Added Section - Optimized -->
+<!-- Recently Added Section - NOW WITH CAROUSEL -->
 <section id="recently-added" class="py-12">
     <div class="text-center mb-10">
         <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
@@ -544,20 +1095,12 @@
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
-            <!-- Book 1: The Ozempic Revolution - Optimized -->
+            <!-- Book 1: The Ozempic Revolution -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" 
-                         alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Ozempic Revolution: Reverse Obesity & End Yo-Yo Dieting</h3>
@@ -574,20 +1117,12 @@
                 </div>
             </div>
 
-            <!-- Book 2: The Menopause Reset - Optimized -->
+            <!-- Book 2: The Menopause Reset -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" 
-                         alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Menopause Reset: Get Rid of Symptoms</h3>
@@ -604,20 +1139,12 @@
                 </div>
             </div>
 
-            <!-- Book 3: The Biblio Diet - Optimized -->
+            <!-- Book 3: The Biblio Diet -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" 
-                         alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Biblio Diet: Healing Secrets from the Bible</h3>
@@ -634,20 +1161,12 @@
                 </div>
             </div>
 
-            <!-- Book 4: The Glucose Goddess Method - Optimized -->
+            <!-- Book 4: The Glucose Goddess Method -->
             <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" 
-                         alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" 
-                         class="book-image" 
-                         loading="lazy" 
-                         decoding="async"
-                         width="180"
-                         height="270"
-                         style="background: #f3f4f6;"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI3MCIgdmlld0JveD0iMCAwIDE4MCAyNzAiIGZpbGw9IiNmM2Y0ZjYiPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZGN0I4QyI+Qm9vayBDb3ZlcjwvdGV4dD48L3N2Zz4=';">
+                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="book-image" loading="lazy" width="120" height="180">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Glucose Goddess Method: Cut Cravings & Feel Amazing</h3>
@@ -663,17 +1182,322 @@
                     <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-glucose-goddess-method-pdf/')" aria-label="Download The Glucose Goddess Method eBook">Download Now</button>
                 </div>
             </div>
-            
-            <!-- Continue with optimized images for remaining books... -->
+         <!-- ✅ Book 5: Meal Prep for Weight Loss -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="book-image" loading="lazy" width="120" height="180">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Meal Prep for Weight Loss: Weekly Plans</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.7</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="68900">68.9K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/meal-prep-weight-loss-recipes-pdf/')" aria-label="Download Meal Prep for Weight Loss eBook">Download Now</button>
+    </div>
+</div>
+
+<!-- ✅ Book 6: The Mediterranean Diet -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="book-image" loading="lazy" width="120" height="180">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Mediterranean Diet: 28-Day Kickstart Plan</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="73400">73.4K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/mediterranean-diet-pdf/')" aria-label="Download Mediterranean Diet eBook">Download Now</button>
+    </div>
+</div>
+
+<!-- ✅ Book 7: Magic Weight-Loss Pill -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Magic Weight-Loss Pill" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="book-image" loading="lazy" width="120" height="180">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Magic Weight-Loss Pill</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.5</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="51200">51.2K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/magic-weight-loss-pill-pdf/')" aria-label="Download Magic Weight-Loss Pill eBook">Download Now</button>
+    </div>
+</div>
+
+<!-- ✅ Book 8: The Diabetes Code -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="book-image" loading="lazy" width="120" height="180">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Diabetes Code: Reverse Type 2 Naturally</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="62300">62.3K</span>
+        </div>
+        <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-diabetes-code-pdf-free-download/')" aria-label="Download The Diabetes Code eBook">Download Now</button>
+    </div>
+</div>
         </div>
         <button class="carousel-nav next" aria-label="Next books">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </section>
+<!-- Weight Loss Books Section - ALREADY WITH CAROUSEL (NO CHANGES) -->
+<section id="weight-loss" class="py-12">
+    <div class="text-center mb-10">
+        <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Best Weight Loss & Diet eBooks</h2>
+        <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
+    </div>
+    
+    <div class="carousel-container">
+        <button class="carousel-nav prev" aria-label="Previous books">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="book-carousel">
+            <!-- Book 1: The Obesity Code -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Obesity Code: Unlocking Weight Loss Secrets</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="89200">89.2K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-obesity-code-pdf/')" aria-label="Download The Obesity Code eBook">Download Now</button>
+                </div>
+            </div>
 
-<!-- Continue with other sections similarly optimized... -->
+            <!-- Book 2: How Not to Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">How Not to Diet: Science of Permanent Weight Loss</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="94500">94.5K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/how-not-to-diet-21-tweaks/')" aria-label="Download How Not to Diet eBook">Download Now</button>
+                </div>
+            </div>
 
+            <!-- Book 3: Eat to Live -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Live: Nutrient-Rich Program for Weight Loss</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="87600">87.6K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/joel-fuhrman-eat-to-live-book/')" aria-label="Download Eat to Live eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 4: Complete Guide To Fasting -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Complete Guide To Fasting: Heal Your Body</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="81300">81.3K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-complete-guide-to-fasting-jason-fung-pdf-free-download/')" aria-label="Download Complete Guide To Fasting eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 5: Fast. Feast. Repeat. -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast. Feast. Repeat.: Guide to Intermittent Fasting</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="75400">75.4K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/fast-feast-repeat-audiobook-free-download/')" aria-label="Download Fast. Feast. Repeat. eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 6: Eat to Beat Your Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Beat Your Diet: Burn Fat & Heal Metabolism</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="69200">69.2K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/eat-to-beat-your-diet-pdf-download/')" aria-label="Download Eat to Beat Your Diet eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 7: The Galveston Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Galveston Diet: Burn Fat & Tame Hormones</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="58700">58.7K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/the-galveston-diet-pdf/')" aria-label="Download The Galveston Diet eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 8: Instant Loss -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Instant Loss: Eat Real, Lose Weight</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.9</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="83200">83.2K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/instant-loss-pdf/')" aria-label="Download Instant Loss eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 9: ketoCONTINUUM -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="ketoCONTINUUM: Consistently Keto Diet For Life" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">ketoCONTINUUM: Consistently Keto For Life</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.6</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="71400">71.4K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/keto-continuum-pdf/')" aria-label="Download ketoCONTINUUM eBook">Download Now</button>
+                </div>
+            </div>
+
+            <!-- Book 10: SUPER Body -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="book-image" loading="lazy" width="120" height="180">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">SUPER Body: 3-Week Program for Youthful Contours</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="65900">65.9K</span>
+                    </div>
+                    <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'https://freeebooks.online/super-body/')" aria-label="Download SUPER Body eBook">Download Now</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-nav next" aria-label="Next books">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
    <!-- Small Music Button -->
 <div id="music-player" class="fixed bottom-4 right-4 z-50">
     <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20" aria-label="Toggle background music">
@@ -683,6 +1507,8 @@
     <!-- Audio Element with Fallback -->
     <audio id="background-music" loop preload="metadata">
         <source src="audio-for-website.mp3.mp3" type="audio/mpeg">
+        <!-- Fallback to a test audio file -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </div>
@@ -821,7 +1647,6 @@
         </div>
     </div>
 </footer>
-
 <!-- All modals -->
 <div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
     <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
@@ -843,37 +1668,6 @@
     </div>
 </div>
 
-<!-- Deferred CSS and JS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-      media="print" 
-      onload="this.media='all'; this.onload=null;" 
-      crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" 
-      media="print" 
-      onload="this.media='all'; this.onload=null;" 
-      crossorigin="anonymous">
-
-<!-- Deferred Tailwind -->
-<script>
-  // Load Tailwind after page is interactive
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(function() {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.tailwindcss.com';
-      script.crossOrigin = 'anonymous';
-      document.head.appendChild(script);
-    });
-  } else {
-    setTimeout(function() {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.tailwindcss.com';
-      script.crossOrigin = 'anonymous';
-      document.head.appendChild(script);
-    }, 1000);
-  }
-</script>
-
-<!-- Main JavaScript -->
 <script>
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
@@ -915,6 +1709,7 @@
 
     // Download functionality
     function startDownload(buttonElement, downloadLink) {
+        // Redirect to download link immediately
         window.location.href = downloadLink;
     }
 
@@ -924,6 +1719,7 @@
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mainSearchInput = document.getElementById('mainSearchInput');
+    const seeMoreBtn = document.getElementById('see-more-btn');
     const videoBackground = document.querySelector('.video-background');
             
     // Mobile menu toggle
@@ -942,7 +1738,7 @@
     function openSuccessModal() {
         successModal.classList.remove('hidden');
         setTimeout(() => successModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-        setTimeout(() => closeModal('successModal'), 3000);
+        setTimeout(() => closeModal('successModal'), 3000); // Auto-close after 3 seconds
     }
     
     function closeModal(modalId) {
@@ -974,6 +1770,7 @@
         const answer = faqItem.querySelector('.faq-answer');
         const isExpanded = element.getAttribute('aria-expanded') === 'true';
         
+        // Close all other FAQs
         document.querySelectorAll('.faq-item').forEach(item => {
             if (item !== faqItem) {
                 item.classList.remove('active');
@@ -982,6 +1779,7 @@
             }
         });
         
+        // Toggle current FAQ
         faqItem.classList.toggle('active');
         answer.classList.toggle('open');
         element.setAttribute('aria-expanded', !isExpanded);
@@ -995,11 +1793,12 @@
         const heroBadges = document.querySelector('.hero-badges');
         const heroCta = document.querySelector('.hero-cta');
         
-        setTimeout(() => heroContent && heroContent.classList.add('animate'), 100);
-        setTimeout(() => heroTitle && heroTitle.classList.add('animate'), 300);
-        setTimeout(() => heroSubtitle && heroSubtitle.classList.add('animate'), 500);
-        setTimeout(() => heroBadges && heroBadges.classList.add('animate'), 700);
-        setTimeout(() => heroCta && heroCta.classList.add('animate'), 1000);
+        // Animate hero elements with delays
+        setTimeout(() => heroContent.classList.add('animate'), 100);
+        setTimeout(() => heroTitle.classList.add('animate'), 300);
+        setTimeout(() => heroSubtitle.classList.add('animate'), 500);
+        setTimeout(() => heroBadges.classList.add('animate'), 700);
+        setTimeout(() => heroCta.classList.add('animate'), 1000);
     }
     
     // Scroll animation functionality
@@ -1009,6 +1808,7 @@
         const sectionTitles = document.querySelectorAll('.section-title');
         const sectionSubtitles = document.querySelectorAll('.section-subtitle');
         
+        // Parallax effect for video background
         if (videoBackground) {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
@@ -1057,6 +1857,7 @@
         animateHeroSection();
         animateOnScroll();
         
+        // Animate book cards with a slight delay for a staggered effect
         setTimeout(() => {
             const bookCards = document.querySelectorAll('.book-card');
             bookCards.forEach((card, index) => {
@@ -1092,12 +1893,17 @@
         if (audioInitialized) return;
         
         try {
+            // Set volume to a reasonable level
             backgroundMusic.volume = 0.3;
+            
+            // Preload the audio
             backgroundMusic.load();
             
+            // Create a silent audio context to unlock audio on iOS
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             if (AudioContext) {
                 const audioContext = new AudioContext();
+                // Resume the audio context on user gesture
                 if (audioContext.state === 'suspended') {
                     audioContext.resume();
                 }
@@ -1116,6 +1922,7 @@
         initEvents.forEach(eventType => {
             document.addEventListener(eventType, function initHandler() {
                 initAudio();
+                // Remove all initialization listeners after first interaction
                 initEvents.forEach(type => {
                     document.removeEventListener(type, initHandler);
                 });
@@ -1127,13 +1934,16 @@
     musicToggle.addEventListener('click', function(e) {
         e.stopPropagation();
         
+        // Make sure audio is initialized
         initAudio();
         
         if (musicPlaying) {
+            // Pause music
             backgroundMusic.pause();
             updateMusicButton(false);
             musicPlaying = false;
         } else {
+            // Play music with error handling
             const playPromise = backgroundMusic.play();
             
             if (playPromise !== undefined) {
@@ -1176,6 +1986,7 @@
         
         document.body.appendChild(notification);
         
+        // Auto-remove after 5 seconds
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
@@ -1199,6 +2010,7 @@
         document.body.appendChild(notification);
         audioNotificationShown = true;
         
+        // Auto-remove after 4 seconds
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
@@ -1211,6 +2023,7 @@
         try {
             setupAudioInteractions();
             
+            // Show notification after 5 seconds
             setTimeout(() => {
                 if (!musicPlaying && !audioNotificationShown) {
                     showAudioNotification();
@@ -1225,8 +2038,14 @@
     if (backgroundMusic) {
         backgroundMusic.addEventListener('error', function(e) {
             console.error('Audio error:', e);
+            // Fallback to online audio if local file fails
+            if (backgroundMusic.src.includes('ElevenLabs')) {
+                backgroundMusic.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+                backgroundMusic.load();
+            }
         });
         
+        // Handle audio ending
         backgroundMusic.addEventListener('ended', function() {
             this.currentTime = 0;
             this.play().catch(e => console.log('Auto-restart failed:', e));
@@ -1236,6 +2055,7 @@
             
     // ========== NEW CAROUSEL FUNCTIONALITY ==========
     function initCarousels() {
+        // Initialize all carousels on the page
         document.querySelectorAll('.carousel-container').forEach(container => {
             const carousel = container.querySelector('.book-carousel');
             const prevBtn = container.querySelector('.carousel-nav.prev');
@@ -1243,7 +2063,7 @@
             
             if (!carousel) return;
             
-            const scrollAmount = 200;
+            const scrollAmount = 200; // How much to scroll per click
             
             nextBtn.addEventListener('click', () => {
                 carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -1253,6 +2073,7 @@
                 carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
             
+            // Auto-scroll every 5 seconds
             let autoScroll = setInterval(() => {
                 if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
@@ -1261,6 +2082,7 @@
                 }
             }, 5000);
             
+            // Pause auto-scroll on hover
             carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
             carousel.addEventListener('mouseleave', () => {
                 autoScroll = setInterval(() => {
@@ -1292,18 +2114,21 @@
         
         if (!searchInput) return;
         
+        // Clear any existing search on page load
         searchInput.value = '';
         
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
             const container = document.querySelector('.container.mx-auto.px-4.py-4');
             
+            // Remove existing "no results" message
             const existingMessage = document.getElementById('no-results-message');
             if (existingMessage) {
                 existingMessage.remove();
             }
             
             if (searchTerm.length === 0) {
+                // Show all sections and books when search is empty
                 allSections.forEach(section => {
                     section.style.display = 'block';
                     const books = section.querySelectorAll('.book-card');
@@ -1318,6 +2143,7 @@
             let hasResults = false;
             
             allSections.forEach(section => {
+                // NEVER hide the search section!
                 if (section.id === 'search-section') {
                     section.style.display = 'block';
                     return;
@@ -1327,10 +2153,12 @@
                 let sectionHasVisibleBooks = false;
                 
                 books.forEach(book => {
+                    // Get all searchable text from the book
                     const bookName = book.getAttribute('data-name')?.toLowerCase() || '';
                     const bookTitle = book.querySelector('h3')?.textContent.toLowerCase() || '';
                     const bookAlt = book.querySelector('img')?.getAttribute('alt')?.toLowerCase() || '';
                     
+                    // Check if book matches search term
                     if (bookName.includes(searchTerm) || 
                         bookTitle.includes(searchTerm) || 
                         bookAlt.includes(searchTerm)) {
@@ -1344,6 +2172,7 @@
                     }
                 });
                 
+                // Show/hide section based on whether it has visible books
                 const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
                 const sectionSubtitle = section.querySelector('.section-subtitle')?.textContent.toLowerCase() || '';
                 
@@ -1356,6 +2185,7 @@
                 }
             });
             
+            // Show "no results" message if nothing found
             if (!hasResults && searchTerm.length > 0) {
                 const message = document.createElement('div');
                 message.id = 'no-results-message';
@@ -1371,6 +2201,7 @@
             }
         });
         
+        // Clear search when pressing Escape key
         searchInput.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 this.value = '';
@@ -1381,590 +2212,16 @@
     // ========== END OF SEARCH FUNCTIONALITY ==========
 </script>
 
-<!-- Google Analytics - Loaded after page is fully loaded -->
+<!-- Google Analytics - Loaded at bottom for better performance -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7"></script>
 <script>
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      var script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7';
-      script.async = true;
-      script.crossOrigin = 'anonymous';
-      document.head.appendChild(script);
-      
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-S67S0Q8HK7', { 
-        'transport_type': 'beacon',
-        'anonymize_ip': true
-      });
-    }, 2000);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S67S0Q8HK7', { 
+    'transport_type': 'beacon',
+    'anonymize_ip': true
   });
 </script>
-
-<!-- Deferred CSS for non-critical styles -->
-<style>
-    /* Non-critical CSS loaded after initial render */
-    /* Book image styling */
-    .book-image {
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem;
-      pointer-events: none; 
-    }
-    
-    .btn-download {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: #ffffff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn-download:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    }
-    
-    /* Modern See More button */
-    .btn-see-more {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      font-weight: 600;
-      padding: 12px 28px;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: none;
-      cursor: pointer;
-    }
-    
-    /* Carousel styles */
-    .carousel-container {
-        position: relative;
-        padding: 0 2rem;
-        margin: 0 -1rem;
-    }
-
-    .book-carousel {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        padding: 0.5rem 0;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    .book-carousel::-webkit-scrollbar {
-        display: none;
-    }
-
-    .carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid #e5e7eb;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(4px);
-    }
-    
-    /* Dark mode styles */
-    [data-theme="dark"] .carousel-nav {
-        background: rgba(30, 41, 59, 0.8);
-        border-color: #475569;
-        color: white;
-    }
-
-    [data-theme="dark"] .carousel-nav i {
-        color: #cbd5e1;
-    }
-
-    [data-theme="dark"] .carousel-nav:hover {
-        background: #334155;
-    }
-    
-    /* Book badges */
-    .book-badge {
-      position: absolute;
-      top: 6px;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      z-index: 10;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-    
-    .premium-badge {
-      left: 6px;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      color: white;
-      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
-    }
-    
-    .free-badge {
-      right: 6px;
-      background: rgba(255, 255, 255, 0.95);
-      color: #10b981;
-      font-weight: 700;
-      border: 1px solid #dcfce7;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
-    [data-theme="dark"] .free-badge {
-      background: rgba(30, 41, 59, 0.95);
-      color: #10b981;
-      border-color: #065f46;
-    }
-    
-    /* Theme Toggle Styles */
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s ease;
-      color: var(--text-color);
-      width: 40px;
-      height: 40px;
-    }
-
-    .theme-toggle:hover {
-      background-color: transparent;
-    }
-
-    .theme-icon {
-      width: 20px;
-      height: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .theme-icon.hidden {
-      display: none;
-    }
-    
-    /* Add remaining non-critical styles from original CSS here */
-    /* (All your original CSS styles except the critical ones already included above) */
-    
-    /* Full remaining CSS from original would go here */
-    /* I've included the most important ones above, add the rest below */
-    
-    /* Coming Soon placeholder */
-    .coming-soon-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #9ca3af; 
-      font-size: 0.7rem; 
-      font-weight: 500; 
-      background-color: #f3f4f6; 
-      border-radius: 8px;
-      aspect-ratio: 2 / 3;
-      width: 100%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem;
-      pointer-events: none; 
-    }
-
-    [data-theme="dark"] .coming-soon-image {
-      background-color: #475569;
-      color: #cbd5e1;
-    }
-    
-    .btn-see-more:hover {
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
-      transform: translateY(-2px);
-    }
-    
-    .btn-see-more:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
-    }
-    
-    .btn-see-more .icon {
-      transition: transform 0.3s ease;
-    }
-    
-    .btn-see-more.expanded .icon {
-      transform: rotate(180deg);
-    }
-    
-    /* Smooth transition for showing/hiding books */
-    .book-card.hidden {
-      opacity: 0;
-      transform: translateY(10px);
-      height: 0;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    
-    /* Safety badge */
-    .safety-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid #dbeafe;
-    }
-
-    [data-theme="dark"] .safety-badge {
-      background: #1e3a8a;
-      color: #60a5fa;
-      border-color: #1e40af;
-    }
-    
-    /* Hero section styling */
-    .hero-gradient {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    }
-    
-    /* Loading dots animation */
-    .loading-dots {
-      display: flex;
-      justify-content: center;
-      gap: 4px;
-    }
-    .loading-dots div {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #3b82f6;
-      animation: loading-dots 1.4s ease-in-out infinite both;
-    }
-    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
-    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
-    .loading-dots div:nth-child(3) { animation-delay: 0s; }
-    @keyframes loading-dots {
-      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
-      40% { transform: scale(1); opacity: 1; }
-    }
-    
-    /* FAQ Section Styles */
-    .faq-item {
-      border-bottom: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-    }
-    .faq-question {
-      padding: 16px 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .faq-question:hover {
-      color: #3b82f6;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      color: #6b7280;
-    }
-    .faq-answer.open {
-      max-height: 200px;
-      padding-bottom: 16px;
-    }
-    .faq-icon {
-      transition: transform 0.3s ease;
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(180deg);
-    }
-    
-    /* Hero Section Animations */
-    .hero-content {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    
-    .hero-title {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease 0.2s;
-    }
-    
-    .hero-subtitle {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease 0.4s;
-    }
-    
-    .hero-badges {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease 0.6s;
-    }
-    
-    .hero-cta {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease 1s;
-      animation: gentle-pulse 2s infinite 1.5s;
-    }
-    
-    @keyframes gentle-pulse {
-      0% { transform: translateY(20px) scale(1); }
-      50% { transform: translateY(20px) scale(1.05); }
-      100% { transform: translateY(20px) scale(1); }
-    }
-    
-    .hero-content.animate,
-    .hero-title.animate,
-    .hero-subtitle.animate,
-    .hero-badges.animate,
-    .hero-cta.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Background Video */
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
-      z-index: -1;
-    }
-    
-    /* Parallax Effect */
-    .parallax {
-      transform: translateY(0);
-      transition: transform 0.3s ease-out;
-    }
-    
-    /* Section Animations */
-    section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    
-    section.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .section-title {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease 0.2s;
-    }
-    
-    .section-subtitle {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease 0.4s;
-    }
-    
-    .section-title.animate,
-    .section-subtitle.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Music Player Styles */
-    #music-player {
-      transition: all 0.3s ease;
-    }
-
-    #volume-slider {
-      -webkit-appearance: none;
-      appearance: none;
-      height: 4px;
-      background: #e5e7eb;
-      border-radius: 2px;
-      outline: none;
-    }
-
-    #volume-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 16px;
-      height: 16px;
-      background: #3b82f6;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    #volume-slider::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
-      background: #3b82f6;
-      border-radius: 50%;
-      cursor: pointer;
-      border: none;
-    }
-
-    /* Dark mode support */
-    [data-theme="dark"] #music-player .bg-white {
-      background-color: #334155 !important;
-    }
-
-    [data-theme="dark"] #volume-slider {
-      background: #475569;
-    }
-
-    /* Enhanced Footer Styles */
-    .footer-links a {
-      transition: color 0.2s ease;
-    }
-    
-    .footer-links a:hover {
-      color: #3b82f6;
-    }
-    
-    /* Enhanced Badge Styles */
-    .book-badge {
-      position: absolute;
-      top: 6px;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      z-index: 10;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    
-    /* FIXED: Dark mode text colors with better contrast */
-    [data-theme="dark"] .text-gray-900,
-    [data-theme="dark"] .text-gray-800,
-    [data-theme="dark"] .text-gray-700 {
-      color: #ffffff !important;
-    }
-    
-    [data-theme="dark"] .text-gray-600 {
-      color: #9ca3af !important;
-    }
-    
-    [data-theme="dark"] .text-gray-500 {
-      color: #d1d5db !important;
-    }
-    
-    [data-theme="dark"] .text-gray-400 {
-      color: #9ca3af !important;
-    }
-    
-    [data-theme="dark"] #custom-amount {
-      color: #ffffff !important;
-      background-color: #1e293b !important;
-      border-color: #475569 !important;
-    }
-
-    [data-theme="dark"] #custom-amount::placeholder {
-      color: #94a3b8 !important;
-    }
-
-    [data-theme="dark"] .bg-white {
-      background-color: var(--header-bg) !important;
-    }
-
-    [data-theme="dark"] .bg-gray-50 {
-      background-color: #1e293b !important;
-    }
-
-    /* Ensure all text in book cards is visible in dark mode */
-    [data-theme="dark"] .book-card h3,
-    [data-theme="dark"] .book-card .text-yellow-500 {
-      color: #ffffff !important;
-    }
-
-    /* Ensure search section background in dark mode */
-    [data-theme="dark"] #search-section {
-      background-color: var(--header-bg) !important;
-    }
-    
-    /* Simple Mobile Menu */
-    [data-theme="dark"] #mobile-menu {
-        background-color: var(--header-bg);
-        border-color: var(--border-color);
-    }
-
-    [data-theme="dark"] #mobile-menu a {
-        color: #cbd5e1;
-    }
-
-    [data-theme="dark"] #mobile-menu a:hover {
-        color: #3b82f6;
-        background-color: rgba(59, 130, 246, 0.1);
-    }
-    
-    /* Search highlight */
-    .highlight {
-        background-color: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-    }
-
-    /* Search input focus */
-    #mainSearchInput:focus {
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-    
-    /* Ensure search input stays visible */
-    #mainSearchInput {
-        z-index: 100;
-        position: relative;
-    }
-    
-    /* FAQ Answer Text Contrast Fix */
-    .faq-answer p {
-        color: #4b5563;
-    }
-    
-    [data-theme="dark"] .faq-answer p {
-        color: #cbd5e1 !important;
-    }
-    
-    /* Animation for notifications */
-    @keyframes fade-in-up {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .animate-fade-in-up {
-        animation: fade-in-up 0.5s ease-out;
-    }
-</style>
 </body>
 </html>
