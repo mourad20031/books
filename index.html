@@ -60,12 +60,9 @@
 }
 </script>
 
-<script src="https://cdn.tailwindcss.com" defer></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #f8fafc;
@@ -852,17 +849,10 @@
         <!-- Single Video Section -->
 <section id="video-section" class="relative w-full h-96 overflow-hidden">
     <!-- Single Video -->
-    <video 
-    class="absolute inset-0 w-full h-full object-cover" 
-    autoplay 
-    muted 
-    loop 
-    playsinline
-    preload="metadata"
->
-    <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     
     <!-- Content Overlay -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
@@ -2342,50 +2332,6 @@
         });
     });
     // ========== END OF SEARCH FUNCTIONALITY ==========
- // ========== DEBOUNCE SEARCH FUNCTION ==========
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Update search to use debounce
-if (mainSearchInput) {
-    const originalHandler = mainSearchInput.oninput;
-    mainSearchInput.addEventListener('input', debounce(function(e) {
-        // Your existing search logic will run after 300ms delay
-        const searchTerm = this.value.toLowerCase().trim();
-        const container = document.querySelector('.container.mx-auto.px-4.py-4');
-        
-        // Remove existing "no results" message
-        const existingMessage = document.getElementById('no-results-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-        
-        if (searchTerm.length === 0) {
-            // Show all sections and books when search is empty
-            document.querySelectorAll('section[id]').forEach(section => {
-                section.style.display = 'block';
-                const books = section.querySelectorAll('.book-card');
-                books.forEach(book => {
-                    book.style.display = 'flex';
-                    book.classList.remove('hidden');
-                });
-            });
-            return;
-        }
-        
-        // ... continue with your existing search code ...
-        // Copy all the search logic from your current code here
-    }, 300));
-}
 </script>
 </body>
 </html>
