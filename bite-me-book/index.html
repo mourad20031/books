@@ -78,6 +78,11 @@
         .download-btn {
             background: linear-gradient(135deg, #10b981, #059669);
             transition: all 0.3s ease;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none !important;
+            cursor: pointer;
         }
         
         .download-btn:hover {
@@ -327,10 +332,10 @@
                                 <span class="font-bold">FREE</span> Download
                             </div>
                         </div>
-                        <!-- Download Button Below Book -->
-                        <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
+                        <!-- FIXED: Download Button as Link -->
+                        <a href="https://bouttiq.graphics/cl/i/o463rd" class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
                             <i class="fas fa-download mr-2"></i> Download Now
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -578,9 +583,10 @@
                 Join thousands of fitness enthusiasts who have used Bite Me to create delicious meals that support their health and fitness goals.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
+                <!-- FIXED: Final CTA Button as Link -->
+                <a href="https://bouttiq.graphics/cl/i/o463rd" class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
                     <i class="fas fa-download mr-2"></i> Download your free eBook
-                </button>
+                </a>
                 <button id="final-share-btn" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-white/30 transition">
                     <i class="fas fa-share-alt mr-2"></i> Share with a Friend
                 </button>
@@ -777,14 +783,9 @@
             }
         });
         
-       // Download button functionality - REDIRECT TO YOUR LINK
-const downloadButtons = document.querySelectorAll('.download-btn');
-downloadButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Redirect to your download link immediately
-        window.location.href = 'https://bouttiq.graphics/cl/i/o463rd';
-    });
-});
+       // REMOVED: Old JavaScript download handler - No longer needed
+       // Download buttons are now proper HTML links
+       
     </script>
 </body>
 </html>
