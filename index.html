@@ -15,7 +15,23 @@
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
    <!-- Tailwind CSS - Loaded immediately to prevent flash -->
-  <script src="https://cdn.tailwindcss.com"></script> 
+  <script>
+  // Load Tailwind AFTER page is visible
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(() => {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      document.head.appendChild(script);
+    });
+  } else {
+    // Fallback for older browsers
+    setTimeout(() => {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      document.head.appendChild(script);
+    }, 100);
+  }
+</script>
   <!-- Preconnect for critical third-party domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
