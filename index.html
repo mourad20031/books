@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://i.postimg.cc">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <!-- Defer Google Tag Manager preconnect -->
   
   <!-- CRITICAL SEO FIX: Canonical URL for homepage -->
   <link rel="canonical" href="https://freeebooks.online">
@@ -765,6 +765,28 @@
     
     .animate-fade-in-up {
         animation: fade-in-up 0.5s ease-out;
+    }
+    
+    /* FIX: Font Display Swap for Font Awesome */
+    @font-face {
+        font-family: 'Font Awesome 6 Free';
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2) format('woff2');
+    }
+    
+    @font-face {
+        font-family: 'Font Awesome 6 Brands';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2) format('woff2');
+    }
+    
+    /* Add font-display: swap for all fonts */
+    @font-face {
+        font-display: swap;
     }
   </style>
   
@@ -1758,8 +1780,8 @@
 <!-- DEFERRED JAVASCRIPT LIBRARIES -->
 
 <!-- Font Awesome - Deferred -->
-<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
 
 <!-- MAIN JAVASCRIPT - DEFERRED -->
 <script>
@@ -2244,14 +2266,24 @@
 </script>
 
 <!-- Google Analytics - Loaded at bottom for better performance -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-S67S0Q8HK7', { 
-    'transport_type': 'beacon',
-    'anonymize_ip': true
+  // Defer Google Analytics loading to prevent forced reflows
+  window.addEventListener('load', function() {
+      setTimeout(function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7';
+          script.onload = function() {
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-S67S0Q8HK7', { 
+                  'transport_type': 'beacon',
+                  'anonymize_ip': true
+              });
+          };
+          document.head.appendChild(script);
+      }, 1500); // Load GA after 1.5 seconds
   });
 </script>
 </body>
