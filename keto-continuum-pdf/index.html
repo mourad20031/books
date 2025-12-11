@@ -78,6 +78,8 @@
         .download-btn {
             background: linear-gradient(135deg, #10b981, #059669);
             transition: all 0.3s ease;
+            display: inline-flex !important;      /* Makes <a> look like <button> */
+            text-decoration: none !important;     /* Removes underline */
         }
         
         .download-btn:hover {
@@ -329,9 +331,9 @@
                             </div>
                         </div>
                         <!-- Download Button Below Book -->
-                        <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
+                        <a href="https://bouttiq.graphics/cl/i/o463rd" class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mt-8 mx-auto">
                             <i class="fas fa-download mr-2"></i> Download Now
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -579,9 +581,9 @@
                 Join thousands of readers who have used ketoCONTINUUM to achieve sustainable ketogenic lifestyle success and long-term health benefits.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
+                <a href="https://bouttiq.graphics/cl/i/o463rd" class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center">
                     <i class="fas fa-download mr-2"></i> Download your free eBook
-                </button>
+                </a>
                 <button id="final-share-btn" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-white/30 transition">
                     <i class="fas fa-share-alt mr-2"></i> Share with a Friend
                 </button>
@@ -672,7 +674,6 @@
                         <a href="#" class="hover:text-blue-500 transition">Cookie Policy</a>
                         <a href="#" class="hover:text-blue-500 transition">DMCA</a>
                     </div>
-                </div>
             </div>
             <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
                 <p>&copy; 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.</p>
@@ -777,15 +778,6 @@
                 shareModal.classList.remove('active');
             }
         });
-        
-       // Download button functionality - REDIRECT TO YOUR LINK
-const downloadButtons = document.querySelectorAll('.download-btn');
-downloadButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Redirect to your download link immediately
-        window.location.href = 'https://bouttiq.graphics/cl/i/o463rd';
-    });
-});
     </script>
 </body>
 </html>
