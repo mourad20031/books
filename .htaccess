@@ -1,13 +1,13 @@
-# Redirect old author pages to homepage
-Redirect 301 /auteur/ https://freeebooks.online/
+# Remove .html extensions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-# Redirect old download pages to homepage
-Redirect 301 /telecharger/ https://freeebooks.online/
+# Force HTTPS and non-www
+RewriteCond %{HTTP_HOST} ^www\.freeebooks\.online [NC]
+RewriteRule ^(.*)$ https://freeebooks.online/$1 [L,R=301]
 
-# Or redirect specific problematic URLs
-Redirect 301 /d7abf91f2e0bbdfda70fb61434621c0f-list.html https://freeebooks.online/
-
-
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://freeebooks.online/$1 [L,R=301]
 
 
 
