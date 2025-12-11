@@ -24,6 +24,18 @@
   
   <!-- Critical inline CSS (exactly your original CSS) -->
   <style>
+    /* === CRITICAL FIX: Prevent flash of unstyled content === */
+    /* Add this at the very top without changing anything else */
+    body:not([data-theme]) {
+      background-color: #f8fafc !important;
+      color: #1a1a1a !important;
+    }
+    
+    body:not([data-theme]) .header-bg {
+      background-color: #ffffff !important;
+    }
+    
+    /* Now your original CSS exactly as you have it */
     /* CSS Variables */
     :root {
       --bg-color: #f8fafc;
@@ -795,6 +807,18 @@
 
 </head>
 <body class="antialiased">
+<!-- FIX: Apply theme immediately to prevent flash -->
+<script>
+  (function() {
+    // Apply theme BEFORE anything renders
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
 
     <!-- Header - Updated with theme toggle -->
     <header class="header-bg sticky top-0 z-50">
@@ -1592,7 +1616,7 @@
             </div>
             <div>
                 <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
-                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                <div class="footer-links flex flex-col space-y=2 text-sm text-gray-600">
                     <a href="#trending" class="hover:text-blue-500 transition" aria-label="View trending books">Trending Books</a>
                     <a href="https://freeebooks.online/all-books" class="hover:text-blue-500 transition" aria-label="Browse all books">All Books</a>
                     <a href="#faq-section" class="hover:text-blue-500 transition" aria-label="View frequently asked questions">FAQ</a>
@@ -1601,7 +1625,7 @@
             </div>
             <div>
                 <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
-                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                <div class="footer-links flex flex-col space-y=2 text-sm text-gray-600">
                     <a href="#" class="hover:text-blue-500 transition" aria-label="View privacy policy">Privacy Policy</a>
                     <a href="#" class="hover:text-blue-500 transition" aria-label="View terms of service">Terms of Service</a>
                     <a href="#" class="hover:text-blue-500 transition" aria-label="View cookie policy">Cookie Policy</a>
