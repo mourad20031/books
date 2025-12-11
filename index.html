@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- [ALL YOUR EXISTING HEAD CODE REMAINS EXACTLY THE SAME] -->
  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-  
-  <!-- CRITICAL: Add preload for hero video -->
-  <link rel="preload" as="video" href="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- NEW: Performance & Security Optimizations -->
+  <!-- Performance & Security Optimizations -->
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
   <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
@@ -27,67 +22,725 @@
   <link rel="preconnect" href="https://i.postimg.cc">
   <link rel="preconnect" href="https://www.googletagmanager.com">
   
-  <!-- OPTIMIZED: Critical CSS inlined, non-critical CSS deferred -->
+  <!-- Critical inline CSS (exactly your original CSS) -->
   <style>
-    /* CRITICAL CSS - Above the fold content */
+    /* CSS Variables */
     :root {
       --bg-color: #f8fafc;
       --text-color: #1a1a1a;
       --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --search-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --modal-bg: #ffffff;
     }
 
     [data-theme="dark"] {
       --bg-color: #0f172a;
       --text-color: #ffffff;
       --header-bg: #1e293b;
+      --card-bg: #334155;
+      --search-bg: #475569;
+      --border-color: #475569;
+      --modal-bg: #1e293b;
     }
 
-    /* Critical base styles */
+    /* Base Styles */
     html {
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       user-select: none;
       -webkit-user-select: none;
-      margin: 0;
-      min-height: 100vh;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
     .header-bg {
       background-color: var(--header-bg);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: relative;
-      z-index: 1000;
+      transition: background-color 0.3s ease;
     }
-    
-    /* Loading state */
     .book-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
       opacity: 0;
       transform: translateY(20px);
     }
+    .book-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+      border-color: #3b82f6;
+    }
+    .btn-download {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .btn-download:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-download.loading {
+      background: linear-gradient(90deg, #10b981, #059669, #10b981);
+      background-size: 200% 100%;
+      animation: loading-shine 2s infinite;
+    }
+    @keyframes loading-shine {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .search-bar, .form-input {
+      background-color: var(--search-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      background-color: var(--modal-bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
     
-    /* Ensure above-the-fold content is visible */
-    #video-section,
-    #search-section,
-    #trending {
-      visibility: visible !important;
+    /* Book image styling */
+    .book-image {
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+    /* Coming Soon placeholder */
+    .coming-soon-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af; 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      background-color: #f3f4f6; 
+      border-radius: 8px;
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 0.5rem;
+      pointer-events: none; 
+    }
+
+    [data-theme="dark"] .coming-soon-image {
+      background-color: #475569;
+      color: #cbd5e1;
+    }
+
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+      transform: translateY(-2px);
+    }
+    
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+    }
+    
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Smooth transition for showing/hiding books */
+    .book-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* Safety badge */
+    .safety-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid #dbeafe;
+    }
+
+    [data-theme="dark"] .safety-badge {
+      background: #1e3a8a;
+      color: #60a5fa;
+      border-color: #1e40af;
+    }
+    
+    /* Hero section styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+    
+    /* Loading dots animation */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .loading-dots div {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+      animation: loading-dots 1.4s ease-in-out infinite both;
+    }
+    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    @keyframes loading-dots {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* FAQ Section Styles */
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question:hover {
+      color: #3b82f6;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #6b7280;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding-bottom: 16px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Modern Book card badges - SMALLER SIZE */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 6px;
+      color: #10b981;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Hero Section Animations */
+    .hero-content {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .hero-title {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease 0.2s;
+    }
+    
+    .hero-subtitle {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.4s;
+    }
+    
+    .hero-badges {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.6s;
+    }
+    
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 1s;
+      animation: gentle-pulse 2s infinite 1.5s;
+    }
+    
+    @keyframes gentle-pulse {
+      0% { transform: translateY(20px) scale(1); }
+      50% { transform: translateY(20px) scale(1.05); }
+      100% { transform: translateY(20px) scale(1); }
+    }
+    
+    .hero-content.animate,
+    .hero-title.animate,
+    .hero-subtitle.animate,
+    .hero-badges.animate,
+    .hero-cta.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Background Video */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+      z-index: -1;
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+    
+    /* Section Animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.2s;
+    }
+    
+    .section-subtitle {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.4s;
+    }
+    
+    .section-title.animate,
+    .section-subtitle.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Music Player Styles */
+    #music-player {
+      transition: all 0.3s ease;
+    }
+
+    #volume-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 2px;
+      outline: none;
+    }
+
+    #volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #volume-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"] #music-player .bg-white {
+      background-color: #334155 !important;
+    }
+
+    [data-theme="dark"] #volume-slider {
+      background: #475569;
+    }
+
+    /* Enhanced Footer Styles */
+    .footer-links a {
+      transition: color 0.2s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #3b82f6;
+    }
+    
+    /* Enhanced Badge Styles */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    }
+    .free-badge {
+      right: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #10b981;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] .free-badge {
+      background: rgba(30, 41, 59, 0.95);
+      color: #10b981;
+      border-color: #065f46;
+    }
+
+    /* Theme Toggle Styles - Fixed */
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+      color: var(--text-color);
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Remove hover background to eliminate shadow effect */
+    .theme-toggle:hover {
+      background-color: transparent;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .theme-icon.hidden {
+      display: none;
+    }
+
+    /* FIXED: Dark mode text colors with better contrast */
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-800,
+    [data-theme="dark"] .text-gray-700 {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .text-gray-600 {
+      color: #9ca3af !important; /* Better contrast */
+    }
+    
+    [data-theme="dark"] .text-gray-500 {
+      color: #d1d5db !important; /* Much better contrast */
+    }
+    
+    [data-theme="dark"] .text-gray-400 {
+      color: #9ca3af !important;
+    }
+    
+    [data-theme="dark"] #custom-amount {
+      color: #ffffff !important;
+      background-color: #1e293b !important;
+      border-color: #475569 !important;
+    }
+
+    [data-theme="dark"] #custom-amount::placeholder {
+      color: #94a3b8 !important;
+    }
+
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: #1e293b !important;
+    }
+
+    /* Ensure all text in book cards is visible in dark mode */
+    [data-theme="dark"] .book-card h3,
+    [data-theme="dark"] .book-card .text-yellow-500 {
+      color: #ffffff !important;
+    }
+
+    /* Ensure search section background in dark mode */
+    [data-theme="dark"] #search-section {
+      background-color: var(--header-bg) !important;
+    }
+
+    /* === NEW CAROUSEL STYLES FOR ALL SECTIONS === */
+    .carousel-container {
+        position: relative;
+        padding: 0 2rem;
+        margin: 0 -1rem;
+    }
+
+    .book-carousel {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 0.5rem 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .book-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #e5e7eb;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .carousel-nav:hover {
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+        left: 0;
+    }
+
+    .carousel-nav.next {
+        right: 0;
+    }
+
+    .carousel-nav i {
+        font-size: 0.75rem;
+        color: #4b5563;
+    }
+
+    /* Dark mode for carousel */
+    [data-theme="dark"] .carousel-nav {
+        background: rgba(30, 41, 59, 0.8);
+        border-color: #475569;
+        color: white;
+    }
+
+    [data-theme="dark"] .carousel-nav i {
+        color: #cbd5e1;
+    }
+
+    [data-theme="dark"] .carousel-nav:hover {
+        background: #334155;
+    }
+    
+    /* Simple Mobile Menu */
+    [data-theme="dark"] #mobile-menu {
+        background-color: var(--header-bg);
+        border-color: var(--border-color);
+    }
+
+    [data-theme="dark"] #mobile-menu a {
+        color: #cbd5e1;
+    }
+
+    [data-theme="dark"] #mobile-menu a:hover {
+        color: #3b82f6;
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+    
+    /* ========== SEARCH FUNCTIONALITY STYLES ========== */
+    #search-section {
+        display: block !important;
+    }
+
+    #no-results-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem 1rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        margin-top: 2rem;
+    }
+
+    .book-card.hidden {
+        display: none !important;
+        opacity: 0;
+        transform: translateY(10px);
+        height: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    /* Search highlight */
+    .highlight {
+        background-color: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    /* Search input focus */
+    #mainSearchInput:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Ensure search input stays visible */
+    #mainSearchInput {
+        z-index: 100;
+        position: relative;
+    }
+    
+    /* FAQ Answer Text Contrast Fix */
+    .faq-answer p {
+        color: #4b5563;
+    }
+    
+    [data-theme="dark"] .faq-answer p {
+        color: #cbd5e1 !important; /* Better contrast */
+    }
+    
+    /* Animation for notifications */
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-fade-in-up {
+        animation: fade-in-up 0.5s ease-out;
     }
   </style>
   
-  <!-- NON-CRITICAL CSS deferred with font-display: swap -->
+  <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  </noscript>
-  
-  <!-- Deferred Font Awesome with font-display: swap -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  </noscript>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   
   <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
 <meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
@@ -99,7 +752,7 @@
 <meta property="og:title" content="Free Weight Loss eBooks | Download Premium Diet Books">
 <meta property="og:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
   <meta property="og:type" content="website">
-<meta property="og:url" content="https://freeebooks.online">
+<meta property="og:url" content="https://freeebooks.online/">
   <!-- Open Graph Image -->
 <meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
 <meta property="og:image:width" content="1200">
@@ -115,14 +768,14 @@
 <meta name="twitter:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
   
   <!-- Canonical URL -->
-<link rel="canonical" href="https://freeebooks.online">
-  <!-- Structured Data - IMPROVED VERSION -->
+<link rel="canonical" href="https://freeebooks.online/">
+  <!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Free eBooks Online",
-  "url": "https://freeebooks.online",
+  "url": "https://freeebooks.online/",
   "description": "Download premium weight loss eBooks including The Ozempic Revolution, Fast Like a Girl, and Glucose Revolution for free.",
   "publisher": {
     "@type": "Organization",
@@ -140,41 +793,13 @@
 }
 </script>
 
-<!-- Defer non-critical JavaScript -->
-<script>
-  // Critical theme detection - must run early
-  (function() {
-    try {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    } catch(e) {}
-  })();
-</script>
-
-<!-- Deferred Tailwind CSS -->
-<link rel="preload" as="script" href="https://cdn.tailwindcss.com">
-<script>
-  // Load Tailwind CSS after page loads
-  window.addEventListener('DOMContentLoaded', function() {
-    var script = document.createElement('script');
-    script.src = 'https://cdn.tailwindcss.com';
-    script.async = true;
-    document.head.appendChild(script);
-  });
-</script>
-
-<!-- Deferred non-critical CSS -->
-<link rel="preload" as="style" href="data:text/css;base64,LyogREVGSU5FRCBJTkxJTkUgQ1NTIEZPUkJFQkVEIFBFUkZPUk1BTkNFICov" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body class="antialiased">
 
     <!-- Header - Updated with theme toggle -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-           <a href="https://freeebooks.online" class="flex items-center">
+           <a href="https://freeebooks.online/" class="flex items-center">
     <h1 class="text-lg font-bold text-gray-900 tracking-tight">
         <i class="fas fa-book text-blue-500"></i> 
         <span class="sr-only">Free Weight Loss Ebooks - Download Premium Diet Books</span>
@@ -231,7 +856,7 @@
         
         <!-- Single Video Section -->
 <section id="video-section" class="relative w-full h-96 overflow-hidden">
-    <!-- Single Video with optimized loading -->
+    <!-- Single Video -->
     <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIHZpZXdCb3g9IjAgMCAxMjAwIDY3NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIGZpbGw9IiMzYjgyZjYiLz48L3N2Zz4=">
         <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
         <track kind="captions" src="" label="English" srclang="en" default>
@@ -1079,154 +1704,24 @@
 </div>
 <!-- ===== END OF HIDDEN SITEMAP LINKS ===== -->
 
-<!-- DEFERRED NON-CRITICAL CSS -->
-<style id="deferred-styles">
-    /* ALL YOUR EXISTING CSS FROM THE ORIGINAL FILE GOES HERE */
-    /* I'm including a compressed version - but you should paste your full CSS here */
-    /* This will load after the page content is visible */
-    
-    /* CSS Variables */
-    :root { --bg-color: #f8fafc; --text-color: #1a1a1a; --header-bg: #ffffff; --card-bg: #ffffff; --search-bg: #f9fafb; --border-color: #e5e7eb; --modal-bg: #ffffff; }
-    [data-theme="dark"] { --bg-color: #0f172a; --text-color: #ffffff; --header-bg: #1e293b; --card-bg: #334155; --search-bg: #475569; --border-color: #475569; --modal-bg: #1e293b; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -webkit-user-drag: none; transition: background-color 0.3s ease, color 0.3s ease; }
-    .header-bg { background-color: var(--header-bg); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); transition: background-color 0.3s ease; }
-    .book-card { background-color: var(--card-bg); border: 1px solid var(--border-color); transition: all 0.3s ease; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); position: relative; overflow: hidden; opacity: 0; transform: translateY(20px); }
-    .book-card.animate { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
-    .book-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12); border-color: #3b82f6; }
-    .btn-download { background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; font-weight: 600; transition: all 0.3s ease; position: relative; overflow: hidden; display: inline-block; text-align: center; text-decoration: none; }
-    .btn-download:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
-    .btn-download:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-    .btn-download.loading { background: linear-gradient(90deg, #10b981, #059669, #10b981); background-size: 200% 100%; animation: loading-shine 2s infinite; }
-    @keyframes loading-shine { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-    .search-bar, .form-input { background-color: var(--search-bg); border: 1px solid var(--border-color); color: var(--text-color); transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
-    .modal-bg { background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); }
-    .modal-content { background-color: var(--modal-bg); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
-    .book-image { aspect-ratio: 2 / 3; object-fit: cover; width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 0.5rem; pointer-events: none; }
-    .coming-soon-image { display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.7rem; font-weight: 500; background-color: #f3f4f6; border-radius: 8px; aspect-ratio: 2 / 3; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 0.5rem; pointer-events: none; }
-    [data-theme="dark"] .coming-soon-image { background-color: #475569; color: #cbd5e1; }
-    .btn-see-more { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; font-weight: 600; padding: 12px 28px; border-radius: 50px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; }
-    .btn-see-more:hover { background: linear-gradient(135deg, #2563eb, #3b82f6); box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35); transform: translateY(-2px); }
-    .btn-see-more:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25); }
-    .btn-see-more .icon { transition: transform 0.3s ease; }
-    .btn-see-more.expanded .icon { transform: rotate(180deg); }
-    .book-card.hidden { opacity: 0; transform: translateY(10px); height: 0; margin: 0; padding: 0; overflow: hidden; }
-    .safety-badge { display: inline-flex; align-items: center; gap: 4px; background: #eff6ff; color: #1d4ed8; padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; border: 1px solid #dbeafe; }
-    [data-theme="dark"] .safety-badge { background: #1e3a8a; color: #60a5fa; border-color: #1e40af; }
-    .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
-    .loading-dots { display: flex; justify-content: center; gap: 4px; }
-    .loading-dots div { width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; animation: loading-dots 1.4s ease-in-out infinite both; }
-    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
-    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
-    .loading-dots div:nth-child(3) { animation-delay: 0s; }
-    @keyframes loading-dots { 0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
-    .faq-item { border-bottom: 1px solid var(--border-color); transition: all 0.3s ease; }
-    .faq-question { padding: 16px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-question:hover { color: #3b82f6; }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: #6b7280; }
-    .faq-answer.open { max-height: 200px; padding-bottom: 16px; }
-    .faq-icon { transition: transform 0.3s ease; }
-    .faq-item.active .faq-icon { transform: rotate(180deg); }
-    .book-badge { position: absolute; top: 6px; font-size: 0.5rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; z-index: 10; letter-spacing: 0.3px; text-transform: uppercase; }
-    .premium-badge { left: 6px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3); }
-    .free-badge { right: 6px; color: #10b981; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-    .hero-content { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-    .hero-title { opacity: 0; transform: translateY(40px); transition: all 0.8s ease 0.2s; }
-    .hero-subtitle { opacity: 0; transform: translateY(30px); transition: all 0.8s ease 0.4s; }
-    .hero-badges { opacity: 0; transform: translateY(20px); transition: all 0.8s ease 0.6s; }
-    .hero-cta { opacity: 0; transform: translateY(20px); transition: all 0.8s ease 1s; animation: gentle-pulse 2s infinite 1.5s; }
-    @keyframes gentle-pulse { 0% { transform: translateY(20px) scale(1); } 50% { transform: translateY(20px) scale(1.05); } 100% { transform: translateY(20px) scale(1); } }
-    .hero-content.animate, .hero-title.animate, .hero-subtitle.animate, .hero-badges.animate, .hero-cta.animate { opacity: 1; transform: translateY(0); }
-    .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.15; }
-    .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%); z-index: -1; }
-    .parallax { transform: translateY(0); transition: transform 0.3s ease-out; }
-    section { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-    section.animate { opacity: 1; transform: translateY(0); }
-    .section-title { opacity: 0; transform: translateY(20px); transition: all 0.6s ease 0.2s; }
-    .section-subtitle { opacity: 0; transform: translateY(20px); transition: all 0.6s ease 0.4s; }
-    .section-title.animate, .section-subtitle.animate { opacity: 1; transform: translateY(0); }
-    #music-player { transition: all 0.3s ease; }
-    #volume-slider { -webkit-appearance: none; appearance: none; height: 4px; background: #e5e7eb; border-radius: 2px; outline: none; }
-    #volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; cursor: pointer; }
-    #volume-slider::-moz-range-thumb { width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; cursor: pointer; border: none; }
-    [data-theme="dark"] #music-player .bg-white { background-color: #334155 !important; }
-    [data-theme="dark"] #volume-slider { background: #475569; }
-    .footer-links a { transition: color 0.2s ease; }
-    .footer-links a:hover { color: #3b82f6; }
-    .book-badge { position: absolute; top: 6px; font-size: 0.5rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; z-index: 10; letter-spacing: 0.3px; text-transform: uppercase; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .premium-badge { left: 6px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3); }
-    .free-badge { right: 6px; background: rgba(255, 255, 255, 0.95); color: #10b981; font-weight: 700; border: 1px solid #dcfce7; text-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-    [data-theme="dark"] .free-badge { background: rgba(30, 41, 59, 0.95); color: #10b981; border-color: #065f46; }
-    .theme-toggle { background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; color: var(--text-color); width: 40px; height: 40px; }
-    .theme-toggle:hover { background-color: transparent; }
-    .theme-icon { width: 20px; height: 20px; transition: all 0.3s ease; }
-    .theme-icon.hidden { display: none; }
-    [data-theme="dark"] .text-gray-900, [data-theme="dark"] .text-gray-800, [data-theme="dark"] .text-gray-700 { color: #ffffff !important; }
-    [data-theme="dark"] .text-gray-600 { color: #9ca3af !important; }
-    [data-theme="dark"] .text-gray-500 { color: #d1d5db !important; }
-    [data-theme="dark"] .text-gray-400 { color: #9ca3af !important; }
-    [data-theme="dark"] #custom-amount { color: #ffffff !important; background-color: #1e293b !important; border-color: #475569 !important; }
-    [data-theme="dark"] #custom-amount::placeholder { color: #94a3b8 !important; }
-    [data-theme="dark"] .bg-white { background-color: var(--header-bg) !important; }
-    [data-theme="dark"] .bg-gray-50 { background-color: #1e293b !important; }
-    [data-theme="dark"] .book-card h3, [data-theme="dark"] .book-card .text-yellow-500 { color: #ffffff !important; }
-    [data-theme="dark"] #search-section { background-color: var(--header-bg) !important; }
-    .carousel-container { position: relative; padding: 0 2rem; margin: 0 -1rem; }
-    .book-carousel { display: flex; gap: 1rem; overflow-x: auto; scroll-behavior: smooth; padding: 0.5rem 0; scrollbar-width: none; -ms-overflow-style: none; }
-    .book-carousel::-webkit-scrollbar { display: none; }
-    .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.8); border: 1px solid #e5e7eb; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: all 0.3s ease; backdrop-filter: blur(4px); }
-    .carousel-nav:hover { background: white; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transform: translateY(-50%) scale(1.1); }
-    .carousel-nav.prev { left: 0; }
-    .carousel-nav.next { right: 0; }
-    .carousel-nav i { font-size: 0.75rem; color: #4b5563; }
-    [data-theme="dark"] .carousel-nav { background: rgba(30, 41, 59, 0.8); border-color: #475569; color: white; }
-    [data-theme="dark"] .carousel-nav i { color: #cbd5e1; }
-    [data-theme="dark"] .carousel-nav:hover { background: #334155; }
-    [data-theme="dark"] #mobile-menu { background-color: var(--header-bg); border-color: var(--border-color); }
-    [data-theme="dark"] #mobile-menu a { color: #cbd5e1; }
-    [data-theme="dark"] #mobile-menu a:hover { color: #3b82f6; background-color: rgba(59, 130, 246, 0.1); }
-    #search-section { display: block !important; }
-    #no-results-message { grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); margin-top: 2rem; }
-    .book-card.hidden { display: none !important; opacity: 0; transform: translateY(10px); height: 0; margin: 0; overflow: hidden; }
-    .highlight { background-color: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); }
-    #mainSearchInput:focus { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
-    #mainSearchInput { z-index: 100; position: relative; }
-    .faq-answer p { color: #4b5563; }
-    [data-theme="dark"] .faq-answer p { color: #cbd5e1 !important; }
-    @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fade-in-up { animation: fade-in-up 0.5s ease-out; }
-</style>
-
-<!-- DEFERRED JAVASCRIPT -->
-<script defer>
-  // Load deferred CSS
-  window.addEventListener('DOMContentLoaded', function() {
-    // Apply deferred styles
-    const deferredStyles = document.getElementById('deferred-styles');
-    if (deferredStyles) {
-      deferredStyles.removeAttribute('id');
-    }
-    
-    // Load fonts if not already loaded
-    if (!document.querySelector('link[href*="fonts.googleapis.com"][rel="stylesheet"]')) {
-      var fontLink = document.createElement('link');
-      fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap';
-      fontLink.rel = 'stylesheet';
-      document.head.appendChild(fontLink);
-    }
-    
-    // Load Font Awesome if not already loaded
-    if (!document.querySelector('link[href*="font-awesome"]')) {
-      var faLink = document.createElement('link');
-      faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
-      faLink.rel = 'stylesheet';
-      document.head.appendChild(faLink);
-    }
-  });
+<!-- DEFERRED JAVASCRIPT LIBRARIES -->
+<!-- Tailwind CSS - Deferred -->
+<script>
+  // Load Tailwind CSS after page loads
+  if (typeof tailwindcss === 'undefined') {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.tailwindcss.com';
+    script.async = true;
+    document.head.appendChild(script);
+  }
 </script>
 
-<!-- MAIN SCRIPT - DEFERRED -->
-<script defer>
+<!-- Font Awesome - Deferred -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"></noscript>
+
+<!-- MAIN JAVASCRIPT - DEFERRED -->
+<script>
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
@@ -1238,39 +1733,28 @@
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        enableDarkMode();
+        body.setAttribute('data-theme', 'dark');
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
     }
 
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
           if (body.getAttribute('data-theme') === 'dark') {
-              enableLightMode();
+              body.removeAttribute('data-theme');
+              if (sunIcon) sunIcon.classList.remove('hidden');
+              if (moonIcon) moonIcon.classList.add('hidden');
+              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
+              localStorage.setItem('theme', 'light');
           } else {
-              enableDarkMode();
+              body.setAttribute('data-theme', 'dark');
+              if (sunIcon) sunIcon.classList.add('hidden');
+              if (moonIcon) moonIcon.classList.remove('hidden');
+              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+              localStorage.setItem('theme', 'dark');
           }
       });
-    }
-
-    function enableDarkMode() {
-        body.setAttribute('data-theme', 'dark');
-        if (sunIcon) sunIcon.classList.add('hidden');
-        if (moonIcon) moonIcon.classList.remove('hidden');
-        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-        localStorage.setItem('theme', 'dark');
-    }
-
-    function enableLightMode() {
-        body.removeAttribute('data-theme');
-        if (sunIcon) sunIcon.classList.remove('hidden');
-        if (moonIcon) moonIcon.classList.add('hidden');
-        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
-        localStorage.setItem('theme', 'light');
-    }
-
-    // Download functionality (kept as backup for any old buttons)
-    function startDownload(buttonElement, downloadLink) {
-        // Redirect to download link immediately
-        window.location.href = downloadLink;
     }
 
     // DOM elements
@@ -1279,8 +1763,6 @@
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mainSearchInput = document.getElementById('mainSearchInput');
-    const seeMoreBtn = document.getElementById('see-more-btn');
-    const videoBackground = document.querySelector('.video-background');
             
     // Mobile menu toggle
     if (menuBtn && mobileMenu) {
@@ -1308,7 +1790,7 @@
           const content = successModal.querySelector('.modal-content');
           if (content) content.classList.remove('scale-95', 'opacity-0');
         }, 10);
-        setTimeout(() => closeModal('successModal'), 3000); // Auto-close after 3 seconds
+        setTimeout(() => closeModal('successModal'), 3000);
     }
     
     function closeModal(modalId) {
@@ -1383,13 +1865,6 @@
         const sectionTitles = document.querySelectorAll('.section-title');
         const sectionSubtitles = document.querySelectorAll('.section-subtitle');
         
-        // Parallax effect for video background
-        if (videoBackground) {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            videoBackground.style.transform = `translateY(${rate}px)`;
-        }
-        
         sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
@@ -1456,70 +1931,21 @@
     }
 
     // ========== MUSIC PLAYER CODE ==========
-    // Music Player Functionality
     const musicToggle = document.getElementById('music-toggle');
     const backgroundMusic = document.getElementById('background-music');
     let musicPlaying = false;
     let audioNotificationShown = false;
-    let audioInitialized = false;
-
-    // Function to initialize audio on first user interaction
-    function initAudio() {
-        if (audioInitialized) return;
-        
-        try {
-            // Set volume to a reasonable level
-            if (backgroundMusic) backgroundMusic.volume = 0.3;
-            
-            // Preload the audio
-            if (backgroundMusic) backgroundMusic.load();
-            
-            // Create a silent audio context to unlock audio on iOS
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (AudioContext) {
-                const audioContext = new AudioContext();
-                // Resume the audio context on user gesture
-                if (audioContext.state === 'suspended') {
-                    audioContext.resume();
-                }
-            }
-            
-            audioInitialized = true;
-        } catch (error) {
-            console.error('Audio initialization failed:', error);
-        }
-    }
-
-    // Initialize audio on any user interaction
-    function setupAudioInteractions() {
-        const initEvents = ['click', 'touchstart', 'keydown', 'scroll'];
-        
-        initEvents.forEach(eventType => {
-            document.addEventListener(eventType, function initHandler() {
-                initAudio();
-                // Remove all initialization listeners after first interaction
-                initEvents.forEach(type => {
-                    document.removeEventListener(type, initHandler);
-                });
-            }, { once: true });
-        });
-    }
 
     // Music toggle click handler
     if (musicToggle && backgroundMusic) {
       musicToggle.addEventListener('click', function(e) {
           e.stopPropagation();
           
-          // Make sure audio is initialized
-          initAudio();
-          
           if (musicPlaying) {
-              // Pause music
               backgroundMusic.pause();
               updateMusicButton(false);
               musicPlaying = false;
           } else {
-              // Play music with error handling
               const playPromise = backgroundMusic.play();
               
               if (playPromise !== undefined) {
@@ -1564,7 +1990,6 @@
         
         document.body.appendChild(notification);
         
-        // Auto-remove after 5 seconds
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
@@ -1572,7 +1997,7 @@
         }, 5000);
     }
 
-    // Show "You hear?" notification after 5 seconds if user hasn't clicked
+    // Show "You hear?" notification after 5 seconds
     function showAudioNotification() {
         if (audioNotificationShown || musicPlaying) return;
         
@@ -1588,7 +2013,6 @@
         document.body.appendChild(notification);
         audioNotificationShown = true;
         
-        // Auto-remove after 4 seconds
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.remove();
@@ -1599,8 +2023,6 @@
     // Initialize everything when the page loads
     document.addEventListener('DOMContentLoaded', function() {
         try {
-            setupAudioInteractions();
-            
             // Show notification after 5 seconds
             setTimeout(() => {
                 if (!musicPlaying && !audioNotificationShown) {
@@ -1616,14 +2038,12 @@
     if (backgroundMusic) {
         backgroundMusic.addEventListener('error', function(e) {
             console.error('Audio error:', e);
-            // Fallback to online audio if local file fails
             if (backgroundMusic.src.includes('ElevenLabs')) {
                 backgroundMusic.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
                 backgroundMusic.load();
             }
         });
         
-        // Handle audio ending
         backgroundMusic.addEventListener('ended', function() {
             this.currentTime = 0;
             this.play().catch(e => console.log('Auto-restart failed:', e));
@@ -1631,9 +2051,8 @@
     }
     // ========== END OF MUSIC PLAYER CODE ==========
             
-    // ========== NEW CAROUSEL FUNCTIONALITY ==========
+    // ========== CAROUSEL FUNCTIONALITY ==========
     function initCarousels() {
-        // Initialize all carousels on the page
         document.querySelectorAll('.carousel-container').forEach(container => {
             const carousel = container.querySelector('.book-carousel');
             const prevBtn = container.querySelector('.carousel-nav.prev');
@@ -1641,7 +2060,7 @@
             
             if (!carousel) return;
             
-            const scrollAmount = 200; // How much to scroll per click
+            const scrollAmount = 200;
             
             if (nextBtn) {
               nextBtn.addEventListener('click', () => {
@@ -1655,7 +2074,6 @@
               });
             }
             
-            // Auto-scroll every 5 seconds
             let autoScroll = setInterval(() => {
                 if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
@@ -1664,7 +2082,6 @@
                 }
             }, 5000);
             
-            // Pause auto-scroll on hover
             carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
             carousel.addEventListener('mouseleave', () => {
                 autoScroll = setInterval(() => {
@@ -1696,21 +2113,18 @@
         
         if (!searchInput) return;
         
-        // Clear any existing search on page load
         searchInput.value = '';
         
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
             const container = document.querySelector('.container.mx-auto.px-4.py-4');
             
-            // Remove existing "no results" message
             const existingMessage = document.getElementById('no-results-message');
             if (existingMessage) {
                 existingMessage.remove();
             }
             
             if (searchTerm.length === 0) {
-                // Show all sections and books when search is empty
                 allSections.forEach(section => {
                     section.style.display = 'block';
                     const books = section.querySelectorAll('.book-card');
@@ -1725,7 +2139,6 @@
             let hasResults = false;
             
             allSections.forEach(section => {
-                // NEVER hide the search section!
                 if (section.id === 'search-section') {
                     section.style.display = 'block';
                     return;
@@ -1735,12 +2148,10 @@
                 let sectionHasVisibleBooks = false;
                 
                 books.forEach(book => {
-                    // Get all searchable text from the book
                     const bookName = book.getAttribute('data-name')?.toLowerCase() || '';
                     const bookTitle = book.querySelector('h3')?.textContent.toLowerCase() || '';
                     const bookAlt = book.querySelector('img')?.getAttribute('alt')?.toLowerCase() || '';
                     
-                    // Check if book matches search term
                     if (bookName.includes(searchTerm) || 
                         bookTitle.includes(searchTerm) || 
                         bookAlt.includes(searchTerm)) {
@@ -1754,7 +2165,6 @@
                     }
                 });
                 
-                // Show/hide section based on whether it has visible books
                 const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
                 const sectionSubtitle = section.querySelector('.section-subtitle')?.textContent.toLowerCase() || '';
                 
@@ -1767,7 +2177,6 @@
                 }
             });
             
-            // Show "no results" message if nothing found
             if (!hasResults && searchTerm.length > 0) {
                 const message = document.createElement('div');
                 message.id = 'no-results-message';
@@ -1783,7 +2192,6 @@
             }
         });
         
-        // Clear search when pressing Escape key
         searchInput.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 this.value = '';
