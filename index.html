@@ -14,7 +14,8 @@
   <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
-  
+   <!-- Tailwind CSS - Loaded immediately to prevent flash -->
+  <script src="https://cdn.tailwindcss.com"></script> 
   <!-- Preconnect for critical third-party domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +25,20 @@
   
   <!-- Critical inline CSS (exactly your original CSS) -->
   <style>
+       /* === CRITICAL: Hide content until Tailwind loads === */
+    body:not(.tailwind-loaded) {
+      visibility: hidden;
+      opacity: 0;
+    }
+    
+    body.tailwind-loaded {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* === CRITICAL FIX: Prevent flash of unstyled content === */
+    /* ... your existing code continues ... */
     /* === CRITICAL FIX: Prevent flash of unstyled content === */
     /* Add this at the very top without changing anything else */
     body:not([data-theme]) {
@@ -807,6 +822,10 @@
 
 </head>
 <body class="antialiased">
+<script>
+  // Mark Tailwind as loaded immediately
+  document.body.classList.add('tailwind-loaded');
+</script>
 <!-- FIX: Apply theme immediately to prevent flash -->
 <script>
   (function() {
@@ -1729,16 +1748,6 @@
 <!-- ===== END OF HIDDEN SITEMAP LINKS ===== -->
 
 <!-- DEFERRED JAVASCRIPT LIBRARIES -->
-<!-- Tailwind CSS - Deferred -->
-<script>
-  // Load Tailwind CSS after page loads
-  if (typeof tailwindcss === 'undefined') {
-    var script = document.createElement('script');
-    script.src = 'https://cdn.tailwindcss.com';
-    script.async = true;
-    document.head.appendChild(script);
-  }
-</script>
 
 <!-- Font Awesome - Deferred -->
 <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
