@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,8 @@
   <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
-   <!-- Tailwind CSS - Loaded with async to prevent render blocking -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.tailwindcss.com"></noscript>
+   <!-- Tailwind CSS - Loaded immediately to prevent flash -->
+  <script src="https://cdn.tailwindcss.com"></script> 
   <!-- Preconnect for critical third-party domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -768,7 +768,7 @@
         animation: fade-in-up 0.5s ease-out;
     }
     
-    /* Fixed: Font Display Swap for Font Awesome */
+    /* FIX: Font Display Swap for Font Awesome */
     @font-face {
         font-family: 'Font Awesome 6 Free';
         font-style: normal;
@@ -784,15 +784,16 @@
         font-display: swap;
         src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2) format('woff2');
     }
+    
+    /* Add font-display: swap for all fonts */
+    @font-face {
+        font-display: swap;
+    }
   </style>
   
   <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  
-  <!-- Font Awesome with font-display=swap -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-  <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
   
   <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
 <meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
@@ -1779,6 +1780,10 @@
 
 <!-- DEFERRED JAVASCRIPT LIBRARIES -->
 
+<!-- Font Awesome - Deferred -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+
 <!-- MAIN JAVASCRIPT - DEFERRED -->
 <script>
     // Theme Toggle Functionality
@@ -2261,42 +2266,26 @@
     // ========== END OF SEARCH FUNCTIONALITY ==========
 </script>
 
-<!-- Google Analytics - Loaded with requestIdleCallback to prevent forced reflows -->
+<!-- Google Analytics - Loaded at bottom for better performance -->
 <script>
-  // Defer Google Analytics loading using requestIdleCallback
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7';
-      script.onload = function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-S67S0Q8HK7', { 
-              'transport_type': 'beacon',
-              'anonymize_ip': true
-          });
-      };
-      document.head.appendChild(script);
-    }, { timeout: 2000 });
-  } else {
-    setTimeout(function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7';
-      script.onload = function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-S67S0Q8HK7', { 
-              'transport_type': 'beacon',
-              'anonymize_ip': true
-          });
-      };
-      document.head.appendChild(script);
-    }, 2000);
-  }
+  // Defer Google Analytics loading to prevent forced reflows
+  window.addEventListener('load', function() {
+      setTimeout(function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7';
+          script.onload = function() {
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-S67S0Q8HK7', { 
+                  'transport_type': 'beacon',
+                  'anonymize_ip': true
+              });
+          };
+          document.head.appendChild(script);
+      }, 1500); // Load GA after 1.5 seconds
+  });
 </script>
 </body>
 </html>
