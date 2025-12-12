@@ -613,14 +613,14 @@
     [data-theme="dark"] #search-section {
       background-color: var(--header-bg) !important;
     }
-
-    /* === NEW CAROUSEL STYLES FOR ALL SECTIONS === */
-    .carousel-container {
-        position: relative;
-        padding: 0 2rem;
-        margin: 0 -1rem;
-    }
-
+/* === FIXED CAROUSEL STYLES FOR ALL SECTIONS === */
+.carousel-container {
+    position: relative;
+    padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+}
     .book-carousel {
         display: flex;
         gap: 1rem;
