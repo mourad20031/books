@@ -789,6 +789,48 @@
     @font-face {
         font-display: swap;
     }
+       /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
+    /* Fix for body overflow */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Fix for main container */
+    main {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Ensure sections don't overflow */
+    section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* Fix for carousel navigation positioning */
+    .carousel-nav.prev {
+        left: 0.5rem;
+    }
+
+    .carousel-nav.next {
+        right: 0.5rem;
+    }
+
+    /* Fix for the book carousel width */
+    .book-carousel {
+        padding: 0.5rem 0;
+        margin: 0;
+        width: 100%;
+    }
+    /* ========== END FIX FOR PAGE SHIFTING ========== */
+    
+    /* Add font-display: swap for all fonts */
+    @font-face {
+        font-display: swap;
+    }
+  </style>
   </style>
   
   <!-- OPTIMIZED: Fonts with display=swap -->
