@@ -794,7 +794,30 @@
         overflow-x: hidden;
         width: 100%;
     }
+    /* ========== VIDEO LOADING OPTIMIZATION ========== */
+    .video-placeholder {
+        z-index: 5;
+        animation: placeholder-pulse 2s infinite;
+        transition: opacity 0.5s ease;
+    }
 
+    @keyframes placeholder-pulse {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 0.9; }
+    }
+
+    /* Video fade-in animation */
+    #video-section video {
+        transition: opacity 0.5s ease;
+        opacity: 0;
+    }
+
+    #video-section video.loaded {
+        opacity: 1;
+    }
+    /* ========== END VIDEO LOADING OPTIMIZATION ========== */
+    
+    /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
     /* Fix for main container */
     main {
         width: 100%;
@@ -829,9 +852,7 @@
     @font-face {
         font-display: swap;
     }
-  </style>
-  </style>
-  
+  </style>  
   <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
