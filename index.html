@@ -2047,14 +2047,6 @@
             this.play();
         });
     }
-    // Simple video looping
-    const video = document.querySelector('#video-section video');
-    if (video) {
-        video.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        });
-    }
 
     // ========== VIDEO LOADING OPTIMIZATION ==========
     // Video Loading Optimization - Add this after the video looping code
