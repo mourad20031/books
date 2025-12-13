@@ -927,12 +927,12 @@
   })();
 </script>
 
-    <!-- Header - Updated with theme toggle -->
+    <!-- Header - Fixed with emojis for instant loading -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
            <a href="https://freeebooks.online" class="flex items-center">
     <h1 class="text-lg font-bold text-gray-900 tracking-tight">
-        <i class="fas fa-book text-blue-500"></i> 
+        <span class="text-blue-500" style="font-size: 1.2em;">📚</span> 
         <span class="sr-only">Free Weight Loss Ebooks - Download Premium Diet Books</span>
         <span aria-hidden="true">Free<span class="text-blue-500">Ebooks</span></span>
     </h1>
@@ -944,13 +944,13 @@
     <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium" aria-label="Contact us">Contact</a>
 </nav>
 <div class="flex items-center space-x-4">
-    <!-- DONATE LINK - VISIBLE ON BOTH DESKTOP AND MOBILE -->
+    <!-- DONATE LINK with heart emoji -->
     <a href="https://freeebooks.online/donate" class="flex items-center space-x-1 text-gray-600 hover:text-blue-500 font-medium text-sm transition" aria-label="Donate to support us">
         <span class="font-medium">Donate</span>
-        <i class="fas fa-heart text-sm text-red-500"></i>
+        <span class="text-sm text-red-500" style="font-size: 1.1em;">❤️</span>
     </a>
     
-    <!-- Theme Toggle Only -->
+    <!-- Theme Toggle Only (SVG loads instantly) -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
         <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
@@ -961,7 +961,7 @@
     </button>
     
     <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Open mobile menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
+        <span style="font-size: 1.3em;">☰</span>
     </button>
 </div>
         </div>
@@ -1025,7 +1025,7 @@
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
                         <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm" aria-label="Search books">
-                        <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
+                        <span style="font-size: 1em;" class="text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm">🔍</span>
                     </div>
                 </div>
             </div>
