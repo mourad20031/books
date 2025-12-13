@@ -1,83 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Performance & Security Optimizations -->
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
-  <meta name="theme-color" content="#22c55e" media="(prefers-color-scheme: light)">
+  <!-- Performance & Security Optimizations -->
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+  <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-  
-  <!-- SEO Optimized Title -->
-  <title>Premium Modded Games Download | 100% Safe Android Game Mods APK</title>
-  
-  <!-- SEO Optimized Description -->
-  <meta name="description" content="Download premium modded games for Android with unlocked features. 100% safe mod apk files with unlimited coins, gems, and unlocked characters. Instant download, no registration required.">
-  
-  <!-- Keywords -->
-  <meta name="keywords" content="modded games, android mods, premium games, unlocked games, safe mods, game mods, apk mods, unlimited coins, mod apk, free mod games, clash royale mod, brawl stars mod, minecraft mod, subway surfers mod">
-  <meta name="author" content="ModGames">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Premium Modded Games Download | 100% Safe Android Game Mods">
-  <meta property="og:description" content="🚀 Download premium modded games with unlimited features! Get Clash Royale, Brawl Stars, Minecraft mods with unlocked premium content, 100% safe and verified.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://modzy.site">
-  <meta property="og:image" content="https://i.postimg.cc/yxYq9xXV/unnamed.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ModGames - Premium Modded Android Games">
-  <meta property="og:site_name" content="ModGames">
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Premium Modded Games Download | 100% Safe Android Game Mods">
-  <meta name="twitter:description" content="🚀 Download premium modded games with unlimited features! Get Clash Royale, Brawl Stars, Minecraft mods with unlocked premium content, 100% safe and verified.">
-  <meta name="twitter:image" content="https://i.postimg.cc/yxYq9xXV/unnamed.png">
-  <meta name="twitter:image:alt" content="ModGames - Premium Modded Android Games">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://modzy.site">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "ModGames",
-    "url": "https://modzy.site",
-    "description": "Download premium modded games for Android with unlocked features, unlimited resources, and enhanced gameplay.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "ModGames",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://modzy.site/favicon-32x32.png"
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://modzy.site/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
+
+   <!-- Tailwind CSS - Loaded immediately to prevent flash -->
+  <script src="https://cdn.tailwindcss.com"></script> 
   <!-- Preconnect for critical third-party domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://i.postimg.cc">
+  <!-- Defer Google Tag Manager preconnect -->
   
-  <!-- Critical inline CSS -->
+  <!-- CRITICAL SEO FIX: Canonical URL for homepage -->
+  <link rel="canonical" href="https://freeebooks.online">
+  
+  <!-- Critical inline CSS (exactly your original CSS) -->
   <style>
-    /* === CRITICAL: Hide content until Tailwind loads === */
+       /* === CRITICAL: Hide content until Tailwind loads === */
     body:not(.tailwind-loaded) {
       visibility: hidden;
       opacity: 0;
@@ -90,6 +41,9 @@
     }
     
     /* === CRITICAL FIX: Prevent flash of unstyled content === */
+    /* ... your existing code continues ... */
+    /* === CRITICAL FIX: Prevent flash of unstyled content === */
+    /* Add this at the very top without changing anything else */
     body:not([data-theme]) {
       background-color: #f8fafc !important;
       color: #1a1a1a !important;
@@ -99,6 +53,7 @@
       background-color: #ffffff !important;
     }
     
+    /* Now your original CSS exactly as you have it */
     /* CSS Variables */
     :root {
       --bg-color: #f8fafc;
@@ -140,7 +95,7 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       transition: background-color 0.3s ease;
     }
-    .game-card {
+    .book-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       transition: all 0.3s ease;
@@ -151,27 +106,30 @@
       opacity: 0;
       transform: translateY(20px);
     }
-    .game-card.animate {
+    .book-card.animate {
       opacity: 1;
       transform: translateY(0);
       transition: all 0.6s ease;
     }
-    .game-card:hover {
+    .book-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.12);
-      border-color: #22c55e;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+      border-color: #3b82f6;
     }
     .btn-download {
-      background: linear-gradient(135deg, #22c55e, #16a34a);
+      background: linear-gradient(135deg, #10b981, #059669);
       color: #ffffff;
       font-weight: 600;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
     }
     .btn-download:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
     .btn-download:disabled {
       opacity: 0.7;
@@ -179,7 +137,7 @@
       transform: none;
     }
     .btn-download.loading {
-      background: linear-gradient(90deg, #22c55e, #16a34a, #22c55e);
+      background: linear-gradient(90deg, #10b981, #059669, #10b981);
       background-size: 200% 100%;
       animation: loading-shine 2s infinite;
     }
@@ -204,9 +162,9 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Game image styling */
-    .game-image {
-      aspect-ratio: 1 / 1;
+    /* Book image styling */
+    .book-image {
+      aspect-ratio: 2 / 3;
       object-fit: cover;
       width: 100%;
       border-radius: 8px;
@@ -214,7 +172,6 @@
       margin-bottom: 0.5rem;
       pointer-events: none; 
     }
-    
     /* Coming Soon placeholder */
     .coming-soon-image {
       display: flex;
@@ -225,7 +182,7 @@
       font-weight: 500; 
       background-color: #f3f4f6; 
       border-radius: 8px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 2 / 3;
       width: 100%;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       margin-bottom: 0.5rem;
@@ -237,29 +194,76 @@
       color: #cbd5e1;
     }
 
+    /* Modern See More button */
+    .btn-see-more {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-see-more:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+      transform: translateY(-2px);
+    }
+    
+    .btn-see-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+    }
+    
+    .btn-see-more .icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-see-more.expanded .icon {
+      transform: rotate(180deg);
+    }
+    
+    /* Smooth transition for showing/hiding books */
+    .book-card.hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
     /* Safety badge */
     .safety-badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: #f0fdf4;
-      color: #16a34a;
+      background: #eff6ff;
+      color: #1d4ed8;
       padding: 4px 10px;
       border-radius: 50px;
       font-size: 0.75rem;
       font-weight: 600;
-      border: 1px solid #dcfce7;
+      border: 1px solid #dbeafe;
     }
 
     [data-theme="dark"] .safety-badge {
-      background: #064e3b;
-      color: #34d399;
-      border-color: #065f46;
+      background: #1e3a8a;
+      color: #60a5fa;
+      border-color: #1e40af;
     }
     
     /* Hero section styling */
     .hero-gradient {
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     }
     
     /* Loading dots animation */
@@ -272,7 +276,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #22c55e;
+      background: #3b82f6;
       animation: loading-dots 1.4s ease-in-out infinite both;
     }
     .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
@@ -296,7 +300,7 @@
       align-items: center;
     }
     .faq-question:hover {
-      color: #22c55e;
+      color: #3b82f6;
     }
     .faq-answer {
       max-height: 0;
@@ -315,27 +319,27 @@
       transform: rotate(180deg);
     }
     
-    /* Modern Game card badges */
-    .game-badge {
+    /* Modern Book card badges - SMALLER SIZE */
+    .book-badge {
       position: absolute;
-      top: 8px;
-      font-size: 0.55rem;
-      font-weight: 800;
-      padding: 3px 6px;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
       border-radius: 4px;
       z-index: 10;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
     }
-    .mod-badge {
-      left: 8px;
+    .premium-badge {
+      left: 6px;
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: white;
-      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
     }
-    .safe-badge {
-      right: 8px;
-      color: #22c55e;
+    .free-badge {
+      right: 6px;
+      color: #10b981;
       font-weight: 700;
       text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
@@ -387,6 +391,34 @@
       transform: translateY(0);
     }
     
+    /* Background Video */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+      z-index: -1;
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+    
     /* Section Animations */
     section {
       opacity: 0;
@@ -417,50 +449,92 @@
       transform: translateY(0);
     }
 
+    /* Music Player Styles */
+    #music-player {
+      transition: all 0.3s ease;
+    }
+
+    #volume-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 2px;
+      outline: none;
+    }
+
+    #volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #volume-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"] #music-player .bg-white {
+      background-color: #334155 !important;
+    }
+
+    [data-theme="dark"] #volume-slider {
+      background: #475569;
+    }
+
     /* Enhanced Footer Styles */
     .footer-links a {
       transition: color 0.2s ease;
     }
     
     .footer-links a:hover {
-      color: #22c55e;
+      color: #3b82f6;
     }
     
     /* Enhanced Badge Styles */
-    .game-badge {
+    .book-badge {
       position: absolute;
-      top: 8px;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 4px 8px;
-      border-radius: 6px;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
       z-index: 10;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-    .mod-badge {
-      left: 8px;
+    .premium-badge {
+      left: 6px;
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: white;
-      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
     }
-    .safe-badge {
-      right: 8px;
+    .free-badge {
+      right: 6px;
       background: rgba(255, 255, 255, 0.95);
-      color: #22c55e;
+      color: #10b981;
       font-weight: 700;
       border: 1px solid #dcfce7;
       text-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
 
-    [data-theme="dark"] .safe-badge {
+    [data-theme="dark"] .free-badge {
       background: rgba(30, 41, 59, 0.95);
-      color: #22c55e;
+      color: #10b981;
       border-color: #065f46;
     }
 
-    /* Theme Toggle Styles */
+    /* Theme Toggle Styles - Fixed */
     .theme-toggle {
       background: none;
       border: none;
@@ -476,6 +550,7 @@
       height: 40px;
     }
 
+    /* Remove hover background to eliminate shadow effect */
     .theme-toggle:hover {
       background-color: transparent;
     }
@@ -490,7 +565,7 @@
       display: none;
     }
 
-    /* Dark mode text colors */
+    /* FIXED: Dark mode text colors with better contrast */
     [data-theme="dark"] .text-gray-900,
     [data-theme="dark"] .text-gray-800,
     [data-theme="dark"] .text-gray-700 {
@@ -498,15 +573,25 @@
     }
     
     [data-theme="dark"] .text-gray-600 {
-      color: #9ca3af !important;
+      color: #9ca3af !important; /* Better contrast */
     }
     
     [data-theme="dark"] .text-gray-500 {
-      color: #d1d5db !important;
+      color: #d1d5db !important; /* Much better contrast */
     }
     
     [data-theme="dark"] .text-gray-400 {
       color: #9ca3af !important;
+    }
+    
+    [data-theme="dark"] #custom-amount {
+      color: #ffffff !important;
+      background-color: #1e293b !important;
+      border-color: #475569 !important;
+    }
+
+    [data-theme="dark"] #custom-amount::placeholder {
+      color: #94a3b8 !important;
     }
 
     [data-theme="dark"] .bg-white {
@@ -517,9 +602,9 @@
       background-color: #1e293b !important;
     }
 
-    /* Ensure all text in game cards is visible in dark mode */
-    [data-theme="dark"] .game-card h3,
-    [data-theme="dark"] .game-card .text-yellow-500 {
+    /* Ensure all text in book cards is visible in dark mode */
+    [data-theme="dark"] .book-card h3,
+    [data-theme="dark"] .book-card .text-yellow-500 {
       color: #ffffff !important;
     }
 
@@ -527,23 +612,26 @@
     [data-theme="dark"] #search-section {
       background-color: var(--header-bg) !important;
     }
-
+/* === FIXED CAROUSEL STYLES FOR ALL SECTIONS === */
 .carousel-container {
     position: relative;
     padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
 }
-    .game-carousel {
+    .book-carousel {
         display: flex;
         gap: 1rem;
         overflow-x: auto;
         scroll-behavior: smooth;
         padding: 0.5rem 0;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
     }
 
-    .game-carousel::-webkit-scrollbar {
-        display: none;
+    .book-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
     }
 
     .carousel-nav {
@@ -609,11 +697,11 @@
     }
 
     [data-theme="dark"] #mobile-menu a:hover {
-        color: #22c55e;
-        background-color: rgba(34, 197, 94, 0.1);
+        color: #3b82f6;
+        background-color: rgba(59, 130, 246, 0.1);
     }
     
-    /* Search Functionality Styles */
+    /* ========== SEARCH FUNCTIONALITY STYLES ========== */
     #search-section {
         display: block !important;
     }
@@ -628,7 +716,7 @@
         margin-top: 2rem;
     }
 
-    .game-card.hidden {
+    .book-card.hidden {
         display: none !important;
         opacity: 0;
         transform: translateY(10px);
@@ -637,9 +725,15 @@
         overflow: hidden;
     }
 
+    /* Search highlight */
+    .highlight {
+        background-color: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
     /* Search input focus */
     #mainSearchInput:focus {
-        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
     
     /* Ensure search input stays visible */
@@ -654,7 +748,7 @@
     }
     
     [data-theme="dark"] .faq-answer p {
-        color: #cbd5e1 !important;
+        color: #cbd5e1 !important; /* Better contrast */
     }
     
     /* Animation for notifications */
@@ -673,46 +767,157 @@
         animation: fade-in-up 0.5s ease-out;
     }
     
-    /* Video Section */
-    .video-section {
-        height: 400px;
-        position: relative;
+    /* FIX: Font Display Swap for Font Awesome */
+    @font-face {
+        font-family: 'Font Awesome 6 Free';
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2) format('woff2');
+    }
+    
+    @font-face {
+        font-family: 'Font Awesome 6 Brands';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2) format('woff2');
+    }
+    
+    /* Add font-display: swap for all fonts */
+    @font-face {
+        font-display: swap;
+    }
+       /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
+    /* Fix for body overflow */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    /* ========== VIDEO LOADING OPTIMIZATION ========== */
+    .video-placeholder {
+        z-index: 5;
+        animation: placeholder-pulse 2s infinite;
+        transition: opacity 0.5s ease;
+    }
+
+    @keyframes placeholder-pulse {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 0.9; }
+    }
+
+    /* Video fade-in animation */
+    #video-section video {
+        transition: opacity 0.5s ease;
+        opacity: 0;
+    }
+
+    #video-section video.loaded {
+        opacity: 1;
+    }
+    /* ========== END VIDEO LOADING OPTIMIZATION ========== */
+    
+    /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
+    /* Fix for main container */
+    main {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Ensure sections don't overflow */
+    section {
+        width: 100%;
+        max-width: 100%;
         overflow: hidden;
     }
-    
-    .video-section video {
-        position: absolute;
-        top: 0;
-        left: 0;
+
+    /* Fix for carousel navigation positioning */
+    .carousel-nav.prev {
+        left: 0.5rem;
+    }
+
+    .carousel-nav.next {
+        right: 0.5rem;
+    }
+
+    /* Fix for the book carousel width */
+    .book-carousel {
+        padding: 0.5rem 0;
+        margin: 0;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
+    /* ========== END FIX FOR PAGE SHIFTING ========== */
     
-    .video-content {
-        position: relative;
-        z-index: 2;
+    /* Add font-display: swap for all fonts */
+    @font-face {
+        font-display: swap;
     }
-  </style>
-  
+  </style>  
   <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   
-  <!-- Locker Script -->
-  <script type="text/javascript">
-    var fliHo_gtw_jeCFic={"it":4523985,"key":"e8a34"};
-  </script>
-  <script src="https://da4talg8ap14y.cloudfront.net/0407105.js"></script>
+  <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
+<meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
+  <meta name="author" content="FreeEbooks">
+  <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Free Weight Loss eBooks | Download Premium Diet Books">
+<meta property="og:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://freeebooks.online/">
+  <!-- Open Graph Image -->
+<meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
+<meta property="og:site_name" content="Free eBooks Online">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Weight Loss eBooks | Premium Diet Books Download">
+<meta name="twitter:description" content="🚀 Get instant access to The Ozempic Revolution & 50+ weight loss eBooks FREE! Start your health transformation today with science-backed methods.">
+  <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+<meta name="twitter:image:alt" content="Free eBooks Online - Download Thousands of Free eBooks">
+  
+  <!-- Canonical URL -->
+<link rel="canonical" href="https://freeebooks.online/">
+  <!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Free eBooks Online",
+  "url": "https://freeebooks.online/",
+  "description": "Download premium weight loss eBooks including The Ozempic Revolution, Fast Like a Girl, and Glucose Revolution for free.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FreeEbooks",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://freeebooks.online/favicon-32x32.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://freeebooks.online/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 </head>
 <body class="antialiased">
 <script>
   // Mark Tailwind as loaded immediately
   document.body.classList.add('tailwind-loaded');
 </script>
-<!-- Apply theme immediately to prevent flash -->
+<!-- FIX: Apply theme immediately to prevent flash -->
 <script>
   (function() {
+    // Apply theme BEFORE anything renders
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
@@ -722,1073 +927,1471 @@
   })();
 </script>
 
-    <!-- Header -->
+    <!-- Header - Updated with theme toggle -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="https://modzy.site" class="flex items-center">
-                <h1 class="text-lg font-bold text-gray-900 tracking-tight">
-                    <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
-                </h1>
-            </a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="#trending" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Trending</a>
-                <a href="#all-mods-header" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">All Games</a>
-                <a href="#most-downloaded" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Popular</a>
-                <a href="#faq-section" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">FAQ</a>
-                <a href="#contact-section" class="text-gray-600 hover:text-green-500 transition text-sm font-medium">Contact</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <!-- Theme Toggle -->
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
-                    <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
-                    </svg>
-                    <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
-                    </svg>
-                </button>
-                <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Open mobile menu" aria-expanded="false">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+           <a href="https://freeebooks.online" class="flex items-center">
+    <h1 class="text-lg font-bold text-gray-900 tracking-tight">
+        <i class="fas fa-book text-blue-500"></i> 
+        <span class="sr-only">Free Weight Loss Ebooks - Download Premium Diet Books</span>
+        <span aria-hidden="true">Free<span class="text-blue-500">Ebooks</span></span>
+    </h1>
+</a>
+          <nav class="hidden md:flex items-center space-x-6">
+    <a href="#trending" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium" aria-label="View trending books">Trending</a>
+    <a href="https://freeebooks.online/all-books" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium" aria-label="Browse all books">All Books</a>
+    <a href="#faq-section" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium" aria-label="View frequently asked questions">FAQ</a>
+    <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium" aria-label="Contact us">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+    <!-- DONATE LINK - VISIBLE ON BOTH DESKTOP AND MOBILE -->
+    <a href="https://freeebooks.online/donate" class="flex items-center space-x-1 text-gray-600 hover:text-blue-500 font-medium text-sm transition" aria-label="Donate to support us">
+        <span class="font-medium">Donate</span>
+        <i class="fas fa-heart text-sm text-red-500"></i>
+    </a>
+    
+    <!-- Theme Toggle Only -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+        </svg>
+        <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+        </svg>
+    </button>
+    
+    <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Open mobile menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+</div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="flex flex-col p-4">
-                <a href="#trending" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Trending</a>
-                <a href="#all-mods-header" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">All Games</a>
-                <a href="#most-downloaded" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Popular</a>
-                <a href="#faq-section" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">FAQ</a>
-                <a href="#contact-section" class="py-3 px-4 text-gray-700 hover:text-green-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">Contact</a>
-            </div>
-        </div>
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="flex flex-col p-4">
+        <a href="#trending" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium" aria-label="View trending books">
+            Trending
+        </a>
+     <a href="https://freeebooks.online/all-books" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium" aria-label="Browse all books">
+    All Books
+</a>
+        <a href="#faq-section" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium" aria-label="View frequently asked questions">
+            FAQ
+        </a>
+        <a href="https://freeebooks.online/contact" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium" aria-label="Contact us">
+            Contact
+        </a>
+    </div>
+</div>
     </header>
 
     <main>
-        <!-- Video Section -->
-        <section id="video-section" class="relative w-full video-section">
-            <video autoplay muted loop playsinline preload="metadata" poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMyMmM1NWUiLz48L3N2Zz4=">
-                <source src="7914778-hd_1280_720_30fps.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-content absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                <div class="hero-content animate">
-                    <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-4">Premium Modded Games</h2>
-                    <div class="hero-cta">
-                        <a href="#trending" class="btn-download py-3 px-8 rounded-xl text-base font-semibold inline-flex items-center justify-center">
-                            <i class="fas fa-gamepad mr-2"></i>Explore All Games
-                        </a>
-                    </div>
-                </div>
+        
+                <!-- Single Video Section - OPTIMIZED -->
+<section id="video-section" class="relative w-full h-96 overflow-hidden">
+    <!-- Add loading placeholder that matches video aspect ratio -->
+    <div class="video-placeholder absolute inset-0 w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 animate-pulse" style="animation-duration: 2s;"></div>
+    
+    <!-- Single Video with preload and loading="eager" -->
+    <video 
+        class="absolute inset-0 w-full h-full object-cover" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="auto" 
+        loading="eager"
+        poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIHZpZXdCb3g9IjAgMCAxMjAwIDY3NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIGZpbGw9IiMzYjgyZjYiLz48L3N2Zz4="
+        onloadeddata="this.previousElementSibling.style.display='none'"
+        onerror="this.previousElementSibling.style.display='none'">
+        <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
+        <track kind="captions" src="" label="English" srclang="en" default>
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Content Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
+        <div class="hero-content animate">
+            <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-8 whitespace-nowrap">Free Weight Loss Ebooks</h2>
+            <div class="hero-cta">
+              <a href="https://freeebooks.online/all-books" class="btn-download py-3 px-8 rounded-xl text-base font-semibold inline-flex items-center justify-center" aria-label="Browse all available books">
+    <i class="fas fa-book-open mr-2"></i>Browse All Books
+</a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- Search Section -->
         <section id="search-section" class="pt-4 pb-2 bg-white">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
-                        <input type="text" id="mainSearchInput" placeholder="Search for games..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-400 w-full text-sm" aria-label="Search games">
+                        <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm" aria-label="Search books">
                         <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
                     </div>
                 </div>
             </div>
+         
         </section>
-
-        <!-- Info Section -->
-        <section class="py-4">
-            <div class="container mx-auto px-4">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Premium Modded Games Collection</h3>
-                    <p class="text-gray-600 text-sm">
-                        Download premium modded games with unlimited coins, gems, unlocked characters and premium features. 
-                        All mods are 100% safe and verified for Android.
-                    </p>
+<section class="py-4">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Free Weight Loss eBooks Collection</h3>
+            <p class="text-gray-600 text-sm">
+                Download premium weight loss eBooks including Ozempic guides, diet plans, 
+                and health books - completely free, no registration required.
+            </p>
+        </div>
+    </div>
+</section>
+        <!-- 🔥 END OF NEW SECTION 🔥 -->
+        <div class="container mx-auto px-4 py-4">
+            
+            <!-- Trending Books Section - NOW WITH CAROUSEL -->
+<section id="trending" class="pt-2">
+    <div class="text-center mb-6">
+        <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Weight Loss Books</h2>
+        <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
+    </div>
+    <div class="carousel-container">
+        <button class="carousel-nav prev" aria-label="Previous books">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="book-carousel">
+            <!-- Book 1 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Weightless: A Doctor's Guide to GLP-1 Medications</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="85600">85.6K</span>
+                    </div>
+                    <a href="https://freeebooks.online/weightless-book-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Weightless eBook">Download Now</a>
                 </div>
             </div>
-        </section>
-
-        <div class="container mx-auto px-4 py-4">
-            <!-- Trending Games Section with Carousel -->
-            <section id="trending" class="pt-2">
-                <div class="text-center mb-6">
-                    <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Modded Games</h2>
-                    <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular mods right now</p>
+            
+            <!-- Book 2 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="book-image" loading="lazy" width="120" height="180" decoding="async">
                 </div>
-                <div class="carousel-container">
-                    <button class="carousel-nav prev" aria-label="Previous games">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="game-carousel">
-                        <!-- Clash Royale Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Clash Royale Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/yxYq9xXV/unnamed.png" alt="Clash Royale Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Clash Royale Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-gray-500 ml-1">5.0</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="127000">127K</span>
-                                </div>
-                                <a href="/clash-royale-mod-apk" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center block">     <i class="fas fa-external-link-alt mr-1"></i> View Full Details </a>
-                            </div>
-                        </div>
-                        
-                        <!-- Brawl Stars Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Brawl Stars Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/xCMLT5VZ/channels4-profile.jpg" alt="Brawl Stars Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Brawl Stars Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-500 ml-1">4.9</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="98500">98.5K</span>
-                                </div>
-                                <a href="/brawl-stars-mod-apk" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center block">     <i class="fas fa-external-link-alt mr-1"></i> View Full Details </a>
-                            </div>
-                        </div>
-
-                        <!-- Minecraft Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Minecraft Mod APK" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/1tndxdcZ/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.avif" alt="Minecraft Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Minecraft Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-gray-500 ml-1">5.0</span></div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="215000">215K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Minecraft Mod APK','This mod unlocks all premium skins, textures, and worlds. Enjoy god mode and unlimited inventory items.')">Download Now</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Subway Surfers Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Subway Surfers Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/yNbL1Tvr/5900ed3c1d60b6f8e108a233d11cf94c3636ecef9687f571767ebf7b6e2b0b74-200.webp" alt="Subway Surfers Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Subway Surfers Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-gray-500 ml-1">4.8</span></div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="178000">178K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Subway Surfers Mod APK','Unlimited coins, keys, and all characters unlocked from the start. Enjoy an ad-free experience.')">Download Now</button>
-                            </div>
-                        </div>
-
-                        <!-- Baseball9 Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Baseball9 Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/tTwzhC6q/Baseball9-Mod-Logo.png" alt="Baseball9 Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Baseball9 Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-gray-500 ml-1">5.0</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="89200">89.2K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Baseball9 Mod APK','Unlimited money and diamonds. Recruit legendary players and build your perfect baseball team.')">Download Now</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Hollow Knight Silksong Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Hollow Knight Silksong Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/nzJFMqRM/640px-Silksong-cover.jpg" alt="Hollow Knight Silksong Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Hollow Knight Silksong Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-500 ml-1">4.8</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="143000">143K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Hollow Knight Silksong Mod APK','Early access, unlimited health, and all charms unlocked. Explore the vast world of Pharloom.')">Download Now</button>
-                            </div>
-                        </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Glucose Revolution: Balancing Your Blood Sugar</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
                     </div>
-                    <button class="carousel-nav next" aria-label="Next games">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Most Downloaded Mods Section with Carousel -->
-            <section id="most-downloaded" class="py-12">
-                <div class="text-center mb-10">
-                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Most Downloaded Mods</h2>
-                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Community favorites with the highest download counts</p>
-                </div>
-                <div class="carousel-container">
-                    <button class="carousel-nav prev" aria-label="Previous games">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="game-carousel">
-                        <!-- Royal Match Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Royal Match Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/ZKj0kwMK/royale-mtch.jpg" alt="Royal Match Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Royal Match Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-gray-500 ml-1">5.0</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="198000">198K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs" onclick="startDownload(this, 'Royal Match Mod APK','Match colorful tiles, decorate royal rooms, and enjoy puzzle fun both online and offline.')">Download Now</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Hitman: Absolution Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Hitman: Absolution Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/vBP8Jkc5/Hitman-Absolution-Pack-Art.jpg" alt="Hitman: Absolution Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Hitman: Absolution Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-500 ml-1">4.7</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="87600">87.6K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'Hitman: Absolution Mod APK','Play as Agent 47 in a stealth-action thriller where every choice and disguise matters.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Dead Cells Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Dead Cells Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/66gYrh02/Dead-cells-cover-art.png" alt="Dead Cells Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Dead Cells Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-500 ml-1">4.8</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="96700">96.7K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'Dead Cells Mod APK','Fight, die, and repeat in this fast-paced roguelike packed with action and fluid combat.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- GRID Autosport Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="GRID Autosport Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/2SfGJ8g6/grid-autosport.png" alt="GRID Autosport Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">GRID Autosport Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-gray-500 ml-1">5.0</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="71200">71.2K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'GRID Autosport Mod APK','Experience console-quality racing with realistic handling, diverse cars, and full offline play.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="92300">92.3K</span>
                     </div>
-                    <button class="carousel-nav next" aria-label="Next games">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <a href="https://freeebooks.online/glucose-revolution-book" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Glucose Revolution eBook">Download Now</a>
                 </div>
-            </section>
+            </div>
 
-            <!-- Recently Added Section with Carousel -->
-            <section id="recently-added" class="py-12">
-                <div class="text-center mb-10">
-                    <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Recently Added Mods</h2>
-                    <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Fresh mods added to our collection</p>
+            <!-- Book 3 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="book-image" loading="lazy" width="120" height="180" decoding="async">
                 </div>
-                <div class="carousel-container">
-                    <button class="carousel-nav prev" aria-label="Previous games">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="game-carousel">
-                        <!-- WWE25 Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="WWE25 Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/W3Mb58Z4/wwe25.webp" alt="WWE25 Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">WWE25 Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-gray-500 ml-1">5.0</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="198000">198K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'WWE25 Mod APK','Step into the ring and battle as your favorite superstars in this action-packed wrestling experience.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Slay the Spire Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Slay the Spire Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/XNRkGYjX/Slay-the-spire-cover.jpg" alt="Slay the Spire Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Slay the Spire Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-500 ml-1">4.7</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="87600">87.6K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'Slay the Spire Mod APK','Climb ever-changing levels, build your deck, and defeat powerful bosses in this roguelike card game.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Dredge Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Dredge Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/1396wgLm/dredge.jpg" alt="Dredge Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Dredge Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    <span class="text-gray-500 ml-1">4.8</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="96700">96.7K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'Dredge Mod APK','Explore mysterious seas, catch strange fish, and uncover dark secrets lurking beneath the waves.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Stardew Valley Mod -->
-                        <div class="game-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Stardew Valley Mod" style="width: 180px;">
-                            <div class="relative">
-                                <span class="game-badge mod-badge">MOD</span>
-                                <span class="game-badge safe-badge">SAFE</span>
-                                <img src="https://i.postimg.cc/43W1mvym/Logo-of-Stardew-Valley.png" alt="Stardew Valley Mod" class="game-image" loading="lazy" width="120" height="120" decoding="async">
-                            </div>
-                            <div class="p-3 flex flex-col flex-grow">
-                                <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Stardew Valley Mod</h3>
-                                <div class="flex items-center text-xs mb-1 text-yellow-500">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    <span class="text-gray-500 ml-1">5.0</span>
-                                </div>
-                                <div class="text-gray-500 text-xs mb-2">
-                                    <i class="fas fa-download mr-1"></i> 
-                                    <span class="download-counter" data-count="71200">71.2K</span>
-                                </div>
-                                <button class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs"
-                                    onclick="startDownload(this, 'Stardew Valley Mod APK','Escape to the countryside, build your dream farm, and connect with the charming villagers.')">
-                                    Download Now
-                                </button>
-                            </div>
-                        </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast Like a Girl: Healing Power of Fasting</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
                     </div>
-                    <button class="carousel-nav next" aria-label="Next games">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="67800">67.8K</span>
+                    </div>
+                    <a href="https://freeebooks.online/fast-like-a-girl-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Fast Like a Girl eBook">Download Now</a>
                 </div>
-            </section>
+            </div>
+            
+            <!-- Book 4 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The New Menopause: Navigating Hormonal Change</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="54200">54.2K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-new-menopause-book-pdf-free-download" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The New Menopause eBook">Download Now</a>
+                </div>
+            </div>
 
-            <!-- No Results Message -->
-            <div id="no-results-message" class="hidden text-center py-8">
-                <i class="fas fa-gamepad text-4xl text-gray-400 mb-4"></i>
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">No games found</h3>
-                <p class="text-gray-600">Try searching for different game names or keywords</p>
+            <!-- Book 5 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hunger Code: Resetting Your Fat Thermostat</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.6</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="48900">48.9K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-hunger-code-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Hunger Code eBook">Download Now</a>
+                </div>
+            </div>
+            
+            <!-- Book 6 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Bite Me: Low-Calorie High-Protein Cooking</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="61400">61.4K</span>
+                    </div>
+                    <a href="https://freeebooks.online/bite-me-book" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Bite Me eBook">Download Now</a>
+                </div>
+            </div>
+         <!-- ✅ Book 7: The 4-Hour Body -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.6</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="91200">91.2K</span>
+        </div>
+        <a href="https://freeebooks.online/the-4-hour-body-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The 4-Hour Body eBook">Download Now</a>
+    </div>
+</div>
+
+<!-- ✅ Book 8: The Whole30 -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Whole30: The 30-Day Guide to Total Health and Food Freedom" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="85600">85.6K</span>
+        </div>
+        <a href="https://freeebooks.online/the-whole-30-book-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Whole30 eBook">Download Now</a>
+    </div>
+</div>
+        </div>
+        <button class="carousel-nav next" aria-label="Next books">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
+<!-- Recently Added Section - NOW WITH CAROUSEL -->
+<section id="recently-added" class="py-12">
+    <div class="text-center mb-10">
+        <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
+            Recently Added eBooks
+        </h2>
+        <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">
+            Fresh books added to our collection
+        </p>
+    </div>
+    <div class="carousel-container">
+        <button class="carousel-nav prev" aria-label="Previous books">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="book-carousel">
+            <!-- Book 1: The Ozempic Revolution -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Ozempic Revolution: Reverse Obesity & End Yo-Yo Dieting</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="72300">72.3K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-ozempic-revolution-book" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Ozempic Revolution eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 2: The Menopause Reset -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Menopause Reset: Get Rid of Symptoms</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="58900">58.9K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-menopause-reset-book" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Menopause Reset eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 3: The Biblio Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Biblio Diet: Healing Secrets from the Bible</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="64200">64.2K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-biblio-diet-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Biblio Diet eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 4: The Glucose Goddess Method -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Glucose Goddess Method: Cut Cravings & Feel Amazing</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="81400">81.4K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-glucose-goddess-method-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Glucose Goddess Method eBook">Download Now</a>
+                </div>
+            </div>
+         <!-- ✅ Book 5: Meal Prep for Weight Loss -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Meal Prep for Weight Loss: Weekly Plans</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.7</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="68900">68.9K</span>
+        </div>
+        <a href="https://freeebooks.online/meal-prep-weight-loss-recipes-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Meal Prep for Weight Loss eBook">Download Now</a>
+    </div>
+</div>
+
+<!-- ✅ Book 6: The Mediterranean Diet -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Mediterranean Diet: 28-Day Kickstart Plan</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="73400">73.4K</span>
+        </div>
+        <a href="https://freeebooks.online/mediterranean-diet-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Mediterranean Diet eBook">Download Now</a>
+    </div>
+</div>
+
+<!-- ✅ Book 7: Magic Weight-Loss Pill -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Magic Weight-Loss Pill" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Magic Weight-Loss Pill</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            <span class="text-gray-500 ml-1">4.5</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="51200">51.2K</span>
+        </div>
+        <a href="https://freeebooks.online/magic-weight-loss-pill-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Magic Weight-Loss Pill eBook">Download Now</a>
+    </div>
+</div>
+
+<!-- ✅ Book 8: The Diabetes Code -->
+<div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" style="width: 180px;">
+    <div class="relative">
+        <span class="book-badge premium-badge">PREMIUM</span>
+        <span class="book-badge free-badge">FREE</span>
+        <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+    </div>
+    <div class="p-3 flex flex-col flex-grow">
+        <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Diabetes Code: Reverse Type 2 Naturally</h3>
+        <div class="flex items-center text-xs mb-1 text-yellow-500">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <span class="text-gray-500 ml-1">5.0</span>
+        </div>
+        <div class="text-gray-500 text-xs mb-2">
+            <i class="fas fa-download mr-1"></i> 
+            <span class="download-counter" data-count="62300">62.3K</span>
+        </div>
+        <a href="https://freeebooks.online/the-diabetes-code-pdf-free-download" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Diabetes Code eBook">Download Now</a>
+    </div>
+</div>
+        </div>
+        <button class="carousel-nav next" aria-label="Next books">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
+<!-- Weight Loss Books Section - ALREADY WITH CAROUSEL (NO CHANGES) -->
+<section id="weight-loss" class="py-12">
+    <div class="text-center mb-10">
+        <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Best Weight Loss & Diet eBooks</h2>
+        <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
+    </div>
+    
+    <div class="carousel-container">
+        <button class="carousel-nav prev" aria-label="Previous books">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="book-carousel">
+            <!-- Book 1: The Obesity Code -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Obesity Code: Unlocking Weight Loss Secrets</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="89200">89.2K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-obesity-code-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Obesity Code eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 2: How Not to Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">How Not to Diet: Science of Permanent Weight Loss</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="94500">94.5K</span>
+                    </div>
+                    <a href="https://freeebooks.online/how-not-to-diet-21-tweaks" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download How Not to Diet eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 3: Eat to Live -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Live: Nutrient-Rich Program for Weight Loss</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="87600">87.6K</span>
+                    </div>
+                    <a href="https://freeebooks.online/joel-fuhrman-eat-to-live-book" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Eat to Live eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 4: Complete Guide To Fasting -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Complete Guide To Fasting: Heal Your Body</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="81300">81.3K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-complete-guide-to-fasting-jason-fung-pdf-free-download" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Complete Guide To Fasting eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 5: Fast. Feast. Repeat. -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast. Feast. Repeat.: Guide to Intermittent Fasting</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.7</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="75400">75.4K</span>
+                    </div>
+                    <a href="https://freeebooks.online/fast-feast-repeat-audiobook-free-download" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Fast. Feast. Repeat. eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 6: Eat to Beat Your Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Beat Your Diet: Burn Fat & Heal Metabolism</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.8</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="69200">69.2K</span>
+                    </div>
+                    <a href="https://freeebooks.online/eat-to-beat-your-diet-pdf-download" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Eat to Beat Your Diet eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 7: The Galveston Diet -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Galveston Diet: Burn Fat & Tame Hormones</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="58700">58.7K</span>
+                    </div>
+                    <a href="https://freeebooks.online/the-galveston-diet-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download The Galveston Diet eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 8: Instant Loss -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Instant Loss: Eat Real, Lose Weight</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.9</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="83200">83.2K</span>
+                    </div>
+                    <a href="https://freeebooks.online/instant-loss-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download Instant Loss eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 9: ketoCONTINUUM -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="ketoCONTINUUM: Consistently Keto Diet For Life" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">ketoCONTINUUM: Consistently Keto For Life</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">4.6</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="71400">71.4K</span>
+                    </div>
+                    <a href="https://freeebooks.online/keto-continuum-pdf" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download ketoCONTINUUM eBook">Download Now</a>
+                </div>
+            </div>
+
+            <!-- Book 10: SUPER Body -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" style="width: 180px;">
+                <div class="relative">
+                    <span class="book-badge premium-badge">PREMIUM</span>
+                    <span class="book-badge free-badge">FREE</span>
+                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="book-image" loading="lazy" width="120" height="180" decoding="async">
+                </div>
+                <div class="p-3 flex flex-col flex-grow">
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">SUPER Body: 3-Week Program for Youthful Contours</h3>
+                    <div class="flex items-center text-xs mb-1 text-yellow-500">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">5.0</span>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">
+                        <i class="fas fa-download mr-1"></i> 
+                        <span class="download-counter" data-count="65900">65.9K</span>
+                    </div>
+                    <a href="https://freeebooks.online/super-body" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block" aria-label="Download SUPER Body eBook">Download Now</a>
+                </div>
             </div>
         </div>
-    </main>
+        <button class="carousel-nav next" aria-label="Next books">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
+   <!-- Small Music Button -->
+<div id="music-player" class="fixed bottom-4 right-4 z-50">
+    <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20" aria-label="Toggle background music">
+        <i class="fas fa-play text-sm transform translate-x-0.5"></i>
+    </button>
+    
+    <!-- Audio Element with Fallback -->
+    <audio id="background-music" loop preload="metadata">
+        <source src="audio-for-website.mp3.mp3" type="audio/mpeg">
+        <!-- Fallback to a test audio file -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
 
-    <!-- FAQ Section -->
-    <section id="faq-section" class="py-12 bg-gray-50">
+        <section id="faq-section" class="py-12 bg-gray-50 -mx-4 px-4 md:-mx-8 md:px-8">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Frequently Asked Questions</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our modded games</p>
+                <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
             </div>
             
             <div class="max-w-3xl mx-auto">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">Are these mods safe to use?</h3>
-                        <span class="faq-icon text-green-500"><i class="fas fa-chevron-down"></i></span>
+                        <h3 class="text-lg font-semibold">Are these books really free to download?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">Yes, all our mods are 100% safe and thoroughly tested before being made available. We ensure they are free from malware, viruses, and any harmful code. Our team verifies each mod for safety and functionality.</p>
+                        <p class="text-gray-600">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone. Our platform is supported by donations and partnerships with publishers who share our vision of making literature available to all.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">Will I get banned for using these mods?</h3>
-                        <span class="faq-icon text-green-500"><i class="fas fa-chevron-down"></i></span>
+                        <h3 class="text-lg font-semibold">What formats are available for download?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">While we design our mods to be as undetectable as possible, there's always a small risk when using modded versions of online games. We recommend using alternate accounts for modded games and avoiding obvious cheating in competitive modes to minimize any potential risks.</p>
+                        <p class="text-gray-600">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats. Most books are available in at least 2-3 different formats to ensure compatibility with various e-readers and devices.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">How often are new mods added?</h3>
-                        <span class="faq-icon text-green-500"><i class="fas fa-chevron-down"></i></span>
+                        <h3 class="text-lg font-semibold">How often are new books added?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">We add new mods regularly, typically several times per week. Our team works constantly to provide the latest and most popular games with premium features unlocked. You can check back frequently or follow us on social media for updates on new releases.</p>
+                        <p class="text-gray-600">We add new books regularly, typically several times per week. Our team works constantly to provide the latest and most popular titles across various genres. You can check back frequently or subscribe to our newsletter for updates on new releases.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">Do these mods work on both Android and iOS?</h3>
-                        <span class="faq-icon text-green-500"><i class="fas fa-chevron-down"></i></span>
+                        <h3 class="text-lg font-semibold">Do I need to create an account to download books?</h3>
+                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">Currently, our mods are primarily designed for Android devices. iOS mods require different installation methods and are more limited due to Apple's restrictions. We're working on expanding our iOS offerings, but for now, most of our mods are Android-only.</p>
+                        <p class="text-gray-600">No account is required for downloading books. We believe in making the process as simple as possible. However, creating a free account allows you to bookmark favorites, track your reading progress, and receive personalized recommendations.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-   <section id="contact-section" class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Contact Us</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Have questions or need support? We're here to help!</p>
-            </div>
-            
-            <div class="max-w-lg mx-auto">
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
-                    <form id="contact-form">
-                        <div class="mb-4">
-                            <label for="fullName" class="block text-gray-700 mb-2 font-medium">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" class="form-input w-full rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 mb-2 font-medium">Email</label>
-                            <input type="email" id="email" name="email" class="form-input w-full rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 mb-2 font-medium">Message</label>
-                            <textarea id="message" name="message" rows="4" class="form-input w-full rounded-lg py-3 px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-download block py-3 px-6 rounded-lg w-full text-base text-center font-semibold">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="header-bg border-t border-gray-100 py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-gamepad text-green-500"></i> Mod<span class="text-green-500">Games</span>
-                    </h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Your trusted source for premium modded games. All our mods are thoroughly tested for safety and performance.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-500 hover:text-green-500 transition" aria-label="Follow us on Twitter">
-                            <i class="fab fa-twitter text-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-500 hover:text-green-500 transition" aria-label="Join our Discord">
-                            <i class="fab fa-discord text-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-500 hover:text-green-500 transition" aria-label="Join our Telegram">
-                            <i class="fab fa-telegram text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
-                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
-                        <a href="#trending" class="hover:text-green-500 transition">Trending Games</a>
-                        <a href="#all-mods-header" class="hover:text-green-500 transition">All Mods</a>
-                        <a href="#most-downloaded" class="hover:text-green-500 transition">Popular</a>
-                        <a href="#faq-section" class="hover:text-green-500 transition">FAQ</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
-                    <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
-                        <a href="#" class="hover:text-green-500 transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-green-500 transition">Terms of Service</a>
-                        <a href="#" class="hover:text-green-500 transition">Cookie Policy</a>
-                        <a href="#" class="hover:text-green-500 transition">DMCA</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Copyright Section -->
-            <div class="border-t border-gray-200 mt-6 pt-6">
-                <p class="text-gray-500 text-sm text-center">
-                    © 2024 ModGames. All Rights Reserved. All game trademarks and registered trademarks are property of their respective owners.
+<!-- Professional Footer - Matches Page Padding -->
+<footer class="header-bg border-t border-gray-100 py-8" style="width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); left: 0; right: 0; position: relative;">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">
+                    <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
                 </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modals -->
-    <div id="gameModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-gray-900 rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto relative transform transition-all duration-300 scale-95 opacity-0">
-            <button class="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700" onclick="closeModal('gameModal')"><i class="fas fa-times"></i></button>
-            <div class="pt-8 px-6 flex justify-center">
-                <img id="modal-img" src="" alt="Game Image" class="w-32 h-32 game-image rounded-lg shadow-md">
-            </div>
-            <div class="p-6 text-center">
-                <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
-                <div class="text-left">
-                    <h3 class="text-lg font-semibold text-green-500 mb-2">Description</h3>
-                    <p id="modal-description" class="text-gray-600 mb-6"></p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition" aria-label="Follow us on Twitter">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition" aria-label="Follow us on Facebook">
+                        <i class="fab fa-facebook text-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
                 </div>
-                <button id="modal-confirm-btn" class="btn-download block py-3 px-6 rounded-xl w-full text-base text-center mt-4">
-                    <i class="fas fa-download mr-2"></i>Download Now
-                </button>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                <div class="footer-links flex flex-col space-y=2 text-sm text-gray-600">
+                    <a href="#trending" class="hover:text-blue-500 transition" aria-label="View trending books">Trending Books</a>
+                    <a href="https://freeebooks.online/all-books" class="hover:text-blue-500 transition" aria-label="Browse all books">All Books</a>
+                    <a href="#faq-section" class="hover:text-blue-500 transition" aria-label="View frequently asked questions">FAQ</a>
+                    <a href="https://freeebooks.online/contact" class="hover:text-blue-500 transition" aria-label="Contact us">Contact</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
+                <div class="footer-links flex flex-col space-y=2 text-sm text-gray-600">
+                    <a href="#" class="hover:text-blue-500 transition" aria-label="View privacy policy">Privacy Policy</a>
+                    <a href="#" class="hover:text-blue-500 transition" aria-label="View terms of service">Terms of Service</a>
+                    <a href="#" class="hover:text-blue-500 transition" aria-label="View cookie policy">Cookie Policy</a>
+                    <a href="#" class="hover:text-blue-500 transition" aria-label="View DMCA information">DMCA</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Health Resources</h4>
+                <div class="footer-links flex flex-col space-y=2 text-sm text-gray-600">
+                    <a href="https://www.who.int/" 
+                       target="_blank" 
+                       rel="noopener" 
+                       class="hover:text-blue-500 transition"
+                       aria-label="Visit World Health Organization website">
+                       World Health Organization
+                    </a>
+                    <a href="https://www.cdc.gov/healthyweight/" 
+                       target="_blank" 
+                       rel="nofollow noopener" 
+                       class="hover:text-blue-500 transition"
+                       aria-label="Visit CDC Healthy Weight Guide">
+                       CDC Healthy Weight Guide
+                    </a>
+                    <a href="https://www.nutrition.gov/" 
+                       target="_blank" 
+                       rel="nofollow noopener" 
+                       class="hover:text-blue-500 transition"
+                       aria-label="Visit Nutrition.gov">
+                       Nutrition.gov
+                    </a>
+                    <a href="https://www.niddk.nih.gov/health-information/weight-management" 
+                       target="_blank" 
+                       rel="nofollow noopener" 
+                       class="hover:text-blue-500 transition"
+                       aria-label="Visit NIH Weight Management">
+                       NIH Weight Management
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
-            <div class="text-green-500 text-5xl mb-4">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2 class="text-2xl font-bold mb-2">Success!</h2>
-            <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
-        </div>
-    </div>
-
-    <div id="loadingModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-        <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
-            <div class="loading-dots mx-auto mb-4">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <h2 class="text-xl font-bold mb-2">Preparing Download</h2>
-            <p class="text-gray-500">Your game is being prepared for download...</p>
-        </div>
-    </div>
-    
-    <!-- SEO Hidden Links -->
-    <div style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
-        <link rel="canonical" href="https://modzy.site/clash-royale-mod-apk">
-        <link rel="canonical" href="https://modzy.site/brawl-stars-mod-apk">
-        <link rel="canonical" href="https://modzy.site/minecraft-mod">
-        <link rel="canonical" href="https://modzy.site/subway-surfers-mod">
-        <link rel="canonical" href="https://modzy.site/baseball9-mod">
-        <link rel="canonical" href="https://modzy.site/hollow-knight-silksong-mod">
-        <a href="https://modzy.site/all-games">Browse All Games</a>
-        <a href="https://modzy.site/contact">Contact Us</a>
-    </div>
-
-    <!-- Deferred JavaScript Libraries -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
-
-    <!-- Main JavaScript -->
-    <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        const body = document.body;
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            body.setAttribute('data-theme', 'dark');
-            if (sunIcon) sunIcon.classList.add('hidden');
-            if (moonIcon) moonIcon.classList.remove('hidden');
-            if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-        }
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                if (body.getAttribute('data-theme') === 'dark') {
-                    body.removeAttribute('data-theme');
-                    if (sunIcon) sunIcon.classList.remove('hidden');
-                    if (moonIcon) moonIcon.classList.add('hidden');
-                    if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    body.setAttribute('data-theme', 'dark');
-                    if (sunIcon) sunIcon.classList.add('hidden');
-                    if (moonIcon) moonIcon.classList.remove('hidden');
-                    if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-                    localStorage.setItem('theme', 'dark');
-                }
-            });
-        }
-
-        // Get all games from the website
-        function getAllGamesFromWebsite() {
-            const gameCards = document.querySelectorAll('.game-card');
-            const games = [];
-            
-            gameCards.forEach(card => {
-                const gameName = card.dataset.name;
-                if (gameName && !games.includes(gameName)) {
-                    games.push(gameName);
-                }
-            });
-            
-            return games;
-        }
-
-        // Download functionality
-        function startDownload(buttonElement, title, description) {
-            buttonElement.disabled = true;
-            buttonElement.classList.add('loading');
-            buttonElement.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Downloading...';
-            
-            setTimeout(() => {
-                buttonElement.disabled = false;
-                buttonElement.classList.remove('loading');
-                buttonElement.innerHTML = 'Download Now';
-                openModal(buttonElement, title, description);
-            }, 1000);
-        }
-
-        // DOM elements
-        const gameModal = document.getElementById('gameModal');
-        const successModal = document.getElementById('successModal');
-        const loadingModal = document.getElementById('loadingModal');
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
-        const mainSearchInput = document.getElementById('mainSearchInput');
         
-        // Mobile menu toggle
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                menuBtn.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-200 mt-6 pt-6">
+            <p class="text-gray-500 text-sm text-center">
+                © 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- All modals -->
+<div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+    <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+        <div class="text-blue-500 text-5xl mb-4">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">Success!</h2>
+        <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+    </div>
+</div>
 
-        // Modal functions
-        function openModal(buttonElement, title, description) {
-            const gameCard = buttonElement.closest('.game-card');
-            let imgSrc;
-            const imgElement = gameCard.querySelector('.game-image');
+<div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
+    <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+        <div class="text-blue-500 text-5xl mb-4">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="text-2xl font-bold mb-2">Success!</h2>
+        <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+    </div>
+</div>
+
+<!-- ===== FIXED: SEO-OPTIMIZED HIDDEN LINKS FOR GOOGLE ===== -->
+<div style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
+    <!-- Main canonical references for all book pages -->
+    <link rel="canonical" href="https://freeebooks.online/the-ozempic-revolution-book">
+    <link rel="canonical" href="https://freeebooks.online/glucose-revolution-book">
+    <link rel="canonical" href="https://freeebooks.online/fast-like-a-girl-pdf">
+    <link rel="canonical" href="https://freeebooks.online/the-new-menopause-book-pdf-free-download">
+    <link rel="canonical" href="https://freeebooks.online/the-hunger-code-pdf">
+    <link rel="canonical" href="https://freeebooks.online/bite-me-book">
+    <link rel="canonical" href="https://freeebooks.online/the-4-hour-body-pdf">
+    <link rel="canonical" href="https://freeebooks.online/the-whole-30-book-pdf">
+    <link rel="canonical" href="https://freeebooks.online/weightless-book-pdf">
+    <link rel="canonical" href="https://freeebooks.online/the-menopause-reset-book">
+    <link rel="canonical" href="https://freeebooks.online/the-biblio-diet-pdf">
+    <link rel="canonical" href="https://freeebooks.online/the-glucose-goddess-method-pdf">
+    <link rel="canonical" href="https://freeebooks.online/meal-prep-weight-loss-recipes-pdf">
+    <link rel="canonical" href="https://freeebooks.online/mediterranean-diet-pdf">
+    <link rel="canonical" href="https://freeebooks.online/magic-weight-loss-pill-pdf">
+    <link rel="canonical" href="https://freeebooks.online/the-diabetes-code-pdf-free-download">
+    <link rel="canonical" href="https://freeebooks.online/the-obesity-code-pdf">
+    <link rel="canonical" href="https://freeebooks.online/how-not-to-diet-21-tweaks">
+    <link rel="canonical" href="https://freeebooks.online/joel-fuhrman-eat-to-live-book">
+    <link rel="canonical" href="https://freeebooks.online/the-complete-guide-to-fasting-jason-fung-pdf-free-download">
+    <link rel="canonical" href="https://freeebooks.online/fast-feast-repeat-audiobook-free-download">
+    <link rel="canonical" href="https://freeebooks.online/eat-to-beat-your-diet-pdf-download">
+    <link rel="canonical" href="https://freeebooks.online/the-galveston-diet-pdf">
+    <link rel="canonical" href="https://freeebooks.online/instant-loss-pdf">
+    <link rel="canonical" href="https://freeebooks.online/keto-continuum-pdf">
+    <link rel="canonical" href="https://freeebooks.online/super-body">
+    
+    <!-- Additional internal links for better crawling -->
+    <a href="https://freeebooks.online/all-books">Browse All Books</a>
+    <a href="https://freeebooks.online/contact">Contact Us</a>
+    <a href="https://freeebooks.online/donate">Donate</a>
+</div>
+<!-- ===== END OF FIXED SEO LINKS ===== -->
+
+<!-- DEFERRED JAVASCRIPT LIBRARIES -->
+
+<!-- Font Awesome - Deferred -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+
+<!-- MAIN JAVASCRIPT - DEFERRED -->
+<script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+    const body = document.body;
+
+    // Check for saved theme preference or prefer OS color scheme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.setAttribute('data-theme', 'dark');
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+          if (body.getAttribute('data-theme') === 'dark') {
+              body.removeAttribute('data-theme');
+              if (sunIcon) sunIcon.classList.remove('hidden');
+              if (moonIcon) moonIcon.classList.add('hidden');
+              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
+              localStorage.setItem('theme', 'light');
+          } else {
+              body.setAttribute('data-theme', 'dark');
+              if (sunIcon) sunIcon.classList.add('hidden');
+              if (moonIcon) moonIcon.classList.remove('hidden');
+              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+              localStorage.setItem('theme', 'dark');
+          }
+      });
+    }
+
+    // DOM elements
+    const contactModal = document.getElementById('contactModal');
+    const successModal = document.getElementById('successModal');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mainSearchInput = document.getElementById('mainSearchInput');
             
-            if (imgElement && imgElement.src) {
-                imgSrc = imgElement.src;
-            } 
-            else if (gameCard.querySelector('.coming-soon-image')) {
-                imgSrc = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=COMING+SOON'; 
-            } 
-            else {
-                imgSrc = 'https://placehold.co/400x400/f3f4f6/9ca3af?text=Image+Unavailable';
+    // Mobile menu toggle
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          menuBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    function openContactModal() {
+        if (!contactModal) return;
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          const content = contactModal.querySelector('.modal-content');
+          if (content) content.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+    }
+
+    function openSuccessModal() {
+        if (!successModal) return;
+        successModal.classList.remove('hidden');
+        setTimeout(() => {
+          const content = successModal.querySelector('.modal-content');
+          if (content) content.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+        setTimeout(() => closeModal('successModal'), 3000);
+    }
+    
+    function closeModal(modalId) {
+        const modalToClose = document.getElementById(modalId);
+        if (!modalToClose || modalToClose.classList.contains('hidden')) return;
+        
+        const content = modalToClose.querySelector('.modal-content');
+        if (content) content.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modalToClose.classList.add('hidden');
+            const isAnyModalOpen = (!contactModal || contactModal.classList.contains('hidden')) && (!successModal || successModal.classList.contains('hidden'));
+            if (!isAnyModalOpen) {
+                document.body.style.overflow = 'auto';
             }
+        }, 300);
+    }
 
-            document.getElementById('modal-title').textContent = title;
-            document.getElementById('modal-img').src = imgSrc;
-            document.getElementById('modal-description').textContent = description;
-            
-            gameModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => gameModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal('contactModal');
+            closeModal('successModal');
         }
+    });
+    
+    if (contactModal) {
+      contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
+    }
 
-        // Handle confirm button
-        if (modalConfirmBtn) {
-            modalConfirmBtn.addEventListener('click', function() {
-                closeModal('gameModal');
-                _di();
-            });
-        }
-
-        function closeModal(modalId) {
-            const modalToClose = document.getElementById(modalId);
-            if (!modalToClose || modalToClose.classList.contains('hidden')) return;
-            
-            modalToClose.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                modalToClose.classList.add('hidden');
-                const isAnyModalOpen = !gameModal.classList.contains('hidden') || !successModal.classList.contains('hidden') || !loadingModal.classList.contains('hidden');
-                if (!isAnyModalOpen) {
-                    document.body.style.overflow = 'auto';
-                }
-            }, 300);
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal('gameModal');
-                closeModal('successModal');
-                closeModal('loadingModal');
+    // FAQ toggle functionality
+    function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const isExpanded = element.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                item.classList.remove('active');
+                const otherAnswer = item.querySelector('.faq-answer');
+                if (otherAnswer) otherAnswer.classList.remove('open');
+                const otherQuestion = item.querySelector('.faq-question');
+                if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
             }
         });
         
-        if (gameModal) {
-            gameModal.addEventListener('click', (e) => { if(e.target === gameModal) closeModal('gameModal'); });
-        }
+        // Toggle current FAQ
+        faqItem.classList.toggle('active');
+        if (answer) answer.classList.toggle('open');
+        element.setAttribute('aria-expanded', !isExpanded);
+    }
 
-        // Contact form
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('Form Submitted with data:', new FormData(this));
-            this.reset();
-            openSuccessModal();
-        });
-
-        function openSuccessModal() {
-            successModal.classList.remove('hidden');
-            setTimeout(() => successModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-            setTimeout(() => closeModal('successModal'), 3000);
-        }
-
-        // FAQ toggle functionality
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            const answer = faqItem.querySelector('.faq-answer');
-            const isExpanded = element.getAttribute('aria-expanded') === 'true';
-            
-            // Close all other FAQs
-            document.querySelectorAll('.faq-item').forEach(item => {
-                if (item !== faqItem) {
-                    item.classList.remove('active');
-                    const otherAnswer = item.querySelector('.faq-answer');
-                    if (otherAnswer) otherAnswer.classList.remove('open');
-                    const otherQuestion = item.querySelector('.faq-question');
-                    if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
-                }
-            });
-            
-            // Toggle current FAQ
-            faqItem.classList.toggle('active');
-            if (answer) answer.classList.toggle('open');
-            element.setAttribute('aria-expanded', !isExpanded);
-        }
-
-        // Hero section animations
-        function animateHeroSection() {
-            const heroContent = document.querySelector('.hero-content');
-            const heroTitle = document.querySelector('.hero-title');
-            const heroCta = document.querySelector('.hero-cta');
-            
-            if (heroContent) setTimeout(() => heroContent.classList.add('animate'), 100);
-            if (heroTitle) setTimeout(() => heroTitle.classList.add('animate'), 300);
-            if (heroCta) setTimeout(() => heroCta.classList.add('animate'), 500);
-        }
+    // Hero section animations
+    function animateHeroSection() {
+        const heroContent = document.querySelector('.hero-content');
+        const heroTitle = document.querySelector('.hero-title');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        const heroBadges = document.querySelector('.hero-badges');
+        const heroCta = document.querySelector('.hero-cta');
         
-        // Scroll animation functionality
-        function animateOnScroll() {
-            const sections = document.querySelectorAll('section');
-            const gameCards = document.querySelectorAll('.game-card');
-            const sectionTitles = document.querySelectorAll('.section-title');
-            const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+        // Animate hero elements with delays
+        if (heroContent) setTimeout(() => heroContent.classList.add('animate'), 100);
+        if (heroTitle) setTimeout(() => heroTitle.classList.add('animate'), 300);
+        if (heroSubtitle) setTimeout(() => heroSubtitle.classList.add('animate'), 500);
+        if (heroBadges) setTimeout(() => heroBadges.classList.add('animate'), 700);
+        if (heroCta) setTimeout(() => heroCta.classList.add('animate'), 1000);
+    }
+    
+    // Scroll animation functionality
+    function animateOnScroll() {
+        const sections = document.querySelectorAll('section');
+        const bookCards = document.querySelectorAll('.book-card');
+        const sectionTitles = document.querySelectorAll('.section-title');
+        const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
             
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight * 0.85) {
-                    section.classList.add('animate');
-                }
-            });
+            if (sectionTop < windowHeight * 0.85) {
+                section.classList.add('animate');
+            }
+        });
+        
+        sectionTitles.forEach(title => {
+            const titleTop = title.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
             
-            sectionTitles.forEach(title => {
-                const titleTop = title.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (titleTop < windowHeight * 0.85) {
-                    title.classList.add('animate');
-                }
-            });
+            if (titleTop < windowHeight * 0.85) {
+                title.classList.add('animate');
+            }
+        });
+        
+        sectionSubtitles.forEach(subtitle => {
+            const subtitleTop = subtitle.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
             
-            sectionSubtitles.forEach(subtitle => {
-                const subtitleTop = subtitle.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (subtitleTop < windowHeight * 0.85) {
-                    subtitle.classList.add('animate');
-                }
-            });
+            if (subtitleTop < windowHeight * 0.85) {
+                subtitle.classList.add('animate');
+            }
+        });
+        
+        bookCards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
             
-            gameCards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (cardTop < windowHeight * 0.85) {
+            if (cardTop < windowHeight * 0.85) {
+                card.classList.add('animate');
+            }
+        });
+    }
+    
+    // Initial animation on page load
+    window.addEventListener('load', () => {
+        animateHeroSection();
+        animateOnScroll();
+        
+        // Animate book cards with a slight delay for a staggered effect
+        setTimeout(() => {
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach((card, index) => {
+                setTimeout(() => {
                     card.classList.add('animate');
+                }, index * 100);
+            });
+        }, 300);
+    });
+
+    // Animate on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Simple video looping
+    const video = document.querySelector('#video-section video');
+    if (video) {
+        video.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        });
+    }
+
+    // ========== VIDEO LOADING OPTIMIZATION ==========
+    // Video Loading Optimization - Add this after the video looping code
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('#video-section video');
+        const placeholder = document.querySelector('.video-placeholder');
+        
+        if (video) {
+            // Show video as soon as it starts loading
+            video.addEventListener('loadeddata', function() {
+                this.classList.add('loaded');
+                if (placeholder) {
+                    placeholder.style.opacity = '0';
+                    setTimeout(() => {
+                        placeholder.style.display = 'none';
+                    }, 500);
                 }
             });
-        }
-        
-        // Initial animation on page load
-        window.addEventListener('load', () => {
-            animateHeroSection();
-            animateOnScroll();
             
-            setTimeout(() => {
-                const gameCards = document.querySelectorAll('.game-card');
-                gameCards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('animate');
-                    }, index * 50);
-                });
-            }, 300);
-        });
+            // Fallback if video takes too long
+            setTimeout(function() {
+                if (video.readyState < 2) { // Not loaded yet
+                    if (placeholder) {
+                        placeholder.style.opacity = '0';
+                        placeholder.style.display = 'none';
+                    }
+                    video.classList.add('loaded');
+                }
+            }, 1000); // Hide placeholder after 1 second even if video not fully loaded
+        }
+    });
+    // ========== END VIDEO LOADING OPTIMIZATION ==========
+    // ========== MUSIC PLAYER CODE ==========
+    const musicToggle = document.getElementById('music-toggle');
+    const backgroundMusic = document.getElementById('background-music');
+    let musicPlaying = false;
+    let audioNotificationShown = false;
 
-        // Animate on scroll
-        window.addEventListener('scroll', animateOnScroll);
+    // Music toggle click handler
+    if (musicToggle && backgroundMusic) {
+      musicToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          
+          if (musicPlaying) {
+              backgroundMusic.pause();
+              updateMusicButton(false);
+              musicPlaying = false;
+          } else {
+              const playPromise = backgroundMusic.play();
+              
+              if (playPromise !== undefined) {
+                  playPromise.then(() => {
+                      updateMusicButton(true);
+                      musicPlaying = true;
+                  }).catch(error => {
+                      console.error('Audio play failed:', error);
+                      showAudioInstructions();
+                      updateMusicButton(false);
+                      musicPlaying = false;
+                  });
+              }
+          }
+      });
+    }
+
+    // Update music button appearance
+    function updateMusicButton(isPlaying) {
+        if (!musicToggle) return;
+        if (isPlaying) {
+            musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
+            musicToggle.classList.remove('from-blue-500', 'to-purple-600');
+            musicToggle.classList.add('from-green-500', 'to-green-600');
+        } else {
+            musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
+            musicToggle.classList.remove('from-green-500', 'to-green-600');
+            musicToggle.classList.add('from-blue-500', 'to-purple-600');
+        }
+    }
+
+    // Show audio instructions if autoplay fails
+    function showAudioInstructions() {
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
+        notification.innerHTML = `
+            <div class="flex items-center gap-2">
+                <i class="fas fa-info-circle text-sm"></i>
+                <span class="font-semibold text-sm">Click the music button to play audio</span>
+            </div>
+        `;
         
-        // ========== CAROUSEL FUNCTIONALITY ==========
-        function initCarousels() {
-            document.querySelectorAll('.carousel-container').forEach(container => {
-                const carousel = container.querySelector('.game-carousel');
-                const prevBtn = container.querySelector('.carousel-nav.prev');
-                const nextBtn = container.querySelector('.carousel-nav.next');
-                
-                if (!carousel) return;
-                
-                const scrollAmount = 200;
-                
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', () => {
-                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    });
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+
+    // Show "You hear?" notification after 5 seconds
+    function showAudioNotification() {
+        if (audioNotificationShown || musicPlaying) return;
+        
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
+        notification.innerHTML = `
+            <div class="flex items-center gap-2">
+                <i class="fas fa-music text-sm"></i>
+                <span class="font-semibold text-sm">You hear? </span>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        audioNotificationShown = true;
+        
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 4000);
+    }
+
+    // Initialize everything when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            // Show notification after 5 seconds
+            setTimeout(() => {
+                if (!musicPlaying && !audioNotificationShown) {
+                    showAudioNotification();
                 }
-                
-                if (prevBtn) {
-                    prevBtn.addEventListener('click', () => {
-                        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                    });
+            }, 5000);
+        } catch (error) {
+            console.error('Error in DOMContentLoaded:', error);
+        }
+    });
+
+    // Audio error handling
+    if (backgroundMusic) {
+        backgroundMusic.addEventListener('error', function(e) {
+            console.error('Audio error:', e);
+            if (backgroundMusic.src.includes('ElevenLabs')) {
+                backgroundMusic.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+                backgroundMusic.load();
+            }
+        });
+        
+        backgroundMusic.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play().catch(e => console.log('Auto-restart failed:', e));
+        });
+    }
+    // ========== END OF MUSIC PLAYER CODE ==========
+            
+    // ========== CAROUSEL FUNCTIONALITY ==========
+    function initCarousels() {
+        document.querySelectorAll('.carousel-container').forEach(container => {
+            const carousel = container.querySelector('.book-carousel');
+            const prevBtn = container.querySelector('.carousel-nav.prev');
+            const nextBtn = container.querySelector('.carousel-nav.next');
+            
+            if (!carousel) return;
+            
+            const scrollAmount = 200;
+            
+            if (nextBtn) {
+              nextBtn.addEventListener('click', () => {
+                  carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+              });
+            }
+            
+            if (prevBtn) {
+              prevBtn.addEventListener('click', () => {
+                  carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+              });
+            }
+            
+            let autoScroll = setInterval(() => {
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 }
-                
-                let autoScroll = setInterval(() => {
+            }, 5000);
+            
+            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+            carousel.addEventListener('mouseleave', () => {
+                autoScroll = setInterval(() => {
                     if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                         carousel.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
                         carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                     }
                 }, 5000);
-                
-                carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-                carousel.addEventListener('mouseleave', () => {
-                    autoScroll = setInterval(() => {
-                        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                            carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                        } else {
-                            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                        }
-                    }, 5000);
-                });
             });
-        }
+        });
+    }
 
-        // ========== SEARCH FUNCTIONALITY ==========
-        function initSearch() {
-            const searchInput = document.getElementById('mainSearchInput');
-            const allSections = document.querySelectorAll('section[id]');
-            const allGameCards = document.querySelectorAll('.game-card');
-            const noResultsMessage = document.getElementById('no-results-message');
+    // Initialize carousels when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            initCarousels();
+        } catch (error) {
+            console.error('Error initializing carousels:', error);
+        }
+    });
+    // ========== END OF CAROUSEL FUNCTIONALITY ==========
+    
+     // ========== SEARCH FUNCTIONALITY ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('mainSearchInput');
+        const allSections = document.querySelectorAll('section[id]');
+        const allBookCards = document.querySelectorAll('.book-card');
+        
+        if (!searchInput) return;
+        
+        searchInput.value = '';
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            const container = document.querySelector('.container.mx-auto.px-4.py-4');
             
-            if (!searchInput) return;
+            const existingMessage = document.getElementById('no-results-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
             
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                
-                if (searchTerm.length === 0) {
-                    allSections.forEach(section => {
-                        section.style.display = 'block';
-                        const games = section.querySelectorAll('.game-card');
-                        games.forEach(game => {
-                            game.style.display = 'flex';
-                            game.classList.remove('hidden');
-                        });
+            if (searchTerm.length === 0) {
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                    const books = section.querySelectorAll('.book-card');
+                    books.forEach(book => {
+                        book.style.display = 'flex';
+                        book.classList.remove('hidden');
                     });
-                    if (noResultsMessage) noResultsMessage.classList.add('hidden');
+                });
+                return;
+            }
+            
+            let hasResults = false;
+            
+            allSections.forEach(section => {
+                if (section.id === 'search-section') {
+                    section.style.display = 'block';
                     return;
                 }
                 
-                let hasResults = false;
+                const books = section.querySelectorAll('.book-card');
+                let sectionHasVisibleBooks = false;
                 
-                allSections.forEach(section => {
-                    if (section.id === 'search-section') {
-                        section.style.display = 'block';
-                        return;
-                    }
+                books.forEach(book => {
+                    const bookName = book.getAttribute('data-name')?.toLowerCase() || '';
+                    const bookTitle = book.querySelector('h3')?.textContent.toLowerCase() || '';
+                    const bookAlt = book.querySelector('img')?.getAttribute('alt')?.toLowerCase() || '';
                     
-                    const games = section.querySelectorAll('.game-card');
-                    let sectionHasVisibleGames = false;
-                    
-                    games.forEach(game => {
-                        const gameName = game.getAttribute('data-name')?.toLowerCase() || '';
-                        const gameTitle = game.querySelector('h3')?.textContent.toLowerCase() || '';
-                        const gameAlt = game.querySelector('img')?.getAttribute('alt')?.toLowerCase() || '';
-                        
-                        if (gameName.includes(searchTerm) || 
-                            gameTitle.includes(searchTerm) || 
-                            gameAlt.includes(searchTerm)) {
-                            game.style.display = 'flex';
-                            game.classList.remove('hidden');
-                            sectionHasVisibleGames = true;
-                            hasResults = true;
-                        } else {
-                            game.style.display = 'none';
-                            game.classList.add('hidden');
-                        }
-                    });
-                    
-                    const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
-                    const sectionSubtitle = section.querySelector('.section-subtitle')?.textContent.toLowerCase() || '';
-                    
-                    if (sectionHasVisibleGames || 
-                        sectionTitle.includes(searchTerm) ||
-                        sectionSubtitle.includes(searchTerm)) {
-                        section.style.display = 'block';
+                    if (bookName.includes(searchTerm) || 
+                        bookTitle.includes(searchTerm) || 
+                        bookAlt.includes(searchTerm)) {
+                        book.style.display = 'flex';
+                        book.classList.remove('hidden');
+                        sectionHasVisibleBooks = true;
+                        hasResults = true;
                     } else {
-                        section.style.display = 'none';
+                        book.style.display = 'none';
+                        book.classList.add('hidden');
                     }
                 });
                 
-                if (noResultsMessage) {
-                    if (!hasResults && searchTerm.length > 0) {
-                        noResultsMessage.classList.remove('hidden');
-                    } else {
-                        noResultsMessage.classList.add('hidden');
-                    }
+                const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
+                const sectionSubtitle = section.querySelector('.section-subtitle')?.textContent.toLowerCase() || '';
+                
+                if (sectionHasVisibleBooks || 
+                    sectionTitle.includes(searchTerm) ||
+                    sectionSubtitle.includes(searchTerm)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
                 }
             });
             
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    this.value = '';
-                    this.dispatchEvent(new Event('input'));
+            if (!hasResults && searchTerm.length > 0) {
+                const message = document.createElement('div');
+                message.id = 'no-results-message';
+                message.className = 'text-center py-8 text-gray-500';
+                message.innerHTML = `
+                    <i class="fas fa-search text-3xl mb-4 text-gray-400"></i>
+                    <h3 class="text-xl font-semibold mb-2">No books found</h3>
+                    <p>Try searching for different keywords like "weight loss", "diet", "fasting", etc.</p>
+                `;
+                if (container) {
+                    container.appendChild(message);
                 }
-            });
-        }
-
-        // Initialize everything when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                initCarousels();
-                initSearch();
-            } catch (error) {
-                console.error('Error initializing:', error);
             }
         });
-    </script>
-
-    <!-- Google Analytics -->
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z';
-                script.onload = function() {
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-6FR9YXVV8Z', { 
-                        'transport_type': 'beacon',
-                        'anonymize_ip': true
-                    });
-                };
-                document.head.appendChild(script);
-            }, 1500);
+        
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                this.value = '';
+                this.dispatchEvent(new Event('input'));
+            }
         });
-    </script>
+    });
+    // ========== END OF SEARCH FUNCTIONALITY ==========
+</script>
+
+<!-- Google Analytics - Loaded at bottom for better performance -->
+<script>
+  // Defer Google Analytics loading to prevent forced reflows
+  window.addEventListener('load', function() {
+      setTimeout(function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7';
+          script.onload = function() {
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-S67S0Q8HK7', { 
+                  'transport_type': 'beacon',
+                  'anonymize_ip': true
+              });
+          };
+          document.head.appendChild(script);
+      }, 1500); // Load GA after 1.5 seconds
+  });
+</script>
 </body>
-</html>
+                      </html>
