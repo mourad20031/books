@@ -7,54 +7,102 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
   <!-- Performance & Security Optimizations -->
-  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
   <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
-   <!-- Tailwind CSS - Loaded immediately to prevent flash -->
+   <!-- Tailwind CSS - Optimized Loading -->
+  <script>
+    // Mark Tailwind as loaded early
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('tailwind-loaded');
+    });
+  </script>
   <script src="https://cdn.tailwindcss.com"></script> 
+  
   <!-- Preconnect for critical third-party domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://i.postimg.cc">
-  <!-- Defer Google Tag Manager preconnect -->
   
   <!-- CRITICAL SEO FIX: Canonical URL for homepage -->
   <link rel="canonical" href="https://freeebooks.online">
   
-  <!-- Critical inline CSS (exactly your original CSS) -->
+  <!-- Critical inline CSS - Optimized for mobile -->
   <style>
-       /* === CRITICAL: Hide content until Tailwind loads === */
-    body:not(.tailwind-loaded) {
-      visibility: hidden;
-      opacity: 0;
+    /* === IMMEDIATE VISIBILITY FIXES === */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #1a1a1a;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
     
-    body.tailwind-loaded {
+    /* Header and menu immediate visibility */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Mobile menu button - ALWAYS VISIBLE */
+    #menu-btn {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 1000;
+    }
+    
+    /* Mobile menu styling */
+    #mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    #mobile-menu.active {
+      display: block;
+    }
+    
+    /* Video section - prevent blue flash */
+    #video-section {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+    }
+    
+    #video-section video {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    #video-section video.loaded {
+      opacity: 0.15;
+    }
+    
+    /* Ensure content is immediately visible */
+    .book-card, section, .container {
       visibility: visible;
       opacity: 1;
-      transition: opacity 0.3s ease;
     }
     
-    /* === CRITICAL FIX: Prevent flash of unstyled content === */
-    /* ... your existing code continues ... */
-    /* === CRITICAL FIX: Prevent flash of unstyled content === */
-    /* Add this at the very top without changing anything else */
-    body:not([data-theme]) {
-      background-color: #f8fafc !important;
-      color: #1a1a1a !important;
-    }
-    
-    body:not([data-theme]) .header-bg {
-      background-color: #ffffff !important;
-    }
-    
-    /* Now your original CSS exactly as you have it */
-    /* CSS Variables */
+    /* CSS Variables for theme */
     :root {
       --bg-color: #f8fafc;
       --text-color: #1a1a1a;
@@ -103,63 +151,6 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       position: relative;
       overflow: hidden;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .book-card.animate {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.6s ease;
-    }
-    .book-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
-      border-color: #3b82f6;
-    }
-    .btn-download {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: #ffffff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-    }
-    .btn-download:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    }
-    .btn-download:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
-    .btn-download.loading {
-      background: linear-gradient(90deg, #10b981, #059669, #10b981);
-      background-size: 200% 100%;
-      animation: loading-shine 2s infinite;
-    }
-    @keyframes loading-shine {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    .search-bar, .form-input {
-      background-color: var(--search-bg);
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    }
-    .modal-bg {
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-    }
-    .modal-content {
-      background-color: var(--modal-bg);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      color: var(--text-color);
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
     /* Book image styling */
@@ -612,14 +603,16 @@
     [data-theme="dark"] #search-section {
       background-color: var(--header-bg) !important;
     }
-/* === FIXED CAROUSEL STYLES FOR ALL SECTIONS === */
-.carousel-container {
-    position: relative;
-    padding: 0 2rem;
-    margin: 0 auto;
-    max-width: 100%;
-    overflow: hidden;
-}
+    
+    /* === FIXED CAROUSEL STYLES FOR ALL SECTIONS === */
+    .carousel-container {
+        position: relative;
+        padding: 0 2rem;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
     .book-carousel {
         display: flex;
         gap: 1rem;
@@ -788,22 +781,18 @@
     @font-face {
         font-display: swap;
     }
-       /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
+    
+    /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
     /* Fix for body overflow */
     body {
         overflow-x: hidden;
         width: 100%;
     }
+    
     /* ========== VIDEO LOADING OPTIMIZATION ========== */
     .video-placeholder {
         z-index: 5;
-        animation: placeholder-pulse 2s infinite;
         transition: opacity 0.5s ease;
-    }
-
-    @keyframes placeholder-pulse {
-        0%, 100% { opacity: 0.7; }
-        50% { opacity: 0.9; }
     }
 
     /* Video fade-in animation */
@@ -852,9 +841,25 @@
     @font-face {
         font-display: swap;
     }
+    
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+        #video-section {
+            height: 240px !important;
+        }
+        
+        .hero-title {
+            font-size: 1.5rem !important;
+        }
+        
+        .carousel-container {
+            padding: 0 1rem;
+        }
+    }
   </style>  
+  
   <!-- OPTIMIZED: Fonts with display=swap -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   
   <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
@@ -910,19 +915,21 @@
 
 </head>
 <body class="antialiased">
-<script>
-  // Mark Tailwind as loaded immediately
-  document.body.classList.add('tailwind-loaded');
-</script>
-<!-- FIX: Apply theme immediately to prevent flash -->
+<!-- Apply theme immediately -->
 <script>
   (function() {
-    // Apply theme BEFORE anything renders
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    
+    // Make sure menu button is immediately visible
+    const menuBtn = document.getElementById('menu-btn');
+    if (menuBtn) {
+      menuBtn.style.visibility = 'visible';
+      menuBtn.style.opacity = '1';
     }
   })();
 </script>
@@ -960,7 +967,7 @@
         </svg>
     </button>
     
-    <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Open mobile menu" aria-expanded="false">
+    <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Open mobile menu" aria-expanded="false" style="visibility: visible; opacity: 1;">
         <i class="fas fa-bars"></i>
     </button>
 </div>
@@ -988,7 +995,7 @@
                 <!-- Single Video Section - OPTIMIZED -->
 <section id="video-section" class="relative w-full h-96 overflow-hidden">
     <!-- Add loading placeholder that matches video aspect ratio -->
-    <div class="video-placeholder absolute inset-0 w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 animate-pulse" style="animation-duration: 2s;"></div>
+    <div class="video-placeholder absolute inset-0 w-full h-full bg-gradient-to-br from-blue-500 to-blue-600" style="animation-duration: 2s;"></div>
     
     <!-- Single Video with preload and loading="eager" -->
     <video 
@@ -997,10 +1004,10 @@
         muted 
         loop 
         playsinline 
-        preload="auto" 
-        loading="eager"
+        preload="metadata" 
+        loading="lazy"
         poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIHZpZXdCb3g9IjAgMCAxMjAwIDY3NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NzUiIGZpbGw9IiMzYjgyZjYiLz48L3N2Zz4="
-        onloadeddata="this.previousElementSibling.style.display='none'"
+        onloadeddata="this.previousElementSibling.style.display='none'; this.classList.add('loaded')"
         onerror="this.previousElementSibling.style.display='none'">
         <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
         <track kind="captions" src="" label="English" srclang="en" default>
@@ -1859,8 +1866,60 @@
 <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
 <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
 
-<!-- MAIN JAVASCRIPT - DEFERRED -->
+<!-- IMMEDIATE MOBILE MENU SCRIPT -->
 <script>
+    // Mobile menu functionality that works immediately
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (menuBtn && mobileMenu) {
+            // Make sure menu button is visible
+            menuBtn.style.visibility = 'visible';
+            menuBtn.style.opacity = '1';
+            
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(e.target) && 
+                    !menuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+        
+        // Video loading optimization
+        const video = document.querySelector('#video-section video');
+        if (video) {
+            video.addEventListener('loadeddata', function() {
+                this.classList.add('loaded');
+                const placeholder = this.previousElementSibling;
+                if (placeholder && placeholder.classList.contains('video-placeholder')) {
+                    placeholder.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+
+<!-- MAIN JAVASCRIPT - DEFERRED -->
+<script defer>
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
@@ -1899,19 +1958,7 @@
     // DOM elements
     const contactModal = document.getElementById('contactModal');
     const successModal = document.getElementById('successModal');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mainSearchInput = document.getElementById('mainSearchInput');
             
-    // Mobile menu toggle
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-          menuBtn.setAttribute('aria-expanded', !isExpanded);
-          mobileMenu.classList.toggle('hidden');
-      });
-    }
-
     function openContactModal() {
         if (!contactModal) return;
         contactModal.classList.remove('hidden');
@@ -2060,46 +2107,6 @@
     // Animate on scroll
     window.addEventListener('scroll', animateOnScroll);
     
-    // Simple video looping
-    const video = document.querySelector('#video-section video');
-    if (video) {
-        video.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        });
-    }
-
-    // ========== VIDEO LOADING OPTIMIZATION ==========
-    // Video Loading Optimization - Add this after the video looping code
-    document.addEventListener('DOMContentLoaded', function() {
-        const video = document.querySelector('#video-section video');
-        const placeholder = document.querySelector('.video-placeholder');
-        
-        if (video) {
-            // Show video as soon as it starts loading
-            video.addEventListener('loadeddata', function() {
-                this.classList.add('loaded');
-                if (placeholder) {
-                    placeholder.style.opacity = '0';
-                    setTimeout(() => {
-                        placeholder.style.display = 'none';
-                    }, 500);
-                }
-            });
-            
-            // Fallback if video takes too long
-            setTimeout(function() {
-                if (video.readyState < 2) { // Not loaded yet
-                    if (placeholder) {
-                        placeholder.style.opacity = '0';
-                        placeholder.style.display = 'none';
-                    }
-                    video.classList.add('loaded');
-                }
-            }, 1000); // Hide placeholder after 1 second even if video not fully loaded
-        }
-    });
-    // ========== END VIDEO LOADING OPTIMIZATION ==========
     // ========== MUSIC PLAYER CODE ==========
     const musicToggle = document.getElementById('music-toggle');
     const backgroundMusic = document.getElementById('background-music');
@@ -2243,25 +2250,6 @@
                   carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
               });
             }
-            
-            let autoScroll = setInterval(() => {
-                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
-            }, 5000);
-            
-            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-            carousel.addEventListener('mouseleave', () => {
-                autoScroll = setInterval(() => {
-                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    }
-                }, 5000);
-            });
         });
     }
 
