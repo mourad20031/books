@@ -930,11 +930,19 @@
        <!-- Header - Fixed with SVG icons for instant loading -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-           <a href="https://freeebooks.online" class="flex items-center">
-    <h1 class="text-lg font-bold text-gray-900 tracking-tight">
-        <svg class="w-5 h-5 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+           <!-- UPDATED HEADER LOGO WITH DOUBLE ICON EFFECT -->
+<a href="https://freeebooks.online" class="flex items-center">
+    <div class="relative">
+        <!-- Book Icon Background -->
+        <svg class="w-8 h-8 text-blue-500/20 absolute -left-1 -top-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
         </svg>
+        <!-- Main Book Icon -->
+        <svg class="w-5 h-5 text-blue-500 mr-1 relative z-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+        </svg>
+    </div>
+    <h1 class="text-lg font-bold text-gray-900 tracking-tight relative">
         <span class="sr-only">Free Weight Loss Ebooks - Download Premium Diet Books</span>
         <span aria-hidden="true">Free<span class="text-blue-500">Ebooks</span></span>
     </h1>
@@ -1667,56 +1675,88 @@
     </audio>
 </div>
 
-        <section id="faq-section" class="py-12 bg-gray-50 -mx-4 px-4 md:-mx-8 md:px-8">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Frequently Asked Questions</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
+        <!-- UPDATED FAQ SECTION - Now properly centered with icons -->
+<section id="faq-section" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Frequently Asked Questions</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- FAQ Content - Now centered with proper width -->
+            <div class="lg:col-start-3 lg:col-span-8">
+                <div class="max-w-3xl mx-auto">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
+                            <h3 class="text-lg font-semibold">Are these books really free to download?</h3>
+                            <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone. Our platform is supported by donations and partnerships with publishers who share our vision of making literature available to all.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
+                            <h3 class="text-lg font-semibold">What formats are available for download?</h3>
+                            <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats. Most books are available in at least 2-3 different formats to ensure compatibility with various e-readers and devices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
+                            <h3 class="text-lg font-semibold">How often are new books added?</h3>
+                            <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">We add new books regularly, typically several times per week. Our team works constantly to provide the latest and most popular titles across various genres. You can check back frequently or subscribe to our newsletter for updates on new releases.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
+                            <h3 class="text-lg font-semibold">Do I need to create an account to download books?</h3>
+                            <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="text-gray-600">No account is required for downloading books. We believe in making the process as simple as possible. However, creating a free account allows you to bookmark favorites, track your reading progress, and receive personalized recommendations.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="max-w-3xl mx-auto">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">Are these books really free to download?</h3>
-                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="text-gray-600">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone. Our platform is supported by donations and partnerships with publishers who share our vision of making literature available to all.</p>
-                    </div>
+            <!-- Side Icon - Matches Footer -->
+            <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 flex justify-center lg:justify-start items-start lg:pt-12">
+                <div class="bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-2xl shadow-lg">
+                    <i class="fas fa-question-circle text-5xl text-blue-500"></i>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">What formats are available for download?</h3>
-                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="text-gray-600">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats. Most books are available in at least 2-3 different formats to ensure compatibility with various e-readers and devices.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">How often are new books added?</h3>
-                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="text-gray-600">We add new books regularly, typically several times per week. Our team works constantly to provide the latest and most popular titles across various genres. You can check back frequently or subscribe to our newsletter for updates on new releases.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0">
-                        <h3 class="text-lg font-semibold">Do I need to create an account to download books?</h3>
-                        <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="text-gray-600">No account is required for downloading books. We believe in making the process as simple as possible. However, creating a free account allows you to bookmark favorites, track your reading progress, and receive personalized recommendations.</p>
-                    </div>
+            </div>
+            
+            <!-- Extra Side Content (Optional) -->
+            <div class="lg:col-span-2 lg:col-start-11 lg:row-start-1 flex justify-center lg:justify-end items-start lg:pt-12">
+                <div class="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-2xl shadow-lg">
+                    <i class="fas fa-headset text-5xl text-green-500"></i>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- FAQ Contact CTA -->
+        <div class="mt-12 text-center">
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 max-w-3xl mx-auto">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Still have questions?</h3>
+                <p class="text-gray-600 mb-6">Can't find the answer you're looking for? Please contact our team.</p>
+                <a href="https://freeebooks.online/contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold py-3 px-8 rounded-full hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <i class="fas fa-envelope"></i>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Professional Footer - Matches Page Padding -->
 <footer class="header-bg border-t border-gray-100 py-8" style="width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); left: 0; right: 0; position: relative;">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
