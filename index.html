@@ -788,6 +788,32 @@
     @font-face {
         font-display: swap;
     }
+   /* FIX: Prevent Font Awesome icon flash */
+/* Hide icons until Font Awesome CSS loads */
+body:not(.fa-loaded) .fa,
+body:not(.fa-loaded) .fas,
+body:not(.fa-loaded) .far,
+body:not(.fa-loaded) .fal,
+body:not(.fa-loaded) .fab {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show icons after Font Awesome loads */
+body.fa-loaded .fa,
+body.fa-loaded .fas,
+body.fa-loaded .far,
+body.fa-loaded .fal,
+body.fa-loaded .fab {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure fallback font for Font Awesome icons */
+.fa, .fas, .far, .fal, .fab {
+    font-family: 'Font Awesome 6 Free', 'Segoe UI', Arial, sans-serif !important;
+}
        /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
     /* Fix for body overflow */
     body {
@@ -1854,10 +1880,8 @@
 <!-- ===== END OF FIXED SEO LINKS ===== -->
 
 <!-- DEFERRED JAVASCRIPT LIBRARIES -->
-
-<!-- Font Awesome - Deferred -->
-<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+<!-- Font Awesome - Loaded immediately to prevent icon flash -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 
 <!-- MAIN JAVASCRIPT - DEFERRED -->
 <script>
@@ -2100,6 +2124,20 @@
         }
     });
     // ========== END VIDEO LOADING OPTIMIZATION ==========
+ // Fix Font Awesome icon flash on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Mark Font Awesome as loaded to prevent icon flash
+    setTimeout(() => {
+        document.body.classList.add('fa-loaded');
+    }, 100);
+    
+    // Alternative: Use Font Awesome's loading detection
+    if (typeof FontAwesome !== 'undefined') {
+        FontAwesome.config = {
+            autoReplaceSvg: 'nest'
+        };
+    }
+});
     // ========== MUSIC PLAYER CODE ==========
     const musicToggle = document.getElementById('music-toggle');
     const backgroundMusic = document.getElementById('background-music');
