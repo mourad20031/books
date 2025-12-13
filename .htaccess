@@ -1,10 +1,1 @@
-# Remove .html extensions
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-# Force HTTPS and non-www
-RewriteCond %{HTTP_HOST} ^www\.freeebooks\.online [NC]
-RewriteRule ^(.*)$ https://freeebooks.online/$1 [L,R=301]
-
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://freeebooks.online/$1 [L,R=301]
