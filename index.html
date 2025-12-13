@@ -21,36 +21,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://i.postimg.cc">
-  <!-- Defer Google Tag Manager preconnect -->
   
   <!-- CRITICAL SEO FIX: Canonical URL for homepage -->
   <link rel="canonical" href="https://freeebooks.online">
   
   <!-- Critical inline CSS (exactly your original CSS) -->
   <style>
-       /* === CRITICAL: Hide content until Tailwind loads === */
-    body:not(.tailwind-loaded) {
-      visibility: hidden;
+    /* === CRITICAL: Prevent flash of unstyled content === */
+    body:not(.loaded) {
       opacity: 0;
+      visibility: hidden;
     }
     
-    body.tailwind-loaded {
-      visibility: visible;
+    body.loaded {
       opacity: 1;
+      visibility: visible;
       transition: opacity 0.3s ease;
     }
     
-    /* === CRITICAL FIX: Prevent flash of unstyled content === */
-    /* ... your existing code continues ... */
-    /* === CRITICAL FIX: Prevent flash of unstyled content === */
-    /* Add this at the very top without changing anything else */
-    body:not([data-theme]) {
-      background-color: #f8fafc !important;
-      color: #1a1a1a !important;
-    }
-    
-    body:not([data-theme]) .header-bg {
-      background-color: #ffffff !important;
+    /* === FIX: Prevent header icon flash === */
+    .header-icons-loaded .fas,
+    .header-icons-loaded .fab,
+    .header-icons-loaded .fa {
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     
     /* Now your original CSS exactly as you have it */
@@ -790,21 +784,17 @@
     }
    /* FIX: Prevent Font Awesome icon flash */
 /* Hide icons until Font Awesome CSS loads */
-body:not(.fa-loaded) .fa,
-body:not(.fa-loaded) .fas,
-body:not(.fa-loaded) .far,
-body:not(.fa-loaded) .fal,
-body:not(.fa-loaded) .fab {
+body:not(.icons-loaded) .fas,
+body:not(.icons-loaded) .fab,
+body:not(.icons-loaded) .fa {
     opacity: 0;
     visibility: hidden;
 }
 
 /* Show icons after Font Awesome loads */
-body.fa-loaded .fa,
-body.fa-loaded .fas,
-body.fa-loaded .far,
-body.fa-loaded .fal,
-body.fa-loaded .fab {
+body.icons-loaded .fas,
+body.icons-loaded .fab,
+body.icons-loaded .fa {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease;
@@ -878,10 +868,71 @@ body.fa-loaded .fab {
     @font-face {
         font-display: swap;
     }
+    
+    /* FIX: Improved theme handling */
+    body {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* FIX: Video section with proper background */
+    #video-section {
+        background: transparent;
+        min-height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #video-section video {
+        background: transparent;
+    }
+    
+    [data-theme="light"] #video-section,
+    [data-theme="dark"] #video-section {
+        background: transparent;
+    }
+    
+    /* FIX: Header icon loading */
+    .fas, .fab, .fa {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+        display: inline-block !important;
+        font-style: normal !important;
+        font-variant: normal !important;
+        text-rendering: auto !important;
+        line-height: 1 !important;
+    }
+    
+    /* Pre-load font awesome fallback */
+    .fa-book:before {
+      content: "📚";
+    }
+    
+    .fa-heart:before {
+      content: "❤️";
+    }
+    
+    .fa-search:before {
+      content: "🔍";
+    }
+    
+    .fa-star:before {
+      content: "★";
+    }
+    
+    .fa-download:before {
+      content: "↓";
+    }
+    
+    .fa-bars:before {
+      content: "☰";
+    }
   </style>  
   <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Font Awesome - Load with higher priority -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
   
   <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
 <meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
@@ -937,19 +988,19 @@ body.fa-loaded .fab {
 </head>
 <body class="antialiased">
 <script>
-  // Mark Tailwind as loaded immediately
-  document.body.classList.add('tailwind-loaded');
-</script>
-<!-- FIX: Apply theme immediately to prevent flash -->
-<script>
+  // Apply theme BEFORE anything renders
   (function() {
-    // Apply theme BEFORE anything renders
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
+    
+    // Mark body as loaded to prevent FOUC
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, 50);
   })();
 </script>
 
@@ -1879,387 +1930,172 @@ body.fa-loaded .fab {
 </div>
 <!-- ===== END OF FIXED SEO LINKS ===== -->
 
-<!-- DEFERRED JAVASCRIPT LIBRARIES -->
-<!-- Font Awesome - Loaded immediately to prevent icon flash -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-
-<!-- MAIN JAVASCRIPT - DEFERRED -->
+<!-- DEFERRED JAVASCRIPT -->
 <script>
-    // Theme Toggle Functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = document.getElementById('sunIcon');
-    const moonIcon = document.getElementById('moonIcon');
-    const body = document.body;
-
-    // Check for saved theme preference or prefer OS color scheme
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        body.setAttribute('data-theme', 'dark');
-        if (sunIcon) sunIcon.classList.add('hidden');
-        if (moonIcon) moonIcon.classList.remove('hidden');
-        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-          if (body.getAttribute('data-theme') === 'dark') {
-              body.removeAttribute('data-theme');
-              if (sunIcon) sunIcon.classList.remove('hidden');
-              if (moonIcon) moonIcon.classList.add('hidden');
-              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
-              localStorage.setItem('theme', 'light');
-          } else {
-              body.setAttribute('data-theme', 'dark');
-              if (sunIcon) sunIcon.classList.add('hidden');
-              if (moonIcon) moonIcon.classList.remove('hidden');
-              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-              localStorage.setItem('theme', 'dark');
-          }
-      });
-    }
-
-    // DOM elements
-    const contactModal = document.getElementById('contactModal');
-    const successModal = document.getElementById('successModal');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mainSearchInput = document.getElementById('mainSearchInput');
-            
-    // Mobile menu toggle
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-          menuBtn.setAttribute('aria-expanded', !isExpanded);
-          mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    function openContactModal() {
-        if (!contactModal) return;
-        contactModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-          const content = contactModal.querySelector('.modal-content');
-          if (content) content.classList.remove('scale-95', 'opacity-0');
-        }, 10);
-    }
-
-    function openSuccessModal() {
-        if (!successModal) return;
-        successModal.classList.remove('hidden');
-        setTimeout(() => {
-          const content = successModal.querySelector('.modal-content');
-          if (content) content.classList.remove('scale-95', 'opacity-0');
-        }, 10);
-        setTimeout(() => closeModal('successModal'), 3000);
-    }
-    
-    function closeModal(modalId) {
-        const modalToClose = document.getElementById(modalId);
-        if (!modalToClose || modalToClose.classList.contains('hidden')) return;
-        
-        const content = modalToClose.querySelector('.modal-content');
-        if (content) content.classList.add('scale-95', 'opacity-0');
-        setTimeout(() => {
-            modalToClose.classList.add('hidden');
-            const isAnyModalOpen = (!contactModal || contactModal.classList.contains('hidden')) && (!successModal || successModal.classList.contains('hidden'));
-            if (!isAnyModalOpen) {
-                document.body.style.overflow = 'auto';
-            }
-        }, 300);
-    }
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeModal('contactModal');
-            closeModal('successModal');
-        }
-    });
-    
-    if (contactModal) {
-      contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
-    }
-
-    // FAQ toggle functionality
-    function toggleFAQ(element) {
-        const faqItem = element.parentElement;
-        const answer = faqItem.querySelector('.faq-answer');
-        const isExpanded = element.getAttribute('aria-expanded') === 'true';
-        
-        // Close all other FAQs
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== faqItem) {
-                item.classList.remove('active');
-                const otherAnswer = item.querySelector('.faq-answer');
-                if (otherAnswer) otherAnswer.classList.remove('open');
-                const otherQuestion = item.querySelector('.faq-question');
-                if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // Toggle current FAQ
-        faqItem.classList.toggle('active');
-        if (answer) answer.classList.toggle('open');
-        element.setAttribute('aria-expanded', !isExpanded);
-    }
-
-    // Hero section animations
-    function animateHeroSection() {
-        const heroContent = document.querySelector('.hero-content');
-        const heroTitle = document.querySelector('.hero-title');
-        const heroSubtitle = document.querySelector('.hero-subtitle');
-        const heroBadges = document.querySelector('.hero-badges');
-        const heroCta = document.querySelector('.hero-cta');
-        
-        // Animate hero elements with delays
-        if (heroContent) setTimeout(() => heroContent.classList.add('animate'), 100);
-        if (heroTitle) setTimeout(() => heroTitle.classList.add('animate'), 300);
-        if (heroSubtitle) setTimeout(() => heroSubtitle.classList.add('animate'), 500);
-        if (heroBadges) setTimeout(() => heroBadges.classList.add('animate'), 700);
-        if (heroCta) setTimeout(() => heroCta.classList.add('animate'), 1000);
-    }
-    
-    // Scroll animation functionality
-    function animateOnScroll() {
-        const sections = document.querySelectorAll('section');
-        const bookCards = document.querySelectorAll('.book-card');
-        const sectionTitles = document.querySelectorAll('.section-title');
-        const sectionSubtitles = document.querySelectorAll('.section-subtitle');
-        
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (sectionTop < windowHeight * 0.85) {
-                section.classList.add('animate');
-            }
-        });
-        
-        sectionTitles.forEach(title => {
-            const titleTop = title.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (titleTop < windowHeight * 0.85) {
-                title.classList.add('animate');
-            }
-        });
-        
-        sectionSubtitles.forEach(subtitle => {
-            const subtitleTop = subtitle.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (subtitleTop < windowHeight * 0.85) {
-                subtitle.classList.add('animate');
-            }
-        });
-        
-        bookCards.forEach(card => {
-            const cardTop = card.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (cardTop < windowHeight * 0.85) {
-                card.classList.add('animate');
-            }
-        });
-    }
-    
-    // Initial animation on page load
-    window.addEventListener('load', () => {
-        animateHeroSection();
-        animateOnScroll();
-        
-        // Animate book cards with a slight delay for a staggered effect
-        setTimeout(() => {
-            const bookCards = document.querySelectorAll('.book-card');
-            bookCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate');
-                }, index * 100);
-            });
-        }, 300);
-    });
-
-    // Animate on scroll
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Simple video looping
-    const video = document.querySelector('#video-section video');
-    if (video) {
-        video.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        });
-    }
-
-    // ========== VIDEO LOADING OPTIMIZATION ==========
-    // Video Loading Optimization - Add this after the video looping code
-    document.addEventListener('DOMContentLoaded', function() {
-        const video = document.querySelector('#video-section video');
-        const placeholder = document.querySelector('.video-placeholder');
-        
-        if (video) {
-            // Show video as soon as it starts loading
-            video.addEventListener('loadeddata', function() {
-                this.classList.add('loaded');
-                if (placeholder) {
-                    placeholder.style.opacity = '0';
-                    setTimeout(() => {
-                        placeholder.style.display = 'none';
-                    }, 500);
-                }
-            });
-            
-            // Fallback if video takes too long
-            setTimeout(function() {
-                if (video.readyState < 2) { // Not loaded yet
-                    if (placeholder) {
-                        placeholder.style.opacity = '0';
-                        placeholder.style.display = 'none';
-                    }
-                    video.classList.add('loaded');
-                }
-            }, 1000); // Hide placeholder after 1 second even if video not fully loaded
-        }
-    });
-    // ========== END VIDEO LOADING OPTIMIZATION ==========
- // Fix Font Awesome icon flash on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Mark Font Awesome as loaded to prevent icon flash
-    setTimeout(() => {
-        document.body.classList.add('fa-loaded');
-    }, 100);
-    
-    // Alternative: Use Font Awesome's loading detection
-    if (typeof FontAwesome !== 'undefined') {
-        FontAwesome.config = {
-            autoReplaceSvg: 'nest'
-        };
-    }
-});
-    // ========== MUSIC PLAYER CODE ==========
-    const musicToggle = document.getElementById('music-toggle');
-    const backgroundMusic = document.getElementById('background-music');
-    let musicPlaying = false;
-    let audioNotificationShown = false;
-
-    // Music toggle click handler
-    if (musicToggle && backgroundMusic) {
-      musicToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          
-          if (musicPlaying) {
-              backgroundMusic.pause();
-              updateMusicButton(false);
-              musicPlaying = false;
-          } else {
-              const playPromise = backgroundMusic.play();
-              
-              if (playPromise !== undefined) {
-                  playPromise.then(() => {
-                      updateMusicButton(true);
-                      musicPlaying = true;
-                  }).catch(error => {
-                      console.error('Audio play failed:', error);
-                      showAudioInstructions();
-                      updateMusicButton(false);
-                      musicPlaying = false;
-                  });
-              }
-          }
-      });
-    }
-
-    // Update music button appearance
-    function updateMusicButton(isPlaying) {
-        if (!musicToggle) return;
-        if (isPlaying) {
-            musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
-            musicToggle.classList.remove('from-blue-500', 'to-purple-600');
-            musicToggle.classList.add('from-green-500', 'to-green-600');
-        } else {
-            musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
-            musicToggle.classList.remove('from-green-500', 'to-green-600');
-            musicToggle.classList.add('from-blue-500', 'to-purple-600');
-        }
-    }
-
-    // Show audio instructions if autoplay fails
-    function showAudioInstructions() {
-        const notification = document.createElement('div');
-        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
-        notification.innerHTML = `
-            <div class="flex items-center gap-2">
-                <i class="fas fa-info-circle text-sm"></i>
-                <span class="font-semibold text-sm">Click the music button to play audio</span>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.remove();
-            }
-        }, 5000);
-    }
-
-    // Show "You hear?" notification after 5 seconds
-    function showAudioNotification() {
-        if (audioNotificationShown || musicPlaying) return;
-        
-        const notification = document.createElement('div');
-        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
-        notification.innerHTML = `
-            <div class="flex items-center gap-2">
-                <i class="fas fa-music text-sm"></i>
-                <span class="font-semibold text-sm">You hear? </span>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        audioNotificationShown = true;
-        
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.remove();
-            }
-        }, 4000);
-    }
-
     // Initialize everything when the page loads
     document.addEventListener('DOMContentLoaded', function() {
-        try {
-            // Show notification after 5 seconds
-            setTimeout(() => {
-                if (!musicPlaying && !audioNotificationShown) {
-                    showAudioNotification();
-                }
-            }, 5000);
-        } catch (error) {
-            console.error('Error in DOMContentLoaded:', error);
+        // Mark icons as loaded
+        document.body.classList.add('icons-loaded');
+        
+        // Initialize all functionality
+        initThemeToggle();
+        initMobileMenu();
+        initCarousels();
+        initSearch();
+        initAnimations();
+        initFAQ();
+        initMusicPlayer();
+        
+        // Mark video as loaded
+        const video = document.querySelector('#video-section video');
+        if (video) {
+            video.addEventListener('loadeddata', function() {
+                this.classList.add('loaded');
+            });
         }
+        
+        // Animate book cards
+        setTimeout(() => {
+            document.querySelectorAll('.book-card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 50);
+            });
+        }, 300);
     });
-
-    // Audio error handling
-    if (backgroundMusic) {
-        backgroundMusic.addEventListener('error', function(e) {
-            console.error('Audio error:', e);
-            if (backgroundMusic.src.includes('ElevenLabs')) {
-                backgroundMusic.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-                backgroundMusic.load();
+    
+    // ========== THEME TOGGLE ==========
+    function initThemeToggle() {
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const html = document.documentElement;
+        
+        if (!themeToggle) return;
+        
+        // Set initial state
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            html.setAttribute('data-theme', 'dark');
+            if (sunIcon) sunIcon.classList.add('hidden');
+            if (moonIcon) moonIcon.classList.remove('hidden');
+            themeToggle.setAttribute('aria-pressed', 'true');
+        } else {
+            html.removeAttribute('data-theme');
+            if (sunIcon) sunIcon.classList.remove('hidden');
+            if (moonIcon) moonIcon.classList.add('hidden');
+            themeToggle.setAttribute('aria-pressed', 'false');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
+                themeToggle.setAttribute('aria-pressed', 'false');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+                themeToggle.setAttribute('aria-pressed', 'true');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+    
+    // ========== MOBILE MENU ==========
+    function initMobileMenu() {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (!menuBtn || !mobileMenu) return;
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            
+            // Toggle menu icon
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
         
-        backgroundMusic.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play().catch(e => console.log('Auto-restart failed:', e));
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') && 
+                !menuBtn.contains(e.target) && 
+                !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     }
-    // ========== END OF MUSIC PLAYER CODE ==========
+    
+    // ========== ANIMATIONS ==========
+    function initAnimations() {
+        // Hero section animations
+        const heroContent = document.querySelector('.hero-content');
+        const heroTitle = document.querySelector('.hero-title');
+        const heroCta = document.querySelector('.hero-cta');
+        
+        if (heroContent) setTimeout(() => heroContent.classList.add('animate'), 100);
+        if (heroTitle) setTimeout(() => heroTitle.classList.add('animate'), 300);
+        if (heroCta) setTimeout(() => heroCta.classList.add('animate'), 500);
+        
+        // Scroll animations
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('section');
+            const sectionTitles = document.querySelectorAll('.section-title');
+            const sectionSubtitles = document.querySelectorAll('.section-subtitle');
             
-    // ========== CAROUSEL FUNCTIONALITY ==========
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('animate');
+                }
+            });
+            
+            sectionTitles.forEach(title => {
+                const titleTop = title.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (titleTop < windowHeight * 0.85) {
+                    title.classList.add('animate');
+                }
+            });
+            
+            sectionSubtitles.forEach(subtitle => {
+                const subtitleTop = subtitle.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (subtitleTop < windowHeight * 0.85) {
+                    subtitle.classList.add('animate');
+                }
+            });
+        }
+        
+        // Initial animation
+        animateOnScroll();
+        
+        // Listen for scroll
+        window.addEventListener('scroll', animateOnScroll);
+    }
+    
+    // ========== CAROUSELS ==========
     function initCarousels() {
         document.querySelectorAll('.carousel-container').forEach(container => {
             const carousel = container.querySelector('.book-carousel');
@@ -2271,17 +2107,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollAmount = 200;
             
             if (nextBtn) {
-              nextBtn.addEventListener('click', () => {
-                  carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-              });
+                nextBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
             }
             
             if (prevBtn) {
-              prevBtn.addEventListener('click', () => {
-                  carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-              });
+                prevBtn.addEventListener('click', () => {
+                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
             }
             
+            // Auto-scroll
             let autoScroll = setInterval(() => {
                 if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
@@ -2290,6 +2127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }, 5000);
             
+            // Pause on hover
             carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
             carousel.addEventListener('mouseleave', () => {
                 autoScroll = setInterval(() => {
@@ -2302,22 +2140,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // Initialize carousels when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        try {
-            initCarousels();
-        } catch (error) {
-            console.error('Error initializing carousels:', error);
-        }
-    });
-    // ========== END OF CAROUSEL FUNCTIONALITY ==========
     
-     // ========== SEARCH FUNCTIONALITY ==========
-    document.addEventListener('DOMContentLoaded', function() {
+    // ========== SEARCH ==========
+    function initSearch() {
         const searchInput = document.getElementById('mainSearchInput');
         const allSections = document.querySelectorAll('section[id]');
         const allBookCards = document.querySelectorAll('.book-card');
+        const container = document.querySelector('.container.mx-auto.px-4.py-4');
         
         if (!searchInput) return;
         
@@ -2325,7 +2154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
-            const container = document.querySelector('.container.mx-auto.px-4.py-4');
             
             const existingMessage = document.getElementById('no-results-message');
             if (existingMessage) {
@@ -2406,8 +2234,145 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.dispatchEvent(new Event('input'));
             }
         });
+    }
+    
+    // ========== FAQ ==========
+    function initFAQ() {
+        window.toggleFAQ = function(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isExpanded = element.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                    const otherAnswer = item.querySelector('.faq-answer');
+                    if (otherAnswer) otherAnswer.classList.remove('open');
+                    const otherQuestion = item.querySelector('.faq-question');
+                    if (otherQuestion) otherQuestion.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Toggle current FAQ
+            faqItem.classList.toggle('active');
+            if (answer) answer.classList.toggle('open');
+            element.setAttribute('aria-expanded', !isExpanded);
+        };
+        
+        // Add keyboard support for FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFAQ(question);
+                }
+            });
+        });
+    }
+    
+    // ========== MUSIC PLAYER ==========
+    function initMusicPlayer() {
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+        let musicPlaying = false;
+        
+        if (!musicToggle || !backgroundMusic) return;
+        
+        musicToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                updateMusicButton(false);
+                musicPlaying = false;
+            } else {
+                const playPromise = backgroundMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        updateMusicButton(true);
+                        musicPlaying = true;
+                    }).catch(error => {
+                        console.error('Audio play failed:', error);
+                        updateMusicButton(false);
+                        musicPlaying = false;
+                    });
+                }
+            }
+        });
+        
+        // Update music button appearance
+        function updateMusicButton(isPlaying) {
+            if (!musicToggle) return;
+            if (isPlaying) {
+                musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
+                musicToggle.classList.remove('from-blue-500', 'to-purple-600');
+                musicToggle.classList.add('from-green-500', 'to-green-600');
+            } else {
+                musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
+                musicToggle.classList.remove('from-green-500', 'to-green-600');
+                musicToggle.classList.add('from-blue-500', 'to-purple-600');
+            }
+        }
+    }
+    
+    // ========== MODAL FUNCTIONS ==========
+    function openContactModal() {
+        const contactModal = document.getElementById('contactModal');
+        if (!contactModal) return;
+        contactModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            const content = contactModal.querySelector('.modal-content');
+            if (content) content.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+    }
+    
+    function openSuccessModal() {
+        const successModal = document.getElementById('successModal');
+        if (!successModal) return;
+        successModal.classList.remove('hidden');
+        setTimeout(() => {
+            const content = successModal.querySelector('.modal-content');
+            if (content) content.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+        setTimeout(() => closeModal('successModal'), 3000);
+    }
+    
+    function closeModal(modalId) {
+        const modalToClose = document.getElementById(modalId);
+        if (!modalToClose || modalToClose.classList.contains('hidden')) return;
+        
+        const content = modalToClose.querySelector('.modal-content');
+        if (content) content.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modalToClose.classList.add('hidden');
+            const isAnyModalOpen = (!document.getElementById('contactModal') || document.getElementById('contactModal').classList.contains('hidden')) && 
+                                 (!document.getElementById('successModal') || document.getElementById('successModal').classList.contains('hidden'));
+            if (!isAnyModalOpen) {
+                document.body.style.overflow = 'auto';
+            }
+        }, 300);
+    }
+    
+    // Close modals on ESC
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal('contactModal');
+            closeModal('successModal');
+        }
     });
-    // ========== END OF SEARCH FUNCTIONALITY ==========
+    
+    // Close modals on background click
+    document.querySelectorAll('.modal-bg').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                const modalId = modal.id;
+                closeModal(modalId);
+            }
+        });
+    });
 </script>
 
 <!-- Google Analytics - Loaded at bottom for better performance -->
