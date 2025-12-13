@@ -788,32 +788,6 @@
     @font-face {
         font-display: swap;
     }
-   /* FIX: Prevent Font Awesome icon flash */
-/* Hide icons until Font Awesome CSS loads */
-body:not(.fa-loaded) .fa,
-body:not(.fa-loaded) .fas,
-body:not(.fa-loaded) .far,
-body:not(.fa-loaded) .fal,
-body:not(.fa-loaded) .fab {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Show icons after Font Awesome loads */
-body.fa-loaded .fa,
-body.fa-loaded .fas,
-body.fa-loaded .far,
-body.fa-loaded .fal,
-body.fa-loaded .fab {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease;
-}
-
-/* Ensure fallback font for Font Awesome icons */
-.fa, .fas, .far, .fal, .fab {
-    font-family: 'Font Awesome 6 Free', 'Segoe UI', Arial, sans-serif !important;
-}
        /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
     /* Fix for body overflow */
     body {
@@ -953,12 +927,14 @@ body.fa-loaded .fab {
   })();
 </script>
 
-    <!-- Header - Updated with theme toggle -->
+       <!-- Header - Fixed with SVG icons for instant loading -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
            <a href="https://freeebooks.online" class="flex items-center">
     <h1 class="text-lg font-bold text-gray-900 tracking-tight">
-        <i class="fas fa-book text-blue-500"></i> 
+        <svg class="w-5 h-5 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+        </svg>
         <span class="sr-only">Free Weight Loss Ebooks - Download Premium Diet Books</span>
         <span aria-hidden="true">Free<span class="text-blue-500">Ebooks</span></span>
     </h1>
@@ -970,13 +946,15 @@ body.fa-loaded .fab {
     <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium" aria-label="Contact us">Contact</a>
 </nav>
 <div class="flex items-center space-x-4">
-    <!-- DONATE LINK - VISIBLE ON BOTH DESKTOP AND MOBILE -->
+    <!-- DONATE LINK with SVG heart -->
     <a href="https://freeebooks.online/donate" class="flex items-center space-x-1 text-gray-600 hover:text-blue-500 font-medium text-sm transition" aria-label="Donate to support us">
         <span class="font-medium">Donate</span>
-        <i class="fas fa-heart text-sm text-red-500"></i>
+        <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+        </svg>
     </a>
     
-    <!-- Theme Toggle Only -->
+    <!-- Theme Toggle Only (SVG loads instantly) -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
         <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
@@ -987,7 +965,9 @@ body.fa-loaded .fab {
     </button>
     
     <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Open mobile menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
     </button>
 </div>
         </div>
@@ -1039,7 +1019,7 @@ body.fa-loaded .fab {
             <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-8 whitespace-nowrap">Free Weight Loss Ebooks</h2>
             <div class="hero-cta">
               <a href="https://freeebooks.online/all-books" class="btn-download py-3 px-8 rounded-xl text-base font-semibold inline-flex items-center justify-center" aria-label="Browse all available books">
-    <i class="fas fa-book-open mr-2"></i>Browse All Books
+    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path> </svg>Browse All Books#
 </a>
             </div>
         </div>
@@ -1051,7 +1031,7 @@ body.fa-loaded .fab {
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
                         <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm" aria-label="Search books">
-                        <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
+                        <span style="font-size: 1em;" class="text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm">🔍</span>
                     </div>
                 </div>
             </div>
@@ -1880,8 +1860,16 @@ body.fa-loaded .fab {
 <!-- ===== END OF FIXED SEO LINKS ===== -->
 
 <!-- DEFERRED JAVASCRIPT LIBRARIES -->
-<!-- Font Awesome - Loaded immediately to prevent icon flash -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+<!-- Font Awesome - Deferred -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+         <style>
+/* Force Font Awesome to load immediately on mobile */
+@media (max-width: 768px) {
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+}
+</style>
 
 <!-- MAIN JAVASCRIPT - DEFERRED -->
 <script>
@@ -2124,20 +2112,6 @@ body.fa-loaded .fab {
         }
     });
     // ========== END VIDEO LOADING OPTIMIZATION ==========
- // Fix Font Awesome icon flash on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Mark Font Awesome as loaded to prevent icon flash
-    setTimeout(() => {
-        document.body.classList.add('fa-loaded');
-    }, 100);
-    
-    // Alternative: Use Font Awesome's loading detection
-    if (typeof FontAwesome !== 'undefined') {
-        FontAwesome.config = {
-            autoReplaceSvg: 'nest'
-        };
-    }
-});
     // ========== MUSIC PLAYER CODE ==========
     const musicToggle = document.getElementById('music-toggle');
     const backgroundMusic = document.getElementById('background-music');
