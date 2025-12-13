@@ -14,8 +14,32 @@
   <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
-   <!-- Tailwind CSS - Loaded immediately to prevent flash -->
-  <script src="https://cdn.tailwindcss.com"></script> 
+   <!-- FIX: Replaced Tailwind CDN with local Tailwind -->
+   <script>
+    // Load Tailwind with dark mode support
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // Set theme before Tailwind loads
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configure Tailwind to respect data-theme attribute
+    tailwind.config = {
+      darkMode: 'class',
+      important: true,
+      corePlugins: {
+        preflight: false,
+      }
+    }
+  </script>
+  
   <!-- Preconnect for critical third-party domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -929,18 +953,16 @@
 
 </head>
 <body class="antialiased">
-<!-- FIX 3: Apply theme immediately to prevent flash -->
+<!-- Theme is already applied in head -->
 <script>
-  // Apply theme BEFORE anything renders
+  // Apply Tailwind dark class if needed
   (function() {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.classList.add('dark');
     }
-    // Mark Tailwind as loaded
-    document.body.classList.add('tailwind-loaded');
   })();
 </script>
 
@@ -1892,12 +1914,14 @@
       themeToggle.addEventListener('click', () => {
           if (body.getAttribute('data-theme') === 'dark') {
               body.removeAttribute('data-theme');
+              document.documentElement.classList.remove('dark');
               if (sunIcon) sunIcon.classList.remove('hidden');
               if (moonIcon) moonIcon.classList.add('hidden');
               if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
               localStorage.setItem('theme', 'light');
           } else {
               body.setAttribute('data-theme', 'dark');
+              document.documentElement.classList.add('dark');
               if (sunIcon) sunIcon.classList.add('hidden');
               if (moonIcon) moonIcon.classList.remove('hidden');
               if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
