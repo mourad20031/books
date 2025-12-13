@@ -784,6 +784,11 @@
         z-index: 100;
         position: relative;
     }
+    
+    /* ADDED: Better contrast for blue text */
+    .text-blue-500 {
+        color: #2563eb !important;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -819,7 +824,7 @@
         </svg>
     </button>
     
-    <button id="menu-btn" class="md:hidden text-gray-700 text-xl">
+    <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Toggle navigation menu">
         <i class="fas fa-bars"></i>
     </button>
 </div>
@@ -897,7 +902,7 @@
         <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
     </div>
     <div class="carousel-container">
-        <button class="carousel-nav prev">
+        <button class="carousel-nav prev" aria-label="Previous books">
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
@@ -1069,7 +1074,7 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-nav next">
+        <button class="carousel-nav next" aria-label="Next books">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
@@ -1085,7 +1090,7 @@
         </p>
     </div>
     <div class="carousel-container">
-        <button class="carousel-nav prev">
+        <button class="carousel-nav prev" aria-label="Previous books">
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
@@ -1261,7 +1266,7 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-nav next">
+        <button class="carousel-nav next" aria-label="Next books">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
@@ -1274,7 +1279,7 @@
     </div>
     
     <div class="carousel-container">
-        <button class="carousel-nav prev">
+        <button class="carousel-nav prev" aria-label="Previous books">
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
@@ -1488,14 +1493,14 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-nav next">
+        <button class="carousel-nav next" aria-label="Next books">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </section>
    <!-- Small Music Button -->
 <div id="music-player" class="fixed bottom-4 right-4 z-50">
-    <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20">
+    <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20" aria-label="Toggle background music">
         <i class="fas fa-play text-sm transform translate-x-0.5"></i>
     </button>
     
@@ -1696,13 +1701,13 @@
                     Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
                 </p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition" aria-label="Twitter">
                         <i class="fab fa-twitter text-lg"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition" aria-label="Facebook">
                         <i class="fab fa-facebook text-lg"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-blue-500 transition">
+                    <a href="#" class="text-gray-500 hover:text-blue-500 transition" aria-label="Instagram">
                         <i class="fab fa-instagram text-lg"></i>
                     </a>
                 </div>
