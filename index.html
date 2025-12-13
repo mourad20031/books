@@ -858,7 +858,24 @@
         width: 100%;
         overflow-x: hidden;
     }
+/* ========== FIX FOR HEADER DISPLAY ========== */
+/* Fix: Make sure all header elements show together */
+header .container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
 
+header nav {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Ensure all header items are visible */
+header a, header button {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
     /* Ensure sections don't overflow */
     section {
         width: 100%;
@@ -887,7 +904,33 @@
     @font-face {
         font-display: swap;
     }
-  </style>  
+       /* ========== FIX FOR VIDEO BLUE FLASH ========== */
+    #video-section {
+      background: #1a202c !important;
+    }
+    
+    .video-placeholder {
+      background: #1a202c !important;
+      opacity: 1 !important;
+      transition: opacity 0.3s ease !important;
+    }
+    
+    #video-section video {
+      background: #1a202c !important;
+      opacity: 0;
+      transition: opacity 0.3s ease !important;
+    }
+    
+    #video-section video.loaded {
+      opacity: 1 !important;
+    }
+    
+    /* Add font-display: swap for all fonts */
+    @font-face {
+        font-display: swap;
+    }
+  </style>
+  </style> 
   <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
@@ -982,7 +1025,7 @@
     <!-- DONATE LINK - VISIBLE ON BOTH DESKTOP AND MOBILE -->
     <a href="https://freeebooks.online/donate" class="flex items-center space-x-1 text-gray-600 hover:text-blue-500 font-medium text-sm transition" aria-label="Donate to support us">
         <span class="font-medium">Donate</span>
-        <i class="fas fa-heart text-sm text-red-500"></i>
+        <i class="fas fa-heart text-sm" style="color: #ef4444 !important;"></i>
     </a>
     
     <!-- Theme Toggle Only -->
@@ -1017,7 +1060,7 @@
         <!-- Donate link in mobile menu -->
         <a href="https://freeebooks.online/donate" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium flex items-center space-x-1" aria-label="Donate to support us">
             <span>Donate</span>
-            <i class="fas fa-heart text-sm text-red-500"></i>
+            <i class="fas fa-heart text-sm" style="color: #ef4444 !important;"></i>
         </a>
     </div>
 </div>
@@ -2399,6 +2442,29 @@
         });
     });
     // ========== END OF SEARCH FUNCTIONALITY ==========
+     // ========== FIX FOR VIDEO BLUE FLASH ==========
+    window.addEventListener('load', function() {
+        const video = document.querySelector('#video-section video');
+        if (video) {
+            // Set dark background immediately
+            video.style.backgroundColor = '#1a202c';
+            video.style.background = '#1a202c';
+            
+            // Mark as loaded after a short delay
+            setTimeout(() => {
+                video.classList.add('loaded');
+                const placeholder = document.querySelector('.video-placeholder');
+                if (placeholder) {
+                    placeholder.style.opacity = '0';
+                    setTimeout(() => {
+                        placeholder.style.display = 'none';
+                    }, 300);
+                }
+            }, 100);
+        }
+    });
+    // ========== END OF SEARCH FUNCTIONALITY ==========
+</script>
 </script>
 
 <!-- Google Analytics - Loaded at bottom for better performance -->
