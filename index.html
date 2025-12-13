@@ -584,45 +584,6 @@
       color: #9ca3af !important;
     }
     
-    /* FIX: Ensure all backgrounds switch properly in dark mode */
-    [data-theme="dark"] #search-section {
-      background-color: var(--header-bg) !important;
-    }
-    
-    [data-theme="dark"] #faq-section {
-      background-color: var(--bg-color) !important;
-    }
-    
-    [data-theme="dark"] .bg-white {
-      background-color: var(--header-bg) !important;
-    }
-    
-    [data-theme="dark"] .bg-gray-50 {
-      background-color: var(--bg-color) !important;
-    }
-    
-    /* Force Tailwind classes to respect data-theme */
-    [data-theme="dark"] .text-gray-900,
-    [data-theme="dark"] .text-gray-800,
-    [data-theme="dark"] .text-gray-700,
-    [data-theme="dark"] .text-gray-600,
-    [data-theme="dark"] .text-gray-500,
-    [data-theme="dark"] .text-gray-400 {
-      color: var(--text-color) !important;
-    }
-    
-    [data-theme="dark"] .text-gray-600 {
-      color: #9ca3af !important; /* Better contrast */
-    }
-    
-    [data-theme="dark"] .text-gray-500 {
-      color: #d1d5db !important; /* Much better contrast */
-    }
-    
-    [data-theme="dark"] .text-gray-400 {
-      color: #9ca3af !important;
-    }
-    
     [data-theme="dark"] #custom-amount {
       color: #ffffff !important;
       background-color: #1e293b !important;
@@ -827,32 +788,6 @@
     @font-face {
         font-display: swap;
     }
-   /* FIX: Prevent Font Awesome icon flash */
-/* Hide icons until Font Awesome CSS loads */
-body:not(.fa-loaded) .fa,
-body:not(.fa-loaded) .fas,
-body:not(.fa-loaded) .far,
-body:not(.fa-loaded) .fal,
-body:not(.fa-loaded) .fab {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Show icons after Font Awesome loads */
-body.fa-loaded .fa,
-body.fa-loaded .fas,
-body.fa-loaded .far,
-body.fa-loaded .fal,
-body.fa-loaded .fab {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease;
-}
-
-/* Ensure fallback font for Font Awesome icons */
-.fa, .fas, .far, .fal, .fab {
-    font-family: 'Font Awesome 6 Free', 'Segoe UI', Arial, sans-serif !important;
-}
        /* ========== FIX FOR PAGE SHIFTING ISSUES ========== */
     /* Fix for body overflow */
     body {
@@ -921,12 +856,6 @@ body.fa-loaded .fab {
   <!-- OPTIMIZED: Fonts with display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-   <!-- OPTIMIZED: Fonts with display=swap -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  
-  <!-- FIX: Font Awesome loaded immediately to prevent icon flash -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   
   <title>Free Weight Loss eBooks Download | Premium Diet Books</title>
 <meta name="description" content="Download premium weight-loss eBooks including The Ozempic Revolution for free. Start losing weight and living healthier today with our curated collection.">
@@ -990,17 +919,10 @@ body.fa-loaded .fab {
   (function() {
     // Apply theme BEFORE anything renders
     const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Only apply dark mode if explicitly saved as 'dark'
-    // Don't apply based on system preference on initial load
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.documentElement.setAttribute('data-theme', 'dark');
-      document.body.setAttribute('data-theme', 'dark');
-    } else {
-      // Explicitly set light mode
-      document.documentElement.removeAttribute('data-theme');
-      document.body.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
     }
   })();
 </script>
@@ -1931,81 +1853,48 @@ body.fa-loaded .fab {
 </div>
 <!-- ===== END OF FIXED SEO LINKS ===== -->
 
+<!-- DEFERRED JAVASCRIPT LIBRARIES -->
+
+<!-- Font Awesome - Deferred -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+
 <!-- MAIN JAVASCRIPT - DEFERRED -->
 <script>
-        // Theme Toggle Functionality - FIXED
+    // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
-    const html = document.documentElement;
     const body = document.body;
 
-    // Initialize theme
-    function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        
-        // Default to light mode if nothing saved
-        if (!savedTheme) {
-            localStorage.setItem('theme', 'light');
-            updateThemeUI('light');
-            return;
-        }
-        
-        if (savedTheme === 'dark') {
-            html.setAttribute('data-theme', 'dark');
-            body.setAttribute('data-theme', 'dark');
-            updateThemeUI('dark');
-        } else {
-            html.removeAttribute('data-theme');
-            body.removeAttribute('data-theme');
-            updateThemeUI('light');
-        }
+    // Check for saved theme preference or prefer OS color scheme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.setAttribute('data-theme', 'dark');
+        if (sunIcon) sunIcon.classList.add('hidden');
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
     }
-    
-    // Update UI elements for theme
-    function updateThemeUI(theme) {
-        if (theme === 'dark') {
-            if (sunIcon) sunIcon.classList.add('hidden');
-            if (moonIcon) moonIcon.classList.remove('hidden');
-            if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
-        } else {
-            if (sunIcon) sunIcon.classList.remove('hidden');
-            if (moonIcon) moonIcon.classList.add('hidden');
-            if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
-        }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+          if (body.getAttribute('data-theme') === 'dark') {
+              body.removeAttribute('data-theme');
+              if (sunIcon) sunIcon.classList.remove('hidden');
+              if (moonIcon) moonIcon.classList.add('hidden');
+              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
+              localStorage.setItem('theme', 'light');
+          } else {
+              body.setAttribute('data-theme', 'dark');
+              if (sunIcon) sunIcon.classList.add('hidden');
+              if (moonIcon) moonIcon.classList.remove('hidden');
+              if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+              localStorage.setItem('theme', 'dark');
+          }
+      });
     }
-    
-    // Toggle theme
-    function toggleTheme() {
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        if (currentTheme === 'dark') {
-            // Switch to light mode
-            html.removeAttribute('data-theme');
-            body.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            updateThemeUI('light');
-        } else {
-            // Switch to dark mode
-            html.setAttribute('data-theme', 'dark');
-            body.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            updateThemeUI('dark');
-        }
-        
-        // Force a reflow to ensure styles update
-        void body.offsetWidth;
-    }
-    
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        initTheme();
-        
-        // Add click event listener
-        if (themeToggle) {
-            themeToggle.addEventListener('click', toggleTheme);
-        }
-    });
 
     // DOM elements
     const contactModal = document.getElementById('contactModal');
@@ -2211,20 +2100,6 @@ body.fa-loaded .fab {
         }
     });
     // ========== END VIDEO LOADING OPTIMIZATION ==========
- // Fix Font Awesome icon flash on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Mark Font Awesome as loaded to prevent icon flash
-    setTimeout(() => {
-        document.body.classList.add('fa-loaded');
-    }, 100);
-    
-    // Alternative: Use Font Awesome's loading detection
-    if (typeof FontAwesome !== 'undefined') {
-        FontAwesome.config = {
-            autoReplaceSvg: 'nest'
-        };
-    }
-});
     // ========== MUSIC PLAYER CODE ==========
     const musicToggle = document.getElementById('music-toggle');
     const backgroundMusic = document.getElementById('background-music');
