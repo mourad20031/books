@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- [ALL YOUR EXISTING HEAD CODE REMAINS EXACTLY THE SAME] -->
  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="shortcut icon" href="favicon.ico">
@@ -60,183 +59,86 @@
 }
 </script>
 
-<!-- MOBILE PERFORMANCE OPTIMIZATION -->
-<!-- Preconnect to critical domains -->
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://i.postimg.cc">
-
-<!-- Load Tailwind CSS with mobile detection -->
-<script>
-  if (window.innerWidth < 768) {
-    // Mobile: Load Tailwind after page is interactive
-    document.addEventListener('DOMContentLoaded', function() {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.tailwindcss.com';
-      script.defer = true;
-      document.head.appendChild(script);
-    });
-  } else {
-    // Desktop: Load normally
-    var script = document.createElement('script');
-    script.src = 'https://cdn.tailwindcss.com';
-    document.head.appendChild(script);
-  }
-</script>
-
-<!-- Load Font Awesome after page loads on mobile -->
-<script>
-  if (window.innerWidth < 768) {
-    document.addEventListener('DOMContentLoaded', function() {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
-      link.media = 'print';
-      link.onload = function() { this.media = 'all'; };
-      document.head.appendChild(link);
-    });
-  } else {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
-    document.head.appendChild(link);
-  }
-</script>
-
-<!-- Load Google Fonts with mobile optimization -->
-<script>
-  if (window.innerWidth < 768) {
-    document.addEventListener('DOMContentLoaded', function() {
-      var fontLink = document.createElement('link');
-      fontLink.rel = 'stylesheet';
-      fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
-      fontLink.media = 'print';
-      fontLink.onload = function() { this.media = 'all'; };
-      document.head.appendChild(fontLink);
-    });
-  } else {
-    var fontLink = document.createElement('link');
-    fontLink.rel = 'stylesheet';
-    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
-    document.head.appendChild(fontLink);
-  }
-</script>
+<!-- Load ALL CSS normally - no conditional loading -->
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
 
   <style>
-    /* CRITICAL CSS - Load immediately for First Paint */
-    :root {
-      --bg-color: #f8fafc;
-      --text-color: #1a1a1a;
-      --header-bg: #ffffff;
-      --card-bg: #ffffff;
-      --search-bg: #f9fafb;
-      --border-color: #e5e7eb;
-      --modal-bg: #ffffff;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #0f172a;
-      --text-color: #ffffff;
-      --header-bg: #1e293b;
-      --card-bg: #334155;
-      --search-bg: #475569;
-      --border-color: #475569;
-      --modal-bg: #1e293b;
-    }
-
+    /* PREVENT FOUC (Flash of Unstyled Content) */
     html {
-      scroll-behavior: smooth;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
+    
+    html.loaded {
+      visibility: visible;
+      opacity: 1;
+    }
+    
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -webkit-user-drag: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
     }
     
-    /* Mobile-first layout */
-    .header-bg {
-      background-color: var(--header-bg);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      transition: background-color 0.3s ease;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    
-    /* Basic flex utilities for initial render */
-    .flex { display: flex; }
-    .justify-between { justify-content: space-between; }
-    .items-center { align-items: center; }
-    .hidden { display: none; }
+    /* Basic layout fixes */
     .container {
-      width: 100%;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      max-width: 1280px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    /* Text colors for initial render */
-    .text-gray-900 { color: #111827; }
-    .text-blue-500 { color: #2563eb !important; }
-    .text-white { color: white; }
-    .text-gray-600 { color: #4b5563; }
-    .text-gray-700 { color: #374151; }
-    .text-red-500 { color: #ef4444; }
+    /* Ensure proper spacing */
+    section {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
     
-    /* Basic padding/margin */
-    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-    .px-4 { padding-left: 1rem; padding-right: 1rem; }
-    .space-x-4 > * + * { margin-left: 1rem; }
+    @media (min-width: 768px) {
+      section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
     
-    /* Video section for mobile */
+    /* Video section styling */
     #video-section {
       position: relative;
       width: 100%;
-      height: 24rem;
+      height: 300px;
       overflow: hidden;
     }
     
-    /* Search section */
-    #search-section {
-      background-color: white;
-      padding-top: 1rem;
-      padding-bottom: 0.5rem;
+    @media (min-width: 768px) {
+      #video-section {
+        height: 400px;
+      }
     }
     
-    /* Basic book card structure */
+    @media (min-width: 1024px) {
+      #video-section {
+        height: 500px;
+      }
+    }
+    
+    /* Book card base styling */
     .book-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
+      background-color: white;
+      border: 1px solid #e5e7eb;
       border-radius: 0.75rem;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
       width: 180px;
-      opacity: 0;
-      transform: translateY(20px);
+      transition: all 0.3s ease;
     }
     
-    .book-image {
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      pointer-events: none;
-      background-color: #f3f4f6;
+    @media (min-width: 768px) {
+      .book-card {
+        width: 200px;
+      }
     }
     
     /* Book badges */
@@ -266,22 +168,7 @@
       border: 1px solid #dcfce7;
     }
     
-    /* Footer basics */
-    footer {
-      background-color: var(--header-bg);
-      border-top: 1px solid #e5e7eb;
-      width: 100%;
-    }
-    
-    /* Music player position */
-    #music-player {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      z-index: 50;
-    }
-    
-    /* Carousel basic structure */
+    /* Carousel styling */
     .carousel-container {
       position: relative;
       padding: 0 2rem;
@@ -322,126 +209,65 @@
     .carousel-nav.prev { left: 0; }
     .carousel-nav.next { right: 0; }
     
-    /* ========== NON-CRITICAL STYLES BELOW ========== */
-    /* These will load after page becomes interactive */
-    
-    .book-card.animate {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.6s ease;
+    /* Theme variables */
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --search-bg: #f9fafb;
+      --border-color: #e5e7eb;
+      --modal-bg: #ffffff;
     }
-    
-    .book-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
-      border-color: #3b82f6;
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #ffffff;
+      --header-bg: #1e293b;
+      --card-bg: #334155;
+      --search-bg: #475569;
+      --border-color: #475569;
+      --modal-bg: #1e293b;
     }
-    
-    .btn-download {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: #ffffff;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn-download:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    }
-    
-    @keyframes loading-shine {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    
-    .search-bar, .form-input {
-      background-color: var(--search-bg);
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    }
-    
-    .modal-bg {
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-    }
-    
-    .modal-content {
-      background-color: var(--modal-bg);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* Apply theme variables */
+    body {
+      background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Modern See More button */
-    .btn-see-more {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
+    .header-bg {
+      background-color: var(--header-bg);
+    }
+    
+    /* Dark mode overrides */
+    [data-theme="dark"] .book-card {
+      background-color: var(--card-bg);
+      border-color: var(--border-color);
+    }
+    
+    [data-theme="dark"] .free-badge {
+      background: rgba(30, 41, 59, 0.95);
+      color: #10b981;
+      border-color: #065f46;
+    }
+    
+    [data-theme="dark"] .carousel-nav {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: #475569;
       color: white;
-      font-weight: 600;
-      padding: 12px 28px;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: none;
-      cursor: pointer;
     }
     
-    .btn-see-more:hover {
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
-      transform: translateY(-2px);
-    }
-    
-    /* Loading dots animation */
-    .loading-dots {
-      display: flex;
-      justify-content: center;
-      gap: 4px;
-    }
-    
-    .loading-dots div {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #3b82f6;
-      animation: loading-dots 1.4s ease-in-out infinite both;
-    }
-    
-    @keyframes loading-dots {
-      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
-      40% { transform: scale(1); opacity: 1; }
-    }
-    
-    /* FAQ Section Styles */
+    /* FAQ styles */
     .faq-item {
       border-bottom: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-    }
-    
-    .faq-question {
-      padding: 16px 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .faq-question:hover {
-      color: #3b82f6;
     }
     
     .faq-answer {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
-      color: #6b7280;
     }
     
     .faq-answer.open {
@@ -449,118 +275,50 @@
       padding-bottom: 16px;
     }
     
-    /* Modern Book card badges */
-    [data-theme="dark"] .free-badge {
-      background: rgba(30, 41, 59, 0.95);
-      color: #10b981;
-      border-color: #065f46;
+    /* Footer width fix */
+    footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
     }
     
-    /* Theme Toggle Styles */
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s ease;
-      color: var(--text-color);
-      width: 40px;
-      height: 40px;
+    /* Ensure footer content is centered */
+    footer > div {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
     
-    .theme-icon {
-      width: 20px;
-      height: 20px;
+    @media (min-width: 768px) {
+      footer > div {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+    
+    /* Smooth transitions */
+    .btn-download {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      font-weight: 600;
       transition: all 0.3s ease;
     }
     
-    .theme-icon.hidden {
-      display: none;
-    }
-    
-    /* Dark mode styles */
-    [data-theme="dark"] .text-gray-900,
-    [data-theme="dark"] .text-gray-800,
-    [data-theme="dark"] .text-gray-700,
-    [data-theme="dark"] .text-gray-600,
-    [data-theme="dark"] .text-gray-500,
-    [data-theme="dark"] .text-gray-400 {
-      color: #ffffff !important;
-    }
-    
-    [data-theme="dark"] .bg-white {
-      background-color: var(--header-bg) !important;
-    }
-    
-    [data-theme="dark"] .bg-gray-50 {
-      background-color: #1e293b !important;
-    }
-    
-    /* Carousel dark mode */
-    [data-theme="dark"] .carousel-nav {
-      background: rgba(30, 41, 59, 0.8);
-      border-color: #475569;
-      color: white;
-    }
-    
-    /* Music Player Styles */
-    #music-toggle {
-      width: 3rem;
-      height: 3rem;
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-    }
-    
-    /* Search highlight */
-    .highlight {
-      background-color: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-    }
-    
-    /* Desktop styles */
-    @media (min-width: 768px) {
-      .md\:hidden {
-        display: none;
-      }
-      
-      .md\:flex {
-        display: flex;
-      }
-      
-      #video-section {
-        height: 28rem;
-      }
-      
-      .book-card {
-        width: 200px;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      #video-section {
-        height: 32rem;
-      }
-      
-      .container {
-        max-width: 1024px;
-      }
+    .btn-download:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
   </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header - Updated with theme toggle -->
-    <header class="header-bg">
+    <!-- Header -->
+    <header class="header-bg shadow-sm sticky top-0 z-50">
         <div class="container py-3 px-4 flex justify-between items-center">
            <a href="https://freeebooks.online/" class="flex items-center">
     <h1 class="text-lg font-bold text-gray-900 tracking-tight">
@@ -574,39 +332,39 @@
     <a href="https://freeebooks.online/contact" class="text-gray-600 hover:text-blue-500 transition text-sm font-medium">Contact</a>
 </nav>
 <div class="flex items-center space-x-4">
-    <!-- DONATE LINK - VISIBLE ON BOTH DESKTOP AND MOBILE -->
+    <!-- DONATE LINK -->
     <a href="https://freeebooks.online/donate" class="flex items-center space-x-1 text-gray-600 hover:text-blue-500 font-medium text-sm transition">
         <span class="font-medium">Donate</span>
         <i class="fas fa-heart text-sm text-red-500"></i>
     </a>
     
-    <!-- Theme Toggle Only -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <svg class="theme-icon" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="theme-icon w-5 h-5" id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
         </svg>
-        <svg class="theme-icon hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="theme-icon w-5 h-5 hidden" id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
         </svg>
     </button>
     
-    <button id="menu-btn" class="md:hidden text-gray-700 text-xl" aria-label="Toggle navigation menu">
+    <button id="menu-btn" class="md:hidden text-gray-700 text-xl p-2" aria-label="Toggle navigation menu">
         <i class="fas fa-bars"></i>
     </button>
 </div>
         </div>
-<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+<div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
     <div class="flex flex-col p-4">
-        <a href="#trending" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+        <a href="#trending" class="py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition text-sm font-medium">
             Trending
         </a>
-     <a href="https://freeebooks.online/all-books" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+     <a href="https://freeebooks.online/all-books" class="py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition text-sm font-medium">
     All Books
 </a>
-        <a href="#faq-section" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+        <a href="#faq-section" class="py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition text-sm font-medium">
             FAQ
         </a>
-        <a href="https://freeebooks.online/contact" class="py-3 px-4 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition text-sm font-medium">
+        <a href="https://freeebooks.online/contact" class="py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition text-sm font-medium">
             Contact
         </a>
     </div>
@@ -625,8 +383,8 @@
     
     <!-- Content Overlay -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 z-10">
-        <div class="hero-content animate">
-            <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-8 whitespace-nowrap">Free Weight Loss Ebooks</h2>
+        <div class="bg-black bg-opacity-50 rounded-2xl p-8">
+            <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-white mb-6">Free Weight Loss Ebooks</h2>
             <div class="hero-cta">
               <a href="https://freeebooks.online/all-books" class="btn-download py-3 px-8 rounded-xl text-base font-semibold inline-flex items-center justify-center">
     <i class="fas fa-book-open mr-2"></i>Browse All Books
@@ -636,36 +394,36 @@
     </div>
 </section>
 
-        <section id="search-section" class="pt-4 pb-2 bg-white">
+        <section id="search-section" class="pt-4 pb-2 bg-white dark:bg-gray-800">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <div class="relative w-full max-w-xs md:max-w-md">
-                        <input type="text" id="mainSearchInput" placeholder="Search for books..." class="search-bar text-gray-800 rounded-full py-2.5 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full text-sm">
+                        <input type="text" id="mainSearchInput" placeholder="Search for books..." class="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
                         <i class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 text-sm"></i>
                     </div>
                 </div>
             </div>
-         
         </section>
-<section class="py-4">
+        
+        <section class="py-4">
     <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center">
-            <h3 class="text-lg font-bold text-gray-900 mb-3">Free Weight Loss eBooks Collection</h3>
-            <p class="text-gray-600 text-sm">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Free Weight Loss eBooks Collection</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">
                 Download premium weight loss eBooks including Ozempic guides, diet plans, 
                 and health books - completely free, no registration required.
             </p>
         </div>
     </div>
 </section>
-        <!-- 🔥 END OF NEW SECTION 🔥 -->
+        
         <div class="container mx-auto px-4 py-4">
             
-            <!-- Trending Books Section - NOW WITH CAROUSEL -->
+            <!-- Trending Books Section -->
 <section id="trending" class="pt-2">
     <div class="text-center mb-6">
-        <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Weight Loss Books</h2>
-        <p class="section-subtitle text-sm text-gray-500 max-w-2xl mx-auto">Most popular books right now</p>
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-2">Trending Weight Loss Books</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Most popular books right now</p>
     </div>
     <div class="carousel-container">
         <button class="carousel-nav prev" aria-label="Previous books">
@@ -673,19 +431,19 @@
         </button>
         <div class="book-carousel">
             <!-- Book 1 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" style="width: 180px;">
+            <div class="book-card" data-name="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Weightless: A Doctor's Guide to GLP-1 Medications</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Weightless: A Doctor's Guide to GLP-1 Medications</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.7</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="85600">85.6K</span>
                     </div>
@@ -694,19 +452,19 @@
             </div>
             
             <!-- Book 2 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" style="width: 180px;">
+            <div class="book-card" data-name="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Glucose Revolution: Balancing Your Blood Sugar</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Glucose Revolution: Balancing Your Blood Sugar</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="92300">92.3K</span>
                     </div>
@@ -715,19 +473,19 @@
             </div>
 
             <!-- Book 3 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" style="width: 180px;">
+            <div class="book-card" data-name="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast Like a Girl: Healing Power of Fasting</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Fast Like a Girl: Healing Power of Fasting</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.8</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="67800">67.8K</span>
                     </div>
@@ -736,19 +494,19 @@
             </div>
             
             <!-- Book 4 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" style="width: 180px;">
+            <div class="book-card" data-name="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The New Menopause: Navigating Hormonal Change</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The New Menopause: Navigating Hormonal Change</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="54200">54.2K</span>
                     </div>
@@ -757,19 +515,19 @@
             </div>
 
             <!-- Book 5 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" style="width: 180px;">
+            <div class="book-card" data-name="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hunger Code: Resetting Your Fat Thermostat</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Hunger Code: Resetting Your Fat Thermostat</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.6</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="48900">48.9K</span>
                     </div>
@@ -778,19 +536,19 @@
             </div>
             
             <!-- Book 6 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" style="width: 180px;">
+            <div class="book-card" data-name="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Bite Me: Low-Calorie High-Protein Cooking</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Bite Me: Low-Calorie High-Protein Cooking</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.7</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="61400">61.4K</span>
                     </div>
@@ -798,20 +556,20 @@
                 </div>
             </div>
             
-            <!-- ✅ Book 7: The 4-Hour Body -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" style="width: 180px;">
+            <!-- Book 7: The 4-Hour Body -->
+            <div class="book-card" data-name="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.6</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="91200">91.2K</span>
                     </div>
@@ -819,20 +577,20 @@
                 </div>
             </div>
 
-            <!-- ✅ Book 8: The Whole30 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Whole30: The 30-Day Guide to Total Health and Food Freedom" style="width: 180px;">
+            <!-- Book 8: The Whole30 -->
+            <div class="book-card" data-name="The Whole30: The 30-Day Guide to Total Health and Food Freedom">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="85600">85.6K</span>
                     </div>
@@ -845,13 +603,14 @@
         </button>
     </div>
 </section>
-<!-- Recently Added Section - NOW WITH CAROUSEL -->
+
+<!-- Recently Added Section -->
 <section id="recently-added" class="py-12">
     <div class="text-center mb-10">
-        <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mb-3">
             Recently Added eBooks
         </h2>
-        <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">
+        <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             Fresh books added to our collection
         </p>
     </div>
@@ -861,20 +620,20 @@
         </button>
         <div class="book-carousel">
             <!-- Book 1: The Ozempic Revolution -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" style="width: 180px;">
+            <div class="book-card" data-name="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Ozempic Revolution: Reverse Obesity & End Yo-Yo Dieting</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Ozempic Revolution: Reverse Obesity & End Yo-Yo Dieting</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.7</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="72300">72.3K</span>
                     </div>
@@ -883,20 +642,20 @@
             </div>
 
             <!-- Book 2: The Menopause Reset -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" style="width: 180px;">
+            <div class="book-card" data-name="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Menopause Reset: Get Rid of Symptoms</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Menopause Reset: Get Rid of Symptoms</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="58900">58.9K</span>
                     </div>
@@ -905,20 +664,20 @@
             </div>
 
             <!-- Book 3: The Biblio Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" style="width: 180px;">
+            <div class="book-card" data-name="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Biblio Diet: Healing Secrets from the Bible</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Biblio Diet: Healing Secrets from the Bible</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.8</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="64200">64.2K</span>
                     </div>
@@ -927,20 +686,20 @@
             </div>
 
             <!-- Book 4: The Glucose Goddess Method -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" style="width: 180px;">
+            <div class="book-card" data-name="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Glucose Goddess Method: Cut Cravings & Feel Amazing</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Glucose Goddess Method: Cut Cravings & Feel Amazing</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="81400">81.4K</span>
                     </div>
@@ -948,20 +707,20 @@
                 </div>
             </div>
             
-            <!-- ✅ Book 5: Meal Prep for Weight Loss -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" style="width: 180px;">
+            <!-- Book 5: Meal Prep for Weight Loss -->
+            <div class="book-card" data-name="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Meal Prep for Weight Loss: Weekly Plans</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Meal Prep for Weight Loss: Weekly Plans</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.7</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="68900">68.9K</span>
                     </div>
@@ -969,20 +728,20 @@
                 </div>
             </div>
 
-            <!-- ✅ Book 6: The Mediterranean Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" style="width: 180px;">
+            <!-- Book 6: The Mediterranean Diet -->
+            <div class="book-card" data-name="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Mediterranean Diet: 28-Day Kickstart Plan</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Mediterranean Diet: 28-Day Kickstart Plan</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="73400">73.4K</span>
                     </div>
@@ -990,20 +749,20 @@
                 </div>
             </div>
 
-            <!-- ✅ Book 7: Magic Weight-Loss Pill -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Magic Weight-Loss Pill" style="width: 180px;">
+            <!-- Book 7: Magic Weight-Loss Pill -->
+            <div class="book-card" data-name="Magic Weight-Loss Pill">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Magic Weight-Loss Pill</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Magic Weight-Loss Pill</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.5</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.5</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="51200">51.2K</span>
                     </div>
@@ -1011,20 +770,20 @@
                 </div>
             </div>
 
-            <!-- ✅ Book 8: The Diabetes Code -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" style="width: 180px;">
+            <!-- Book 8: The Diabetes Code -->
+            <div class="book-card" data-name="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Diabetes Code: Reverse Type 2 Naturally</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Diabetes Code: Reverse Type 2 Naturally</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="62300">62.3K</span>
                     </div>
@@ -1037,11 +796,12 @@
         </button>
     </div>
 </section>
-<!-- Weight Loss Books Section - ALREADY WITH CAROUSEL (NO CHANGES) -->
+
+<!-- Weight Loss Books Section -->
 <section id="weight-loss" class="py-12">
     <div class="text-center mb-10">
-        <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Best Weight Loss & Diet eBooks</h2>
-        <p class="section-subtitle text-gray-500 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mb-3">Best Weight Loss & Diet eBooks</h2>
+        <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Transform your health journey with these expert guides</p>
     </div>
     
     <div class="carousel-container">
@@ -1050,19 +810,19 @@
         </button>
         <div class="book-carousel">
             <!-- Book 1: The Obesity Code -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" style="width: 180px;">
+            <div class="book-card" data-name="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Obesity Code: Unlocking Weight Loss Secrets</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Obesity Code: Unlocking Weight Loss Secrets</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.7</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="89200">89.2K</span>
                     </div>
@@ -1071,19 +831,19 @@
             </div>
 
             <!-- Book 2: How Not to Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" style="width: 180px;">
+            <div class="book-card" data-name="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">How Not to Diet: Science of Permanent Weight Loss</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">How Not to Diet: Science of Permanent Weight Loss</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="94500">94.5K</span>
                     </div>
@@ -1092,19 +852,19 @@
             </div>
 
             <!-- Book 3: Eat to Live -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" style="width: 180px;">
+            <div class="book-card" data-name="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Live: Nutrient-Rich Program for Weight Loss</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Eat to Live: Nutrient-Rich Program for Weight Loss</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.8</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="87600">87.6K</span>
                     </div>
@@ -1113,19 +873,19 @@
             </div>
 
             <!-- Book 4: Complete Guide To Fasting -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" style="width: 180px;">
+            <div class="book-card" data-name="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Complete Guide To Fasting: Heal Your Body</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Complete Guide To Fasting: Heal Your Body</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="81300">81.3K</span>
                     </div>
@@ -1134,19 +894,19 @@
             </div>
 
             <!-- Book 5: Fast. Feast. Repeat. -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" style="width: 180px;">
+            <div class="book-card" data-name="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast. Feast. Repeat.: Guide to Intermittent Fasting</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Fast. Feast. Repeat.: Guide to Intermittent Fasting</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.7</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="75400">75.4K</span>
                     </div>
@@ -1155,19 +915,19 @@
             </div>
 
             <!-- Book 6: Eat to Beat Your Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" style="width: 180px;">
+            <div class="book-card" data-name="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Beat Your Diet: Burn Fat & Heal Metabolism</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Eat to Beat Your Diet: Burn Fat & Heal Metabolism</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.8</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="69200">69.2K</span>
                     </div>
@@ -1176,19 +936,19 @@
             </div>
 
             <!-- Book 7: The Galveston Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" style="width: 180px;">
+            <div class="book-card" data-name="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Galveston Diet: Burn Fat & Tame Hormones</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">The Galveston Diet: Burn Fat & Tame Hormones</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="58700">58.7K</span>
                     </div>
@@ -1197,19 +957,19 @@
             </div>
 
             <!-- Book 8: Instant Loss -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" style="width: 180px;">
+            <div class="book-card" data-name="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Instant Loss: Eat Real, Lose Weight</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">Instant Loss: Eat Real, Lose Weight</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.9</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.9</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="83200">83.2K</span>
                     </div>
@@ -1218,19 +978,19 @@
             </div>
 
             <!-- Book 9: ketoCONTINUUM -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="ketoCONTINUUM: Consistently Keto Diet For Life" style="width: 180px;">
+            <div class="book-card" data-name="ketoCONTINUUM: Consistently Keto Diet For Life">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">ketoCONTINUUM: Consistently Keto For Life</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">ketoCONTINUUM: Consistently Keto For Life</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">4.6</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="71400">71.4K</span>
                     </div>
@@ -1239,19 +999,19 @@
             </div>
 
             <!-- Book 10: SUPER Body -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" style="width: 180px;">
+            <div class="book-card" data-name="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="book-image" loading="lazy" width="180" height="270">
+                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="w-full h-48 object-cover" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">SUPER Body: 3-Week Program for Youthful Contours</h3>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1 truncate">SUPER Body: 3-Week Program for Youthful Contours</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 dark:text-gray-400 ml-1">5.0</span>
                     </div>
-                    <div class="text-gray-500 text-xs mb-2">
+                    <div class="text-gray-500 dark:text-gray-400 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
                         <span class="download-counter" data-count="65900">65.9K</span>
                     </div>
@@ -1264,204 +1024,82 @@
         </button>
     </div>
 </section>
+   
    <!-- Small Music Button -->
 <div id="music-player" class="fixed bottom-4 right-4 z-50">
-    <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20" aria-label="Toggle background music">
+    <button id="music-toggle" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 border-2 border-white/20 dark:border-gray-800/20" aria-label="Toggle background music">
         <i class="fas fa-play text-sm transform translate-x-0.5"></i>
     </button>
     
-    <!-- Audio Element with Fallback - REMOVED LARGE FILE -->
+    <!-- Audio Element with Fallback -->
     <audio id="background-music" loop preload="none">
         <source src="ElevenLabs_2025-11-28T21_41_38_Russell - Young and Excited_pvc_sp100_s50_sb75_v3.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </div>
 
-<style>
-/* Dark mode support */
-[data-theme="dark"] #music-toggle {
-    border-color: rgba(30, 41, 59, 0.9);
-}
-</style>
-
-<style>
-.slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    background: #3b82f6;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.4);
-    border: 2px solid white;
-}
-
-.slider::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    background: #3b82f6;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.4);
-    border: 2px solid white;
-}
-
-.slider-progress {
-    width: 30%;
-}
-
-/* Dark mode support */
-[data-theme="dark"] #music-player .bg-white {
-    background-color: rgba(30, 41, 59, 0.9) !important;
-    border-color: rgba(71, 85, 105, 0.5);
-}
-
-/* Show volume controls on player hover */
-#music-player:hover #volume-controls {
-    opacity: 1;
-}
-</style>
-
-<style>
-.slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #3b82f6;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
-    border: 2px solid white;
-}
-
-.slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #3b82f6;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
-    border: 2px solid white;
-}
-
-.slider-progress {
-    width: 30%;
-}
-
-[data-theme="dark"] #music-player .bg-white {
-    background-color: rgba(30, 41, 59, 0.9) !important;
-    border-color: rgba(71, 85, 105, 0.5);
-}
-
-[data-theme="dark"] #music-player .text-gray-800 {
-    color: #f1f5f9 !important;
-}
-
-[data-theme="dark"] #music-player .text-gray-500 {
-    color: #cbd5e1 !important;
-}
- [data-theme="dark"] #music-player .text-gray-800 {
-    color: #f1f5f9 !important;
-}
-
-[data-theme="dark"] #music-player .text-gray-500 {
-    color: #cbd5e1 !important;
-}
-        [data-theme="dark"] #music-player .text-gray-500 {
-      color: #cbd5e1 !important;
-    }
-        [data-theme="dark"] #music-player .text-gray-500 {
-      color: #cbd5e1 !important;
-    }
-    
-    /* ========== SIMPLE FOOTER FIX ========== */
-    /* Make footer truly full width */
-    footer.w-full {
-        width: 100vw !important;
-        margin-left: calc(-50vw + 50%) !important;
-        margin-right: calc(-50vw + 50%) !important;
-        left: 0;
-        right: 0;
-        position: relative;
-    }
-    
-    /* Ensure footer content container takes full width */
-    footer .w-full {
-        width: 100% !important;
-    }
-    
-    /* Fix any horizontal scrolling on laptop */
-    @media (min-width: 1024px) {
-        body {
-            overflow-x: hidden;
-        }
-        
-        /* Ensure all content fits within viewport */
-        .container.mx-auto {
-            max-width: 100%;
-        }
-    }
-</style>
+        </div>
     <!-- FAQ Section -->
-    <section id="faq-section" class="py-12 bg-gray-50 -mx-4 px-4 md:-mx-8 md:px-8">
+    <section id="faq-section" class="py-12 bg-gray-50 dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Frequently Asked Questions</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mb-3">Frequently Asked Questions</h2>
+                <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Find answers to common questions about our eBook collection</p>
             </div>
             
             <div class="max-w-3xl mx-auto">
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-semibold">Are these books really free to download?</h3>
+                    <div class="faq-question cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Are these books really free to download?</h3>
                         <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone. Our platform is supported by donations and partnerships with publishers who share our vision of making literature available to all.</p>
+                        <p class="text-gray-600 dark:text-gray-300 pb-4">Yes, all our eBooks are 100% free to download. We believe knowledge should be accessible to everyone. Our platform is supported by donations and partnerships with publishers who share our vision of making literature available to all.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-semibold">What formats are available for download?</h3>
+                    <div class="faq-question cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">What formats are available for download?</h3>
                         <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats. Most books are available in at least 2-3 different formats to ensure compatibility with various e-readers and devices.</p>
+                        <p class="text-gray-600 dark:text-gray-300 pb-4">We offer books in multiple formats including PDF, EPUB, MOBI, and sometimes audiobook formats. Most books are available in at least 2-3 different formats to ensure compatibility with various e-readers and devices.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-semibold">How often are new books added?</h3>
+                    <div class="faq-question cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">How often are new books added?</h3>
                         <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">We add new books regularly, typically several times per week. Our team works constantly to provide the latest and most popular titles across various genres. You can check back frequently or subscribe to our newsletter for updates on new releases.</p>
+                        <p class="text-gray-600 dark:text-gray-300 pb-4">We add new books regularly, typically several times per week. Our team works constantly to provide the latest and most popular titles across various genres. You can check back frequently or subscribe to our newsletter for updates on new releases.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-semibold">Do I need to create an account to download books?</h3>
+                <div class="faq-item border-b-0">
+                    <div class="faq-question cursor-pointer py-4 flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Do I need to create an account to download books?</h3>
                         <span class="faq-icon text-blue-500"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-600">No account is required for downloading books. We believe in making the process as simple as possible. However, creating a free account allows you to bookmark favorites, track your reading progress, and receive personalized recommendations.</p>
+                        <p class="text-gray-600 dark:text-gray-300 pb-4">No account is required for downloading books. We believe in making the process as simple as possible. However, creating a free account allows you to bookmark favorites, track your reading progress, and receive personalized recommendations.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- Professional Footer - Matches Page Padding -->
-<footer class="header-bg border-t border-gray-100 py-8 w-full">
+
+<!-- Professional Footer -->
+<footer class="header-bg border-t border-gray-100 dark:border-gray-700 py-8">
     <div class="container mx-auto px-4 md:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="md:col-span-2">
-                <h3 class="text-lg font-bold text-gray-900 mb-4">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">
                     <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
                 </h3>
-                <p class="text-gray-600 text-sm mb-4">
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
                     Your trusted source for free premium eBooks. All our books are legally available for free download and thoroughly verified for quality.
                 </p>
                 <div class="flex space-x-4">
@@ -1477,8 +1115,8 @@
                 </div>
             </div>
             <div>
-                <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
-                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
+                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600 dark:text-gray-300">
                     <a href="#trending" class="hover:text-blue-500 transition">Trending Books</a>
                     <a href="https://freeebooks.online/all-books" class="hover:text-blue-500 transition">All Books</a>
                     <a href="#faq-section" class="hover:text-blue-500 transition">FAQ</a>
@@ -1486,8 +1124,8 @@
                 </div>
             </div>
             <div>
-                <h4 class="font-semibold text-gray-900 mb-4">Legal</h4>
-                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Legal</h4>
+                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600 dark:text-gray-300">
                     <a href="#" class="hover:text-blue-500 transition">Privacy Policy</a>
                     <a href="#" class="hover:text-blue-500 transition">Terms of Service</a>
                     <a href="#" class="hover:text-blue-500 transition">Cookie Policy</a>
@@ -1495,8 +1133,8 @@
                 </div>
             </div>
             <div>
-                <h4 class="font-semibold text-gray-900 mb-4">Health Resources</h4>
-                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Health Resources</h4>
+                <div class="footer-links flex flex-col space-y-2 text-sm text-gray-600 dark:text-gray-300">
                     <a href="https://www.who.int/" 
                        target="_blank" 
                        rel="nofollow noopener" 
@@ -1526,426 +1164,114 @@
         </div>
         
         <!-- Copyright Section -->
-        <div class="border-t border-gray-200 mt-6 pt-6">
-            <p class="text-gray-500 text-sm text-center">
+        <div class="border-t border-gray-200 dark:border-gray-700 mt-6 pt-6">
+            <p class="text-gray-500 dark:text-gray-400 text-sm text-center">
                 © 2024 FreeEbooks. All Rights Reserved. All book titles and covers are property of their respective authors and publishers.
             </p>
         </div>
     </div>
 </footer>
+
 <!-- All modals -->
-<div id="contactModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-    <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+    <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg w-full max-w-sm text-center p-6">
         <div class="text-blue-500 text-5xl mb-4">
             <i class="fas fa-check-circle"></i>
         </div>
         <h2 class="text-2xl font-bold mb-2">Success!</h2>
-        <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+        <p class="text-gray-500 dark:text-gray-300">Your message has been sent. We'll get back to you soon.</p>
     </div>
 </div>
 
-<div id="successModal" class="fixed inset-0 modal-bg flex items-center justify-center p-4 z-[100] hidden">
-    <div class="modal-content text-gray-900 rounded-lg w-full max-w-sm text-center p-6 transform transition-all duration-300 scale-95 opacity-0">
+<div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+    <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg w-full max-w-sm text-center p-6">
         <div class="text-blue-500 text-5xl mb-4">
             <i class="fas fa-check-circle"></i>
         </div>
         <h2 class="text-2xl font-bold mb-2">Success!</h2>
-        <p class="text-gray-500">Your message has been sent. We'll get back to you soon.</p>
+        <p class="text-gray-500 dark:text-gray-300">Your message has been sent. We'll get back to you soon.</p>
     </div>
 </div>
 
 <script>
-    // Theme Toggle Functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = document.getElementById('sunIcon');
-    const moonIcon = document.getElementById('moonIcon');
-    const body = document.body;
+    // ========== PAGE LOAD FUNCTIONALITY ==========
+    // Show page only after everything is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mark page as loaded
+        document.documentElement.classList.add('loaded');
+        
+        // Initialize theme
+        initTheme();
+        
+        // Initialize other functionality
+        initMobileMenu();
+        initCarousels();
+        initSearch();
+        initFAQ();
+        initMusicPlayer();
+        
+        console.log('Page fully loaded and initialized');
+    });
 
-    // Check for saved theme preference or prefer OS color scheme
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // ========== THEME FUNCTIONALITY ==========
+    function initTheme() {
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const body = document.body;
 
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        enableDarkMode();
-    }
+        // Check for saved theme preference or prefer OS color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    themeToggle.addEventListener('click', () => {
-        if (body.getAttribute('data-theme') === 'dark') {
-            enableLightMode();
-        } else {
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
             enableDarkMode();
         }
-    });
 
-    function enableDarkMode() {
-        body.setAttribute('data-theme', 'dark');
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
-        localStorage.setItem('theme', 'dark');
-    }
-
-    function enableLightMode() {
-        body.removeAttribute('data-theme');
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-        localStorage.setItem('theme', 'light');
-    }
-
-    // Download functionality
-    function startDownload(buttonElement, downloadLink) {
-        // Redirect to download link immediately
-        window.location.href = downloadLink;
-    }
-
-    // DOM elements
-    const contactModal = document.getElementById('contactModal');
-    const successModal = document.getElementById('successModal');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mainSearchInput = document.getElementById('mainSearchInput');
-    const seeMoreBtn = document.getElementById('see-more-btn');
-    const videoBackground = document.querySelector('.video-background');
-            
-    // Mobile menu toggle
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    function openContactModal() {
-        contactModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => contactModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-    }
-
-    function openSuccessModal() {
-        successModal.classList.remove('hidden');
-        setTimeout(() => successModal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0'), 10);
-        setTimeout(() => closeModal('successModal'), 3000); // Auto-close after 3 seconds
-    }
-    
-    function closeModal(modalId) {
-        const modalToClose = document.getElementById(modalId);
-        if (!modalToClose || modalToClose.classList.contains('hidden')) return;
-        
-        modalToClose.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
-        setTimeout(() => {
-            modalToClose.classList.add('hidden');
-            const isAnyModalOpen = !contactModal.classList.contains('hidden') || !successModal.classList.contains('hidden');
-            if (!isAnyModalOpen) {
-                document.body.style.overflow = 'auto';
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                enableLightMode();
+            } else {
+                enableDarkMode();
             }
-        }, 300);
-    }
+        });
 
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeModal('contactModal');
-            closeModal('successModal');
+        function enableDarkMode() {
+            body.setAttribute('data-theme', 'dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
         }
-    });
-    
-    contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeModal('contactModal'); });
 
-    // FAQ toggle functionality
-    function toggleFAQ(element) {
-        const faqItem = element.parentElement;
-        const answer = faqItem.querySelector('.faq-answer');
-        
-        // Close all other FAQs
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== faqItem) {
-                item.classList.remove('active');
-                item.querySelector('.faq-answer').classList.remove('open');
-            }
-        });
-        
-        // Toggle current FAQ
-        faqItem.classList.toggle('active');
-        answer.classList.toggle('open');
-    }
-
-    // Hero section animations
-    function animateHeroSection() {
-        const heroContent = document.querySelector('.hero-content');
-        const heroTitle = document.querySelector('.hero-title');
-        const heroSubtitle = document.querySelector('.hero-subtitle');
-        const heroBadges = document.querySelector('.hero-badges');
-        const heroCta = document.querySelector('.hero-cta');
-        
-        // Animate hero elements with delays
-        setTimeout(() => heroContent.classList.add('animate'), 100);
-        setTimeout(() => heroTitle.classList.add('animate'), 300);
-        setTimeout(() => heroSubtitle.classList.add('animate'), 500);
-        setTimeout(() => heroBadges.classList.add('animate'), 700);
-        setTimeout(() => heroCta.classList.add('animate'), 1000);
-    }
-    
-    // Scroll animation functionality
-    function animateOnScroll() {
-        const sections = document.querySelectorAll('section');
-        const bookCards = document.querySelectorAll('.book-card');
-        const sectionTitles = document.querySelectorAll('.section-title');
-        const sectionSubtitles = document.querySelectorAll('.section-subtitle');
-        
-        // Parallax effect for video background
-        if (videoBackground) {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            videoBackground.style.transform = `translateY(${rate}px)`;
+        function enableLightMode() {
+            body.removeAttribute('data-theme');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
         }
-        
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (sectionTop < windowHeight * 0.85) {
-                section.classList.add('animate');
-            }
-        });
-        
-        sectionTitles.forEach(title => {
-            const titleTop = title.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (titleTop < windowHeight * 0.85) {
-                title.classList.add('animate');
-            }
-        });
-        
-        sectionSubtitles.forEach(subtitle => {
-            const subtitleTop = subtitle.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (subtitleTop < windowHeight * 0.85) {
-                subtitle.classList.add('animate');
-            }
-        });
-        
-        bookCards.forEach(card => {
-            const cardTop = card.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (cardTop < windowHeight * 0.85) {
-                card.classList.add('animate');
-            }
-        });
     }
-    
-    // Initial animation on page load
-    window.addEventListener('load', () => {
-        animateHeroSection();
-        animateOnScroll();
+
+    // ========== MOBILE MENU ==========
+    function initMobileMenu() {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
         
-        // Animate book cards with a slight delay for a staggered effect
-        setTimeout(() => {
-            const bookCards = document.querySelectorAll('.book-card');
-            bookCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate');
-                }, index * 100);
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-        }, 300);
-    });
-
-    // Animate on scroll
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Simple video looping
-    const video = document.querySelector('#video-section video');
-    if (video) {
-        video.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        });
-    }
-
-    // ========== MUSIC PLAYER CODE ==========
-    // Music Player Functionality
-    const musicToggle = document.getElementById('music-toggle');
-    const backgroundMusic = document.getElementById('background-music');
-    let musicPlaying = false;
-    let audioNotificationShown = false;
-    let audioInitialized = false;
-
-    // Function to initialize audio on first user interaction
-    function initAudio() {
-        if (audioInitialized) return;
-        
-        try {
-            // Set volume to a reasonable level
-            backgroundMusic.volume = 0.3;
             
-            // Preload the audio
-            backgroundMusic.load();
-            
-            // Create a silent audio context to unlock audio on iOS
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (AudioContext) {
-                const audioContext = new AudioContext();
-                // Resume the audio context on user gesture
-                if (audioContext.state === 'suspended') {
-                    audioContext.resume();
+            // Close menu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
                 }
-            }
-            
-            audioInitialized = true;
-            console.log('Audio initialized successfully');
-        } catch (error) {
-            console.error('Audio initialization failed:', error);
+            });
         }
     }
 
-    // Initialize audio on any user interaction
-    function setupAudioInteractions() {
-        const initEvents = ['click', 'touchstart', 'keydown', 'scroll'];
-        
-        initEvents.forEach(eventType => {
-            document.addEventListener(eventType, function initHandler() {
-                initAudio();
-                // Remove all initialization listeners after first interaction
-                initEvents.forEach(type => {
-                    document.removeEventListener(type, initHandler);
-                });
-            }, { once: true });
-        });
-    }
-
-    // Music toggle click handler
-    musicToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        
-        // Make sure audio is initialized
-        initAudio();
-        
-        if (musicPlaying) {
-            // Pause music
-            backgroundMusic.pause();
-            updateMusicButton(false);
-            musicPlaying = false;
-        } else {
-            // Play music with error handling
-            const playPromise = backgroundMusic.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    updateMusicButton(true);
-                    musicPlaying = true;
-                }).catch(error => {
-                    console.error('Audio play failed:', error);
-                    showAudioInstructions();
-                    updateMusicButton(false);
-                    musicPlaying = false;
-                });
-            }
-        }
-    });
-
-    // Update music button appearance
-    function updateMusicButton(isPlaying) {
-        if (isPlaying) {
-            musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
-            musicToggle.classList.remove('from-blue-500', 'to-purple-600');
-            musicToggle.classList.add('from-green-500', 'to-green-600');
-        } else {
-            musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
-            musicToggle.classList.remove('from-green-500', 'to-green-600');
-            musicToggle.classList.add('from-blue-500', 'to-purple-600');
-        }
-    }
-
-    // Show audio instructions if autoplay fails
-    function showAudioInstructions() {
-        const notification = document.createElement('div');
-        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
-        notification.innerHTML = `
-            <div class="flex items-center gap-2">
-                <i class="fas fa-info-circle text-sm"></i>
-                <span class="font-semibold text-sm">Click the music button to play audio</span>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Auto-remove after 5 seconds
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.remove();
-            }
-        }, 5000);
-    }
-
-    // Show "You hear?" notification after 5 seconds if user hasn't clicked
-    function showAudioNotification() {
-        if (audioNotificationShown || musicPlaying) return;
-        
-        const notification = document.createElement('div');
-        notification.className = 'fixed bottom-20 right-4 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-2xl animate-fade-in-up';
-        notification.innerHTML = `
-            <div class="flex items-center gap-2">
-                <i class="fas fa-music text-sm"></i>
-                <span class="font-semibold text-sm">You hear? </span>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        audioNotificationShown = true;
-        
-        // Auto-remove after 4 seconds
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.remove();
-            }
-        }, 4000);
-    }
-
-    // Add CSS for animation
-    const style = document.createElement('style');
-    style.textContent = `
-    @keyframes fade-in-up {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    .animate-fade-in-up {
-        animation: fade-in-up 0.5s ease-out;
-    }
-    `;
-    document.head.appendChild(style);
-
-    // Initialize everything when the page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        setupAudioInteractions();
-        
-        // Show notification after 5 seconds
-        setTimeout(() => {
-            if (!musicPlaying && !audioNotificationShown) {
-                showAudioNotification();
-            }
-        }, 5000);
-    });
-
-    // Audio error handling
-    if (backgroundMusic) {
-        backgroundMusic.addEventListener('error', function(e) {
-            console.error('Audio error:', e);
-        });
-        
-        // Handle audio ending
-        backgroundMusic.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play().catch(e => console.log('Auto-restart failed:', e));
-        });
-    }
-    // ========== END OF MUSIC PLAYER CODE ==========
-            
-    // ========== NEW CAROUSEL FUNCTIONALITY ==========
+    // ========== CAROUSEL FUNCTIONALITY ==========
     function initCarousels() {
-        // Initialize all carousels on the page
         document.querySelectorAll('.carousel-container').forEach(container => {
             const carousel = container.querySelector('.book-carousel');
             const prevBtn = container.querySelector('.carousel-nav.prev');
@@ -1953,7 +1279,7 @@
             
             if (!carousel) return;
             
-            const scrollAmount = 200; // How much to scroll per click
+            const scrollAmount = 200;
             
             nextBtn.addEventListener('click', () => {
                 carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -1962,50 +1288,17 @@
             prevBtn.addEventListener('click', () => {
                 carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
-            
-            // Auto-scroll every 5 seconds
-            let autoScroll = setInterval(() => {
-                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
-            }, 5000);
-            
-            // Pause auto-scroll on hover
-            carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
-            carousel.addEventListener('mouseleave', () => {
-                autoScroll = setInterval(() => {
-                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    }
-                }, 5000);
-            });
         });
     }
 
-    // Initialize carousels when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        initCarousels();
-    });
-    // ========== END OF CAROUSEL FUNCTIONALITY ==========
-        // ========== END OF CAROUSEL FUNCTIONALITY ==========
-     // ========== SEARCH FUNCTIONALITY ==========
-    document.addEventListener('DOMContentLoaded', function() {
+    // ========== SEARCH FUNCTIONALITY ==========
+    function initSearch() {
         const searchInput = document.getElementById('mainSearchInput');
-        const allSections = document.querySelectorAll('section[id]');
-        const allBookCards = document.querySelectorAll('.book-card');
-        
         if (!searchInput) return;
-        
-        // Clear any existing search on page load
-        searchInput.value = '';
         
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
-            const container = document.querySelector('.container.mx-auto.px-4.py-4');
+            const allBookCards = document.querySelectorAll('.book-card');
             
             // Remove existing "no results" message
             const existingMessage = document.getElementById('no-results-message');
@@ -2014,60 +1307,23 @@
             }
             
             if (searchTerm.length === 0) {
-                // Show all sections and books when search is empty
-                allSections.forEach(section => {
-                    section.style.display = 'block';
-                    const books = section.querySelectorAll('.book-card');
-                    books.forEach(book => {
-                        book.style.display = 'flex';
-                        book.classList.remove('hidden');
-                    });
+                allBookCards.forEach(card => {
+                    card.style.display = 'flex';
                 });
                 return;
             }
             
             let hasResults = false;
             
-            allSections.forEach(section => {
-                // NEVER hide the search section!
-                if (section.id === 'search-section') {
-                    section.style.display = 'block';
-                    return;
-                }
+            allBookCards.forEach(card => {
+                const bookName = card.getAttribute('data-name')?.toLowerCase() || '';
+                const bookTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
                 
-                const books = section.querySelectorAll('.book-card');
-                let sectionHasVisibleBooks = false;
-                
-                books.forEach(book => {
-                    // Get all searchable text from the book
-                    const bookName = book.getAttribute('data-name')?.toLowerCase() || '';
-                    const bookTitle = book.querySelector('h3')?.textContent.toLowerCase() || '';
-                    const bookAlt = book.querySelector('img')?.getAttribute('alt')?.toLowerCase() || '';
-                    
-                    // Check if book matches search term
-                    if (bookName.includes(searchTerm) || 
-                        bookTitle.includes(searchTerm) || 
-                        bookAlt.includes(searchTerm)) {
-                        book.style.display = 'flex';
-                        book.classList.remove('hidden');
-                        sectionHasVisibleBooks = true;
-                        hasResults = true;
-                    } else {
-                        book.style.display = 'none';
-                        book.classList.add('hidden');
-                    }
-                });
-                
-                // Show/hide section based on whether it has visible books
-                const sectionTitle = section.querySelector('h2')?.textContent.toLowerCase() || '';
-                const sectionSubtitle = section.querySelector('.section-subtitle')?.textContent.toLowerCase() || '';
-                
-                if (sectionHasVisibleBooks || 
-                    sectionTitle.includes(searchTerm) ||
-                    sectionSubtitle.includes(searchTerm)) {
-                    section.style.display = 'block';
+                if (bookName.includes(searchTerm) || bookTitle.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    hasResults = true;
                 } else {
-                    section.style.display = 'none';
+                    card.style.display = 'none';
                 }
             });
             
@@ -2075,27 +1331,106 @@
             if (!hasResults && searchTerm.length > 0) {
                 const message = document.createElement('div');
                 message.id = 'no-results-message';
-                message.className = 'text-center py-8 text-gray-500';
+                message.className = 'text-center py-8 text-gray-500 dark:text-gray-400 col-span-full';
                 message.innerHTML = `
                     <i class="fas fa-search text-3xl mb-4 text-gray-400"></i>
                     <h3 class="text-xl font-semibold mb-2">No books found</h3>
-                    <p>Try searching for different keywords like "weight loss", "diet", "fasting", etc.</p>
+                    <p>Try searching for different keywords</p>
                 `;
+                const container = document.querySelector('.container.mx-auto.px-4.py-4');
                 if (container) {
                     container.appendChild(message);
                 }
             }
         });
+    }
+
+    // ========== FAQ FUNCTIONALITY ==========
+    function initFAQ() {
+        window.toggleFAQ = function(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.querySelector('.faq-answer').classList.remove('open');
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('open');
+        };
+    }
+
+    // ========== MUSIC PLAYER FUNCTIONALITY ==========
+    function initMusicPlayer() {
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+        let musicPlaying = false;
         
-        // Clear search when pressing Escape key
-        searchInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                this.value = '';
-                this.dispatchEvent(new Event('input'));
+        if (!musicToggle || !backgroundMusic) return;
+        
+        musicToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                updateMusicButton(false);
+                musicPlaying = false;
+            } else {
+                const playPromise = backgroundMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        updateMusicButton(true);
+                        musicPlaying = true;
+                    }).catch(error => {
+                        console.error('Audio play failed:', error);
+                        updateMusicButton(false);
+                        musicPlaying = false;
+                    });
+                }
             }
         });
-    });
-    // ========== END OF SEARCH FUNCTIONALITY ==========
+
+        function updateMusicButton(isPlaying) {
+            if (isPlaying) {
+                musicToggle.innerHTML = '<i class="fas fa-pause text-sm"></i>';
+                musicToggle.classList.remove('from-blue-500', 'to-purple-600');
+                musicToggle.classList.add('from-green-500', 'to-green-600');
+            } else {
+                musicToggle.innerHTML = '<i class="fas fa-play text-sm transform translate-x-0.5"></i>';
+                musicToggle.classList.remove('from-green-500', 'to-green-600');
+                musicToggle.classList.add('from-blue-500', 'to-purple-600');
+            }
+        }
+    }
+
+    // ========== MODAL FUNCTIONALITY ==========
+    window.openContactModal = function() {
+        const contactModal = document.getElementById('contactModal');
+        if (contactModal) {
+            contactModal.classList.remove('hidden');
+        }
+    };
+
+    window.openSuccessModal = function() {
+        const successModal = document.getElementById('successModal');
+        if (successModal) {
+            successModal.classList.remove('hidden');
+            setTimeout(() => {
+                successModal.classList.add('hidden');
+            }, 3000);
+        }
+    };
+
+    window.closeModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('hidden');
+        }
+    };
 </script>
 </body>
 </html>
