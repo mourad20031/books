@@ -60,10 +60,72 @@
 }
 </script>
 
-<script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- MOBILE PERFORMANCE OPTIMIZATION -->
+<!-- Preconnect to critical domains -->
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://i.postimg.cc">
+
+<!-- Load Tailwind CSS with mobile detection -->
+<script>
+  if (window.innerWidth < 768) {
+    // Mobile: Load Tailwind after page is interactive
+    document.addEventListener('DOMContentLoaded', function() {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      script.defer = true;
+      document.head.appendChild(script);
+    });
+  } else {
+    // Desktop: Load normally
+    var script = document.createElement('script');
+    script.src = 'https://cdn.tailwindcss.com';
+    document.head.appendChild(script);
+  }
+</script>
+
+<!-- Load Font Awesome after page loads on mobile -->
+<script>
+  if (window.innerWidth < 768) {
+    document.addEventListener('DOMContentLoaded', function() {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+      link.media = 'print';
+      link.onload = function() { this.media = 'all'; };
+      document.head.appendChild(link);
+    });
+  } else {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+    document.head.appendChild(link);
+  }
+</script>
+
+<!-- Load Google Fonts with mobile optimization -->
+<script>
+  if (window.innerWidth < 768) {
+    document.addEventListener('DOMContentLoaded', function() {
+      var fontLink = document.createElement('link');
+      fontLink.rel = 'stylesheet';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
+      fontLink.media = 'print';
+      fontLink.onload = function() { this.media = 'all'; };
+      document.head.appendChild(fontLink);
+    });
+  } else {
+    var fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
+    document.head.appendChild(fontLink);
+  }
+</script>
+
   <style>
+    /* CRITICAL CSS - Load immediately for First Paint */
     :root {
       --bg-color: #f8fafc;
       --text-color: #1a1a1a;
@@ -88,7 +150,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       user-select: none;
@@ -97,33 +159,184 @@
       -ms-user-select: none;
       -webkit-user-drag: none;
       transition: background-color 0.3s ease, color 0.3s ease;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
     }
+    
+    /* Mobile-first layout */
     .header-bg {
       background-color: var(--header-bg);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       transition: background-color 0.3s ease;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
+    
+    /* Basic flex utilities for initial render */
+    .flex { display: flex; }
+    .justify-between { justify-content: space-between; }
+    .items-center { align-items: center; }
+    .hidden { display: none; }
+    .container {
+      width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Text colors for initial render */
+    .text-gray-900 { color: #111827; }
+    .text-blue-500 { color: #2563eb !important; }
+    .text-white { color: white; }
+    .text-gray-600 { color: #4b5563; }
+    .text-gray-700 { color: #374151; }
+    .text-red-500 { color: #ef4444; }
+    
+    /* Basic padding/margin */
+    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .space-x-4 > * + * { margin-left: 1rem; }
+    
+    /* Video section for mobile */
+    #video-section {
+      position: relative;
+      width: 100%;
+      height: 24rem;
+      overflow: hidden;
+    }
+    
+    /* Search section */
+    #search-section {
+      background-color: white;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    /* Basic book card structure */
     .book-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      position: relative;
+      border-radius: 0.75rem;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: 180px;
       opacity: 0;
       transform: translateY(20px);
     }
+    
+    .book-image {
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      pointer-events: none;
+      background-color: #f3f4f6;
+    }
+    
+    /* Book badges */
+    .book-badge {
+      position: absolute;
+      top: 6px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 10;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    
+    .premium-badge {
+      left: 6px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+    }
+    
+    .free-badge {
+      right: 6px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #10b981;
+      font-weight: 700;
+      border: 1px solid #dcfce7;
+    }
+    
+    /* Footer basics */
+    footer {
+      background-color: var(--header-bg);
+      border-top: 1px solid #e5e7eb;
+      width: 100%;
+    }
+    
+    /* Music player position */
+    #music-player {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 50;
+    }
+    
+    /* Carousel basic structure */
+    .carousel-container {
+      position: relative;
+      padding: 0 2rem;
+      margin: 0 -1rem;
+    }
+    
+    .book-carousel {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0.5rem 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .book-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #e5e7eb;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+    
+    .carousel-nav.prev { left: 0; }
+    .carousel-nav.next { right: 0; }
+    
+    /* ========== NON-CRITICAL STYLES BELOW ========== */
+    /* These will load after page becomes interactive */
+    
     .book-card.animate {
       opacity: 1;
       transform: translateY(0);
       transition: all 0.6s ease;
     }
+    
     .book-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
       border-color: #3b82f6;
     }
+    
     .btn-download {
       background: linear-gradient(135deg, #10b981, #059669);
       color: #ffffff;
@@ -132,34 +345,29 @@
       position: relative;
       overflow: hidden;
     }
+    
     .btn-download:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
-    .btn-download:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
-    .btn-download.loading {
-      background: linear-gradient(90deg, #10b981, #059669, #10b981);
-      background-size: 200% 100%;
-      animation: loading-shine 2s infinite;
-    }
+    
     @keyframes loading-shine {
       0% { background-position: -200% 0; }
       100% { background-position: 200% 0; }
     }
+    
     .search-bar, .form-input {
       background-color: var(--search-bg);
       border: 1px solid var(--border-color);
       color: var(--text-color);
       transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
+    
     .modal-bg {
       background-color: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(4px);
     }
+    
     .modal-content {
       background-color: var(--modal-bg);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -167,38 +375,6 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Book image styling */
-    .book-image {
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem;
-      pointer-events: none; 
-    }
-    /* Coming Soon placeholder */
-    .coming-soon-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #9ca3af; 
-      font-size: 0.7rem; 
-      font-weight: 500; 
-      background-color: #f3f4f6; 
-      border-radius: 8px;
-      aspect-ratio: 2 / 3;
-      width: 100%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem;
-      pointer-events: none; 
-    }
-
-    [data-theme="dark"] .coming-soon-image {
-      background-color: #475569;
-      color: #cbd5e1;
-    }
-
     /* Modern See More button */
     .btn-see-more {
       background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -223,102 +399,13 @@
       transform: translateY(-2px);
     }
     
-    .btn-see-more:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
-    }
-    
-    .btn-see-more .icon {
-      transition: transform 0.3s ease;
-    }
-    
-    .btn-see-more.expanded .icon {
-      transform: rotate(180deg);
-    }
-    
-    /* Pulse animation for the button */
-    @keyframes pulse {
-      0% { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); }
-      50% { box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); }
-      100% { box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); }
-    }
-    
-    .btn-see-more.pulse {
-      animation: pulse 2s infinite;
-    }
-    
-    /* Smooth transition for showing/hiding books */
-    .book-card {
-      transition: all 0.4s ease;
-    }
-    
-    .book-card.hidden {
-      opacity: 0;
-      transform: translateY(10px);
-      height: 0;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    
-    /* Safety badge */
-    .safety-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid #dbeafe;
-    }
-
-    [data-theme="dark"] .safety-badge {
-      background: #1e3a8a;
-      color: #60a5fa;
-      border-color: #1e40af;
-    }
-    
-    /* Compact book grid layout */
-    .compact-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    
-    @media (min-width: 768px) {
-      .compact-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      .compact-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-      }
-    }
-    
-    @media (min-width: 1280px) {
-      .compact-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 16px;
-      }
-    }
-    
-    /* Hero section styling */
-    .hero-gradient {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    }
-    
     /* Loading dots animation */
     .loading-dots {
       display: flex;
       justify-content: center;
       gap: 4px;
     }
+    
     .loading-dots div {
       width: 8px;
       height: 8px;
@@ -326,9 +413,7 @@
       background: #3b82f6;
       animation: loading-dots 1.4s ease-in-out infinite both;
     }
-    .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
-    .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
-    .loading-dots div:nth-child(3) { animation-delay: 0s; }
+    
     @keyframes loading-dots {
       0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
       40% { transform: scale(1); opacity: 1; }
@@ -339,6 +424,7 @@
       border-bottom: 1px solid var(--border-color);
       transition: all 0.3s ease;
     }
+    
     .faq-question {
       padding: 16px 0;
       cursor: pointer;
@@ -346,248 +432,31 @@
       justify-content: space-between;
       align-items: center;
     }
+    
     .faq-question:hover {
       color: #3b82f6;
     }
+    
     .faq-answer {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
       color: #6b7280;
     }
+    
     .faq-answer.open {
       max-height: 200px;
       padding-bottom: 16px;
     }
-    .faq-icon {
-      transition: transform 0.3s ease;
-    }
-    .faq-item.active .faq-icon {
-      transform: rotate(180deg);
-    }
     
-    /* Modern Book card badges - SMALLER SIZE */
-    .book-badge {
-      position: absolute;
-      top: 6px;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      z-index: 10;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-    .premium-badge {
-      left: 6px;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      color: white;
-      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
-    }
-    .free-badge {
-      right: 6px;
-      color: #10b981;
-      font-weight: 700;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-    
-    /* Hero Section Animations */
-    .hero-content {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    
-    .hero-title {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease 0.2s;
-    }
-    
-    .hero-subtitle {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease 0.4s;
-    }
-    
-    .hero-badges {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease 0.6s;
-    }
-    
-    .hero-cta {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease 1s;
-      animation: gentle-pulse 2s infinite 1.5s;
-    }
-    
-    @keyframes gentle-pulse {
-      0% { transform: translateY(20px) scale(1); }
-      50% { transform: translateY(20px) scale(1.05); }
-      100% { transform: translateY(20px) scale(1); }
-    }
-    
-    .hero-content.animate,
-    .hero-title.animate,
-    .hero-subtitle.animate,
-    .hero-badges.animate,
-    .hero-cta.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* Background Video */
-    .video-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.15;
-    }
-    
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
-      z-index: -1;
-    }
-    
-    /* Parallax Effect */
-    .parallax {
-      transform: translateY(0);
-      transition: transform 0.3s ease-out;
-    }
-    
-    /* Section Animations */
-    section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    
-    section.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .section-title {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease 0.2s;
-    }
-    
-    .section-subtitle {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease 0.4s;
-    }
-    
-    .section-title.animate,
-    .section-subtitle.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-
-   /* Music Player Styles */
-#music-player {
-    transition: all 0.3s ease;
-}
-
-#volume-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 4px;
-    background: #e5e7eb;
-    border-radius: 2px;
-    outline: none;
-}
-
-#volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #3b82f6;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#volume-slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #3b82f6;
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-}
-
-/* Dark mode support */
-[data-theme="dark"] #music-player .bg-white {
-    background-color: #334155 !important;
-}
-
-[data-theme="dark"] #volume-slider {
-    background: #475569;
-}
-
-   
-
-    /* Enhanced Footer Styles */
-    .footer-links a {
-      transition: color 0.2s ease;
-    }    
-    /* Enhanced Footer Styles */
-    .footer-links a {
-      transition: color 0.2s ease;
-    }
-    .footer-links a:hover {
-      color: #3b82f6;
-    }
-    
-    /* Enhanced Badge Styles */
-    .book-badge {
-      position: absolute;
-      top: 6px;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      z-index: 10;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .premium-badge {
-      left: 6px;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-      color: white;
-      box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
-    }
-    .free-badge {
-      right: 6px;
-      background: rgba(255, 255, 255, 0.95);
-      color: #10b981;
-      font-weight: 700;
-      border: 1px solid #dcfce7;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
+    /* Modern Book card badges */
     [data-theme="dark"] .free-badge {
       background: rgba(30, 41, 59, 0.95);
       color: #10b981;
       border-color: #065f46;
     }
-
-    /* Theme Toggle Styles - Fixed */
+    
+    /* Theme Toggle Styles */
     .theme-toggle {
       background: none;
       border: none;
@@ -602,23 +471,18 @@
       width: 40px;
       height: 40px;
     }
-
-    /* Remove hover background to eliminate shadow effect */
-    .theme-toggle:hover {
-      background-color: transparent;
-    }
-
+    
     .theme-icon {
       width: 20px;
       height: 20px;
       transition: all 0.3s ease;
     }
-
+    
     .theme-icon.hidden {
       display: none;
     }
-
-    /* Dark mode text colors - ensure ALL text is white in dark mode */
+    
+    /* Dark mode styles */
     [data-theme="dark"] .text-gray-900,
     [data-theme="dark"] .text-gray-800,
     [data-theme="dark"] .text-gray-700,
@@ -627,175 +491,77 @@
     [data-theme="dark"] .text-gray-400 {
       color: #ffffff !important;
     }
-   /* Add this to your existing styles, right after the dark mode text color rules */
-[data-theme="dark"] #custom-amount {
-  color: #ffffff !important;
-  background-color: #1e293b !important;
-  border-color: #475569 !important;
-}
-
-[data-theme="dark"] #custom-amount::placeholder {
-  color: #94a3b8 !important;
-}
-
+    
     [data-theme="dark"] .bg-white {
       background-color: var(--header-bg) !important;
     }
-
+    
     [data-theme="dark"] .bg-gray-50 {
       background-color: #1e293b !important;
     }
-
-    /* Ensure all text in book cards is visible in dark mode */
-    [data-theme="dark"] .book-card h3,
-    [data-theme="dark"] .book-card .text-gray-500,
-    [data-theme="dark"] .book-card .text-yellow-500 {
-      color: #ffffff !important;
-    }
-
-    /* Ensure search section background in dark mode */
-    [data-theme="dark"] #search-section {
-      background-color: var(--header-bg) !important;
-    }
-
-    /* === NEW CAROUSEL STYLES FOR ALL SECTIONS === */
-    .carousel-container {
-        position: relative;
-        padding: 0 2rem;
-        margin: 0 -1rem;
-    }
-
-    .book-carousel {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        padding: 0.5rem 0;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-    }
-
-    .book-carousel::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-
-    .carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid #e5e7eb;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(4px);
-    }
-
-    .carousel-nav:hover {
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .carousel-nav.prev {
-        left: 0;
-    }
-
-    .carousel-nav.next {
-        right: 0;
-    }
-
-    .carousel-nav i {
-        font-size: 0.75rem;
-        color: #4b5563;
-    }
-
-    /* Dark mode for carousel */
+    
+    /* Carousel dark mode */
     [data-theme="dark"] .carousel-nav {
-        background: rgba(30, 41, 59, 0.8);
-        border-color: #475569;
-        color: white;
+      background: rgba(30, 41, 59, 0.8);
+      border-color: #475569;
+      color: white;
     }
-
-    [data-theme="dark"] .carousel-nav i {
-        color: #cbd5e1;
+    
+    /* Music Player Styles */
+    #music-toggle {
+      width: 3rem;
+      height: 3rem;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
     }
-
-    [data-theme="dark"] .carousel-nav:hover {
-        background: #334155;
-    }
-   /* Simple Mobile Menu */
-[data-theme="dark"] #mobile-menu {
-    background-color: var(--header-bg);
-    border-color: var(--border-color);
-}
-
-[data-theme="dark"] #mobile-menu a {
-    color: #cbd5e1;
-}
-
-[data-theme="dark"] #mobile-menu a:hover {
-    color: #3b82f6;
-    background-color: rgba(59, 130, 246, 0.1);
-}
-       /* ========== SEARCH FUNCTIONALITY STYLES ========== */
-    #search-section {
-        display: block !important;
-    }
-
-    #no-results-message {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 3rem 1rem;
-        background: var(--card-bg);
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        margin-top: 2rem;
-    }
-
-    .book-card.hidden {
-        display: none !important;
-        opacity: 0;
-        transform: translateY(10px);
-        height: 0;
-        margin: 0;
-        overflow: hidden;
-    }
-
+    
     /* Search highlight */
     .highlight {
-        background-color: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.3);
-    }
-
-    /* Search input focus */
-    #mainSearchInput:focus {
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      background-color: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
     }
     
-    /* Ensure search input stays visible */
-    #mainSearchInput {
-        z-index: 100;
-        position: relative;
+    /* Desktop styles */
+    @media (min-width: 768px) {
+      .md\:hidden {
+        display: none;
+      }
+      
+      .md\:flex {
+        display: flex;
+      }
+      
+      #video-section {
+        height: 28rem;
+      }
+      
+      .book-card {
+        width: 200px;
+      }
     }
     
-    /* ADDED: Better contrast for blue text */
-    .text-blue-500 {
-        color: #2563eb !important;
+    @media (min-width: 1024px) {
+      #video-section {
+        height: 32rem;
+      }
+      
+      .container {
+        max-width: 1024px;
+      }
     }
   </style>
 </head>
 <body class="antialiased">
 
     <!-- Header - Updated with theme toggle -->
-    <header class="header-bg sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="header-bg">
+        <div class="container py-3 px-4 flex justify-between items-center">
            <a href="https://freeebooks.online/" class="flex items-center">
     <h1 class="text-lg font-bold text-gray-900 tracking-tight">
         <i class="fas fa-book text-blue-500"></i> Free<span class="text-blue-500">Ebooks</span>
@@ -850,7 +616,7 @@
     <main>
         
         <!-- Single Video Section -->
-<section id="video-section" class="relative w-full h-96 overflow-hidden">
+<section id="video-section">
     <!-- Single Video -->
     <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
         <source src="5726625-uhd_2732_1440_25fps.mp4" type="video/mp4">
@@ -911,7 +677,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="book-image">
+                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Weightless: A Doctor's Guide to GLP-1 Medications</h3>
@@ -932,7 +698,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="book-image">
+                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Glucose Revolution: Balancing Your Blood Sugar</h3>
@@ -953,7 +719,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="book-image">
+                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast Like a Girl: Healing Power of Fasting</h3>
@@ -974,7 +740,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="book-image">
+                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The New Menopause: Navigating Hormonal Change</h3>
@@ -995,7 +761,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="book-image">
+                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hunger Code: Resetting Your Fat Thermostat</h3>
@@ -1016,7 +782,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="book-image">
+                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Bite Me: Low-Calorie High-Protein Cooking</h3>
@@ -1037,7 +803,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="book-image">
+                    <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
@@ -1058,7 +824,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="book-image">
+                    <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
@@ -1099,7 +865,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="book-image">
+                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Ozempic Revolution: Reverse Obesity & End Yo-Yo Dieting</h3>
@@ -1121,7 +887,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="book-image">
+                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Menopause Reset: Get Rid of Symptoms</h3>
@@ -1143,7 +909,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="book-image">
+                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Biblio Diet: Healing Secrets from the Bible</h3>
@@ -1165,7 +931,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="book-image">
+                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Glucose Goddess Method: Cut Cravings & Feel Amazing</h3>
@@ -1187,7 +953,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="book-image">
+                    <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Meal Prep for Weight Loss: Weekly Plans</h3>
@@ -1208,7 +974,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="book-image">
+                    <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Mediterranean Diet: 28-Day Kickstart Plan</h3>
@@ -1229,7 +995,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="book-image">
+                    <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Magic Weight-Loss Pill</h3>
@@ -1250,7 +1016,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="book-image">
+                    <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Diabetes Code: Reverse Type 2 Naturally</h3>
@@ -1288,7 +1054,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="book-image">
+                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Obesity Code: Unlocking Weight Loss Secrets</h3>
@@ -1309,7 +1075,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="book-image">
+                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">How Not to Diet: Science of Permanent Weight Loss</h3>
@@ -1330,7 +1096,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="book-image">
+                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Live: Nutrient-Rich Program for Weight Loss</h3>
@@ -1351,7 +1117,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="book-image">
+                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Complete Guide To Fasting: Heal Your Body</h3>
@@ -1372,7 +1138,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="book-image">
+                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast. Feast. Repeat.: Guide to Intermittent Fasting</h3>
@@ -1393,7 +1159,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="book-image">
+                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Beat Your Diet: Burn Fat & Heal Metabolism</h3>
@@ -1414,7 +1180,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="book-image">
+                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Galveston Diet: Burn Fat & Tame Hormones</h3>
@@ -1435,7 +1201,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="book-image">
+                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Instant Loss: Eat Real, Lose Weight</h3>
@@ -1456,7 +1222,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="book-image">
+                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">ketoCONTINUUM: Consistently Keto For Life</h3>
@@ -1477,7 +1243,7 @@
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="book-image">
+                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="book-image" loading="lazy" width="180" height="270">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">SUPER Body: 3-Week Program for Youthful Contours</h3>
@@ -1504,11 +1270,9 @@
         <i class="fas fa-play text-sm transform translate-x-0.5"></i>
     </button>
     
-    <!-- Audio Element with Fallback -->
-    <audio id="background-music" loop preload="metadata">
+    <!-- Audio Element with Fallback - REMOVED LARGE FILE -->
+    <audio id="background-music" loop preload="none">
         <source src="ElevenLabs_2025-11-28T21_41_38_Russell - Young and Excited_pvc_sp100_s50_sb75_v3.mp3" type="audio/mpeg">
-        <!-- Fallback to a test audio file -->
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </div>
@@ -2169,11 +1933,6 @@
     if (backgroundMusic) {
         backgroundMusic.addEventListener('error', function(e) {
             console.error('Audio error:', e);
-            // Fallback to online audio if local file fails
-            if (backgroundMusic.src.includes('ElevenLabs')) {
-                backgroundMusic.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-                backgroundMusic.load();
-            }
         });
         
         // Handle audio ending
