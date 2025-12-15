@@ -1,73 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support FreeEbooks - Donate</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
+  <!-- Performance & Security Optimizations -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+  <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  
+  <!-- SEO Optimized Title -->
+  <title>Donate to FreeEbooks - Support Free eBook Library | Help Keep Books Free</title>
+  
+  <!-- SEO Optimized Description -->
+  <meta name="description" content="Support FreeEbooks with a donation to help us continue providing free premium eBooks. Your contribution helps maintain our library of 26+ weight loss and health books.">
+  
+  <!-- Keywords -->
+  <meta name="keywords" content="donate free ebooks, support free books, ebook donation, help free library, support online library, donate to education, free books support, paypal donation, contribute to free ebooks">
+  <meta name="author" content="FreeEbooks">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Donate to FreeEbooks - Support Our Free eBook Library">
+  <meta property="og:description" content="Help us continue providing free premium eBooks. Your donation supports our library of 26+ weight loss and health books for everyone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://freeebooks.online/donate">
+  <meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Support FreeEbooks - Donate to Keep Books Free">
+  <meta property="og:site_name" content="FreeEbooks Online">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Donate to FreeEbooks - Support Free eBook Library">
+  <meta name="twitter:description" content="Help us keep providing free premium eBooks. Your donation supports educational access to 26+ health and weight loss books.">
+  <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+  <meta name="twitter:image:alt" content="Support FreeEbooks - Donate to Keep Books Free">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://freeebooks.online/donate">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DonateAction",
+    "name": "Donate to FreeEbooks",
+    "description": "Support free access to premium eBooks for educational purposes",
+    "url": "https://freeebooks.online/donate",
+    "price": "5",
+    "priceCurrency": "USD",
+    "eligibleRegion": {
+      "@type": "Country",
+      "name": "Worldwide"
+    },
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://paypal.me/MouradAsmine/{amount}",
+      "actionPlatform": [
+        "http://schema.org/PayPal",
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "potentialAction": {
+      "@type": "DonateAction",
+      "name": "Donate via PayPal",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://paypal.me/MouradAsmine/{amount}"
+      }
+    }
+  }
+  </script>
+  
+  <!-- Preconnect for critical third-party domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://i.postimg.cc">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Critical inline CSS -->
+  <style>
+    body:not(.tailwind-loaded) { visibility: hidden; opacity: 0; }
+    body.tailwind-loaded { visibility: visible; opacity: 1; transition: opacity 0.3s ease; }
+    body:not([data-theme]) { background-color: #f8fafc !important; color: #1a1a1a !important; }
+    body:not([data-theme]) .header-bg { background-color: #ffffff !important; }
     
-    <!-- Meta Tags -->
-    <meta name="description" content="Support FreeEbooks and help us keep providing free premium eBooks.">
-    <meta name="keywords" content="donate, support, free ebooks, donation">
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --border-color: #e5e7eb;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #ffffff;
+      --header-bg: #1e293b;
+      --card-bg: #334155;
+      --border-color: #475569;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .header-bg {
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .donate-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .donate-option {
+      transition: all 0.2s ease;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+    }
+
+    .donate-option:hover {
+      border-color: #059669;
+      background-color: #f0fdf4;
+    }
+
+    .donate-option.active {
+      border-color: #059669;
+      background-color: #f0fdf4;
+      color: #065f46;
+    }
+
+    .btn-donate {
+      background-color: #059669;
+      transition: all 0.2s ease;
+    }
+
+    .btn-donate:hover {
+      background-color: #047857;
+      transform: translateY(-1px);
+    }
+
+    .paypal-green {
+      color: #0070ba;
+    }
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    [data-theme="dark"] .donate-option:hover,
+    [data-theme="dark"] .donate-option.active {
+      background-color: rgba(5, 150, 105, 0.2);
+    }
     
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #1a1a1a;
-        }
-
-        .header-bg {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .donate-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .donate-option {
-            transition: all 0.2s ease;
-            border: 1px solid #e5e7eb;
-        }
-
-        .donate-option:hover {
-            border-color: #059669;
-            background-color: #f0fdf4;
-        }
-
-        .donate-option.active {
-            border-color: #059669;
-            background-color: #f0fdf4;
-            color: #065f46;
-        }
-
-        .btn-donate {
-            background-color: #059669;
-            transition: all 0.2s ease;
-        }
-
-        .btn-donate:hover {
-            background-color: #047857;
-            transform: translateY(-1px);
-        }
-
-        .paypal-green {
-            color: #0070ba;
-        }
-    </style>
+    [data-theme="dark"] input {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+    
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-700,
+    [data-theme="dark"] .text-gray-600,
+    [data-theme="dark"] .text-gray-500 {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+    
+    [data-theme="dark"] .border-gray-200 {
+      border-color: var(--border-color) !important;
+    }
+    
+    [data-theme="dark"] .border-gray-300 {
+      border-color: var(--border-color) !important;
+    }
+    
+    .thank-you-message {
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  </style>
+  
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body class="antialiased">
-    
+<script>
+  document.body.classList.add('tailwind-loaded');
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+
+<!-- Hidden SEO content for better indexing -->
+<div style="display:none;">
+  <h1>Donate to FreeEbooks - Support Our Free eBook Library</h1>
+  <p>Help support FreeEbooks online library with a donation. Your contribution helps us continue providing free access to premium eBooks including weight loss books, health guides, diet plans, and educational resources. We offer 26+ free eBooks like The Ozempic Revolution, Weightless: A Doctor's Guide to GLP-1 Medications, Glucose Revolution, Fast Like a Girl, The Diabetes Code, Instant Loss, The Obesity Code, How Not to Diet, and many more health and wellness books.</p>
+  <p>Donations help cover server costs, maintenance, and allow us to add more free books to our collection. Every contribution, no matter how small, helps us keep the library free for everyone. You can donate via PayPal securely with amounts starting from $1. All donations are processed through secure PayPal payment gateway.</p>
+</div>
+
     <!-- Simple Header -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -154,17 +316,22 @@
                     <div class="space-y-4">
                         <div>
                             <p class="text-sm font-medium text-gray-700 mb-1">Is my payment secure?</p>
-                            <p class="text-xs text-gray-600">Yes, PayPal provides secure payment processing.</p>
+                            <p class="text-xs text-gray-600">Yes, PayPal provides secure payment processing with encryption and fraud protection.</p>
                         </div>
                         
                         <div>
                             <p class="text-sm font-medium text-gray-700 mb-1">Will I get a receipt?</p>
-                            <p class="text-xs text-gray-600">Yes, PayPal will email you a receipt.</p>
+                            <p class="text-xs text-gray-600">Yes, PayPal will email you a receipt immediately after your donation.</p>
                         </div>
                         
                         <div>
                             <p class="text-sm font-medium text-gray-700 mb-1">Can I donate anonymously?</p>
-                            <p class="text-xs text-gray-600">Yes, through PayPal's privacy options.</p>
+                            <p class="text-xs text-gray-600">Yes, through PayPal's privacy options. You can choose what information to share.</p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium text-gray-700 mb-1">How will my donation be used?</p>
+                            <p class="text-xs text-gray-600">100% of donations go towards server costs, book licenses, and maintaining our free library.</p>
                         </div>
                     </div>
                 </div>
@@ -177,10 +344,14 @@
     <footer class="py-6 border-t border-gray-200">
         <div class="container mx-auto px-4 text-center">
             <p class="text-sm text-gray-600">
-                © 2024 FreeEbooks. All donations support our free library.
+                © 2024 FreeEbooks. All donations support our free library and help us continue providing educational eBooks.
             </p>
         </div>
     </footer>
+
+    <!-- Font Awesome -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
 
     <!-- JavaScript -->
     <script>
@@ -224,7 +395,7 @@
             
             // Show thank you message
             const thankYou = document.createElement('div');
-            thankYou.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm';
+            thankYou.className = 'thank-you-message fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm';
             thankYou.innerHTML = `
                 <div class="flex items-center gap-2">
                     <i class="fas fa-check-circle"></i>
@@ -237,6 +408,26 @@
                 thankYou.remove();
             }, 3000);
         });
+        
+        // Dark mode support
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6FR9YXVV8Z', { 
+        'transport_type': 'beacon',
+        'anonymize_ip': true
+      });
     </script>
 </body>
 </html>
