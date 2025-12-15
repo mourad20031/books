@@ -1,72 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | FreeEbooks</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
+  <!-- Performance & Security Optimizations -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+  <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  
+  <!-- SEO Optimized Title -->
+  <title>Contact FreeEbooks | Support, Questions & Feedback | Customer Service</title>
+  
+  <!-- SEO Optimized Description -->
+  <meta name="description" content="Contact FreeEbooks team for support, questions, or feedback about our free eBook collection. Get help with 26+ weight loss books, technical issues, or book requests.">
+  
+  <!-- Keywords -->
+  <meta name="keywords" content="contact free ebooks, ebook support, book inquiries, customer service, free ebook help, technical support, book request, copyright issue, partnership inquiry">
+  <meta name="author" content="FreeEbooks">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Contact FreeEbooks | Support & Customer Service">
+  <meta property="og:description" content="Contact our team for support with free eBooks, technical issues, book requests, or feedback. We're here to help with our 26+ book collection.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://freeebooks.online/contact">
+  <meta property="og:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Contact FreeEbooks - Support & Customer Service">
+  <meta property="og:site_name" content="FreeEbooks Online">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact FreeEbooks | Support & Customer Service">
+  <meta name="twitter:description" content="Contact our team for support with free eBooks, technical issues, book requests, or feedback. We're here to help with our 26+ book collection.">
+  <meta name="twitter:image" content="https://i.postimg.cc/t4mDc01M/og-image-(1).png">
+  <meta name="twitter:image:alt" content="Contact FreeEbooks - Support & Customer Service">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://freeebooks.online/contact">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact FreeEbooks",
+    "description": "Contact page for FreeEbooks customer support and inquiries",
+    "url": "https://freeebooks.online/contact",
+    "inLanguage": "en",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "FreeEbooks",
+      "description": "Free eBook library providing access to premium weight loss and health books",
+      "email": "contact@freeebooks.online",
+      "areaServed": "Worldwide",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://freeebooks.online/contact",
+        "servicePhone": "Contact Form Available",
+        "availableLanguage": {
+          "@type": "Language",
+          "name": "English"
+        },
+        "processingTime": "24-48 hours"
+      }
+    }
+  }
+  </script>
+  
+  <!-- Preconnect for critical third-party domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://i.postimg.cc">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Critical inline CSS -->
+  <style>
+    body:not(.tailwind-loaded) { visibility: hidden; opacity: 0; }
+    body.tailwind-loaded { visibility: visible; opacity: 1; transition: opacity 0.3s ease; }
+    body:not([data-theme]) { background-color: #f8fafc !important; color: #1a1a1a !important; }
+    body:not([data-theme]) .header-bg { background-color: #ffffff !important; }
     
-    <meta name="description" content="Contact FreeEbooks team for support, questions, or feedback about our free eBook collection.">
-    <meta name="keywords" content="contact free ebooks, ebook support, book inquiries, customer service">
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1a1a1a;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --border-color: #e5e7eb;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #ffffff;
+      --header-bg: #1e293b;
+      --card-bg: #334155;
+      --border-color: #475569;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    .header-bg {
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+    }
     
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        
-        .header-bg {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .contact-form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-input {
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-        
-        .btn-submit {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
-        }
-        
-        .success-message {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-        
-        .error-message {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-        }
-    </style>
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-input {
+      border: 2px solid var(--border-color);
+      transition: all 0.3s ease;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+    }
+    
+    .form-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .btn-submit {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    }
+    
+    .success-message {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+    
+    .error-message {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    
+    [data-theme="dark"] .text-gray-900,
+    [data-theme="dark"] .text-gray-700,
+    [data-theme="dark"] .text-gray-600,
+    [data-theme="dark"] .text-gray-500 {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .bg-white {
+      background-color: var(--header-bg) !important;
+    }
+    
+    [data-theme="dark"] .border-gray-200 {
+      border-color: var(--border-color) !important;
+    }
+    
+    [data-theme="dark"] .border-gray-300 {
+      border-color: var(--border-color) !important;
+    }
+    
+    [data-theme="dark"] .bg-blue-100 {
+      background-color: rgba(59, 130, 246, 0.2) !important;
+    }
+    
+    [data-theme="dark"] .bg-green-100 {
+      background-color: rgba(16, 185, 129, 0.2) !important;
+    }
+    
+    [data-theme="dark"] .bg-purple-100 {
+      background-color: rgba(139, 92, 246, 0.2) !important;
+    }
+  </style>
+  
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body class="antialiased">
-    
+<script>
+  document.body.classList.add('tailwind-loaded');
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+
+<!-- Hidden SEO content for better indexing -->
+<div style="display:none;">
+  <h1>Contact FreeEbooks - Support, Questions & Feedback</h1>
+  <p>Contact the FreeEbooks team for support, questions, or feedback about our free eBook collection. We provide assistance with our library of 26+ weight loss and health books including The Ozempic Revolution, Weightless: A Doctor's Guide to GLP-1 Medications, Glucose Revolution, Fast Like a Girl, The Diabetes Code, Instant Loss, The Obesity Code, How Not to Diet, and other premium health eBooks.</p>
+  <p>Our customer service team is available to help with technical support, book requests, copyright inquiries, partnership opportunities, general questions about our free eBook library, download issues, reading format questions, accessibility concerns, and feedback on our book collection. We respond to all inquiries within 24-48 hours and are committed to providing excellent support for our educational platform.</p>
+  <p>You can reach us through our contact form, email at contact@freeebooks.online, or explore our FAQ section for common questions about downloading eBooks, compatible formats, device requirements, and book availability.</p>
+</div>
+
     <!-- Simple Header - EXACTLY like donate page -->
     <header class="header-bg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -197,6 +346,10 @@
         </div>
     </footer>
 
+    <!-- Font Awesome -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+
     <!-- JavaScript -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -291,6 +444,26 @@
                 console.log('Google Script check completed');
             }
         });
+        
+        // Dark mode support
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FR9YXVV8Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6FR9YXVV8Z', { 
+        'transport_type': 'beacon',
+        'anonymize_ip': true
+      });
     </script>
 </body>
 </html>
