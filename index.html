@@ -7,10 +7,6 @@
 <link rel="shortcut icon" href="favicon.ico">
  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-
- <!-- Google Analytics - Fixed -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7"></script>
-<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   
@@ -2252,7 +2248,6 @@
         initCarousels();
     });
     // ========== END OF CAROUSEL FUNCTIONALITY ==========
-        // ========== END OF CAROUSEL FUNCTIONALITY ==========
      // ========== SEARCH FUNCTIONALITY ==========
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('mainSearchInput');
@@ -2357,6 +2352,13 @@
         });
     });
     // ========== END OF SEARCH FUNCTIONALITY ==========
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S67S0Q8HK7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S67S0Q8HK7');
 </script>
 </body>
 </html>
