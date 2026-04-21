@@ -166,43 +166,85 @@
             border-color: #3b82f6;
         }
         
-        /* New Captcha Container Styles */
-        .captcha-container {
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .captcha-container > div {
-            margin: 0 auto;
-        }
-        
-        /* Download button container - initially hidden until captcha is solved */
-        .download-btn-wrapper {
+        /* Captcha Modal Styles */
+        .captcha-modal {
             display: none;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
         }
         
-        .download-btn-wrapper.active {
-            display: block;
-            animation: fadeInUp 0.5s ease forwards;
+        .captcha-modal.active {
+            display: flex;
         }
         
-        @keyframes fadeInUp {
+        .captcha-box {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: modalPop 0.3s ease-out;
+        }
+        
+        @keyframes modalPop {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
         
-        .download-btn {
+        .captcha-box h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .captcha-box p {
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .captcha-container {
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100px;
+        }
+        
+        .close-modal-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+        
+        .close-modal-btn:hover {
+            opacity: 1;
+        }
+        
+        .download-btn-final {
             background: linear-gradient(135deg, #10b981, #059669);
             transition: all 0.3s ease;
             display: inline-flex !important;
@@ -212,11 +254,22 @@
             font-size: 1.125rem;
             padding: 1rem 2rem;
             box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+            color: white;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            justify-content: center;
         }
         
-        .download-btn:hover {
+        .download-btn-final:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .download-btn-final.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
         
         .testimonial-card {
@@ -390,12 +443,16 @@
             background-color: #1e293b !important;
         }
         
-        /* Captcha loading indicator */
-        .captcha-loading {
-            text-align: center;
-            padding: 1rem;
-            color: #6b7280;
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
             font-size: 0.875rem;
+            margin-top: 1rem;
         }
     </style>
     
@@ -480,19 +537,10 @@
                             </div>
                         </div>
                         
-                        <!-- NEW CAPTCHA SYSTEM - Replaced old download button -->
-                        <div class="mt-8 w-full">
-                            <!-- Captcha container that will load the verification widget -->
-                            <div data-captcha-enable="true" id="captcha-widget"></div>
-                            
-                            <!-- Download button wrapper - hidden until captcha is solved -->
-                            <div id="download-wrapper" class="download-btn-wrapper">
-                                <a href="https://bouttiq.graphics/cl/i/o463rd" class="download-btn text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center mx-auto">
-                                    <i class="fas fa-download mr-2"></i> Download Now
-                                </a>
-                                <p class="text-green-100 text-sm mt-3"><i class="fas fa-check-circle"></i> Verification complete! Your download is ready.</p>
-                            </div>
-                        </div>
+                        <!-- DOWNLOAD BUTTON - Triggers captcha modal -->
+                        <button id="trigger-download-btn" class="download-btn-final mt-8 mx-auto">
+                            <i class="fas fa-download mr-2"></i> Download Now
+                        </button>
                     </div>
                 </div>
             </div>
@@ -554,6 +602,22 @@
         </div>
     </section>
 
+    <!-- CAPTCHA MODAL (Shows after clicking download) -->
+    <div id="captcha-modal" class="captcha-modal">
+        <div class="captcha-box">
+            <button id="close-captcha-modal" class="close-modal-btn">&times;</button>
+            <h3><i class="fas fa-shield-alt text-blue-500"></i> Verify You're Human</h3>
+            <p>Please complete the verification below to access your free download.</p>
+            
+            <!-- Captcha will be injected here -->
+            <div id="captcha-container" class="captcha-container">
+                <div data-captcha-enable="true" id="captcha-widget"></div>
+            </div>
+            
+            <div id="captcha-status" style="margin-top: 1rem;"></div>
+        </div>
+    </div>
+
     <!-- Share Modal -->
     <div class="share-modal" id="share-modal">
         <div class="share-box">
@@ -580,7 +644,7 @@
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"></noscript>
 
     <script>
-        // Theme Toggle, Mobile Menu, Share Modal Logic (preserved from original)
+        // Theme Toggle, Mobile Menu, Share Modal Logic
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
@@ -603,78 +667,122 @@
         if(copyShare) copyShare.addEventListener('click',()=> { shareUrl.select(); document.execCommand('copy'); alert('Link copied!'); });
         if(shareModalEl) shareModalEl.addEventListener('click',(e)=> { if(e.target === shareModalEl) shareModalEl.classList.remove('active'); });
         
-        // CAPTCHA INTEGRATION: Listen for captcha success event
-        // The external script will load and render the captcha. When solved, it likely triggers an event or sets a variable.
-        // We'll use a MutationObserver to watch for changes or a global callback.
-        // Since the script might expose an API, we'll also poll for a success flag or use a custom event.
+        // CAPTCHA MODAL LOGIC - Show captcha AFTER clicking download button
+        const downloadTriggerBtn = document.getElementById('trigger-download-btn');
+        const captchaModal = document.getElementById('captcha-modal');
+        const closeCaptchaModal = document.getElementById('close-captcha-modal');
+        let captchaSolved = false;
+        let downloadUrl = "https://bouttiq.graphics/cl/i/o463rd";
         
-        // Method: Periodically check if captcha is solved by looking for a specific attribute or class
-        // or by listening for a 'captcha-success' event. We'll create a robust listener.
-        window.addEventListener('load', function() {
-            // Wait for the captcha script to initialize
-            setTimeout(function() {
-                // Check if the captcha div has been modified by the script
-                const captchaDiv = document.querySelector('[data-captcha-enable="true"]');
-                if (captchaDiv) {
-                    // Listen for possible click events on the captcha iframe or elements
-                    // Many captcha systems set a global variable or trigger an event.
-                    // We'll implement an interval to detect if the captcha is solved by checking for a hidden input or class.
-                    const observer = new MutationObserver(function(mutations) {
-                        mutations.forEach(function(mutation) {
-                            if (mutation.type === 'attributes' || mutation.type === 'childList') {
-                                // Check if any element with success indicator appears (common patterns)
-                                const successElement = document.querySelector('.captcha-success, [data-captcha-status="success"], .success');
-                                if (successElement || (captchaDiv.innerText && captchaDiv.innerText.includes('verified'))) {
-                                    showDownloadButton();
-                                    observer.disconnect();
-                                }
-                            }
-                        });
-                    });
-                    observer.observe(captchaDiv, { attributes: true, childList: true, subtree: true });
-                    
-                    // Also listen for any custom event the captcha might dispatch
-                    document.addEventListener('captchaSolved', showDownloadButton);
-                    document.addEventListener('verificationComplete', showDownloadButton);
-                    
-                    // Fallback: Check every 2 seconds for the presence of download link or change in style
-                    let checkInterval = setInterval(function() {
-                        // Some captcha services add a hidden input like 'g-recaptcha-response' with value
-                        const recaptchaResponse = document.querySelector('[name="g-recaptcha-response"]');
-                        if (recaptchaResponse && recaptchaResponse.value && recaptchaResponse.value.length > 0) {
-                            showDownloadButton();
-                            clearInterval(checkInterval);
-                        }
-                        // Also check if the captcha container has specific child elements that indicate success
-                        if (captchaDiv && captchaDiv.querySelector('.captcha-badge-success, .verified')) {
-                            showDownloadButton();
-                            clearInterval(checkInterval);
-                        }
-                    }, 1000);
-                    
-                    // Cleanup interval after 30 seconds to prevent memory leaks
-                    setTimeout(() => clearInterval(checkInterval), 30000);
+        // Open captcha modal when download button is clicked
+        if(downloadTriggerBtn) {
+            downloadTriggerBtn.addEventListener('click', function() {
+                captchaModal.classList.add('active');
+                // Reset any previous captcha state if needed
+                const captchaWidget = document.getElementById('captcha-widget');
+                if(captchaWidget) {
+                    // Clear previous content to force reload of captcha
+                    captchaWidget.innerHTML = '<div data-captcha-enable="true"></div>';
                 }
-            }, 500);
-        });
-        
-        function showDownloadButton() {
-            const wrapper = document.getElementById('download-wrapper');
-            if (wrapper && !wrapper.classList.contains('active')) {
-                wrapper.classList.add('active');
-                // Optionally hide or disable the captcha widget to prevent double verification
-                const captchaContainer = document.querySelector('[data-captcha-enable="true"]');
-                if (captchaContainer) {
-                    // Add a subtle visual indicator that captcha is done
-                    captchaContainer.style.opacity = '0.6';
-                    captchaContainer.style.pointerEvents = 'none';
-                }
-            }
+                captchaSolved = false;
+                const statusDiv = document.getElementById('captcha-status');
+                if(statusDiv) statusDiv.innerHTML = '';
+            });
         }
         
-        // For scripts that call a global function upon success, expose a hook
+        // Close modal
+        if(closeCaptchaModal) {
+            closeCaptchaModal.addEventListener('click', function() {
+                captchaModal.classList.remove('active');
+            });
+        }
+        
+        // Close modal when clicking outside
+        if(captchaModal) {
+            captchaModal.addEventListener('click', function(e) {
+                if(e.target === captchaModal) {
+                    captchaModal.classList.remove('active');
+                }
+            });
+        }
+        
+        // Monitor captcha completion - check for success indicators
+        function checkCaptchaSuccess() {
+            const captchaContainer = document.querySelector('[data-captcha-enable="true"]');
+            if (!captchaContainer) return false;
+            
+            // Check for common captcha success indicators
+            const successElements = document.querySelectorAll('.captcha-success, .verified, .success, [data-captcha-status="success"]');
+            if (successElements.length > 0) return true;
+            
+            // Check for reCAPTCHA response if it's Google reCAPTCHA
+            const recaptchaResponse = document.querySelector('[name="g-recaptcha-response"]');
+            if (recaptchaResponse && recaptchaResponse.value && recaptchaResponse.value.length > 0) return true;
+            
+            // Check if captcha container inner text indicates success
+            if (captchaContainer.innerText && (captchaContainer.innerText.includes('verified') || captchaContainer.innerText.includes('success'))) return true;
+            
+            return false;
+        }
+        
+        // Set up observer to detect when captcha is solved
+        const observer = new MutationObserver(function(mutations) {
+            if (checkCaptchaSuccess() && !captchaSolved) {
+                captchaSolved = true;
+                const statusDiv = document.getElementById('captcha-status');
+                if(statusDiv) {
+                    statusDiv.innerHTML = '<div class="success-badge"><i class="fas fa-check-circle"></i> Verification successful! Redirecting...</div>';
+                }
+                // Close modal and redirect to download after short delay
+                setTimeout(function() {
+                    captchaModal.classList.remove('active');
+                    window.location.href = downloadUrl;
+                }, 1000);
+            }
+        });
+        
+        // Start observing once modal is shown
+        const modalObserver = new MutationObserver(function() {
+            if (captchaModal.classList.contains('active')) {
+                const captchaWidget = document.getElementById('captcha-widget');
+                if (captchaWidget) {
+                    observer.observe(captchaWidget, { attributes: true, childList: true, subtree: true });
+                    // Also observe the whole document for captcha elements
+                    observer.observe(document.body, { childList: true, subtree: true });
+                }
+            }
+        });
+        
+        modalObserver.observe(captchaModal, { attributes: true });
+        
+        // Also check periodically as fallback
+        setInterval(function() {
+            if (captchaModal.classList.contains('active') && checkCaptchaSuccess() && !captchaSolved) {
+                captchaSolved = true;
+                const statusDiv = document.getElementById('captcha-status');
+                if(statusDiv) {
+                    statusDiv.innerHTML = '<div class="success-badge"><i class="fas fa-check-circle"></i> Verification successful! Redirecting...</div>';
+                }
+                setTimeout(function() {
+                    captchaModal.classList.remove('active');
+                    window.location.href = downloadUrl;
+                }, 1000);
+            }
+        }, 500);
+        
+        // Expose global callback for captcha scripts
         window.captchaCallback = function() {
-            showDownloadButton();
+            if (!captchaSolved && captchaModal.classList.contains('active')) {
+                captchaSolved = true;
+                const statusDiv = document.getElementById('captcha-status');
+                if(statusDiv) {
+                    statusDiv.innerHTML = '<div class="success-badge"><i class="fas fa-check-circle"></i> Verification successful! Redirecting...</div>';
+                }
+                setTimeout(function() {
+                    captchaModal.classList.remove('active');
+                    window.location.href = downloadUrl;
+                }, 1000);
+            }
         };
     </script>
     
