@@ -177,16 +177,11 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Book image styling */
+    /* Book image styling - REMOVED */
     .book-image {
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      margin-bottom: 0.5rem;
-      pointer-events: none; 
+      display: none;
     }
+    
     /* Coming Soon placeholder */
     .coming-soon-image {
       display: flex;
@@ -905,7 +900,7 @@
         <!-- 🔥 END OF NEW SECTION 🔥 -->
         <div class="container mx-auto px-4 py-4">
             
-            <!-- Trending Books Section - NOW WITH CAROUSEL -->
+            <!-- Trending Books Section - ONLY 5 BOOKS WITH COMING SOON -->
 <section id="trending" class="pt-2">
     <div class="text-center mb-6">
         <h2 class="section-title text-xl md:text-2xl font-extrabold text-gray-900 mb-2">Trending Weight Loss Books</h2>
@@ -917,170 +912,107 @@
         </button>
         <div class="book-carousel">
             <!-- Book 1 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" style="width: 180px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/yx3cfhMt/71k-LC3md-AAL-SL1500.webp" alt="Weightless: A Doctor's Guide to GLP-1 Medications, Sustainable Weight Loss, and the Health You Deserve" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Weightless: A Doctor's Guide to GLP-1 Medications</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="85600">85.6K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/weightless-book-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
             
             <!-- Book 2 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" style="width: 180px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3rtcz3PZ/716G-IFLH2L-SL1500.webp" alt="Glucose Revolution: The Life-Changing Power of Balancing Your Blood Sugar" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Glucose Revolution: Balancing Your Blood Sugar</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="92300">92.3K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/glucose-revolution-book/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
             <!-- Book 3 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" style="width: 180px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/2y99Wx45/61cz-Cs8Z6i-L-SL1500.webp" alt="Fast Like a Girl: A Woman's Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast Like a Girl: Healing Power of Fasting</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="67800">67.8K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/fast-like-a-girl-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
             
             <!-- Book 4 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" style="width: 180px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/XYfcS8pQ/717-yh0POUL-SL1500.webp" alt="The New Menopause: Navigating Your Path Through Hormonal Change with Purpose, Power, and Facts" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The New Menopause: Navigating Hormonal Change</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="54200">54.2K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-new-menopause-book-pdf-free-download/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
             <!-- Book 5 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" style="width: 180px;">
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/g2Ztw8r8/61Ynv-Jo-Bd-RL-SL1500.webp" alt="The Hunger Code: Resetting Your Body's Fat Thermostat in the Age of Ultra-Processed Food" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Hunger Code: Resetting Your Fat Thermostat</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="48900">48.9K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-hunger-code-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-            
-            <!-- Book 6 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/DwJHqRpy/91H-TVc-DOFL-SL1500.webp" alt="Bite Me: Will Tennyson's Guide to Low-Calorie, High-Protein Cooking for Macro Wins" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Bite Me: Low-Calorie High-Protein Cooking</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="61400">61.4K</span>
-                    </div>
-                    <a href="/bite-me-book/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-            
-            <!-- ✅ Book 7: The 4-Hour Body -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/N0b5xHY1/81u1l-DNAYOL-SL1500.webp" alt="The 4-Hour Body: An Uncommon Guide to Rapid Fat-Loss, Incredible Sex, and Becoming Superhuman" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The 4-Hour Body: Rapid Fat Loss & Superhuman</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="91200">91.2K</span>
-                    </div>
-                    <a href="/the-4-hour-body-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- ✅ Book 8: The Whole30 -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Whole30: The 30-Day Guide to Total Health and Food Freedom" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/6qF7vxKS/81zu4Bcly6L-SL1500.webp" alt="The Whole30: The 30-Day Guide to Total Health and Food Freedom" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Whole30: 30-Day Health & Food Freedom</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="85600">85.6K</span>
-                    </div>
-                    <a href="/the-whole-30-book-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
         </div>
@@ -1089,7 +1021,7 @@
         </button>
     </div>
 </section>
-<!-- Recently Added Section - NOW WITH CAROUSEL -->
+<!-- Recently Added Section - ONLY 5 BOOKS WITH COMING SOON -->
 <section id="recently-added" class="py-12">
     <div class="text-center mb-10">
         <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
@@ -1104,175 +1036,108 @@
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
-            <!-- Book 1: The Ozempic Revolution -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" style="width: 180px;">
+            <!-- Book 1 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bvq0ztn8/819ULUz-FMo-L-SL1500.webp" alt="The Ozempic Revolution: A Doctor's Proven Plan for Success to Help You Reverse Obesity, End Yo-Yo Dieting, and Protect Yourself from Disease" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Ozempic Revolution: Reverse Obesity & End Yo-Yo Dieting</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="72300">72.3K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-ozempic-revolution-book/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 2: The Menopause Reset -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" style="width: 180px;">
+            <!-- Book 2 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/L8tBKTng/9788119554157.webp" alt="The Menopause Reset: Get Rid of Your Symptoms and Feel Like Your Younger Self Again" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Menopause Reset: Get Rid of Symptoms</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="58900">58.9K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-menopause-reset-book/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 3: The Biblio Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" style="width: 180px;">
+            <!-- Book 3 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/BvDWGRx4/716r-Ngzuip-L-SL1500.webp" alt="The Biblio Diet: Live Long, Master Metabolism, Reduce Pain, Fight Depression, and Conquer Cancer with Healing Secrets from the Bible" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Biblio Diet: Healing Secrets from the Bible</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="64200">64.2K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-biblio-diet-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 4: The Glucose Goddess Method -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" style="width: 180px;">
+            <!-- Book 4 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mkPNvWHt/62919439.webp" alt="The Glucose Goddess Method: The 4-Week Guide to Cutting Cravings, Getting Your Energy Back, and Feeling Amazing" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Glucose Goddess Method: Cut Cravings & Feel Amazing</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="81400">81.4K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-glucose-goddess-method-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
             
-            <!-- ✅ Book 5: Meal Prep for Weight Loss -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" style="width: 180px;">
+            <!-- Book 5 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/Pxr8GMKy/91ONIw-H9hj-L-SL1500.webp" alt="Meal Prep for Weight Loss: Weekly Plans and Recipes to Lose Weight the Healthy Way" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Meal Prep for Weight Loss: Weekly Plans</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="68900">68.9K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/meal-prep-weight-loss-recipes-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- ✅ Book 6: The Mediterranean Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/P5spfH2p/81t588E-BKL-SL1500.webp" alt="The Mediterranean Diet Weight Loss Solution: The 28-Day Kickstart Plan for Lasting Weight Loss" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Mediterranean Diet: 28-Day Kickstart Plan</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="73400">73.4K</span>
-                    </div>
-                    <a href="/mediterranean-diet-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- ✅ Book 7: Magic Weight-Loss Pill -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Magic Weight-Loss Pill" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/90w0Vg99/61DOWj-EIF-L-SL1000.webp" alt="Magic Weight-Loss Pill" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Magic Weight-Loss Pill</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.5</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="51200">51.2K</span>
-                    </div>
-                    <a href="/magic-weight-loss-pill-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- ✅ Book 8: The Diabetes Code -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/xCCqp112/51s-ZUt-Wf0L-SL1350.webp" alt="The Diabetes Code: Prevent and Reverse Type 2 Diabetes Naturally" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Diabetes Code: Reverse Type 2 Naturally</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="62300">62.3K</span>
-                    </div>
-                    <a href="/the-diabetes-code-pdf-free-download/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
         </div>
@@ -1281,7 +1146,7 @@
         </button>
     </div>
 </section>
-<!-- Weight Loss Books Section - ALREADY WITH CAROUSEL (NO CHANGES) -->
+<!-- Weight Loss Books Section - ONLY 5 BOOKS WITH COMING SOON -->
 <section id="weight-loss" class="py-12">
     <div class="text-center mb-10">
         <h2 class="section-title text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Best Weight Loss & Diet eBooks</h2>
@@ -1293,213 +1158,108 @@
             <i class="fas fa-chevron-left"></i>
         </button>
         <div class="book-carousel">
-            <!-- Book 1: The Obesity Code -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" style="width: 180px;">
+            <!-- Book 1 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/76WSMtW4/61SArpks6RL-SL1500.webp" alt="The Obesity Code: Unlocking the Secrets of Weight Loss (Why Intermittent Fasting Is the Key to Controlling Your Weight)" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Obesity Code: Unlocking Weight Loss Secrets</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="89200">89.2K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-obesity-code-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 2: How Not to Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" style="width: 180px;">
+            <!-- Book 2 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/wTPbT0xd/81EHi-UPdg6L-SL1500.webp" alt="How Not to Diet: The Groundbreaking Science of Healthy, Permanent Weight Loss" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">How Not to Diet: Science of Permanent Weight Loss</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="94500">94.5K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/how-not-to-diet-21-tweaks/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 3: Eat to Live -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" style="width: 180px;">
+            <!-- Book 3 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/1zDddwQz/71t-Arad3QML-SL1500.webp" alt="Eat to Live: The Amazing Nutrient-Rich Program for Fast and Sustained Weight Loss, Revised Edition" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Live: Nutrient-Rich Program for Weight Loss</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="87600">87.6K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/joel-fuhrman-eat-to-live-book/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 4: Complete Guide To Fasting -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" style="width: 180px;">
+            <!-- Book 4 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/mgzJQKpM/71zj-Tn5-y-JL-SL1500.webp" alt="Complete Guide To Fasting: Heal Your Body Through Intermittent, Alternate-Day, and Extended Fasting" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Complete Guide To Fasting: Heal Your Body</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="81300">81.3K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/the-complete-guide-to-fasting-jason-fung-pdf-free-download/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
 
-            <!-- Book 5: Fast. Feast. Repeat. -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" style="width: 180px;">
+            <!-- Book 5 -->
+            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Coming Soon" style="width: 180px;">
                 <div class="relative">
                     <span class="book-badge premium-badge">PREMIUM</span>
                     <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/3RBc8hNn/71lh-WXIRs3L-SL1500.webp" alt="Fast. Feast. Repeat.: The Comprehensive Guide to Delay, Don't Deny® Intermittent Fasting--Including the 28-Day FAST Start" class="book-image">
+                    <div class="coming-soon-image">Coming Soon</div>
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Fast. Feast. Repeat.: Guide to Intermittent Fasting</h3>
+                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Coming Soon</h3>
                     <div class="flex items-center text-xs mb-1 text-yellow-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.7</span>
+                        <span class="text-gray-500 ml-1">—</span>
                     </div>
                     <div class="text-gray-500 text-xs mb-2">
                         <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="75400">75.4K</span>
+                        <span>—</span>
                     </div>
-                    <a href="/fast-feast-repeat-audiobook-free-download/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- Book 6: Eat to Beat Your Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/rp5HHxLP/81UHwz-EH-t-L-SL1500.webp" alt="Eat to Beat Your Diet: Burn Fat, Heal Your Metabolism, and Live" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Eat to Beat Your Diet: Burn Fat & Heal Metabolism</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.8</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="69200">69.2K</span>
-                    </div>
-                    <a href="/eat-to-beat-your-diet-pdf-download/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- Book 7: The Galveston Diet -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/zBBnhYpk/71Hr-Q6FWs-WL-SL1500.webp" alt="The Galveston Diet: The Doctor-Developed, Patient-Proven Plan to Burn Fat and Tame Your Hormonal Symptoms" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">The Galveston Diet: Burn Fat & Tame Hormones</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="58700">58.7K</span>
-                    </div>
-                    <a href="/the-galveston-diet-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- Book 8: Instant Loss -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/Rh2Q9p7k/71YXLo-MBWh-L-SL1500.webp" alt="Instant Loss: Eat Real, Lose Weight: How I Lost 125 Pounds―Includes 100+ Recipes" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">Instant Loss: Eat Real, Lose Weight</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.9</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="83200">83.2K</span>
-                    </div>
-                    <a href="/instant-loss-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- Book 9: ketoCONTINUUM -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="ketoCONTINUUM: Consistently Keto Diet For Life" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/bN29L8P7/612y-B8Akq-RL-SL1360.webp" alt="ketoCONTINUUM: Consistently Keto Diet For Life" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">ketoCONTINUUM: Consistently Keto For Life</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-500 ml-1">4.6</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="71400">71.4K</span>
-                    </div>
-                    <a href="/keto-continuum-pdf/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
-                </div>
-            </div>
-
-            <!-- Book 10: SUPER Body -->
-            <div class="book-card rounded-lg overflow-hidden flex flex-col flex-shrink-0" data-name="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" style="width: 180px;">
-                <div class="relative">
-                    <span class="book-badge premium-badge">PREMIUM</span>
-                    <span class="book-badge free-badge">FREE</span>
-                    <img src="https://i.postimg.cc/d0n2DVRC/71kr-AZSOkx-L-SL1500.webp" alt="SUPER Body: A 3-Week Program to Harness the New Science of Body Composition and Restore Your Youthful Contours" class="book-image">
-                </div>
-                <div class="p-3 flex flex-col flex-grow">
-                    <h3 class="text-sm font-bold text-gray-900 mb-1 truncate">SUPER Body: 3-Week Program for Youthful Contours</h3>
-                    <div class="flex items-center text-xs mb-1 text-yellow-500">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <span class="text-gray-500 ml-1">5.0</span>
-                    </div>
-                    <div class="text-gray-500 text-xs mb-2">
-                        <i class="fas fa-download mr-1"></i> 
-                        <span class="download-counter" data-count="65900">65.9K</span>
-                    </div>
-                    <a href="/super-body/" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Download</a>
+                    <a href="#" class="btn-download mt-auto py-2 px-2 rounded-lg w-full text-xs text-center inline-block">Coming Soon</a>
                 </div>
             </div>
         </div>
@@ -2353,32 +2113,6 @@
     <link rel="canonical" href="https://freeebooks.online/all-books/">
     <link rel="canonical" href="https://freeebooks.online/contact/">
     <link rel="canonical" href="https://freeebooks.online/donate/">
-    <link rel="canonical" href="https://freeebooks.online/weightless-book-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/glucose-revolution-book/">
-    <link rel="canonical" href="https://freeebooks.online/fast-like-a-girl-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/the-new-menopause-book-pdf-free-download/">
-    <link rel="canonical" href="https://freeebooks.online/the-hunger-code-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/bite-me-book/">
-    <link rel="canonical" href="https://freeebooks.online/the-4-hour-body-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/the-whole-30-book-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/the-ozempic-revolution-book/">
-    <link rel="canonical" href="https://freeebooks.online/the-menopause-reset-book/">
-    <link rel="canonical" href="https://freeebooks.online/the-biblio-diet-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/the-glucose-goddess-method-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/meal-prep-weight-loss-recipes-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/mediterranean-diet-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/magic-weight-loss-pill-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/the-diabetes-code-pdf-free-download/">
-    <link rel="canonical" href="https://freeebooks.online/the-obesity-code-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/how-not-to-diet-21-tweaks/">
-    <link rel="canonical" href="https://freeebooks.online/joel-fuhrman-eat-to-live-book/">
-    <link rel="canonical" href="https://freeebooks.online/the-complete-guide-to-fasting-jason-fung-pdf-free-download/">
-    <link rel="canonical" href="https://freeebooks.online/fast-feast-repeat-audiobook-free-download/">
-    <link rel="canonical" href="https://freeebooks.online/eat-to-beat-your-diet-pdf-download/">
-    <link rel="canonical" href="https://freeebooks.online/the-galveston-diet-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/instant-loss-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/keto-continuum-pdf/">
-    <link rel="canonical" href="https://freeebooks.online/super-body/">
     <a href="https://freeebooks.online/all-books/">Browse All Books</a>
     <a href="https://freeebooks.online/contact/">Contact Us</a>
     <a href="https://freeebooks.online/donate/">Support Our Project</a>
